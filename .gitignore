@@ -1,0 +1,23 @@
+# Archon runtime artifacts — NEVER commit
+.archon/state/
+.archon/.env
+
+# OS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Working directories — user data, not source (see PLAN.md §3)
+inbox/*
+!inbox/.gitkeep
+outputs/*
+!outputs/.gitkeep
+config/*
+!config/.gitkeep
+references/*
+!references/.gitkeep
