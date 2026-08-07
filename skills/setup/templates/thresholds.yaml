@@ -1,0 +1,59 @@
+# Materiality thresholds — [COMPANY NAME]
+# Captured by /setup Phase E. A category/subtotal is flagged INVESTIGATE
+# when it breaches BOTH its percentage and absolute threshold vs the
+# comparison basis; NOTE when it breaches only one; ON TARGET otherwise
+# (see skills/analysis/scripts/analyze.py).
+#
+# Size every absolute floor against that category's real scale at the
+# comparison basis (Budget/Forecast), not a guessed round number: a
+# floor sized for a small category will trigger NOTE on routine noise
+# for a large one. Rule of thumb used for the demo: floor ~= scale x
+# pct x 1.3 (the 1.3 buffer means sitting *exactly* at the pct threshold
+# doesn't also clear the absolute floor — see tasks.md task 7 notes for
+# the full reasoning and worked numbers). If two entities share a
+# currency but differ a lot in size, anchor the floor to the larger one
+# so the smaller safely falls back to pct-only discrimination.
+
+default:
+  pct: 3.0
+  absolute_by_currency:
+    REPLACE_WITH_CURRENCY_CODE: REPLACE_WITH_AMOUNT
+
+# Per-category overrides for anything that needs a tighter or looser
+# band than the default — revenue categories usually want a tighter pct
+# (swings matter more) but a looser absolute floor (revenue lines are
+# naturally larger). The categories covered in investigation-guide.md
+# usually deserve their own override too.
+category_overrides:
+  REPLACE_WITH_CATEGORY_ID:
+    pct: 0.0
+    absolute_by_currency: { REPLACE_WITH_CURRENCY_CODE: 0 }
+
+# One entry per KPI in kpi-definitions.yaml. A currency absolute floor
+# doesn't translate to a per-unit or percentage-point KPI, so these use
+# a simpler two-tier shape instead of the pct+absolute AND logic above:
+# below notice = ON TARGET, at/above notice but below investigate =
+# NOTE, at/above investigate = INVESTIGATE. Use notice_pp/investigate_pp
+# (percentage points) for a KPI whose kpi-definitions.yaml `format` is
+# "percent"; use notice_pct/investigate_pct (relative %) for "currency".
+kpi_thresholds:
+  REPLACE_WITH_KPI_ID: { notice_pp: 0.0, investigate_pp: 0.0 }
+
+# Below this, an unmapped GL account in validate_data.py is a warning
+# (listed, not blocking); at or above it, validation hard-fails and
+# names the account.
+unmapped_account_materiality_floor:
+  REPLACE_WITH_CURRENCY_CODE: 0
+
+# Known seasonality / recurring anomalies the analysis should NOT treat
+# as a surprise — the deterministic engine still flags these mechanically
+# (that's correct), this is what lets the narrative pass in /analysis
+# recognize them as expected instead of alarming. Mirror
+# company-profile.md's "Industry & seasonality" narrative version here
+# in structured form.
+seasonality_notes:
+  - category: REPLACE_WITH_CATEGORY_ID
+    period: "REPLACE_WITH_PERIOD_DESCRIPTION"
+    note: >
+      Plain-language explanation of why this category/period combination
+      is expected to look unusual, for the narrative pass to use.

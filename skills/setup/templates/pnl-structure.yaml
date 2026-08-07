@@ -1,0 +1,61 @@
+# P&L structure — [COMPANY NAME]
+# Captured by /setup Phase C. See examples/example-hotels/config/pnl-structure.yaml
+# for a fully-worked example of this exact schema — copy its shape, not
+# its content. preprocess.py recomputes every subtotal below from the
+# leaf categories on every run; it never trusts a subtotal row from a
+# source file.
+
+terminology:
+  # Which comparison basis this company actually has. Ask, don't assume
+  # all three exist. comparison_label is the user's own word for it,
+  # used verbatim everywhere downstream.
+  comparison_basis: budget   # budget | forecast | last_year
+  comparison_label: "Budget" # e.g. "Budget", "Forecast", "Reforecast"
+  last_year_available: false
+  focus_metric: REPLACE_WITH_SUBTOTAL_ID    # must match a subtotals[].id below
+  secondary_metric: REPLACE_WITH_SUBTOTAL_ID
+
+# Ordered leaf categories. `id` is the stable key account-mapping.csv,
+# thresholds.yaml, and investigation-guide.md all reference. `group`
+# places the category in the cascade below — must be one of: revenue,
+# departmental_expense, undistributed_expense, fixed_charge,
+# below_ebitda (or whatever grouping vocabulary fits this company's
+# structure; keep the group names consistent with what subtotals.formula
+# below sum_group()s over).
+#
+# `applies_to_brands` (optional): set this if a category only exists for
+# some entities (a department some locations don't have). validate_data.py
+# reads this generically — a posting for an entity whose categorization
+# isn't in the list is a warning, not a hard fail.
+categories:
+  - id: REPLACE_ME
+    label: "Replace Me"
+    group: revenue
+  # ... one entry per leaf category, in the order they should render
+
+# Ordered subtotal cascade. Each formula references category ids and/or
+# earlier subtotal ids — the engine evaluates this list top to bottom,
+# so a subtotal can only reference something already defined above it.
+# Supported formula shapes: "sum_group(GROUP)", "A - B", "A / B".
+subtotals:
+  - id: REPLACE_ME
+    label: "Replace Me"
+    formula: "sum_group(revenue)"
+  # ... one entry per subtotal, ending with whatever the focus_metric is
+
+# The exact row order the P&L table renders in — categories and
+# subtotals interleaved (e.g. a "Total Revenue" subtotal right after the
+# last revenue category). This is NOT automatically derived from the
+# lists above — a subtotal's natural position isn't always "after its
+# whole group" (see the demo's EBIT, which sits between two categories
+# of the same group, not after both). List every category id and every
+# subtotal id here, exactly once each, in render order.
+presentation_order:
+  - REPLACE_ME
+
+# Derived margin ratios (e.g. "GOP %") referenced by kpi-definitions.yaml
+# and the dashboard's profitability summary.
+ratios:
+  - id: REPLACE_ME
+    label: "Replace Me %"
+    formula: "REPLACE_ME / total_revenue"

@@ -1,0 +1,31 @@
+# KPI definitions — [COMPANY NAME]
+# Captured by /setup Phase G. 3-6 KPIs is a reasonable range if the user
+# is unsure. Every KPI is measured against pnl-structure.yaml's
+# configured comparison_basis unless it has a fixed target instead.
+
+kpis:
+  - id: REPLACE_ME
+    name: "Replace Me"
+    # A tiny DSL: "sum_group(GROUP)", "A - B", or "A / B". Operands can
+    # be any P&L category/subtotal id, or a stats-file column name IF
+    # this KPI needs operational data beyond the P&L (see below).
+    #
+    # IMPORTANT: use the SAME variable name for both the actual and
+    # budget evaluation passes -- don't bake "_actual" or "_budget" into
+    # the formula itself (e.g. "total_revenue / fte" is correct;
+    # "total_revenue / fte_actual" is not -- it would never resolve on
+    # the budget pass). See tasks.md task 6 notes.
+    formula: "REPLACE_ME / REPLACE_ME"
+    denominator: >
+      Plain-language definition of what the denominator measures.
+    source: "Where each operand comes from -- P&L subtotal, or a stats file column."
+    target_mode: budget   # budget | forecast | last_year | fixed
+    target_source: "Same shape as source, for the target side."
+    format: currency   # "percent" if this KPI is already a ratio/rate, else "currency"
+
+# If any KPI above needs operational data beyond the P&L (occupancy,
+# units produced, headcount -- anything the P&L itself doesn't carry),
+# see data-dictionary.md's stats-file section: this is a real v1 engine
+# limitation (the stats file's column names are currently fixed to a
+# hotel-shaped rooms/FTE schema, not derived from config). A KPI that's
+# a pure P&L ratio needs nothing beyond this file and pnl-structure.yaml.
