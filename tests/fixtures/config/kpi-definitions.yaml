@@ -1,0 +1,18 @@
+kpis:
+  - id: revenue_per_available_room
+    name: "Revenue per Available Room"
+    formula: "room_revenue / rooms_available"
+    denominator: "Test fixture KPI — rooms_available from the stats file."
+    source: "P&L room_revenue / stats file rooms_available"
+    target_mode: budget
+    target_source: "P&L room_revenue budget / stats file rooms_available"
+    format: currency
+
+  - id: occupancy_rate
+    name: "Occupancy Rate"
+    formula: "rooms_sold / rooms_available"
+    denominator: "Test fixture KPI — a 'percent' format KPI, so its kpi_thresholds are percentage-point-based."
+    source: "stats file: rooms_sold_actual / rooms_available"
+    target_mode: budget
+    target_source: "stats file: rooms_sold_budget / rooms_available"
+    format: percent

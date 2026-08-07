@@ -1,0 +1,18 @@
+default:
+  pct: 5.0
+  absolute_by_currency:
+    USD: 1000
+
+category_overrides:
+  room_revenue:
+    pct: 2.0
+    absolute_by_currency: { USD: 500 }
+
+kpi_thresholds:
+  revenue_per_available_room: { notice_pct: 5.0, investigate_pct: 10.0 }
+  occupancy_rate: { notice_pp: 3.0, investigate_pp: 6.0 }
+
+unmapped_account_materiality_floor:
+  USD: 200
+
+seasonality_notes: []

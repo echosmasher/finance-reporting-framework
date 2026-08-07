@@ -1,0 +1,6 @@
+gl_account,gl_account_name,category_id
+1000,Room Revenue Account,room_revenue
+2000,Other Revenue Account,other_revenue
+3000,Staff Salaries,staff_cost
+4000,Supplies,supply_cost
+5000,Admin Costs,admin_cost

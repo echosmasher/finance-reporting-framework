@@ -1,0 +1,2 @@
+entity_code,name,country,currency,brand,size,segment_notes
+T01,Test Property,Testland,USD,Standard,Small,Fixture entity for the test suite

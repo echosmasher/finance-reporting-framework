@@ -26,15 +26,23 @@ STATUS_INVESTIGATE = "INVESTIGATE"
 # Categories in these pnl-structure.yaml groups are costs: actual below
 # Budget is favorable. Everything else (revenue, and every profit
 # subtotal) is favorable when actual is above Budget. Subtotals don't
-# carry a `group` in pnl-structure.yaml, so the cost-like ones are named
-# explicitly here.
+# carry a `group`, so cost-like ones are derived from their formula
+# instead of a hardcoded id list: a subtotal that's a straight
+# sum_group() of a cost group is itself cost-like (e.g.
+# total_departmental_expenses = sum_group(departmental_expense)); every
+# subtraction-shaped subtotal in this cascade nets a cost off a revenue
+# or profit figure, so its result is always profit-like. Deriving this
+# from config instead of naming subtotals here means a company can name
+# its own subtotals anything via /setup without an engine change.
 EXPENSE_GROUPS = {"departmental_expense", "undistributed_expense", "fixed_charge", "below_ebitda"}
-EXPENSE_LIKE_SUBTOTALS = {"total_departmental_expenses", "total_undistributed_expenses", "total_fixed_charges"}
 
-# occupancy_pct/gop_pct are already ratios, so their kpi_thresholds
-# (thresholds.yaml) are in percentage points of absolute deviation;
-# revpar/revenue_per_fte are currency-per-unit, so theirs are relative %.
-KPI_THRESHOLD_KIND = {"occupancy_pct": "pp", "gop_pct": "pp", "revpar": "pct", "revenue_per_fte": "pct"}
+# A KPI's kpi-definitions.yaml `format` tells us its kpi_thresholds
+# (thresholds.yaml) shape: "percent" KPIs are already ratios, so their
+# thresholds are in percentage points of absolute deviation; "currency"
+# KPIs are a per-unit dollar amount, so theirs are relative %. Derived
+# from config, not hardcoded to any company's specific KPI names — a
+# company can name/add KPIs freely via /setup without an engine change.
+FORMAT_TO_THRESHOLD_KIND = {"percent": "pp", "currency": "pct"}
 
 
 def compute_variance(act: float, budget: float):
@@ -73,10 +81,10 @@ def classify_category(item_id: str, act: float, budget: float, config, currency:
                 threshold_pct=threshold["pct"], threshold_absolute=threshold["absolute_by_currency"][currency])
 
 
-def classify_kpi(kpi_id: str, act: float, budget: float, config) -> dict:
+def classify_kpi(kpi_id: str, act: float, budget: float, kpi_format: str, config) -> dict:
     threshold = config.kpi_thresholds[kpi_id]
     diff = act - budget
-    kind = KPI_THRESHOLD_KIND[kpi_id]
+    kind = FORMAT_TO_THRESHOLD_KIND[kpi_format]
     if kind == "pp":
         deviation = abs(diff) * 100
         notice, investigate = threshold["notice_pp"], threshold["investigate_pp"]
@@ -94,13 +102,21 @@ def classify_kpi(kpi_id: str, act: float, budget: float, config) -> dict:
     return dict(diff=diff, status=status)
 
 
+def is_expense_like_subtotal(item_id: str, config) -> bool:
+    formula = next((s["formula"] for s in config.subtotals if s["id"] == item_id), "").strip()
+    if not formula.startswith("sum_group(") or not formula.endswith(")"):
+        return False
+    group = formula[len("sum_group(") : -1].strip()
+    return group in EXPENSE_GROUPS
+
+
 def is_favorable(item_id: str, diff: float, config):
     if diff == 0:
         return None
     expense_like = (
         config.category_to_group.get(item_id) in EXPENSE_GROUPS
         if item_id in config.category_to_group
-        else item_id in EXPENSE_LIKE_SUBTOTALS
+        else is_expense_like_subtotal(item_id, config)
     )
     return (diff < 0) if expense_like else (diff > 0)
 
@@ -129,7 +145,7 @@ def build_kpi_entries(data, config) -> list:
     for kpi in config.kpis:
         kpi_id = kpi["id"]
         act, budget = data.kpis[kpi_id]["actual"], data.kpis[kpi_id]["budget"]
-        classification = classify_kpi(kpi_id, act, budget, config)
+        classification = classify_kpi(kpi_id, act, budget, kpi["format"], config)
         entries.append(dict(
             id=kpi_id, label=kpi["name"], format=kpi["format"],
             act=round(act, 4), budget=round(budget, 4),

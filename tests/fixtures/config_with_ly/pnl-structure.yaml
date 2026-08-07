@@ -1,0 +1,58 @@
+terminology:
+  comparison_basis: budget
+  comparison_label: "Budget"
+  last_year_available: true
+  focus_metric: net_profit
+  secondary_metric: net_profit
+
+categories:
+  - id: room_revenue
+    label: "Room Revenue"
+    group: revenue
+  - id: other_revenue
+    label: "Other Revenue"
+    group: revenue
+  - id: staff_cost
+    label: "Staff Cost"
+    group: departmental_expense
+  - id: supply_cost
+    label: "Supply Cost"
+    group: departmental_expense
+  - id: admin_cost
+    label: "Admin Cost"
+    group: undistributed_expense
+
+subtotals:
+  - id: total_revenue
+    label: "Total Revenue"
+    formula: "sum_group(revenue)"
+  - id: total_departmental_expense
+    label: "Total Departmental Expense"
+    formula: "sum_group(departmental_expense)"
+  - id: departmental_profit
+    label: "Departmental Profit"
+    formula: "total_revenue - total_departmental_expense"
+  - id: total_undistributed_expense
+    label: "Total Undistributed Expense"
+    formula: "sum_group(undistributed_expense)"
+  - id: net_profit
+    label: "Net Profit"
+    formula: "departmental_profit - total_undistributed_expense"
+    is_focus_metric: true
+
+presentation_order:
+  - room_revenue
+  - other_revenue
+  - total_revenue
+  - staff_cost
+  - supply_cost
+  - total_departmental_expense
+  - departmental_profit
+  - admin_cost
+  - total_undistributed_expense
+  - net_profit
+
+ratios:
+  - id: net_profit_pct
+    label: "Net Profit %"
+    formula: "net_profit / total_revenue"
