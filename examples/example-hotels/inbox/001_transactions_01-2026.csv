@@ -1,175 +1,175 @@
 entity_code,period,date,gl_account,vendor,description,department,amount
-001,01-2026,2026-01-01,5100,CleanPro Contract Services,Invoice — Guest Supplies,Rooms,25726.47
-001,01-2026,2026-01-01,5202,Urban Produce Co,Food & beverage supply delivery — Banquet Cost of Sales,F&B,52975.3
-001,01-2026,2026-01-01,6002,Nordheim Legal Partners,Professional services invoice — Professional Fees – Legal,Administrative,30837.47
-001,01-2026,2026-01-01,6104,Scandinavian Media Group,Marketing services invoice — Loyalty Program Costs,Sales & Marketing,29357.31
-001,01-2026,2026-01-01,6105,Nordic Print & Signage,Marketing services invoice — Sales & Marketing Travel,Sales & Marketing,32662.59
-001,01-2026,2026-01-01,6202,ElevateTech Elevator Co,Maintenance contract charge — Grounds & Landscaping,Property Operations,36403.04
-001,01-2026,2026-01-01,7001,Group Management Services,Management fee accrual — Incentive Management Fee,Fixed Charges,32857.7
-001,01-2026,2026-01-02,5703,Business Services Nordic,Invoice — Gift Shop Cost of Sales,Other Operated,9994.22
-001,01-2026,2026-01-02,7402,Property Holdings Lease Co,Lease payment — Vehicle Lease,Fixed Charges,80562.6
-001,01-2026,2026-01-03,5102,Reservation Systems Partners,Invoice — Reservation & Distribution Costs,Rooms,55318.66
-001,01-2026,2026-01-03,5104,Nordic Linen Services,Invoice — Rooms Division Other Operating Expense,Rooms,49118.14
-001,01-2026,2026-01-03,5602,Spa Retail Distributors,Invoice — Spa Equipment Maintenance,Spa & Wellness,28800.81
-001,01-2026,2026-01-03,6003,Office Plus Nordic,Professional services invoice — Professional Fees – Audit,Administrative,22291.25
-001,01-2026,2026-01-03,6201,Nordic Facilities Services,Maintenance contract charge — Building Repairs & Maintenance,Property Operations,27039.51
-001,01-2026,2026-01-03,6301,Oslo Energi AS,Monthly utility invoice — District Heating,Property Operations,59297.88
-001,01-2026,2026-01-04,5004,Internal Payroll,Payroll run — Concierge & Guest Services Salaries,Rooms,220774.73
-001,01-2026,2026-01-04,5105,Reservation Systems Partners,Invoice — Uniforms – Rooms Division,Rooms,33807.09
-001,01-2026,2026-01-04,5404,Nordic Uniform & Linen,Invoice — F&B Uniforms & Laundry,F&B,29094.93
-001,01-2026,2026-01-04,5500,Internal Payroll,Payroll run — Spa Therapist Salaries,Spa & Wellness,41534.29
-001,01-2026,2026-01-04,6003,Nordheim Legal Partners,Professional services invoice — Professional Fees – Audit,Administrative,22291.26
-001,01-2026,2026-01-04,6004,Office Plus Nordic,Professional services invoice — Bank Charges & Merchant Fees,Administrative,47654.38
-001,01-2026,2026-01-04,6006,Nordic Payments Processing,Professional services invoice — Office Supplies & Postage,Administrative,113477.21
-001,01-2026,2026-01-04,6102,Scandinavian Media Group,Marketing services invoice — Digital Marketing & OTA Commission,Sales & Marketing,29450.99
-001,01-2026,2026-01-04,6205,GreenScape Landscaping,"Maintenance contract charge — Furniture, Fixtures & Equipment Repairs",Property Operations,18600.3
-001,01-2026,2026-01-04,6400,PMS Systems AB,Systems & telecom invoice — PMS & POS System Fees,IT,17101.72
-001,01-2026,2026-01-04,7202,Nordic Property Insurers,Insurance premium — Business Interruption Insurance,Fixed Charges,195923.55
-001,01-2026,2026-01-05,5402,TableSet Supply Co,Invoice — F&B Contract Services,F&B,25517.4
-001,01-2026,2026-01-05,6005,Office Plus Nordic,Professional services invoice — Bad Debt Expense,Administrative,40815.34
-001,01-2026,2026-01-05,6007,Baltic Audit & Assurance,Professional services invoice — General Admin Other,Administrative,31140.8
-001,01-2026,2026-01-05,6102,Nordic PR Partners,Marketing services invoice — Digital Marketing & OTA Commission,Sales & Marketing,29450.99
-001,01-2026,2026-01-05,6403,PMS Systems AB,Systems & telecom invoice — Software Licenses,IT,51160.96
-001,01-2026,2026-01-05,6404,TeleNordic Communications,Systems & telecom invoice — Guest Wi-Fi Infrastructure,IT,11684.3
-001,01-2026,2026-01-05,6503,Nordic Recruitment Partners,HR services invoice — HR Administration,HR,16545.66
-001,01-2026,2026-01-05,7202,Nordic Property Insurers,Insurance premium — Business Interruption Insurance,Fixed Charges,195923.54
-001,01-2026,2026-01-06,5404,Nordic Uniform & Linen,Invoice — F&B Uniforms & Laundry,F&B,29094.93
-001,01-2026,2026-01-06,5703,Business Services Nordic,Invoice — Gift Shop Cost of Sales,Other Operated,9994.21
-001,01-2026,2026-01-06,6003,Baltic Audit & Assurance,Professional services invoice — Professional Fees – Audit,Administrative,22291.26
-001,01-2026,2026-01-07,5203,Baltic Beverage Supply,Food & beverage supply delivery — F&B Inventory Adjustment,F&B,105300.89
-001,01-2026,2026-01-07,5402,Nordic Uniform & Linen,Invoice — F&B Contract Services,F&B,25517.4
-001,01-2026,2026-01-07,6206,Nordic Facilities Services,Maintenance contract charge — HVAC Service Contracts,Property Operations,40064.71
-001,01-2026,2026-01-07,6401,CloudHost Nordic,Systems & telecom invoice — IT Support Contract,IT,16355.37
-001,01-2026,2026-01-07,6601,SecureNordic Services,Security services contract — Security Systems & Monitoring,Security,44949.93
-001,01-2026,2026-01-07,7201,Nordic Property Insurers,Insurance premium — General Liability Insurance,Fixed Charges,154246.39
-001,01-2026,2026-01-08,5100,CleanPro Contract Services,Invoice — Guest Supplies,Rooms,25726.48
-001,01-2026,2026-01-08,6007,Nordheim Legal Partners,Professional services invoice — General Admin Other,Administrative,31140.8
-001,01-2026,2026-01-08,6203,CoolFlow HVAC Services,Maintenance contract charge — Elevator & Life Safety Contracts,Property Operations,47146.69
-001,01-2026,2026-01-08,7100,Group Brand Licensing Corp,Brand franchise fee accrual — Brand Franchise Fee,Fixed Charges,47649.23
-001,01-2026,2026-01-09,5001,Internal Payroll,Payroll run — Housekeeping Salaries,Rooms,210587.96
-001,01-2026,2026-01-09,5201,Baltic Beverage Supply,Food & beverage supply delivery — Beverage Cost of Sales,F&B,94969.84
-001,01-2026,2026-01-09,5202,Urban Produce Co,Food & beverage supply delivery — Banquet Cost of Sales,F&B,52975.29
-001,01-2026,2026-01-09,5501,Internal Payroll,Payroll run — Spa Reception Salaries,Spa & Wellness,55448.7
-001,01-2026,2026-01-09,6205,GreenScape Landscaping,"Maintenance contract charge — Furniture, Fixtures & Equipment Repairs",Property Operations,18600.31
-001,01-2026,2026-01-09,6500,Nordic Recruitment Partners,HR services invoice — Recruitment Costs,HR,12445.18
-001,01-2026,2026-01-09,6602,SecureNordic Services,Security services contract — CCTV Maintenance,Security,32093.61
-001,01-2026,2026-01-10,6002,Nordic Payments Processing,Professional services invoice — Professional Fees – Legal,Administrative,30837.48
-001,01-2026,2026-01-10,6107,Nordic Print & Signage,Marketing services invoice — Website & Photography,Sales & Marketing,37408.66
-001,01-2026,2026-01-10,6300,City Water Utility,Monthly utility invoice — Electricity,Property Operations,36753.68
-001,01-2026,2026-01-11,5601,Wellness Supply Nordic,Invoice — Spa Retail Cost of Sales,Spa & Wellness,20157.8
-001,01-2026,2026-01-11,6001,Internal Payroll,Payroll run — Finance & Accounting Salaries,Administrative,62939.12
-001,01-2026,2026-01-11,6007,Nordic Payments Processing,Professional services invoice — General Admin Other,Administrative,31140.8
-001,01-2026,2026-01-11,6400,TeleNordic Communications,Systems & telecom invoice — PMS & POS System Fees,IT,17101.72
-001,01-2026,2026-01-12,5201,Nordic Food Distributors AS,Food & beverage supply delivery — Beverage Cost of Sales,F&B,94969.84
-001,01-2026,2026-01-12,6000,Internal Payroll,Payroll run — Executive Office Salaries,Administrative,95352.98
-001,01-2026,2026-01-12,6207,CoolFlow HVAC Services,Maintenance contract charge — Pest Control,Property Operations,66067.75
-001,01-2026,2026-01-12,7000,Group Management Services,Management fee accrual — Base Management Fee,Fixed Charges,49619.84
-001,01-2026,2026-01-12,7300,Municipal Tax Authority,Property tax / license fee — Municipal Property Tax,Fixed Charges,14717.46
-001,01-2026,2026-01-13,5003,Internal Payroll,Payroll run — Rooms Division Payroll Tax & Benefits,Rooms,137823.86
-001,01-2026,2026-01-13,5300,Internal Payroll,Payroll run — Kitchen Salaries,F&B,163721.12
-001,01-2026,2026-01-13,5403,TableSet Supply Co,Invoice — F&B Other Operating Expense,F&B,24028.26
-001,01-2026,2026-01-13,7001,Group Management Services,Management fee accrual — Incentive Management Fee,Fixed Charges,32857.71
-001,01-2026,2026-01-14,6005,Nordheim Legal Partners,Professional services invoice — Bad Debt Expense,Administrative,40815.33
-001,01-2026,2026-01-14,6103,Nordic Print & Signage,Marketing services invoice — Public Relations,Sales & Marketing,23381.15
-001,01-2026,2026-01-14,6105,Scandinavian Media Group,Marketing services invoice — Sales & Marketing Travel,Sales & Marketing,32662.59
-001,01-2026,2026-01-14,6107,Nordic PR Partners,Marketing services invoice — Website & Photography,Sales & Marketing,37408.66
-001,01-2026,2026-01-14,6402,TeleNordic Communications,Systems & telecom invoice — Telecom & Internet,IT,8016.07
-001,01-2026,2026-01-14,7300,Municipal Tax Authority,Property tax / license fee — Municipal Property Tax,Fixed Charges,14717.47
-001,01-2026,2026-01-15,5105,GuestSupply Nordic AB,Invoice — Uniforms – Rooms Division,Rooms,33807.09
-001,01-2026,2026-01-15,5702,ParkTech Systems,Invoice — Laundry & Valet Operating Expense,Other Operated,10483.24
-001,01-2026,2026-01-15,6005,Nordic Payments Processing,Professional services invoice — Bad Debt Expense,Administrative,40815.34
-001,01-2026,2026-01-15,6009,Nordheim Legal Partners,Professional services invoice — Board & Owner Reporting Costs,Administrative,70098.46
-001,01-2026,2026-01-15,6300,City Water Utility,Monthly utility invoice — Electricity,Property Operations,36753.67
-001,01-2026,2026-01-15,6404,PMS Systems AB,Systems & telecom invoice — Guest Wi-Fi Infrastructure,IT,11684.3
-001,01-2026,2026-01-15,7101,Group Brand Licensing Corp,Brand franchise fee accrual — Brand Marketing Assessment Fee,Fixed Charges,103872.2
-001,01-2026,2026-01-16,5005,Internal Payroll,Payroll run — Rooms Division Temporary Labor,Rooms,192213.78
-001,01-2026,2026-01-16,5103,GuestSupply Nordic AB,Invoice — Rooms Division Contract Cleaning,Rooms,94642.54
-001,01-2026,2026-01-16,5204,Fresh Fjord Seafood,Food & beverage supply delivery — F&B Waste & Spoilage,F&B,177319.11
-001,01-2026,2026-01-16,5403,Kitchen Equipment Services,Invoice — F&B Other Operating Expense,F&B,24028.26
-001,01-2026,2026-01-16,6002,Baltic Audit & Assurance,Professional services invoice — Professional Fees – Legal,Administrative,30837.48
-001,01-2026,2026-01-16,6100,Internal Payroll,Payroll run — Sales Team Salaries,Sales & Marketing,69735.7
-001,01-2026,2026-01-16,6104,Nordic Print & Signage,Marketing services invoice — Loyalty Program Costs,Sales & Marketing,29357.3
-001,01-2026,2026-01-16,6404,TeleNordic Communications,Systems & telecom invoice — Guest Wi-Fi Infrastructure,IT,11684.31
-001,01-2026,2026-01-16,6500,Nordic Recruitment Partners,HR services invoice — Recruitment Costs,HR,12445.18
-001,01-2026,2026-01-17,5400,TableSet Supply Co,"Invoice — China, Glass & Silver",F&B,25400.42
-001,01-2026,2026-01-17,6107,Nordic PR Partners,Marketing services invoice — Website & Photography,Sales & Marketing,37408.66
-001,01-2026,2026-01-17,6401,CloudHost Nordic,Systems & telecom invoice — IT Support Contract,IT,16355.37
-001,01-2026,2026-01-17,6501,SkillUp Training Institute,HR services invoice — Staff Training & Development,HR,36878.15
-001,01-2026,2026-01-17,6503,Nordic Recruitment Partners,HR services invoice — HR Administration,HR,16545.66
-001,01-2026,2026-01-17,7301,Municipal Tax Authority,Property tax / license fee — Business Licenses & Permits,Fixed Charges,19635.86
-001,01-2026,2026-01-18,5200,Urban Produce Co,Food & beverage supply delivery — Food Cost of Sales,F&B,69986.35
-001,01-2026,2026-01-18,6200,Internal Payroll,Payroll run — Engineering Salaries,Property Operations,81038.75
-001,01-2026,2026-01-18,6500,Nordic Recruitment Partners,HR services invoice — Recruitment Costs,HR,12445.18
-001,01-2026,2026-01-18,6502,SkillUp Training Institute,HR services invoice — Employee Welfare & Uniforms,HR,57114.17
-001,01-2026,2026-01-18,7000,Group Management Services,Management fee accrual — Base Management Fee,Fixed Charges,49619.84
-001,01-2026,2026-01-18,7300,Municipal Tax Authority,Property tax / license fee — Municipal Property Tax,Fixed Charges,14717.47
-001,01-2026,2026-01-19,5000,Internal Payroll,Payroll run — Front Office Salaries,Rooms,226375.02
-001,01-2026,2026-01-19,5301,Internal Payroll,Payroll run — Restaurant & Bar Salaries,F&B,206748.85
-001,01-2026,2026-01-19,5303,Internal Payroll,Payroll run — F&B Payroll Tax & Benefits,F&B,226624.65
-001,01-2026,2026-01-19,6102,Nordic PR Partners,Marketing services invoice — Digital Marketing & OTA Commission,Sales & Marketing,29450.99
-001,01-2026,2026-01-19,6103,Scandinavian Media Group,Marketing services invoice — Public Relations,Sales & Marketing,23381.14
-001,01-2026,2026-01-19,6401,CloudHost Nordic,Systems & telecom invoice — IT Support Contract,IT,16355.37
-001,01-2026,2026-01-19,7100,Group Brand Licensing Corp,Brand franchise fee accrual — Brand Franchise Fee,Fixed Charges,47649.24
-001,01-2026,2026-01-19,7301,Municipal Tax Authority,Property tax / license fee — Business Licenses & Permits,Fixed Charges,19635.86
-001,01-2026,2026-01-20,5200,Nordic Food Distributors AS,Food & beverage supply delivery — Food Cost of Sales,F&B,69986.34
-001,01-2026,2026-01-20,5302,Internal Payroll,Payroll run — Banquet Service Salaries,F&B,218164.16
-001,01-2026,2026-01-20,6106,Scandinavian Media Group,Marketing services invoice — Trade Show & Sponsorship Costs,Sales & Marketing,128606.89
-001,01-2026,2026-01-20,6201,CoolFlow HVAC Services,Maintenance contract charge — Building Repairs & Maintenance,Property Operations,27039.52
-001,01-2026,2026-01-20,6201,CoolFlow HVAC Services,Maintenance contract charge — Building Repairs & Maintenance,Property Operations,27039.52
-001,01-2026,2026-01-20,6402,TeleNordic Communications,Systems & telecom invoice — Telecom & Internet,IT,8016.07
-001,01-2026,2026-01-21,5100,Reservation Systems Partners,Invoice — Guest Supplies,Rooms,25726.48
-001,01-2026,2026-01-21,5203,Urban Produce Co,Food & beverage supply delivery — F&B Inventory Adjustment,F&B,105300.88
-001,01-2026,2026-01-21,5702,Business Services Nordic,Invoice — Laundry & Valet Operating Expense,Other Operated,10483.24
-001,01-2026,2026-01-21,6600,SecureNordic Services,Security services contract — Security Staff & Contracts,Security,15367.81
-001,01-2026,2026-01-22,5600,Spa Retail Distributors,Invoice — Spa Operating Supplies,Spa & Wellness,31791.39
-001,01-2026,2026-01-22,6101,Scandinavian Media Group,Marketing services invoice — Advertising & Media,Sales & Marketing,52300.2
-001,01-2026,2026-01-22,7200,Nordic Property Insurers,Insurance premium — Property Insurance,Fixed Charges,393331.69
-001,01-2026,2026-01-22,7401,Property Holdings Lease Co,Lease payment — Equipment Lease,Fixed Charges,61980.21
-001,01-2026,2026-01-23,6303,Bergen Kraft AS,Monthly utility invoice — Waste & Recycling,Property Operations,25710.92
-001,01-2026,2026-01-23,6402,CloudHost Nordic,Systems & telecom invoice — Telecom & Internet,IT,8016.07
-001,01-2026,2026-01-23,7000,Group Management Services,Management fee accrual — Base Management Fee,Fixed Charges,49619.83
-001,01-2026,2026-01-24,5105,Reservation Systems Partners,Invoice — Uniforms – Rooms Division,Rooms,33807.09
-001,01-2026,2026-01-24,5304,Internal Payroll,Payroll run — F&B Temporary Labor,F&B,190971.8
-001,01-2026,2026-01-24,5401,TableSet Supply Co,Invoice — F&B Operating Supplies,F&B,55380.83
-001,01-2026,2026-01-24,5700,Business Services Nordic,Invoice — Parking Operating Expense,Other Operated,11036.18
-001,01-2026,2026-01-24,5702,Business Services Nordic,Invoice — Laundry & Valet Operating Expense,Other Operated,10483.24
-001,01-2026,2026-01-24,6103,BookingBridge OTA Services,Marketing services invoice — Public Relations,Sales & Marketing,23381.15
-001,01-2026,2026-01-24,6303,Oslo Energi AS,Monthly utility invoice — Waste & Recycling,Property Operations,25710.93
-001,01-2026,2026-01-25,5002,Internal Payroll,Payroll run — Rooms Division Overtime,Rooms,138988.87
-001,01-2026,2026-01-25,5400,TableSet Supply Co,"Invoice — China, Glass & Silver",F&B,25400.41
-001,01-2026,2026-01-25,5404,TableSet Supply Co,Invoice — F&B Uniforms & Laundry,F&B,29094.92
-001,01-2026,2026-01-25,5701,Business Services Nordic,Invoice — Business Center Operating Expense,Other Operated,45788.9
-001,01-2026,2026-01-25,6204,CoolFlow HVAC Services,Maintenance contract charge — Maintenance Supplies,Property Operations,70334.99
-001,01-2026,2026-01-25,6400,PMS Systems AB,Systems & telecom invoice — PMS & POS System Fees,IT,17101.72
-001,01-2026,2026-01-26,5202,Nordic Food Distributors AS,Food & beverage supply delivery — Banquet Cost of Sales,F&B,52975.29
-001,01-2026,2026-01-26,6104,BookingBridge OTA Services,Marketing services invoice — Loyalty Program Costs,Sales & Marketing,29357.3
-001,01-2026,2026-01-26,6205,ElevateTech Elevator Co,"Maintenance contract charge — Furniture, Fixtures & Equipment Repairs",Property Operations,18600.3
-001,01-2026,2026-01-26,6302,Bergen Kraft AS,Monthly utility invoice — Water & Sewer,Property Operations,113880.93
-001,01-2026,2026-01-26,6504,SkillUp Training Institute,HR services invoice — Staff Meals,HR,12171.98
-001,01-2026,2026-01-27,6101,Nordic Print & Signage,Marketing services invoice — Advertising & Media,Sales & Marketing,52300.21
-001,01-2026,2026-01-27,6202,ElevateTech Elevator Co,Maintenance contract charge — Grounds & Landscaping,Property Operations,36403.04
-001,01-2026,2026-01-27,6303,Bergen Kraft AS,Monthly utility invoice — Waste & Recycling,Property Operations,25710.92
-001,01-2026,2026-01-27,7002,Group Management Services,Management fee accrual — Central Reservation System Fee,Fixed Charges,92319.23
-001,01-2026,2026-01-28,5101,Nordic Linen Services,Invoice — Linen & Laundry,Rooms,49636.78
-001,01-2026,2026-01-28,5102,CleanPro Contract Services,Invoice — Reservation & Distribution Costs,Rooms,55318.66
-001,01-2026,2026-01-28,6004,Nordheim Legal Partners,Professional services invoice — Bank Charges & Merchant Fees,Administrative,47654.37
-001,01-2026,2026-01-28,6008,Baltic Audit & Assurance,Professional services invoice — IT & Admin Travel,Administrative,113874.73
-001,01-2026,2026-01-28,6301,Nordic District Heating,Monthly utility invoice — District Heating,Property Operations,59297.89
-001,01-2026,2026-01-28,6600,SecureNordic Services,Security services contract — Security Staff & Contracts,Security,15367.81
-001,01-2026,2026-01-28,7200,Nordic Property Insurers,Insurance premium — Property Insurance,Fixed Charges,393331.69
-001,01-2026,2026-01-28,7301,Municipal Tax Authority,Property tax / license fee — Business Licenses & Permits,Fixed Charges,19635.86
-001,01-2026,2026-01-29,5104,GuestSupply Nordic AB,Invoice — Rooms Division Other Operating Expense,Rooms,49118.14
-001,01-2026,2026-01-29,5502,Internal Payroll,Payroll run — Spa Payroll Tax & Benefits,Spa & Wellness,61893.37
-001,01-2026,2026-01-29,5703,ParkTech Systems,Invoice — Gift Shop Cost of Sales,Other Operated,9994.21
-001,01-2026,2026-01-29,7201,Nordic Property Insurers,Insurance premium — General Liability Insurance,Fixed Charges,154246.38
-001,01-2026,2026-01-29,7201,Nordic Property Insurers,Insurance premium — General Liability Insurance,Fixed Charges,154246.38
-001,01-2026,2026-01-30,5700,Business Services Nordic,Invoice — Parking Operating Expense,Other Operated,11036.18
-001,01-2026,2026-01-30,6304,Nordic District Heating,Monthly utility invoice — Fuel Oil / Backup Generator Fuel,Property Operations,94203.63
-001,01-2026,2026-01-30,6503,Nordic Recruitment Partners,HR services invoice — HR Administration,HR,16545.66
-001,01-2026,2026-01-30,6504,Nordic Recruitment Partners,HR services invoice — Staff Meals,HR,12171.99
-001,01-2026,2026-01-31,6300,Nordic District Heating,Monthly utility invoice — Electricity,Property Operations,36753.68
-001,01-2026,2026-01-31,6600,SecureNordic Services,Security services contract — Security Staff & Contracts,Security,15367.81
-001,01-2026,2026-01-31,6602,SecureNordic Services,Security services contract — CCTV Maintenance,Security,32093.62
-001,01-2026,2026-01-31,7101,Group Brand Licensing Corp,Brand franchise fee accrual — Brand Marketing Assessment Fee,Fixed Charges,103872.2
-001,01-2026,2026-01-31,7202,Nordic Property Insurers,Insurance premium — Business Interruption Insurance,Fixed Charges,195923.54
-001,01-2026,2026-01-31,7400,Property Holdings Lease Co,Lease payment — Land Lease,Fixed Charges,68497.35
+001,01-2026,2026-01-01,5100,CleanPro Contract Services,Invoice — Guest Supplies,Rooms,25389.71
+001,01-2026,2026-01-01,5202,Urban Produce Co,Food & beverage supply delivery — Banquet Cost of Sales,F&B,52882.27
+001,01-2026,2026-01-01,6002,Nordheim Legal Partners,Professional services invoice — Professional Fees – Legal,Administrative,31249.9
+001,01-2026,2026-01-01,6104,Scandinavian Media Group,Marketing services invoice — Loyalty Program Costs,Sales & Marketing,29318.66
+001,01-2026,2026-01-01,6105,Nordic Print & Signage,Marketing services invoice — Sales & Marketing Travel,Sales & Marketing,32619.59
+001,01-2026,2026-01-01,6202,ElevateTech Elevator Co,Maintenance contract charge — Grounds & Landscaping,Property Operations,36518.08
+001,01-2026,2026-01-01,7001,Group Management Services,Management fee accrual — Incentive Management Fee,Fixed Charges,33048.66
+001,01-2026,2026-01-02,5703,Business Services Nordic,Invoice — Gift Shop Cost of Sales,Other Operated,9997.42
+001,01-2026,2026-01-02,7402,Property Holdings Lease Co,Lease payment — Vehicle Lease,Fixed Charges,79387.8
+001,01-2026,2026-01-03,5102,Reservation Systems Partners,Invoice — Reservation & Distribution Costs,Rooms,54594.51
+001,01-2026,2026-01-03,5104,Nordic Linen Services,Invoice — Rooms Division Other Operating Expense,Rooms,48475.16
+001,01-2026,2026-01-03,5602,Spa Retail Distributors,Invoice — Spa Equipment Maintenance,Spa & Wellness,28270.33
+001,01-2026,2026-01-03,6003,Office Plus Nordic,Professional services invoice — Professional Fees – Audit,Administrative,22589.37
+001,01-2026,2026-01-03,6201,Nordic Facilities Services,Maintenance contract charge — Building Repairs & Maintenance,Property Operations,27124.97
+001,01-2026,2026-01-03,6301,Oslo Energi AS,Monthly utility invoice — District Heating,Property Operations,59501.77
+001,01-2026,2026-01-04,5004,Internal Payroll,Payroll run — Concierge & Guest Services Salaries,Rooms,224528.86
+001,01-2026,2026-01-04,5105,Reservation Systems Partners,Invoice — Uniforms – Rooms Division,Rooms,33364.54
+001,01-2026,2026-01-04,5404,Nordic Uniform & Linen,Invoice — F&B Uniforms & Laundry,F&B,29028.76
+001,01-2026,2026-01-04,5500,Internal Payroll,Payroll run — Spa Therapist Salaries,Spa & Wellness,41102.86
+001,01-2026,2026-01-04,6003,Nordheim Legal Partners,Professional services invoice — Professional Fees – Audit,Administrative,22589.38
+001,01-2026,2026-01-04,6004,Office Plus Nordic,Professional services invoice — Bank Charges & Merchant Fees,Administrative,48291.69
+001,01-2026,2026-01-04,6006,Nordic Payments Processing,Professional services invoice — Office Supplies & Postage,Administrative,114994.83
+001,01-2026,2026-01-04,6102,Scandinavian Media Group,Marketing services invoice — Digital Marketing & OTA Commission,Sales & Marketing,29412.22
+001,01-2026,2026-01-04,6205,GreenScape Landscaping,"Maintenance contract charge — Furniture, Fixtures & Equipment Repairs",Property Operations,18659.09
+001,01-2026,2026-01-04,6400,PMS Systems AB,Systems & telecom invoice — PMS & POS System Fees,IT,16969.67
+001,01-2026,2026-01-04,7202,Nordic Property Insurers,Insurance premium — Business Interruption Insurance,Fixed Charges,197273.21
+001,01-2026,2026-01-05,5402,TableSet Supply Co,Invoice — F&B Contract Services,F&B,25459.38
+001,01-2026,2026-01-05,6005,Office Plus Nordic,Professional services invoice — Bad Debt Expense,Administrative,41361.19
+001,01-2026,2026-01-05,6007,Baltic Audit & Assurance,Professional services invoice — General Admin Other,Administrative,31557.27
+001,01-2026,2026-01-05,6102,Nordic PR Partners,Marketing services invoice — Digital Marketing & OTA Commission,Sales & Marketing,29412.22
+001,01-2026,2026-01-05,6403,PMS Systems AB,Systems & telecom invoice — Software Licenses,IT,50765.91
+001,01-2026,2026-01-05,6404,TeleNordic Communications,Systems & telecom invoice — Guest Wi-Fi Infrastructure,IT,11594.08
+001,01-2026,2026-01-05,6503,Nordic Recruitment Partners,HR services invoice — HR Administration,HR,16614.7
+001,01-2026,2026-01-05,7202,Nordic Property Insurers,Insurance premium — Business Interruption Insurance,Fixed Charges,197273.22
+001,01-2026,2026-01-06,5404,Nordic Uniform & Linen,Invoice — F&B Uniforms & Laundry,F&B,29028.76
+001,01-2026,2026-01-06,5703,Business Services Nordic,Invoice — Gift Shop Cost of Sales,Other Operated,9997.41
+001,01-2026,2026-01-06,6003,Baltic Audit & Assurance,Professional services invoice — Professional Fees – Audit,Administrative,22589.38
+001,01-2026,2026-01-07,5203,Baltic Beverage Supply,Food & beverage supply delivery — F&B Inventory Adjustment,F&B,105115.97
+001,01-2026,2026-01-07,5402,Nordic Uniform & Linen,Invoice — F&B Contract Services,F&B,25459.37
+001,01-2026,2026-01-07,6206,Nordic Facilities Services,Maintenance contract charge — HVAC Service Contracts,Property Operations,40191.33
+001,01-2026,2026-01-07,6401,CloudHost Nordic,Systems & telecom invoice — IT Support Contract,IT,16229.08
+001,01-2026,2026-01-07,6601,SecureNordic Services,Security services contract — Security Systems & Monitoring,Security,44965.96
+001,01-2026,2026-01-07,7201,Nordic Property Insurers,Insurance premium — General Liability Insurance,Fixed Charges,155308.96
+001,01-2026,2026-01-08,5100,CleanPro Contract Services,Invoice — Guest Supplies,Rooms,25389.7
+001,01-2026,2026-01-08,6007,Nordheim Legal Partners,Professional services invoice — General Admin Other,Administrative,31557.27
+001,01-2026,2026-01-08,6203,CoolFlow HVAC Services,Maintenance contract charge — Elevator & Life Safety Contracts,Property Operations,47295.69
+001,01-2026,2026-01-08,7100,Group Brand Licensing Corp,Brand franchise fee accrual — Brand Franchise Fee,Fixed Charges,48212.07
+001,01-2026,2026-01-09,5001,Internal Payroll,Payroll run — Housekeeping Salaries,Rooms,214168.87
+001,01-2026,2026-01-09,5201,Baltic Beverage Supply,Food & beverage supply delivery — Beverage Cost of Sales,F&B,94803.07
+001,01-2026,2026-01-09,5202,Urban Produce Co,Food & beverage supply delivery — Banquet Cost of Sales,F&B,52882.26
+001,01-2026,2026-01-09,5501,Internal Payroll,Payroll run — Spa Reception Salaries,Spa & Wellness,54872.73
+001,01-2026,2026-01-09,6205,GreenScape Landscaping,"Maintenance contract charge — Furniture, Fixtures & Equipment Repairs",Property Operations,18659.08
+001,01-2026,2026-01-09,6500,Nordic Recruitment Partners,HR services invoice — Recruitment Costs,HR,12497.1
+001,01-2026,2026-01-09,6602,SecureNordic Services,Security services contract — CCTV Maintenance,Security,32105.06
+001,01-2026,2026-01-10,6002,Nordic Payments Processing,Professional services invoice — Professional Fees – Legal,Administrative,31249.89
+001,01-2026,2026-01-10,6107,Nordic Print & Signage,Marketing services invoice — Website & Photography,Sales & Marketing,37359.42
+001,01-2026,2026-01-10,6300,City Water Utility,Monthly utility invoice — Electricity,Property Operations,36880.05
+001,01-2026,2026-01-11,5601,Wellness Supply Nordic,Invoice — Spa Retail Cost of Sales,Spa & Wellness,19786.51
+001,01-2026,2026-01-11,6001,Internal Payroll,Payroll run — Finance & Accounting Salaries,Administrative,63780.86
+001,01-2026,2026-01-11,6007,Nordic Payments Processing,Professional services invoice — General Admin Other,Administrative,31557.27
+001,01-2026,2026-01-11,6400,TeleNordic Communications,Systems & telecom invoice — PMS & POS System Fees,IT,16969.66
+001,01-2026,2026-01-12,5201,Nordic Food Distributors AS,Food & beverage supply delivery — Beverage Cost of Sales,F&B,94803.07
+001,01-2026,2026-01-12,6000,Internal Payroll,Payroll run — Executive Office Salaries,Administrative,96628.21
+001,01-2026,2026-01-12,6207,CoolFlow HVAC Services,Maintenance contract charge — Pest Control,Property Operations,66276.54
+001,01-2026,2026-01-12,7000,Group Management Services,Management fee accrual — Base Management Fee,Fixed Charges,49908.2
+001,01-2026,2026-01-12,7300,Municipal Tax Authority,Property tax / license fee — Municipal Property Tax,Fixed Charges,14778.69
+001,01-2026,2026-01-13,5003,Internal Payroll,Payroll run — Rooms Division Payroll Tax & Benefits,Rooms,140167.47
+001,01-2026,2026-01-13,5300,Internal Payroll,Payroll run — Kitchen Salaries,F&B,164781.36
+001,01-2026,2026-01-13,5403,TableSet Supply Co,Invoice — F&B Other Operating Expense,F&B,23973.61
+001,01-2026,2026-01-13,7001,Group Management Services,Management fee accrual — Incentive Management Fee,Fixed Charges,33048.65
+001,01-2026,2026-01-14,6005,Nordheim Legal Partners,Professional services invoice — Bad Debt Expense,Administrative,41361.2
+001,01-2026,2026-01-14,6103,Nordic Print & Signage,Marketing services invoice — Public Relations,Sales & Marketing,23350.36
+001,01-2026,2026-01-14,6105,Scandinavian Media Group,Marketing services invoice — Sales & Marketing Travel,Sales & Marketing,32619.59
+001,01-2026,2026-01-14,6107,Nordic PR Partners,Marketing services invoice — Website & Photography,Sales & Marketing,37359.41
+001,01-2026,2026-01-14,6402,TeleNordic Communications,Systems & telecom invoice — Telecom & Internet,IT,7954.17
+001,01-2026,2026-01-14,7300,Municipal Tax Authority,Property tax / license fee — Municipal Property Tax,Fixed Charges,14778.69
+001,01-2026,2026-01-15,5105,GuestSupply Nordic AB,Invoice — Uniforms – Rooms Division,Rooms,33364.54
+001,01-2026,2026-01-15,5702,ParkTech Systems,Invoice — Laundry & Valet Operating Expense,Other Operated,10486.59
+001,01-2026,2026-01-15,6005,Nordic Payments Processing,Professional services invoice — Bad Debt Expense,Administrative,41361.19
+001,01-2026,2026-01-15,6009,Nordheim Legal Partners,Professional services invoice — Board & Owner Reporting Costs,Administrative,71035.95
+001,01-2026,2026-01-15,6300,City Water Utility,Monthly utility invoice — Electricity,Property Operations,36880.04
+001,01-2026,2026-01-15,6404,PMS Systems AB,Systems & telecom invoice — Guest Wi-Fi Infrastructure,IT,11594.08
+001,01-2026,2026-01-15,7101,Group Brand Licensing Corp,Brand franchise fee accrual — Brand Marketing Assessment Fee,Fixed Charges,105099.14
+001,01-2026,2026-01-16,5005,Internal Payroll,Payroll run — Rooms Division Temporary Labor,Rooms,195482.25
+001,01-2026,2026-01-16,5103,GuestSupply Nordic AB,Invoice — Rooms Division Contract Cleaning,Rooms,93403.63
+001,01-2026,2026-01-16,5204,Fresh Fjord Seafood,Food & beverage supply delivery — F&B Waste & Spoilage,F&B,177007.73
+001,01-2026,2026-01-16,5403,Kitchen Equipment Services,Invoice — F&B Other Operating Expense,F&B,23973.62
+001,01-2026,2026-01-16,6002,Baltic Audit & Assurance,Professional services invoice — Professional Fees – Legal,Administrative,31249.89
+001,01-2026,2026-01-16,6100,Internal Payroll,Payroll run — Sales Team Salaries,Sales & Marketing,69643.89
+001,01-2026,2026-01-16,6104,Nordic Print & Signage,Marketing services invoice — Loyalty Program Costs,Sales & Marketing,29318.65
+001,01-2026,2026-01-16,6404,TeleNordic Communications,Systems & telecom invoice — Guest Wi-Fi Infrastructure,IT,11594.08
+001,01-2026,2026-01-16,6500,Nordic Recruitment Partners,HR services invoice — Recruitment Costs,HR,12497.11
+001,01-2026,2026-01-17,5400,TableSet Supply Co,"Invoice — China, Glass & Silver",F&B,25342.65
+001,01-2026,2026-01-17,6107,Nordic PR Partners,Marketing services invoice — Website & Photography,Sales & Marketing,37359.41
+001,01-2026,2026-01-17,6401,CloudHost Nordic,Systems & telecom invoice — IT Support Contract,IT,16229.08
+001,01-2026,2026-01-17,6501,SkillUp Training Institute,HR services invoice — Staff Training & Development,HR,37032.02
+001,01-2026,2026-01-17,6503,Nordic Recruitment Partners,HR services invoice — HR Administration,HR,16614.7
+001,01-2026,2026-01-17,7301,Municipal Tax Authority,Property tax / license fee — Business Licenses & Permits,Fixed Charges,19717.54
+001,01-2026,2026-01-18,5200,Urban Produce Co,Food & beverage supply delivery — Food Cost of Sales,F&B,69863.45
+001,01-2026,2026-01-18,6200,Internal Payroll,Payroll run — Engineering Salaries,Property Operations,81294.86
+001,01-2026,2026-01-18,6500,Nordic Recruitment Partners,HR services invoice — Recruitment Costs,HR,12497.11
+001,01-2026,2026-01-18,6502,SkillUp Training Institute,HR services invoice — Employee Welfare & Uniforms,HR,57352.48
+001,01-2026,2026-01-18,7000,Group Management Services,Management fee accrual — Base Management Fee,Fixed Charges,49908.2
+001,01-2026,2026-01-18,7300,Municipal Tax Authority,Property tax / license fee — Municipal Property Tax,Fixed Charges,14778.69
+001,01-2026,2026-01-19,5000,Internal Payroll,Payroll run — Front Office Salaries,Rooms,230224.38
+001,01-2026,2026-01-19,5301,Internal Payroll,Payroll run — Restaurant & Bar Salaries,F&B,208087.73
+001,01-2026,2026-01-19,5303,Internal Payroll,Payroll run — F&B Payroll Tax & Benefits,F&B,228092.24
+001,01-2026,2026-01-19,6102,Nordic PR Partners,Marketing services invoice — Digital Marketing & OTA Commission,Sales & Marketing,29412.22
+001,01-2026,2026-01-19,6103,Scandinavian Media Group,Marketing services invoice — Public Relations,Sales & Marketing,23350.37
+001,01-2026,2026-01-19,6401,CloudHost Nordic,Systems & telecom invoice — IT Support Contract,IT,16229.08
+001,01-2026,2026-01-19,7100,Group Brand Licensing Corp,Brand franchise fee accrual — Brand Franchise Fee,Fixed Charges,48212.07
+001,01-2026,2026-01-19,7301,Municipal Tax Authority,Property tax / license fee — Business Licenses & Permits,Fixed Charges,19717.55
+001,01-2026,2026-01-20,5200,Nordic Food Distributors AS,Food & beverage supply delivery — Food Cost of Sales,F&B,69863.44
+001,01-2026,2026-01-20,5302,Internal Payroll,Payroll run — Banquet Service Salaries,F&B,219576.96
+001,01-2026,2026-01-20,6106,Scandinavian Media Group,Marketing services invoice — Trade Show & Sponsorship Costs,Sales & Marketing,128437.58
+001,01-2026,2026-01-20,6201,CoolFlow HVAC Services,Maintenance contract charge — Building Repairs & Maintenance,Property Operations,27124.97
+001,01-2026,2026-01-20,6201,CoolFlow HVAC Services,Maintenance contract charge — Building Repairs & Maintenance,Property Operations,27124.97
+001,01-2026,2026-01-20,6402,TeleNordic Communications,Systems & telecom invoice — Telecom & Internet,IT,7954.17
+001,01-2026,2026-01-21,5100,Reservation Systems Partners,Invoice — Guest Supplies,Rooms,25389.7
+001,01-2026,2026-01-21,5203,Urban Produce Co,Food & beverage supply delivery — F&B Inventory Adjustment,F&B,105115.97
+001,01-2026,2026-01-21,5702,Business Services Nordic,Invoice — Laundry & Valet Operating Expense,Other Operated,10486.6
+001,01-2026,2026-01-21,6600,SecureNordic Services,Security services contract — Security Staff & Contracts,Security,15373.29
+001,01-2026,2026-01-22,5600,Spa Retail Distributors,Invoice — Spa Operating Supplies,Spa & Wellness,31205.82
+001,01-2026,2026-01-22,6101,Scandinavian Media Group,Marketing services invoice — Advertising & Media,Sales & Marketing,52231.35
+001,01-2026,2026-01-22,7200,Nordic Property Insurers,Insurance premium — Property Insurance,Fixed Charges,396041.27
+001,01-2026,2026-01-22,7401,Property Holdings Lease Co,Lease payment — Equipment Lease,Fixed Charges,61076.38
+001,01-2026,2026-01-23,6303,Bergen Kraft AS,Monthly utility invoice — Waste & Recycling,Property Operations,25799.33
+001,01-2026,2026-01-23,6402,CloudHost Nordic,Systems & telecom invoice — Telecom & Internet,IT,7954.18
+001,01-2026,2026-01-23,7000,Group Management Services,Management fee accrual — Base Management Fee,Fixed Charges,49908.2
+001,01-2026,2026-01-24,5105,Reservation Systems Partners,Invoice — Uniforms – Rooms Division,Rooms,33364.54
+001,01-2026,2026-01-24,5304,Internal Payroll,Payroll run — F&B Temporary Labor,F&B,192208.51
+001,01-2026,2026-01-24,5401,TableSet Supply Co,Invoice — F&B Operating Supplies,F&B,55254.89
+001,01-2026,2026-01-24,5700,Business Services Nordic,Invoice — Parking Operating Expense,Other Operated,11039.71
+001,01-2026,2026-01-24,5702,Business Services Nordic,Invoice — Laundry & Valet Operating Expense,Other Operated,10486.6
+001,01-2026,2026-01-24,6103,BookingBridge OTA Services,Marketing services invoice — Public Relations,Sales & Marketing,23350.36
+001,01-2026,2026-01-24,6303,Oslo Energi AS,Monthly utility invoice — Waste & Recycling,Property Operations,25799.32
+001,01-2026,2026-01-25,5002,Internal Payroll,Payroll run — Rooms Division Overtime,Rooms,141352.28
+001,01-2026,2026-01-25,5400,TableSet Supply Co,"Invoice — China, Glass & Silver",F&B,25342.66
+001,01-2026,2026-01-25,5404,TableSet Supply Co,Invoice — F&B Uniforms & Laundry,F&B,29028.77
+001,01-2026,2026-01-25,5701,Business Services Nordic,Invoice — Business Center Operating Expense,Other Operated,45803.55
+001,01-2026,2026-01-25,6204,CoolFlow HVAC Services,Maintenance contract charge — Maintenance Supplies,Property Operations,70557.27
+001,01-2026,2026-01-25,6400,PMS Systems AB,Systems & telecom invoice — PMS & POS System Fees,IT,16969.67
+001,01-2026,2026-01-26,5202,Nordic Food Distributors AS,Food & beverage supply delivery — Banquet Cost of Sales,F&B,52882.26
+001,01-2026,2026-01-26,6104,BookingBridge OTA Services,Marketing services invoice — Loyalty Program Costs,Sales & Marketing,29318.65
+001,01-2026,2026-01-26,6205,ElevateTech Elevator Co,"Maintenance contract charge — Furniture, Fixtures & Equipment Repairs",Property Operations,18659.09
+001,01-2026,2026-01-26,6302,Bergen Kraft AS,Monthly utility invoice — Water & Sewer,Property Operations,114272.48
+001,01-2026,2026-01-26,6504,SkillUp Training Institute,HR services invoice — Staff Meals,HR,12222.78
+001,01-2026,2026-01-27,6101,Nordic Print & Signage,Marketing services invoice — Advertising & Media,Sales & Marketing,52231.36
+001,01-2026,2026-01-27,6202,ElevateTech Elevator Co,Maintenance contract charge — Grounds & Landscaping,Property Operations,36518.09
+001,01-2026,2026-01-27,6303,Bergen Kraft AS,Monthly utility invoice — Waste & Recycling,Property Operations,25799.33
+001,01-2026,2026-01-27,7002,Group Management Services,Management fee accrual — Central Reservation System Fee,Fixed Charges,92855.75
+001,01-2026,2026-01-28,5101,Nordic Linen Services,Invoice — Linen & Laundry,Rooms,48987.01
+001,01-2026,2026-01-28,5102,CleanPro Contract Services,Invoice — Reservation & Distribution Costs,Rooms,54594.52
+001,01-2026,2026-01-28,6004,Nordheim Legal Partners,Professional services invoice — Bank Charges & Merchant Fees,Administrative,48291.7
+001,01-2026,2026-01-28,6008,Baltic Audit & Assurance,Professional services invoice — IT & Admin Travel,Administrative,115397.67
+001,01-2026,2026-01-28,6301,Nordic District Heating,Monthly utility invoice — District Heating,Property Operations,59501.76
+001,01-2026,2026-01-28,6600,SecureNordic Services,Security services contract — Security Staff & Contracts,Security,15373.29
+001,01-2026,2026-01-28,7200,Nordic Property Insurers,Insurance premium — Property Insurance,Fixed Charges,396041.26
+001,01-2026,2026-01-28,7301,Municipal Tax Authority,Property tax / license fee — Business Licenses & Permits,Fixed Charges,19717.55
+001,01-2026,2026-01-29,5104,GuestSupply Nordic AB,Invoice — Rooms Division Other Operating Expense,Rooms,48475.16
+001,01-2026,2026-01-29,5502,Internal Payroll,Payroll run — Spa Payroll Tax & Benefits,Spa & Wellness,61250.45
+001,01-2026,2026-01-29,5703,ParkTech Systems,Invoice — Gift Shop Cost of Sales,Other Operated,9997.41
+001,01-2026,2026-01-29,7201,Nordic Property Insurers,Insurance premium — General Liability Insurance,Fixed Charges,155308.95
+001,01-2026,2026-01-29,7201,Nordic Property Insurers,Insurance premium — General Liability Insurance,Fixed Charges,155308.95
+001,01-2026,2026-01-30,5700,Business Services Nordic,Invoice — Parking Operating Expense,Other Operated,11039.71
+001,01-2026,2026-01-30,6304,Nordic District Heating,Monthly utility invoice — Fuel Oil / Backup Generator Fuel,Property Operations,94527.53
+001,01-2026,2026-01-30,6503,Nordic Recruitment Partners,HR services invoice — HR Administration,HR,16614.69
+001,01-2026,2026-01-30,6504,Nordic Recruitment Partners,HR services invoice — Staff Meals,HR,12222.77
+001,01-2026,2026-01-31,6300,Nordic District Heating,Monthly utility invoice — Electricity,Property Operations,36880.05
+001,01-2026,2026-01-31,6600,SecureNordic Services,Security services contract — Security Staff & Contracts,Security,15373.29
+001,01-2026,2026-01-31,6602,SecureNordic Services,Security services contract — CCTV Maintenance,Security,32105.06
+001,01-2026,2026-01-31,7101,Group Brand Licensing Corp,Brand franchise fee accrual — Brand Marketing Assessment Fee,Fixed Charges,105099.14
+001,01-2026,2026-01-31,7202,Nordic Property Insurers,Insurance premium — Business Interruption Insurance,Fixed Charges,197273.22
+001,01-2026,2026-01-31,7400,Property Holdings Lease Co,Lease payment — Land Lease,Fixed Charges,67498.49

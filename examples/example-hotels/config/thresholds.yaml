@@ -6,56 +6,90 @@
 # absolute thresholds are defined per currency, not per entity.
 
 # Default thresholds applied to any category without an explicit override.
+# Absolute floors below are sized so that a category sitting *exactly* at
+# its own pct threshold does NOT also clear the absolute floor (floor ~=
+# Budget x pct x 1.3) -- INVESTIGATE (both breached) is reserved for a
+# deviation that's genuinely large in both relative and dollar terms, not
+# just "a large-currency category moved by an ordinary, on-threshold
+# percent". Sized off Budget (not Actual), since Actual is exactly what a
+# planted story or ordinary noise perturbs -- Budget is the stable
+# reference scale. Where two entities share a currency (NOK: Oslo/Bergen),
+# floors are anchored to the *larger* one, so the smaller safely falls
+# back to pct-only discrimination instead of the same false-positive risk
+# in reverse.
 default:
   pct: 3.0                 # +/- 3% variance vs Budget
   absolute_by_currency:
-    NOK: 20000
-    SEK: 20000
-    DKK: 15000
+    NOK: 40000
+    SEK: 12000
+    DKK: 12000
 
 # Per-category overrides. Revenue categories use a tighter percentage
 # (swings matter more read against Budget) but a looser absolute floor
 # (revenue lines are naturally larger than most cost lines). The six
 # categories covered by investigation-guide.md get the tightest bands,
 # since those are the group's known largest/most volatile cost drivers.
+# The six large P&L subtotals below (total_departmental_expenses through
+# pretax_income) also get explicit floors for the same reason revenue
+# does -- they're multi-million-currency lines where the 3% default
+# would otherwise trigger on ordinary noise (see tasks.md task 7 notes).
 category_overrides:
   rooms_revenue:
     pct: 2.0
-    absolute_by_currency: { NOK: 30000, SEK: 30000, DKK: 22000 }
+    absolute_by_currency: { NOK: 170000, SEK: 38000, DKK: 82000 }
   fb_revenue:
     pct: 2.0
-    absolute_by_currency: { NOK: 15000, SEK: 15000, DKK: 11000 }
+    absolute_by_currency: { NOK: 75000, SEK: 5700, DKK: 37000 }
   total_revenue:
     pct: 2.0
-    absolute_by_currency: { NOK: 40000, SEK: 40000, DKK: 30000 }
+    absolute_by_currency: { NOK: 270000, SEK: 46000, DKK: 132000 }
 
   utilities:
     pct: 4.0
-    absolute_by_currency: { NOK: 10000, SEK: 10000, DKK: 7500 }
+    absolute_by_currency: { NOK: 27000, SEK: 4600, DKK: 13000 }
   fb_cogs:
     pct: 3.0
-    absolute_by_currency: { NOK: 8000, SEK: 8000, DKK: 6000 }
+    absolute_by_currency: { NOK: 34000, SEK: 2600, DKK: 16500 }
   rooms_payroll:
     pct: 3.0
-    absolute_by_currency: { NOK: 15000, SEK: 15000, DKK: 11000 }
+    absolute_by_currency: { NOK: 45000, SEK: 10000, DKK: 22000 }
   fb_payroll:
     pct: 3.0
-    absolute_by_currency: { NOK: 10000, SEK: 10000, DKK: 7500 }
+    absolute_by_currency: { NOK: 40000, SEK: 3000, DKK: 19500 }
   property_ops_maint:
     pct: 4.0
-    absolute_by_currency: { NOK: 8000, SEK: 8000, DKK: 6000 }
+    absolute_by_currency: { NOK: 27000, SEK: 4600, DKK: 13000 }
   admin_general:
     pct: 3.0
-    absolute_by_currency: { NOK: 8000, SEK: 8000, DKK: 6000 }
+    absolute_by_currency: { NOK: 32000, SEK: 5500, DKK: 15800 }
+
+  total_departmental_expenses:
+    pct: 3.0
+    absolute_by_currency: { NOK: 165000, SEK: 22000, DKK: 80000 }
+  departmental_profit:
+    pct: 3.0
+    absolute_by_currency: { NOK: 239000, SEK: 47000, DKK: 117000 }
+  total_undistributed_expenses:
+    pct: 3.0
+    absolute_by_currency: { NOK: 123000, SEK: 21000, DKK: 60000 }
+  total_fixed_charges:
+    pct: 3.0
+    absolute_by_currency: { NOK: 42000, SEK: 7200, DKK: 20700 }
+  ebit:
+    pct: 3.0
+    absolute_by_currency: { NOK: 49000, SEK: 14000, DKK: 24000 }
+  pretax_income:
+    pct: 3.0
+    absolute_by_currency: { NOK: 43000, SEK: 13000, DKK: 21000 }
 
   # Focus-metric subtotals get the group's tightest band — a GOP miss is
   # always worth a look even if no single category individually breached.
   gop:
     pct: 2.0
-    absolute_by_currency: { NOK: 25000, SEK: 25000, DKK: 18000 }
+    absolute_by_currency: { NOK: 77000, SEK: 17000, DKK: 38000 }
   ebitda:
     pct: 2.0
-    absolute_by_currency: { NOK: 25000, SEK: 25000, DKK: 18000 }
+    absolute_by_currency: { NOK: 49000, SEK: 12000, DKK: 24000 }
 
 # KPI thresholds (kpi-definitions.yaml). A currency absolute floor doesn't
 # translate meaningfully to a per-room or percentage-point KPI, so these

@@ -49,11 +49,11 @@ RNG_SEED = 20260101
 # deliberate January insurance/admin_general seasonality and the four
 # planted stories (task 4, STORY_ACCOUNT_SPLITS) as the standout signals
 # rather than noise drowning them out.
-OCCUPANCY_NOISE_SD = 0.015
-ADR_NOISE_SD = 0.010
-REVENUE_CATEGORY_NOISE_SD = 0.015
-DEPARTMENTAL_EXPENSE_NOISE_SD = 0.020
-FLAT_RATIO_NOISE_SD = 0.015
+OCCUPANCY_NOISE_SD = 0.008
+ADR_NOISE_SD = 0.005
+REVENUE_CATEGORY_NOISE_SD = 0.008
+DEPARTMENTAL_EXPENSE_NOISE_SD = 0.010
+FLAT_RATIO_NOISE_SD = 0.008
 FTE_NOISE_SD = 0.015
 
 PERIODS = ["01-2026", "02-2026", "03-2026"]
@@ -125,6 +125,18 @@ FLAT_RATIOS_OF_TOTAL_REVENUE = {
     "depreciation": 0.06,
     "interest_expense": 0.015,
 }
+
+# Genuinely fixed-dollar in real hotel accounting -- a lease payment,
+# property tax assessment, depreciation schedule, and loan interest don't
+# move with the month's realized revenue at all (unlike management_fees/
+# franchise_fees, which real contracts usually define as a % of revenue,
+# so those correctly keep tracking total_revenue_actual below). These
+# instead track their own Budget dollar amount directly, with only a
+# token noise -- Budget nails a fixed contractual amount almost exactly.
+# Insurance joins this set outside January (its annual-premium month,
+# handled by its own branch below).
+TRUE_FIXED_DOLLAR_CATEGORIES = {"rent_lease", "property_tax", "depreciation", "interest_expense", "insurance"}
+NEAR_FIXED_NOISE_SD = 0.003
 
 REVENUE_CATEGORIES = ["rooms_revenue", "fb_revenue", "spa_revenue", "other_ops_revenue", "misc_income"]
 
@@ -260,11 +272,27 @@ def story_rooms_payroll_overtime(weights, budget_total):
     return split
 
 
+def story_stockholm_efficient_overhead(weights, budget_total):
+    """Stockholm, every month: tight overhead control on Property
+    Operations & Maintenance and IT & Systems (see below) keeps GOP
+    consistently, deliberately above Budget -- 'beats forecast cleanly'
+    needs to be a real, guaranteed property of this entity's numbers, not
+    an emergent side effect of noise draws (it broke once already when
+    noise parameters changed elsewhere in this file — see tasks.md task 7
+    notes)."""
+    return {acct: round(budget_total * w * 0.92, 2) for acct, w in weights.items()}
+
+
 STORY_ACCOUNT_SPLITS = {
     ("001", "02-2026", "utilities"): story_utilities_missing_invoice,
     ("001", "03-2026", "utilities"): story_utilities_catchup_invoice,
     ("002", "02-2026", "fb_cogs"): story_fb_cogs_inventory_writeoff,
     ("004", "03-2026", "rooms_payroll"): story_rooms_payroll_overtime,
+    **{
+        ("003", period, category_id): story_stockholm_efficient_overhead
+        for period in PERIODS
+        for category_id in ("property_ops_maint", "it_systems")
+    },
 }
 
 # Narrative transaction lines for the story categories, replacing the
@@ -360,6 +388,8 @@ def compute_period_economics(entity_code, entity, period, rng):
         elif period == "01-2026" and category_id == "admin_general":
             # Incremental external-audit-fee bump on top of the normal run rate.
             actual[category_id] = total_revenue_actual * ratio * 1.15 * (1 + rng.gauss(0, FLAT_RATIO_NOISE_SD))
+        elif category_id in TRUE_FIXED_DOLLAR_CATEGORIES:
+            actual[category_id] = budget[category_id] * (1 + rng.gauss(0, NEAR_FIXED_NOISE_SD))
         else:
             actual[category_id] = max(0.0, total_revenue_actual * ratio * (1 + rng.gauss(0, FLAT_RATIO_NOISE_SD)))
 
