@@ -25,8 +25,10 @@ Deliberate design decisions (see tasks.md task 3/4 notes for the "why"):
     the one that recognizes them as expected (see investigation-guide.md).
   - Planted stories (energy missing-invoice gap, F&B COGS inventory
     adjustment, payroll-vs-occupancy deviation) are injected via
-    STORY_OVERRIDES, applied after the baseline economics below. See
-    README.md for the full list and why each is there.
+    STORY_ACCOUNT_SPLITS/STORY_TRANSACTIONS, which override the normal
+    weighted GL-account split and vendor/description generation for just
+    the affected accounts. See README.md for the full list and why each
+    is there.
 """
 import csv
 import random
@@ -37,6 +39,22 @@ CONFIG_DIR = BASE_DIR / "config"
 INBOX_DIR = BASE_DIR / "inbox"
 
 RNG_SEED = 20260101
+
+# Noise standard deviations. Kept deliberately small: each is applied at
+# one level of the revenue/expense driver chain (e.g. a departmental
+# expense's own noise stacks on top of its already-noisy revenue driver),
+# so they compound. Sized so the compounded result mostly stays inside
+# thresholds.yaml's 3-4% bands — most categories land ON TARGET most
+# months, the way a real property's numbers mostly do, leaving the
+# deliberate January insurance/admin_general seasonality and the four
+# planted stories (task 4, STORY_ACCOUNT_SPLITS) as the standout signals
+# rather than noise drowning them out.
+OCCUPANCY_NOISE_SD = 0.015
+ADR_NOISE_SD = 0.010
+REVENUE_CATEGORY_NOISE_SD = 0.015
+DEPARTMENTAL_EXPENSE_NOISE_SD = 0.020
+FLAT_RATIO_NOISE_SD = 0.015
+FTE_NOISE_SD = 0.015
 
 PERIODS = ["01-2026", "02-2026", "03-2026"]
 DAYS_IN_MONTH = {"01-2026": 31, "02-2026": 28, "03-2026": 31}
@@ -181,10 +199,96 @@ DESCRIPTION_PREFIX_BY_CATEGORY = {
     "rent_lease": "Lease payment",
 }
 
-# Populated in task 4 with the planted stories (see README.md). Each
-# override is applied after baseline economics: (entity_code, period,
-# category_id) -> function(budget_amount, actual_amount) -> new_actual_amount.
-STORY_OVERRIDES = {}
+# Planted stories — see README.md for the full narrative and why each one
+# is there. Each entry replaces the normal weighted GL-account split
+# (split_across_accounts) for one (entity, period, category) with a custom
+# split that CONCENTRATES the deviation into the specific account(s) a real
+# instance of that story would hit — e.g. a missing electricity invoice
+# shows up entirely in the Electricity account, not spread evenly across
+# every utilities account — so the transaction drill-down (grouped by
+# vendor/account) tells the same story the P&L number does, not just a
+# uniformly-scaled version of a normal month.
+#
+# Signature: fn(weights: dict[gl_account, float], budget_total: float)
+#            -> dict[gl_account, float]
+# `weights` are this category's normal account-split weights (see
+# build_account_weights); `budget_total` is the category's Budget amount
+# for this entity/period, used as the baseline every account (and the
+# story's concentrated extra/missing amount) scales from.
+
+def story_utilities_missing_invoice(weights, budget_total):
+    """Oslo, February: the electricity invoice never arrives. Every other
+    utility account posts normally; Electricity posts only a token
+    estimated accrual, dragging the whole category well below Budget."""
+    electricity = "6300"
+    split = {acct: round(budget_total * w, 2) for acct, w in weights.items()}
+    split[electricity] = round(budget_total * weights[electricity] * 0.05, 2)
+    return split
+
+
+def story_utilities_catchup_invoice(weights, budget_total):
+    """Oslo, March: the missing February invoice arrives bundled with
+    March's — Electricity alone carries ~2.6x its normal month (its own
+    March usage plus February's backlog); every other account is normal."""
+    electricity = "6300"
+    split = {acct: round(budget_total * w, 2) for acct, w in weights.items()}
+    split[electricity] = round(budget_total * weights[electricity] * 2.6, 2)
+    return split
+
+
+def story_fb_cogs_inventory_writeoff(weights, budget_total):
+    """Bergen, February: normal cost of sales continues in every account;
+    a physical inventory count finds obsolete/spoiled stock and books a
+    40%-of-budget write-off entirely to F&B Inventory Adjustment."""
+    adjustment_account = "5203"
+    split = {acct: round(budget_total * w, 2) for acct, w in weights.items()}
+    split[adjustment_account] = round(split[adjustment_account] + budget_total * 0.40, 2)
+    return split
+
+
+def story_rooms_payroll_overtime(weights, budget_total):
+    """Copenhagen, March: Front Office/Housekeeping/Concierge salaries are
+    normal; a staffing vacancy is covered with overtime and temporary
+    labor, concentrated in those two accounts, adding 25% of budget on
+    top — while occupancy (see stats file) stays within ~2% of its own
+    Budget, so payroll and occupancy don't move together this month."""
+    overtime, temp_labor = "5002", "5005"
+    split = {acct: round(budget_total * w, 2) for acct, w in weights.items()}
+    extra = budget_total * 0.25
+    split[overtime] = round(split[overtime] + extra * 0.55, 2)
+    split[temp_labor] = round(split[temp_labor] + extra * 0.45, 2)
+    return split
+
+
+STORY_ACCOUNT_SPLITS = {
+    ("001", "02-2026", "utilities"): story_utilities_missing_invoice,
+    ("001", "03-2026", "utilities"): story_utilities_catchup_invoice,
+    ("002", "02-2026", "fb_cogs"): story_fb_cogs_inventory_writeoff,
+    ("004", "03-2026", "rooms_payroll"): story_rooms_payroll_overtime,
+}
+
+# Narrative transaction lines for the story categories, replacing the
+# generic auto-generated vendor/description pairing for just those
+# accounts so the drill-down reads as a specific, investigable event
+# rather than routine noise. (day, gl_account, vendor, description,
+# amount_fraction_of_account_total) — fractions per account sum to 1.0.
+STORY_TRANSACTIONS = {
+    ("001", "02-2026", "utilities"): [
+        (27, "6300", "Oslo Energi AS", "Estimated electricity accrual — invoice not yet received from supplier", 1.0),
+    ],
+    ("001", "03-2026", "utilities"): [
+        (8, "6300", "Oslo Energi AS", "Electricity invoice — catch-up billing, includes unpaid February charges", 0.62),
+        (8, "6300", "Oslo Energi AS", "Electricity invoice — March usage", 0.38),
+    ],
+    ("002", "02-2026", "fb_cogs"): [
+        (24, "5203", "Internal Adjustment", "F&B inventory adjustment — obsolete and spoiled stock write-off following physical count", 1.0),
+    ],
+    ("004", "03-2026", "rooms_payroll"): [
+        (16, "5002", "Internal Payroll", "Overtime — Front Office (covering extended staff leave)", 0.6),
+        (16, "5002", "Internal Payroll", "Overtime — Housekeeping (covering extended staff leave)", 0.4),
+        (18, "5005", "Nordic Staffing Partners", "Temporary housekeeping labor — staffing gap coverage", 1.0),
+    ],
+}
 
 
 def load_account_mapping():
@@ -217,13 +321,13 @@ def compute_period_economics(entity_code, entity, period, rng):
     rooms_available = entity["rooms"] * days
 
     occ_budget = entity["occupancy_budget"][period]
-    occ_actual = max(0.0, min(1.0, occ_budget * (1 + rng.gauss(0, 0.03))))
+    occ_actual = max(0.0, min(1.0, occ_budget * (1 + rng.gauss(0, OCCUPANCY_NOISE_SD))))
     adr_budget = entity["adr_budget"]
-    adr_actual = adr_budget * (1 + rng.gauss(0, 0.02))
+    adr_actual = adr_budget * (1 + rng.gauss(0, ADR_NOISE_SD))
 
     rooms_sold_budget = round(rooms_available * occ_budget)
     rooms_sold_actual = round(rooms_available * occ_actual)
-    fte_actual = round(entity["fte_budget"] * (1 + rng.gauss(0, 0.02)), 1)
+    fte_actual = round(entity["fte_budget"] * (1 + rng.gauss(0, FTE_NOISE_SD)), 1)
 
     stats = dict(
         entity_code=entity_code, period=period,
@@ -238,34 +342,28 @@ def compute_period_economics(entity_code, entity, period, rng):
 
     for category_id, ratio in REVENUE_RATIOS[entity["brand"]].items():
         budget[category_id] = budget["rooms_revenue"] * ratio
-        actual[category_id] = max(0.0, actual["rooms_revenue"] * ratio * (1 + rng.gauss(0, 0.03)))
+        actual[category_id] = max(0.0, actual["rooms_revenue"] * ratio * (1 + rng.gauss(0, REVENUE_CATEGORY_NOISE_SD)))
 
     total_revenue_budget = sum(budget[c] for c in REVENUE_CATEGORIES)
     total_revenue_actual = sum(actual[c] for c in REVENUE_CATEGORIES)
 
     for category_id, (driver, ratio) in DEPARTMENTAL_EXPENSE_RATIOS.items():
         budget[category_id] = budget[driver] * ratio
-        actual[category_id] = max(0.0, actual[driver] * ratio * (1 + rng.gauss(0, 0.04)))
+        actual[category_id] = max(0.0, actual[driver] * ratio * (1 + rng.gauss(0, DEPARTMENTAL_EXPENSE_NOISE_SD)))
 
     for category_id, ratio in FLAT_RATIOS_OF_TOTAL_REVENUE.items():
         budget[category_id] = total_revenue_budget * ratio
         if period == "01-2026" and category_id == "insurance":
             # Annual premium invoiced as a single January charge — Budget
             # stays flat (spread ratio), Actual carries the full year.
-            actual[category_id] = total_revenue_actual * ratio * 12 * (1 + rng.gauss(0, 0.02))
+            actual[category_id] = total_revenue_actual * ratio * 12 * (1 + rng.gauss(0, FLAT_RATIO_NOISE_SD))
         elif period == "01-2026" and category_id == "admin_general":
             # Incremental external-audit-fee bump on top of the normal run rate.
-            actual[category_id] = total_revenue_actual * ratio * 1.15 * (1 + rng.gauss(0, 0.02))
+            actual[category_id] = total_revenue_actual * ratio * 1.15 * (1 + rng.gauss(0, FLAT_RATIO_NOISE_SD))
         else:
-            actual[category_id] = max(0.0, total_revenue_actual * ratio * (1 + rng.gauss(0, 0.03)))
+            actual[category_id] = max(0.0, total_revenue_actual * ratio * (1 + rng.gauss(0, FLAT_RATIO_NOISE_SD)))
 
     return budget, actual, stats
-
-
-def apply_story_overrides(entity_code, period, budget, actual):
-    for category_id, override_fn in STORY_OVERRIDES.get((entity_code, period), {}).items():
-        actual[category_id] = override_fn(budget[category_id], actual[category_id])
-    return actual
 
 
 def split_across_accounts(category_id, amount, accounts_by_category, weights):
@@ -304,8 +402,26 @@ def generate_transactions(entity_code, entity, period, account_amounts, account_
     for category_id, amounts_by_account in account_amounts.items():
         if category_id in NO_TRANSACTION_CATEGORIES:
             continue
+
+        story_lines = STORY_TRANSACTIONS.get((entity_code, period, category_id), [])
+        story_accounts = {gl_account for _, gl_account, *_ in story_lines}
+        for day, gl_account, vendor, description, fraction in story_lines:
+            total = amounts_by_account.get(gl_account, 0)
+            if total <= 0:
+                continue
+            rows.append(dict(
+                entity_code=entity_code,
+                period=period,
+                date=f"{period[3:]}-{period[:2]}-{day:02d}",
+                gl_account=gl_account,
+                vendor=vendor,
+                description=description,
+                department=DEPARTMENT_BY_CATEGORY[category_id],
+                amount=round(total * fraction, 2),
+            ))
+
         for gl_account, amount in amounts_by_account.items():
-            if amount <= 0:
+            if gl_account in story_accounts or amount <= 0:
                 continue
             account_name = account_names[gl_account]
             k = 1 if is_payroll_account(category_id, account_name) else rng.randint(1, 3)
@@ -337,10 +453,15 @@ def main():
     for entity_code, entity in ENTITIES.items():
         for period in PERIODS:
             budget, actual, stats = compute_period_economics(entity_code, entity, period, rng)
-            actual = apply_story_overrides(entity_code, period, budget, actual)
 
             budget_accounts = {c: split_across_accounts(c, amt, accounts_by_category, weights) for c, amt in budget.items()}
-            actual_accounts = {c: split_across_accounts(c, amt, accounts_by_category, weights) for c, amt in actual.items()}
+            actual_accounts = {}
+            for category_id, amount in actual.items():
+                story_split_fn = STORY_ACCOUNT_SPLITS.get((entity_code, period, category_id))
+                if story_split_fn:
+                    actual_accounts[category_id] = story_split_fn(weights[category_id], budget[category_id])
+                else:
+                    actual_accounts[category_id] = split_across_accounts(category_id, amount, accounts_by_category, weights)
 
             budget_rows = [
                 dict(entity_code=entity_code, period=period, gl_account=acct, amount=amt)
