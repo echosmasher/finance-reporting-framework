@@ -1,0 +1,110 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+          cache-dependency-path: requirements-dev.txt
+      - run: pip install -r requirements-dev.txt
+      - run: pytest
+
+  # "Regenerate the demo analysis on push" (PLAN.md Sec11 Phase 5) -- but
+  # narrative_*.json/*.html in examples/example-hotels/outputs/ are
+  # genuinely authored (an LLM wrote them once, following SKILL.md's
+  # step 4, same as a real /analysis run would), not something a CI bot
+  # can regenerate -- there's no Claude available in a GitHub Actions
+  # runner. So this job re-runs only the DETERMINISTIC half of the
+  # pipeline (generator, validate, preprocess, analyze) and asserts the
+  # output is byte-identical to what's committed. That's a real
+  # regression check: it fails if the demo data generator, the engine
+  # scripts, or the config drift out of sync with each other, without
+  # ever trying to re-derive narrative content.
+  regenerate-demo:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+          cache-dependency-path: requirements.txt
+      - run: pip install -r requirements.txt
+
+      - name: Regenerate synthetic demo data (seeded, must be deterministic)
+        run: python3 examples/example-hotels/generate_demo_data.py
+
+      - name: Fail if regenerated data drifted from what's committed
+        run: git diff --exit-code examples/example-hotels/inbox/
+
+      - name: Validate every period
+        run: |
+          set -e
+          for period in 01-2026 02-2026 03-2026; do
+            python3 skills/analysis/scripts/validate_data.py "$period" \
+              --config-dir examples/example-hotels/config \
+              --inbox-dir examples/example-hotels/inbox
+          done
+
+      - name: Preprocess + analyze every period into a scratch directory
+        run: |
+          set -e
+          mkdir -p /tmp/ci-outputs
+          for period in 01-2026 02-2026 03-2026; do
+            python3 skills/analysis/scripts/preprocess.py "$period" \
+              --config-dir examples/example-hotels/config \
+              --inbox-dir examples/example-hotels/inbox \
+              --outputs-dir /tmp/ci-outputs
+            python3 skills/analysis/scripts/analyze.py "$period" \
+              --config-dir examples/example-hotels/config \
+              --inbox-dir examples/example-hotels/inbox \
+              --outputs-dir /tmp/ci-outputs
+          done
+
+      - name: Fail if regenerated analysis JSON drifted from what's committed
+        run: |
+          set -e
+          for f in /tmp/ci-outputs/analysis_*.json; do
+            name=$(basename "$f")
+            diff "$f" "examples/example-hotels/outputs/$name"
+          done
+
+      - name: Smoke-test the renderers against the committed narratives
+        run: |
+          set -e
+          for period in 01-2026 02-2026 03-2026; do
+            cp examples/example-hotels/outputs/narrative_*_"$period".json /tmp/ci-outputs/
+            python3 skills/analysis/scripts/render_analysis.py "$period" --outputs-dir /tmp/ci-outputs
+            python3 skills/dashboard/scripts/render_dashboard.py "$period" \
+              --config-dir examples/example-hotels/config --outputs-dir /tmp/ci-outputs
+          done
+
+  deploy-pages:
+    runs-on: ubuntu-latest
+    needs: [test, regenerate-demo]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: examples/example-hotels/outputs
+      - id: deployment
+        uses: actions/deploy-pages@v4

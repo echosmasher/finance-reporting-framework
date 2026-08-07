@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example Hotels — Live Demo</title>
+<style>
+  body { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; color: #20242A;
+         background: #F4F1EC; margin: 0; padding: 2rem 1.5rem 3rem; }
+  .page { max-width: 880px; margin: 0 auto; }
+  header { background: #1B3A4B; color: #fff; padding: 2rem 1.75rem; border-radius: 10px; margin-bottom: 1.5rem; }
+  .wordmark { color: #C9A05C; font-weight: 700; letter-spacing: 0.08em; font-variant: small-caps; font-size: 0.95rem; }
+  header h1 { margin: 0.35rem 0 0.5rem; font-size: 1.6rem; }
+  header p { margin: 0; opacity: 0.9; max-width: 60ch; line-height: 1.5; }
+  header a { color: #C9A05C; }
+  .entity-card {
+    background: #fff; border: 1px solid #DDD8CE; border-radius: 10px;
+    padding: 1.25rem 1.5rem; margin-bottom: 1rem;
+  }
+  .entity-card h2 { margin: 0 0 0.15rem; font-size: 1.1rem; color: #1B3A4B; }
+  .entity-card .meta { font-size: 0.85rem; color: #55606B; margin-bottom: 0.9rem; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  th, td { text-align: left; padding: 0.4rem 0.5rem; border-bottom: 1px solid #EEECE5; }
+  th { font-size: 0.75rem; text-transform: uppercase; color: #55606B; font-weight: 600; }
+  a.report-link { color: #1B3A4B; text-decoration: none; font-weight: 600; }
+  a.report-link:hover { text-decoration: underline; }
+  a.dash-link { color: #8a6a2e; }
+  footer { text-align: center; font-size: 0.8rem; color: #55606B; margin-top: 2rem; }
+  footer a { color: #1B3A4B; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="wordmark">Example Hotels</div>
+    <h1>Live demo — finance-reporting-framework</h1>
+    <p>
+      Four fictional Nordic properties, three months of synthetic data,
+      four planted stories the analysis catches (and one clean quarter
+      where it correctly doesn't manufacture a problem). See
+      <a href="https://github.com/echosmasher/finance-reporting-framework">the repo</a>
+      for how this was built, or
+      <a href="https://github.com/echosmasher/finance-reporting-framework/blob/main/examples/example-hotels/README.md">this demo's README</a>
+      for the exact numbers behind each story.
+    </p>
+  </header>
+
+  <div class="entity-card">
+    <h2>Example Hotel Oslo <span style="font-weight:400;color:#55606B">(001, NOK)</span></h2>
+    <div class="meta">Missing electricity invoice in February, caught up in March — see Feb/Mar Utilities.</div>
+    <table>
+      <tr><th>Period</th><th>Dashboard</th><th>Analyst Report</th></tr>
+      <tr><td>Jan 2026</td><td><a class="dash-link" href="001-Dashboard_01-2026.html">Dashboard</a></td><td><a class="report-link" href="001-Analysis_01-2026.html">Analysis</a></td></tr>
+      <tr><td>Feb 2026</td><td><a class="dash-link" href="001-Dashboard_02-2026.html">Dashboard</a></td><td><a class="report-link" href="001-Analysis_02-2026.html">Analysis</a></td></tr>
+      <tr><td>Mar 2026</td><td><a class="dash-link" href="001-Dashboard_03-2026.html">Dashboard</a></td><td><a class="report-link" href="001-Analysis_03-2026.html">Analysis</a></td></tr>
+    </table>
+  </div>
+
+  <div class="entity-card">
+    <h2>Example Hotel Bergen <span style="font-weight:400;color:#55606B">(002, NOK)</span></h2>
+    <div class="meta">F&amp;B inventory write-off in February — see Feb F&amp;B Cost of Sales.</div>
+    <table>
+      <tr><th>Period</th><th>Dashboard</th><th>Analyst Report</th></tr>
+      <tr><td>Jan 2026</td><td><a class="dash-link" href="002-Dashboard_01-2026.html">Dashboard</a></td><td><a class="report-link" href="002-Analysis_01-2026.html">Analysis</a></td></tr>
+      <tr><td>Feb 2026</td><td><a class="dash-link" href="002-Dashboard_02-2026.html">Dashboard</a></td><td><a class="report-link" href="002-Analysis_02-2026.html">Analysis</a></td></tr>
+      <tr><td>Mar 2026</td><td><a class="dash-link" href="002-Dashboard_03-2026.html">Dashboard</a></td><td><a class="report-link" href="002-Analysis_03-2026.html">Analysis</a></td></tr>
+    </table>
+  </div>
+
+  <div class="entity-card">
+    <h2>Example Hotel Stockholm <span style="font-weight:400;color:#55606B">(003, SEK)</span></h2>
+    <div class="meta">The clean entity — GOP beats Budget every month, no manufactured concerns.</div>
+    <table>
+      <tr><th>Period</th><th>Dashboard</th><th>Analyst Report</th></tr>
+      <tr><td>Jan 2026</td><td><a class="dash-link" href="003-Dashboard_01-2026.html">Dashboard</a></td><td><a class="report-link" href="003-Analysis_01-2026.html">Analysis</a></td></tr>
+      <tr><td>Feb 2026</td><td><a class="dash-link" href="003-Dashboard_02-2026.html">Dashboard</a></td><td><a class="report-link" href="003-Analysis_02-2026.html">Analysis</a></td></tr>
+      <tr><td>Mar 2026</td><td><a class="dash-link" href="003-Dashboard_03-2026.html">Dashboard</a></td><td><a class="report-link" href="003-Analysis_03-2026.html">Analysis</a></td></tr>
+    </table>
+  </div>
+
+  <div class="entity-card">
+    <h2>Example Hotel Copenhagen <span style="font-weight:400;color:#55606B">(004, DKK)</span></h2>
+    <div class="meta">Payroll running well above Budget in March while occupancy is flat — see Mar Rooms Payroll.</div>
+    <table>
+      <tr><th>Period</th><th>Dashboard</th><th>Analyst Report</th></tr>
+      <tr><td>Jan 2026</td><td><a class="dash-link" href="004-Dashboard_01-2026.html">Dashboard</a></td><td><a class="report-link" href="004-Analysis_01-2026.html">Analysis</a></td></tr>
+      <tr><td>Feb 2026</td><td><a class="dash-link" href="004-Dashboard_02-2026.html">Dashboard</a></td><td><a class="report-link" href="004-Analysis_02-2026.html">Analysis</a></td></tr>
+      <tr><td>Mar 2026</td><td><a class="dash-link" href="004-Dashboard_03-2026.html">Dashboard</a></td><td><a class="report-link" href="004-Analysis_03-2026.html">Analysis</a></td></tr>
+    </table>
+  </div>
+
+  <footer>
+    All figures are synthetic. <a href="https://github.com/echosmasher/finance-reporting-framework">finance-reporting-framework</a> on GitHub.
+  </footer>
+</div>
+</body>
+</html>
