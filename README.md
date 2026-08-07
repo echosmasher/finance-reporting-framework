@@ -15,7 +15,7 @@ captured once during setup.**
 | ![Oslo dashboard — Utilities missing-invoice flag](docs/screenshots/dashboard-oslo-feb.png) | ![Copenhagen dashboard — payroll/occupancy divergence](docs/screenshots/dashboard-copenhagen-mar.png) | ![Stockholm dashboard — clean, all-favorable quarter](docs/screenshots/dashboard-stockholm-mar.png) |
 | Example Hotel Oslo, Feb 2026 | Example Hotel Copenhagen, Mar 2026 | Example Hotel Stockholm, Mar 2026 |
 
-**Live demo:** _add the GitHub Pages URL here once CI deploys it (task 24)._
+**Live demo:** [echosmasher.github.io/finance-reporting-framework](https://echosmasher.github.io/finance-reporting-framework/)
 Or skip straight to the committed HTML — see Quickstart below, no
 deployment needed to look around.
 
