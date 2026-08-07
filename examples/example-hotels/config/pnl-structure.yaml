@@ -1,0 +1,160 @@
+# P&L structure — Example Hotels
+# Captured by /setup Phase C. Ordered category hierarchy + subtotal formulas
+# + terminology, used verbatim in every generated report and dashboard.
+#
+# Contract: preprocess.py recomputes every subtotal below from the leaf
+# categories on every run — source-export subtotal rows are never trusted;
+# a mismatch is a warning (see PLAN.md §6 step 3).
+
+terminology:
+  # Comparison basis in scope for this demo: Budget only (annual budget,
+  # not re-forecast). No rolling forecast and no Last Year data in v1 demo
+  # — both are optional per the engine's graceful-degradation rule.
+  comparison_basis: budget
+  comparison_label: "Budget"        # column header / narrative label to use verbatim
+  last_year_available: false
+  focus_metric: gop                 # id of the subtotal the audience cares about most (company-profile.md)
+  secondary_metric: ebitda
+
+# Ordered leaf categories. `id` is the stable key used by account-mapping.csv,
+# thresholds.yaml, and investigation-guide.md. `group` places the category in
+# the cascade below. Order within a group is the order categories render in
+# on the P&L table.
+categories:
+  # --- Revenue ---------------------------------------------------------
+  - id: rooms_revenue
+    label: "Rooms Revenue"
+    group: revenue
+  - id: fb_revenue
+    label: "F&B Revenue"
+    group: revenue
+  - id: spa_revenue
+    label: "Spa & Wellness Revenue"
+    group: revenue
+    applies_to_brands: [Signature]   # Compact-brand entities have no Spa department
+  - id: other_ops_revenue
+    label: "Other Operated Departments Revenue"
+    group: revenue
+  - id: misc_income
+    label: "Miscellaneous & Rental Income"
+    group: revenue
+
+  # --- Departmental expenses -------------------------------------------
+  - id: rooms_payroll
+    label: "Rooms – Payroll & Related"
+    group: departmental_expense
+  - id: rooms_other_exp
+    label: "Rooms – Other Expenses"
+    group: departmental_expense
+  - id: fb_cogs
+    label: "F&B – Cost of Sales"
+    group: departmental_expense
+  - id: fb_payroll
+    label: "F&B – Payroll & Related"
+    group: departmental_expense
+  - id: fb_other_exp
+    label: "F&B – Other Expenses"
+    group: departmental_expense
+  - id: spa_payroll
+    label: "Spa & Wellness – Payroll & Related"
+    group: departmental_expense
+    applies_to_brands: [Signature]
+  - id: spa_other_exp
+    label: "Spa & Wellness – Other Expenses"
+    group: departmental_expense
+    applies_to_brands: [Signature]
+  - id: other_ops_exp
+    label: "Other Operated Departments – Expenses"
+    group: departmental_expense
+
+  # --- Undistributed operating expenses --------------------------------
+  - id: admin_general
+    label: "Administrative & General"
+    group: undistributed_expense
+  - id: sales_marketing
+    label: "Sales & Marketing"
+    group: undistributed_expense
+  - id: property_ops_maint
+    label: "Property Operations & Maintenance"
+    group: undistributed_expense
+  - id: utilities
+    label: "Utilities"
+    group: undistributed_expense
+  - id: it_systems
+    label: "IT & Systems"
+    group: undistributed_expense
+  - id: hr_training
+    label: "Human Resources & Training"
+    group: undistributed_expense
+  - id: security
+    label: "Security"
+    group: undistributed_expense
+
+  # --- Fixed charges (below GOP) ----------------------------------------
+  - id: management_fees
+    label: "Management Fees"
+    group: fixed_charge
+  - id: franchise_fees
+    label: "Franchise & Brand Fees"
+    group: fixed_charge
+  - id: insurance
+    label: "Property & Liability Insurance"
+    group: fixed_charge
+  - id: property_tax
+    label: "Property Tax & Licenses"
+    group: fixed_charge
+  - id: rent_lease
+    label: "Rent / Lease"
+    group: fixed_charge
+
+  # --- Below EBITDA (informational; excluded from GOP/EBITDA focus) -----
+  - id: depreciation
+    label: "Depreciation & Amortization"
+    group: below_ebitda
+  - id: interest_expense
+    label: "Interest Expense"
+    group: below_ebitda
+
+# Ordered subtotal cascade. Each formula references category ids and/or
+# earlier subtotal ids. `sum_group` sums every leaf category with that
+# `group`, restricted to categories whose applies_to_brands (if set)
+# includes the entity's brand.
+subtotals:
+  - id: total_revenue
+    label: "Total Revenue"
+    formula: "sum_group(revenue)"
+  - id: total_departmental_expenses
+    label: "Total Departmental Expenses"
+    formula: "sum_group(departmental_expense)"
+  - id: departmental_profit
+    label: "Departmental Profit"
+    formula: "total_revenue - total_departmental_expenses"
+  - id: total_undistributed_expenses
+    label: "Total Undistributed Operating Expenses"
+    formula: "sum_group(undistributed_expense)"
+  - id: gop
+    label: "Gross Operating Profit (GOP)"
+    formula: "departmental_profit - total_undistributed_expenses"
+    is_focus_metric: true
+  - id: total_fixed_charges
+    label: "Total Fixed Charges"
+    formula: "sum_group(fixed_charge)"
+  - id: ebitda
+    label: "EBITDA"
+    formula: "gop - total_fixed_charges"
+  - id: ebit
+    label: "EBIT"
+    formula: "ebitda - depreciation"
+  - id: pretax_income
+    label: "Pre-tax Income"
+    formula: "ebit - interest_expense"
+
+# Derived margin ratios referenced by kpi-definitions.yaml and the
+# dashboard's profitability summary.
+ratios:
+  - id: gop_pct
+    label: "GOP %"
+    formula: "gop / total_revenue"
+  - id: ebitda_pct
+    label: "EBITDA %"
+    formula: "ebitda / total_revenue"

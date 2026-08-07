@@ -1,0 +1,92 @@
+# Materiality thresholds — Example Hotels
+# Captured by /setup Phase E. A category is flagged INVESTIGATE when it
+# breaches BOTH its percentage and absolute threshold vs Budget; NOTE when
+# it breaches only one; ON TARGET otherwise (see analyze.py, PLAN.md §6).
+# Entities report in different local currencies (see entities.csv), so
+# absolute thresholds are defined per currency, not per entity.
+
+# Default thresholds applied to any category without an explicit override.
+default:
+  pct: 3.0                 # +/- 3% variance vs Budget
+  absolute_by_currency:
+    NOK: 20000
+    SEK: 20000
+    DKK: 15000
+
+# Per-category overrides. Revenue categories use a tighter percentage
+# (swings matter more read against Budget) but a looser absolute floor
+# (revenue lines are naturally larger than most cost lines). The six
+# categories covered by investigation-guide.md get the tightest bands,
+# since those are the group's known largest/most volatile cost drivers.
+category_overrides:
+  rooms_revenue:
+    pct: 2.0
+    absolute_by_currency: { NOK: 30000, SEK: 30000, DKK: 22000 }
+  fb_revenue:
+    pct: 2.0
+    absolute_by_currency: { NOK: 15000, SEK: 15000, DKK: 11000 }
+  total_revenue:
+    pct: 2.0
+    absolute_by_currency: { NOK: 40000, SEK: 40000, DKK: 30000 }
+
+  utilities:
+    pct: 4.0
+    absolute_by_currency: { NOK: 10000, SEK: 10000, DKK: 7500 }
+  fb_cogs:
+    pct: 3.0
+    absolute_by_currency: { NOK: 8000, SEK: 8000, DKK: 6000 }
+  rooms_payroll:
+    pct: 3.0
+    absolute_by_currency: { NOK: 15000, SEK: 15000, DKK: 11000 }
+  fb_payroll:
+    pct: 3.0
+    absolute_by_currency: { NOK: 10000, SEK: 10000, DKK: 7500 }
+  property_ops_maint:
+    pct: 4.0
+    absolute_by_currency: { NOK: 8000, SEK: 8000, DKK: 6000 }
+  admin_general:
+    pct: 3.0
+    absolute_by_currency: { NOK: 8000, SEK: 8000, DKK: 6000 }
+
+  # Focus-metric subtotals get the group's tightest band — a GOP miss is
+  # always worth a look even if no single category individually breached.
+  gop:
+    pct: 2.0
+    absolute_by_currency: { NOK: 25000, SEK: 25000, DKK: 18000 }
+  ebitda:
+    pct: 2.0
+    absolute_by_currency: { NOK: 25000, SEK: 25000, DKK: 18000 }
+
+# Below this, an unmapped GL account in validate_data.py is a warning
+# (listed, not blocking); at or above it, validation hard-fails and names
+# the account (PLAN.md §6 step 2).
+unmapped_account_materiality_floor:
+  NOK: 5000
+  SEK: 5000
+  DKK: 3500
+
+# Known seasonality / recurring anomalies the analysis should NOT flag —
+# see company-profile.md "Industry & seasonality" for the narrative version.
+seasonality_notes:
+  - category: admin_general
+    period: "January (any year)"
+    note: >
+      Annual Property & Liability Insurance premium and external audit fee
+      are typically invoiced as a single charge in period 1 — expect a
+      spike vs the flat monthly Budget allocation; do not flag as anomalous
+      on pattern alone.
+  - category: rooms_payroll
+    entities: ["001", "002"]
+    period: "June (any year)"
+    note: >
+      Norwegian statutory holiday pay ("feriepenger") is accrued/paid out
+      as a June lump sum, on top of ordinary monthly payroll, at entities
+      001 and 002. Outside the 3-month demo window (Jan–Mar) but relevant
+      once /setup is re-run for a full fiscal year.
+  - category: fb_revenue
+    entities: ["002"]
+    period: "June–August"
+    note: >
+      Bergen's summer leisure and cruise-day-traffic season concentrates
+      revenue in Q3; a Q1 F&B revenue run-rate well below the annual
+      average is expected, not a shortfall.

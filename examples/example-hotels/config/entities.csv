@@ -1,0 +1,5 @@
+entity_code,name,country,currency,brand,size,segment_notes
+001,Example Hotel Oslo,Norway,NOK,Signature,Large,Flagship property; year-round corporate and leisure demand
+002,Example Hotel Bergen,Norway,NOK,Signature,Medium,Coastal city; strong summer leisure season, cruise-ship day traffic
+003,Example Hotel Stockholm,Sweden,SEK,Compact,Small,Limited-service compact-brand property; minimal F&B offering
+004,Example Hotel Copenhagen,Denmark,DKK,Signature,Medium,Conference-heavy; MICE-driven midweek occupancy, weaker weekends

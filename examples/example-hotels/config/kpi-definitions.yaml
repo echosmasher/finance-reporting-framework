@@ -1,0 +1,48 @@
+# KPI definitions — Example Hotels
+# Captured by /setup Phase G. All four KPIs are measured against Budget
+# (this company's only configured comparison basis — see
+# pnl-structure.yaml terminology.comparison_basis). Occupancy %, RevPAR,
+# and Revenue per FTE draw their non-P&L inputs (rooms available/sold,
+# FTE count) from the stats file — see data-dictionary.md.
+
+kpis:
+  - id: occupancy_pct
+    name: "Occupancy %"
+    formula: "rooms_sold / rooms_available"
+    denominator: >
+      Total available room-nights in the period (stats file
+      rooms_available), i.e. room count x days in period, less any rooms
+      out of order.
+    source: "stats file: rooms_sold_actual / rooms_available"
+    target_mode: budget
+    target_source: "stats file: rooms_sold_budget / rooms_available"
+    format: percent
+
+  - id: revpar
+    name: "RevPAR"
+    formula: "rooms_revenue / rooms_available"
+    denominator: "Total available room-nights in the period (stats file rooms_available)."
+    source: "P&L rooms_revenue actual / stats file rooms_available"
+    target_mode: budget
+    target_source: "P&L rooms_revenue budget / stats file rooms_available"
+    format: currency
+
+  - id: revenue_per_fte
+    name: "Revenue per FTE"
+    formula: "total_revenue / fte_actual"
+    denominator: >
+      Average full-time-equivalent headcount for the period across all
+      departments (stats file fte_actual) — not just Rooms/F&B.
+    source: "P&L total_revenue subtotal / stats file fte_actual"
+    target_mode: budget
+    target_source: "P&L total_revenue budget / stats file fte_budget"
+    format: currency
+
+  - id: gop_pct
+    name: "GOP %"
+    formula: "gop / total_revenue"
+    denominator: "Total Revenue for the period (P&L subtotal)."
+    source: "P&L subtotals only — gop / total_revenue, both actual"
+    target_mode: budget
+    target_source: "P&L subtotals only — gop / total_revenue, both budget"
+    format: percent

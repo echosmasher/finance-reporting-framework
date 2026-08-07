@@ -1,0 +1,126 @@
+gl_account,gl_account_name,category_id
+4000,Room Revenue – Transient,rooms_revenue
+4001,Room Revenue – Corporate Contract,rooms_revenue
+4002,Room Revenue – Group & MICE,rooms_revenue
+4003,Room Revenue – OTA Channel,rooms_revenue
+4004,Late Cancellation / No-show Revenue,rooms_revenue
+4005,Room Upgrade Revenue,rooms_revenue
+4006,Early Check-in / Late Check-out Fees,rooms_revenue
+4100,Restaurant Food Revenue,fb_revenue
+4101,Restaurant Beverage Revenue,fb_revenue
+4102,Banquet & Conference F&B Revenue,fb_revenue
+4103,Room Service Revenue,fb_revenue
+4104,Minibar Revenue,fb_revenue
+4105,Bar Revenue,fb_revenue
+4200,Spa Treatment Revenue,spa_revenue
+4201,Fitness & Wellness Membership Revenue,spa_revenue
+4202,Spa Retail Revenue,spa_revenue
+4203,Spa Day-Pass Revenue,spa_revenue
+4300,Parking Revenue,other_ops_revenue
+4301,Business Center Revenue,other_ops_revenue
+4302,Laundry & Valet Revenue,other_ops_revenue
+4303,Gift Shop Revenue,other_ops_revenue
+4400,Commission Income,misc_income
+4401,Rental Income – Retail Space,misc_income
+4402,Other Miscellaneous Income,misc_income
+4403,Foreign Exchange Gain,misc_income
+5000,Front Office Salaries,rooms_payroll
+5001,Housekeeping Salaries,rooms_payroll
+5002,Rooms Division Overtime,rooms_payroll
+5003,Rooms Division Payroll Tax & Benefits,rooms_payroll
+5004,Concierge & Guest Services Salaries,rooms_payroll
+5005,Rooms Division Temporary Labor,rooms_payroll
+5100,Guest Supplies,rooms_other_exp
+5101,Linen & Laundry,rooms_other_exp
+5102,Reservation & Distribution Costs,rooms_other_exp
+5103,Rooms Division Contract Cleaning,rooms_other_exp
+5104,Rooms Division Other Operating Expense,rooms_other_exp
+5105,Uniforms – Rooms Division,rooms_other_exp
+5200,Food Cost of Sales,fb_cogs
+5201,Beverage Cost of Sales,fb_cogs
+5202,Banquet Cost of Sales,fb_cogs
+5203,F&B Inventory Adjustment,fb_cogs
+5204,F&B Waste & Spoilage,fb_cogs
+5300,Kitchen Salaries,fb_payroll
+5301,Restaurant & Bar Salaries,fb_payroll
+5302,Banquet Service Salaries,fb_payroll
+5303,F&B Payroll Tax & Benefits,fb_payroll
+5304,F&B Temporary Labor,fb_payroll
+5400,"China, Glass & Silver",fb_other_exp
+5401,F&B Operating Supplies,fb_other_exp
+5402,F&B Contract Services,fb_other_exp
+5403,F&B Other Operating Expense,fb_other_exp
+5404,F&B Uniforms & Laundry,fb_other_exp
+5500,Spa Therapist Salaries,spa_payroll
+5501,Spa Reception Salaries,spa_payroll
+5502,Spa Payroll Tax & Benefits,spa_payroll
+5600,Spa Operating Supplies,spa_other_exp
+5601,Spa Retail Cost of Sales,spa_other_exp
+5602,Spa Equipment Maintenance,spa_other_exp
+5700,Parking Operating Expense,other_ops_exp
+5701,Business Center Operating Expense,other_ops_exp
+5702,Laundry & Valet Operating Expense,other_ops_exp
+5703,Gift Shop Cost of Sales,other_ops_exp
+6000,Executive Office Salaries,admin_general
+6001,Finance & Accounting Salaries,admin_general
+6002,Professional Fees – Legal,admin_general
+6003,Professional Fees – Audit,admin_general
+6004,Bank Charges & Merchant Fees,admin_general
+6005,Bad Debt Expense,admin_general
+6006,Office Supplies & Postage,admin_general
+6007,General Admin Other,admin_general
+6008,IT & Admin Travel,admin_general
+6009,Board & Owner Reporting Costs,admin_general
+6100,Sales Team Salaries,sales_marketing
+6101,Advertising & Media,sales_marketing
+6102,Digital Marketing & OTA Commission,sales_marketing
+6103,Public Relations,sales_marketing
+6104,Loyalty Program Costs,sales_marketing
+6105,Sales & Marketing Travel,sales_marketing
+6106,Trade Show & Sponsorship Costs,sales_marketing
+6107,Website & Photography,sales_marketing
+6200,Engineering Salaries,property_ops_maint
+6201,Building Repairs & Maintenance,property_ops_maint
+6202,Grounds & Landscaping,property_ops_maint
+6203,Elevator & Life Safety Contracts,property_ops_maint
+6204,Maintenance Supplies,property_ops_maint
+6205,"Furniture, Fixtures & Equipment Repairs",property_ops_maint
+6206,HVAC Service Contracts,property_ops_maint
+6207,Pest Control,property_ops_maint
+6300,Electricity,utilities
+6301,District Heating,utilities
+6302,Water & Sewer,utilities
+6303,Waste & Recycling,utilities
+6304,Fuel Oil / Backup Generator Fuel,utilities
+6400,PMS & POS System Fees,it_systems
+6401,IT Support Contract,it_systems
+6402,Telecom & Internet,it_systems
+6403,Software Licenses,it_systems
+6404,Guest Wi-Fi Infrastructure,it_systems
+6500,Recruitment Costs,hr_training
+6501,Staff Training & Development,hr_training
+6502,Employee Welfare & Uniforms,hr_training
+6503,HR Administration,hr_training
+6504,Staff Meals,hr_training
+6600,Security Staff & Contracts,security
+6601,Security Systems & Monitoring,security
+6602,CCTV Maintenance,security
+7000,Base Management Fee,management_fees
+7001,Incentive Management Fee,management_fees
+7002,Central Reservation System Fee,management_fees
+7100,Brand Franchise Fee,franchise_fees
+7101,Brand Marketing Assessment Fee,franchise_fees
+7200,Property Insurance,insurance
+7201,General Liability Insurance,insurance
+7202,Business Interruption Insurance,insurance
+7300,Municipal Property Tax,property_tax
+7301,Business Licenses & Permits,property_tax
+7400,Land Lease,rent_lease
+7401,Equipment Lease,rent_lease
+7402,Vehicle Lease,rent_lease
+7500,Depreciation – Buildings,depreciation
+7501,Depreciation – FF&E,depreciation
+7502,Amortization – Leasehold Improvements,depreciation
+7503,Amortization – IT Systems,depreciation
+7600,Interest on Term Loan,interest_expense
+7601,Interest on Revolving Credit Facility,interest_expense
