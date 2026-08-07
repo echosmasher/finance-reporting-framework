@@ -29,10 +29,14 @@ kpis:
 
   - id: revenue_per_fte
     name: "Revenue per FTE"
-    formula: "total_revenue / fte_actual"
+    # "fte", not "fte_actual" — the engine evaluates this formula once
+    # against an actual-values namespace and once against a budget-values
+    # namespace (see preprocess.py); a suffix baked into the variable name
+    # would only ever resolve on one of the two passes.
+    formula: "total_revenue / fte"
     denominator: >
       Average full-time-equivalent headcount for the period across all
-      departments (stats file fte_actual) — not just Rooms/F&B.
+      departments (stats file fte_actual/fte_budget) — not just Rooms/F&B.
     source: "P&L total_revenue subtotal / stats file fte_actual"
     target_mode: budget
     target_source: "P&L total_revenue budget / stats file fte_budget"

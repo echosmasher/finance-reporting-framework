@@ -149,6 +149,51 @@ subtotals:
     label: "Pre-tax Income"
     formula: "ebit - interest_expense"
 
+# The exact row order the P&L table renders in — categories and subtotals
+# interleaved, e.g. Total Revenue right after the last revenue category.
+# This is /setup Phase C's "elicit as an ordered hierarchy" step, captured
+# explicitly rather than re-derived, since a subtotal's natural position
+# isn't always "after its whole group" (EBIT sits between Depreciation and
+# Interest Expense, not after both). preprocess.py renders rows in this
+# order; it does not infer one.
+presentation_order:
+  - rooms_revenue
+  - fb_revenue
+  - spa_revenue
+  - other_ops_revenue
+  - misc_income
+  - total_revenue
+  - rooms_payroll
+  - rooms_other_exp
+  - fb_cogs
+  - fb_payroll
+  - fb_other_exp
+  - spa_payroll
+  - spa_other_exp
+  - other_ops_exp
+  - total_departmental_expenses
+  - departmental_profit
+  - admin_general
+  - sales_marketing
+  - property_ops_maint
+  - utilities
+  - it_systems
+  - hr_training
+  - security
+  - total_undistributed_expenses
+  - gop
+  - management_fees
+  - franchise_fees
+  - insurance
+  - property_tax
+  - rent_lease
+  - total_fixed_charges
+  - ebitda
+  - depreciation
+  - ebit
+  - interest_expense
+  - pretax_income
+
 # Derived margin ratios referenced by kpi-definitions.yaml and the
 # dashboard's profitability summary.
 ratios:

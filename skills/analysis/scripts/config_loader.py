@@ -41,6 +41,7 @@ class Config:
     categories_by_group: dict   # group -> [category_id, ...], in pnl-structure.yaml order
     subtotals: list             # [{id, label, formula, is_focus_metric?}, ...], in dependency order
     ratios: list                # [{id, label, formula}, ...]
+    presentation_order: list    # category/subtotal ids, interleaved P&L row order
     terminology: dict
     thresholds: dict
     kpis: list
@@ -105,6 +106,7 @@ def load_config(config_dir: Path) -> Config:
         categories_by_group=categories_by_group,
         subtotals=pnl["subtotals"],
         ratios=pnl["ratios"],
+        presentation_order=pnl["presentation_order"],
         terminology=pnl["terminology"],
         thresholds=thresholds,
         kpis=kpi_doc["kpis"],

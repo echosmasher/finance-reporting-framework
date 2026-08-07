@@ -83,7 +83,7 @@ a note (graceful degradation, `PLAN.md` §6).
 Sample row:
 ```
 entity_code,period,date,gl_account,vendor,description,department,amount
-001,02-2026,2026-02-14,6300,Oslo Energi AS,February electricity — catch-up invoice incl. Jan estimate correction,Property Operations,142300.00
+001,03-2026,2026-03-08,6300,Oslo Energi AS,Electricity invoice — catch-up billing includes unpaid February charges,Property Operations,202900.91
 ```
 
 ### 4. Stats — `{ENTITY}_stats_{PERIOD}.csv`
@@ -106,6 +106,29 @@ Sample row:
 ```
 entity_code,period,rooms_available,rooms_sold_actual,rooms_sold_budget,fte_actual,fte_budget
 001,01-2026,7440,5210,5100,142.5,140.0
+```
+
+### 5. Last Year (optional) — `{ENTITY}_lastyear_{PERIOD}.csv`
+
+Same shape as Actuals — prior-year actuals for the same calendar period,
+for companies with `pnl-structure.yaml` → `terminology.last_year_available:
+true`. Not used by this company (`last_year_available: false` — comparison
+basis is Budget only); omitted entirely from this demo's `inbox/`. If
+present, `preprocess.py` adds LY/LY % columns to the intermediate output;
+if absent (or the company doesn't have LY at all), those columns are
+dropped rather than shown empty (graceful degradation, `PLAN.md` §6).
+
+| Column | Type | Notes |
+|---|---|---|
+| `entity_code` | string | |
+| `period` | string | |
+| `gl_account` | string | |
+| `amount` | number | positive, local currency, prior year's actual for this period |
+
+Sample row:
+```
+entity_code,period,gl_account,amount
+001,01-2026,4000,538100.00
 ```
 
 ## Validation rules `validate_data.py` enforces
