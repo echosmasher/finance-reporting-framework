@@ -83,7 +83,7 @@ one-offs, `archon-comprehensive-pr-review` before merging anything substantial.
 - [x] 20. `docs/DEPLOYMENT.md` — the three tiers (file-based; Google Apps Script web app with `Code.gs` walkthrough + sandbox caveat; static hosting with the never-publish-real-financials warning) — blocked by 13
 - [x] 21. `docs/LESSONS_LEARNED.md` — genericized case studies: GAS iframe sandbox blocking write-backs, self-contained HTML over a served app, deterministic flagging separated from LLM narrative — blocked by 20
 - [x] 22. `ROADMAP.md` — PLAN §10 items, explicitly marked out of scope for v1
-- [ ] 23. `README.md` — pitch → screenshots → live demo link → problem → how it works → demo quickstart → own-company quickstart → architecture → deployment summary → roadmap → license. Budget real effort; this is the portfolio's front door — blocked by 17, 19, 20, 21, 22
+- [x] 23. `README.md` — pitch → screenshots → live demo link → problem → how it works → demo quickstart → own-company quickstart → architecture → deployment summary → roadmap → license. Budget real effort; this is the portfolio's front door — blocked by 17, 19, 20, 21, 22 — **live demo URL is a placeholder until task 24 deploys GitHub Pages**
 - [ ] 24. CI (GitHub Actions): run tests + regenerate the demo analysis on push; deploy one demo dashboard to GitHub Pages — blocked by 17
 - [ ] 25. Final review — fresh-clone test (README quickstart → rendered dashboard using only committed files), CI green, and PLAN's publish checklist: grep for real company names/brands/property codes/benchmarks (zero hits), all demo numbers synthetic, no company specifics outside `config/` and `examples/`, dashboards verified offline, screenshots current — blocked by 23, 24
 
