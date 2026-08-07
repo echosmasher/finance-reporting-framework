@@ -19,7 +19,7 @@ one-offs, `archon-comprehensive-pr-review` before merging anything substantial.
 
 ## Phase 1 — Demo data foundation
 
-- [ ] 1. Scaffold repo structure per PLAN §3: `skills/`, `config/`, `inbox/`, `outputs/`, `references/`, `examples/`, `docs/`, `tests/` with `.gitkeep`s; MIT `LICENSE`; extend `.gitignore`; `CLAUDE.md` stub (PLAN §8)
+- [x] 1. Scaffold repo structure per PLAN §3: `skills/`, `config/`, `inbox/`, `outputs/`, `references/`, `examples/`, `docs/`, `tests/` with `.gitkeep`s; MIT `LICENSE`; extend `.gitignore`; `CLAUDE.md` stub (PLAN §8)
 - [ ] 2. Hand-write the Example Hotels config layer (`examples/example-hotels/config/`) — all 9 files from PLAN §5.2: `company-profile.md`, `entities.csv` (4 entities + country), `pnl-structure.yaml`, `account-mapping.csv` (~25–35 categories over ~150 GL accounts), `thresholds.yaml`, `investigation-guide.md` (6 cost categories), `kpi-definitions.yaml` (Occupancy %, RevPAR, Revenue per FTE, GOP %), `data-dictionary.md`, `brand.md`. This doubles as the reference example of every config schema — blocked by 1
 - [ ] 3. Build `examples/example-hotels/generate_demo_data.py` — 3 months (01-2026…03-2026) × 4 entities of P&L actuals, budget/forecast, and GL transactions, each in its entity's local currency (NOK/SEK/DKK) — blocked by 2
 - [ ] 4. Plant the stories in the generated data (energy gap from a missing invoice in M2; F&B COGS spike with inventory adjustment; payroll deviation tracking occupancy; one entity cleanly beating forecast) and document them in `examples/example-hotels/README.md` so a reviewer can verify the analysis catches them — blocked by 3
@@ -69,3 +69,4 @@ one-offs, `archon-comprehensive-pr-review` before merging anything substantial.
 - Clean-room rule: no real company names, benchmarks, account codes, thresholds, or property codes from any prior employer, anywhere. Task 25 greps for this, but it's cheaper to never write it.
 - Everything in PLAN §10 (ROADMAP) is out of scope for v1 — including partially. Resist YTD views, consolidation, and multi-currency roll-ups even when the data makes them look easy.
 - Demo entity codes are plain numerics (`001`–`004`); currency follows the entity's country via the demo config's country → currency map, not a hardcoded table.
+- Task 1 gotcha: the working-directory `.gitignore` rules (`inbox/*`, `outputs/*`, `config/*`, `references/*`) must stay **root-anchored** (`/inbox/*`, not `inbox/*`) — unanchored, they also match `examples/example-hotels/{inbox,outputs}`, whose contents are the committed demo data and must never be ignored.
