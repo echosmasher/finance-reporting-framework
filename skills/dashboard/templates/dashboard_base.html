@@ -1,0 +1,132 @@
+<!doctype html>
+<!--
+  Dashboard shell for /dashboard (PLAN.md §7). render_dashboard.py fills
+  every {{TOKEN}} below via plain string substitution (no templating
+  dependency) — brand tokens from config/brand.md's fenced yaml block,
+  content fragments built by render_dashboard.py's own render_* functions
+  from an entity's analysis_{ENTITY}_{PERIOD}.json + narrative JSON.
+  Single file, inline CSS, zero external requests (PLAN.md §7.2) — do not
+  add a <link>, <script src>, @import, or any other external reference
+  here or in what fills these tokens.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ENTITY_NAME}} — {{PERIOD}}</title>
+<style>
+  :root {
+    --primary: {{PRIMARY_COLOR}};
+    --secondary: {{SECONDARY_COLOR}};
+    --neutral-dark: {{NEUTRAL_DARK}};
+    --neutral-light: {{NEUTRAL_LIGHT}};
+    --surface: {{SURFACE}};
+    --border: {{BORDER}};
+    --status-on-target: {{STATUS_ON_TARGET_COLOR}};
+    --status-on-target-bg: {{STATUS_ON_TARGET_BG}};
+    --status-note: {{STATUS_NOTE_COLOR}};
+    --status-note-bg: {{STATUS_NOTE_BG}};
+    --status-investigate: {{STATUS_INVESTIGATE_COLOR}};
+    --status-investigate-bg: {{STATUS_INVESTIGATE_BG}};
+    --focus-metric-bg: {{FOCUS_METRIC_BG}};
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--neutral-light); color: var(--neutral-dark);
+    font-family: {{FONT_FAMILY_STACK}};
+    font-variant-numeric: tabular-nums;
+  }
+  .page { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+  header.masthead {
+    background: var(--primary); color: var(--surface);
+    padding: 2rem 1.5rem; margin-bottom: -1.5rem;
+  }
+  header.masthead .inner { max-width: 1080px; margin: 0 auto; display: flex;
+    align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+  .wordmark { color: var(--secondary); font-weight: 700; letter-spacing: 0.08em;
+    font-variant: small-caps; font-size: 0.95rem; }
+  header.masthead h1 { margin: 0.35rem 0 0; font-size: 1.6rem; font-weight: 600; }
+  header.masthead .period { color: var(--secondary); font-size: 1rem; }
+  section {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 1.5rem 1.75rem; margin-top: 1.5rem;
+  }
+  section > h2 {
+    margin: 0 0 1rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;
+    color: var(--primary); font-weight: 600;
+  }
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
+  .kpi-card { border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; }
+  .kpi-card .label { font-size: 0.82rem; color: var(--neutral-dark); opacity: 0.7; }
+  .kpi-card .value { font-size: 1.6rem; font-weight: 700; color: var(--primary); margin: 0.2rem 0; }
+  .kpi-card .delta { font-size: 0.85rem; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+  th, td { text-align: right; padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--border); }
+  th:first-child, td:first-child { text-align: left; }
+  th { font-weight: 600; color: var(--neutral-dark); opacity: 0.65; font-size: 0.78rem; text-transform: uppercase; }
+  tr.subtotal td { font-weight: 700; border-top: 1px solid var(--primary); }
+  tr.focus-metric td { background: var(--focus-metric-bg); font-weight: 700; }
+  .status-pill { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.1rem 0.55rem;
+    border-radius: 999px; font-size: 0.78rem; font-weight: 600; white-space: nowrap; }
+  .status-on-target { color: var(--status-on-target); background: var(--status-on-target-bg); }
+  .status-note { color: var(--status-note); background: var(--status-note-bg); }
+  .status-investigate { color: var(--status-investigate); background: var(--status-investigate-bg); }
+  .highlight-card { border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; margin-top: 1rem; }
+  .highlight-card h3 { margin: 0 0 0.5rem; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+  .highlight-card p { margin: 0; line-height: 1.55; }
+  details { margin-top: 0.75rem; }
+  summary { cursor: pointer; font-size: 0.85rem; color: var(--primary); font-weight: 600; }
+  .drill-table { margin-top: 0.6rem; }
+  footer { text-align: center; font-size: 0.78rem; color: var(--neutral-dark); opacity: 0.55;
+    margin-top: 2rem; padding-bottom: 1rem; }
+  @media (max-width: 640px) {
+    header.masthead .inner { flex-direction: column; align-items: flex-start; }
+    section { padding: 1.1rem 1.1rem; }
+    table { font-size: 0.82rem; }
+    th, td { padding: 0.4rem 0.35rem; }
+  }
+  @media print {
+    body { background: var(--surface); }
+    header.masthead { margin-bottom: 0; }
+    section { border: none; page-break-inside: avoid; }
+    details { display: block; }
+    summary { display: none; }
+  }
+</style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="inner">
+      <div>
+        {{LOGO_HTML}}
+        <h1>{{ENTITY_NAME}}</h1>
+      </div>
+      <div class="period">{{PERIOD}} &middot; vs {{COMPARISON_LABEL}}</div>
+    </div>
+  </header>
+
+  <div class="page">
+    <section>
+      <h2>Key Performance Indicators</h2>
+      {{KPI_CARDS_HTML}}
+    </section>
+
+    <section>
+      <h2>Profitability Summary</h2>
+      {{PROFITABILITY_SUMMARY_HTML}}
+    </section>
+
+    <section>
+      <h2>P&amp;L</h2>
+      {{PNL_TABLE_HTML}}
+    </section>
+
+    <section>
+      <h2>Deviation Highlights</h2>
+      {{DEVIATION_HIGHLIGHTS_HTML}}
+    </section>
+
+    <footer>Generated by the finance-reporting-framework &mdash; self-contained, no external requests.</footer>
+  </div>
+</body>
+</html>

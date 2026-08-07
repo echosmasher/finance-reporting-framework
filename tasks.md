@@ -37,7 +37,7 @@ one-offs, `archon-comprehensive-pr-review` before merging anything substantial.
 
 ## Phase 3 — Dashboard
 
-- [ ] 11. `skills/dashboard/templates/dashboard_base.html` — header/brand, KPI cards, profitability summary, P&L table, deviation highlights, collapsible `<details>` drill-down; inline CSS only; print-friendly; mobile-sensible; color-blind-safe statuses (color + icon/label) — blocked by 7
+- [x] 11. `skills/dashboard/templates/dashboard_base.html` — header/brand, KPI cards, profitability summary, P&L table, deviation highlights, collapsible `<details>` drill-down; inline CSS only; print-friendly; mobile-sensible; color-blind-safe statuses (color + icon/label) — blocked by 7
 - [ ] 12. `skills/dashboard/scripts/render_dashboard.py` — brand-token injection from `brand.md` (with default theme fallback), base64 logo embedding, inline data, zero external requests → `outputs/{ENTITY}-Dashboard_{PERIOD}.html` — blocked by 11
 - [ ] 13. `skills/dashboard/SKILL.md` — invocation/scoping, missing-config refusal, and the closing deployment-tier recommendation dialogue (asks about tools/permissions) — blocked by 12
   - *Acceptance:* renders offline with zero network requests (verify in devtools), applies Example Hotels brand tokens, prints cleanly, drill-down present for flagged categories only
