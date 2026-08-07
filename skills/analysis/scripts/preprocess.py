@@ -96,24 +96,32 @@ def compute_ratios(pnl_values: dict, config) -> dict:
 
 
 def compute_kpis(pnl_actual: dict, pnl_budget: dict, stats_row: dict, config) -> dict:
+    """stats_row is {} when a company has no stats file (it's optional —
+    see validate_data.py). A KPI whose formula needs a stats field that
+    isn't present (e.g. "rooms_sold / rooms_available" with no stats
+    file at all) is silently omitted from the result rather than
+    crashing the run — a pure-P&L KPI like GOP % still computes fine."""
     kpis = {}
-    values_actual = {
-        **pnl_actual,
-        "rooms_sold": float(stats_row["rooms_sold_actual"]),
-        "rooms_available": float(stats_row["rooms_available"]),
-        "fte": float(stats_row["fte_actual"]),
-    }
-    values_budget = {
-        **pnl_budget,
-        "rooms_sold": float(stats_row["rooms_sold_budget"]),
-        "rooms_available": float(stats_row["rooms_available"]),
-        "fte": float(stats_row["fte_budget"]),
-    }
+    values_actual = dict(pnl_actual)
+    values_budget = dict(pnl_budget)
+    if "rooms_sold_actual" in stats_row:
+        values_actual["rooms_sold"] = float(stats_row["rooms_sold_actual"])
+        values_budget["rooms_sold"] = float(stats_row["rooms_sold_budget"])
+    if "rooms_available" in stats_row:
+        values_actual["rooms_available"] = float(stats_row["rooms_available"])
+        values_budget["rooms_available"] = float(stats_row["rooms_available"])
+    if "fte_actual" in stats_row:
+        values_actual["fte"] = float(stats_row["fte_actual"])
+        values_budget["fte"] = float(stats_row["fte_budget"])
+
     for kpi in config.kpis:
-        kpis[kpi["id"]] = {
-            "actual": eval_formula(kpi["formula"], values_actual, config),
-            "budget": eval_formula(kpi["formula"], values_budget, config),
-        }
+        try:
+            kpis[kpi["id"]] = {
+                "actual": eval_formula(kpi["formula"], values_actual, config),
+                "budget": eval_formula(kpi["formula"], values_budget, config),
+            }
+        except KeyError:
+            continue
     return kpis
 
 
@@ -168,8 +176,11 @@ def preprocess_period(entity_code: str, period: str, config, inbox_dir: Path) ->
             pnl_last_year = compute_pnl(aggregate_categories(load_account_amounts(ly_path), config), config)
             has_last_year = True
 
-    with open(inbox_dir / f"{entity_code}_stats_{period}.csv", newline="") as f:
-        stats_row = next(csv.DictReader(f))
+    stats_path = inbox_dir / f"{entity_code}_stats_{period}.csv"
+    stats_row = {}
+    if stats_path.exists():
+        with open(stats_path, newline="") as f:
+            stats_row = next(csv.DictReader(f))
 
     return PeriodData(
         entity_code=entity_code,

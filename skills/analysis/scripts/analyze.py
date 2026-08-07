@@ -141,9 +141,15 @@ def build_pnl_entries(data, config, currency: str) -> list:
 
 
 def build_kpi_entries(data, config) -> list:
+    """A KPI is absent from data.kpis when its formula needed a stats
+    field the entity's stats file didn't have (or there was no stats
+    file at all — optional, see validate_data.py) — skipped, not an
+    error; a pure-P&L KPI still computes fine without one."""
     entries = []
     for kpi in config.kpis:
         kpi_id = kpi["id"]
+        if kpi_id not in data.kpis:
+            continue
         act, budget = data.kpis[kpi_id]["actual"], data.kpis[kpi_id]["budget"]
         classification = classify_kpi(kpi_id, act, budget, kpi["format"], config)
         entries.append(dict(

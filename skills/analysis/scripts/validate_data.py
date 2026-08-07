@@ -19,8 +19,17 @@ from config_loader import Config, ConfigError, load_config
 
 PERIOD_RE = re.compile(r"^(0[1-9]|1[0-2])-(\d{4})$")
 
-REQUIRED_FILE_TYPES = ["actuals", "budget", "stats"]
-OPTIONAL_FILE_TYPES = ["transactions"]
+REQUIRED_FILE_TYPES = ["actuals", "budget"]
+# "stats" is optional: a company whose KPIs are all pure P&L ratios
+# (e.g. GOP %) has no need to supply operational data (rooms/FTE for
+# Example Hotels) it doesn't have. Any KPI whose formula needs a stats
+# field that isn't present is skipped, not hard-required — see
+# preprocess.py's compute_kpis(). The stats file's own column names
+# (rooms_available, fte_actual, ...) are still fixed by this engine,
+# not derived from config — a real v1 limitation for a company whose
+# operational-data KPIs don't fit that hotel-shaped schema (e.g. "units
+# produced" instead of "rooms sold"); see data-dictionary.md.
+OPTIONAL_FILE_TYPES = ["stats", "transactions"]
 
 FILE_COLUMNS = {
     "actuals": ["entity_code", "period", "gl_account", "amount"],

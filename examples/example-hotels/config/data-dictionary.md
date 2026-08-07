@@ -91,6 +91,19 @@ entity_code,period,date,gl_account,vendor,description,department,amount
 Non-P&L operational data needed by the KPIs in `kpi-definitions.yaml`
 (Occupancy %, RevPAR, Revenue per FTE all need rooms-available and/or FTE
 data that doesn't live on the P&L). One row per entity per period.
+Optional — a company whose KPIs are all pure P&L ratios (GOP % alone,
+say) doesn't need one; `preprocess.py` omits any KPI that needs a stats
+field from the analysis JSON rather than failing.
+
+**v1 limitation, disclosed rather than hidden:** the columns below are
+fixed by `validate_data.py`/`preprocess.py`, not derived from this
+company's own config — they're hotel-shaped (rooms, FTE) because this
+demo is a hotel chain. A different industry wanting operational-data
+KPIs with a genuinely different shape (e.g. "units produced" instead of
+"rooms sold") would need an engine change here, not just a config
+change. `/setup` Phase G can still define any KPI that's a pure P&L
+ratio (no stats dependency) for any industry without this limitation
+applying.
 
 | Column | Type | Notes |
 |---|---|---|
