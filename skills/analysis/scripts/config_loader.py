@@ -1,4 +1,7 @@
-"""Load a company's config/ layer (PLAN.md §5.2) for the analysis engine.
+"""Load a company's config/ layer (PLAN.md §5.2). Shared by both the
+/analysis and /dashboard skills — it lives under skills/analysis/scripts/
+since that's where it was needed first, but skills/dashboard/scripts/
+render_dashboard.py imports it too (see that file's sys.path setup).
 
 Generic across companies: nothing here or in the callers references
 Example Hotels or any other company by name — every company-specific
@@ -6,6 +9,7 @@ value comes from the config/ directory passed in. See CLAUDE.md's
 engine/config separation rule.
 """
 import csv
+import re
 import sys
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -112,6 +116,25 @@ def load_config(config_dir: Path) -> Config:
         kpis=kpi_doc["kpis"],
         kpi_thresholds=thresholds.get("kpi_thresholds", {}),
     )
+
+
+BRAND_YAML_BLOCK_RE = re.compile(r"```yaml\n(.*?)\n```", re.DOTALL)
+
+
+def load_brand(config_dir: Path) -> dict:
+    """brand.md is a human-readable doc (tables + prose) for the /setup
+    interview, with one fenced ```yaml block of the same tokens for
+    render_dashboard.py to read. Returns that block parsed; raises
+    ConfigError if brand.md has no such block (e.g. someone hand-edited
+    it and deleted it — fail loudly rather than rendering with silently
+    wrong colors)."""
+    config_dir = Path(config_dir)
+    brand_path = config_dir / "brand.md"
+    text = brand_path.read_text()
+    match = BRAND_YAML_BLOCK_RE.search(text)
+    if not match:
+        raise ConfigError(f"{brand_path} has no fenced ```yaml token block — see the demo's brand.md for the expected shape.")
+    return yaml.safe_load(match.group(1))
 
 
 def fail(message: str):
