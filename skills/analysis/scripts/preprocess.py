@@ -21,7 +21,7 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 
-from config_loader import ConfigError, load_config
+from config_loader import EXPENSE_GROUPS, ConfigError, load_config, load_data_conventions
 from validate_data import validate_period
 
 
@@ -63,23 +63,32 @@ def eval_formula(formula: str, values: dict, config) -> float:
     raise ValueError(f"cannot evaluate formula: {formula!r}")
 
 
-def load_account_amounts(path: Path) -> dict:
+def load_account_amounts(path: Path, delimiter: str = ",") -> dict:
     amounts = {}
     with open(path, newline="") as f:
-        for row in csv.DictReader(f):
+        for row in csv.DictReader(f, delimiter=delimiter):
             amounts[row["gl_account"]] = amounts.get(row["gl_account"], 0.0) + float(row["amount"])
     return amounts
 
 
-def aggregate_categories(account_amounts: dict, config) -> dict:
+def aggregate_categories(account_amounts: dict, config, sign_convention: str = "all_positive") -> dict:
     """Sums leaf GL accounts into category totals. Every category id is
     present (defaulting to 0.0) so sum_group() and later formulas never
     KeyError on a category with no postings this period (e.g. Spa &
-    Wellness for a Compact-brand entity)."""
+    Wellness for a Compact-brand entity).
+
+    Normalizes to costs-positive internally regardless of the source
+    file's sign_convention (data-dictionary.md) — a company whose ERP
+    exports costs as negative numbers ("costs_negative") still produces
+    the same category totals a company using "all_positive" would, so
+    every subtotal formula in pnl-structure.yaml always sees the same
+    sign and doesn't need to know which convention was used."""
     totals = {cid: 0.0 for cid in config.category_to_group}
     for gl_account, amount in account_amounts.items():
         category_id = config.account_to_category.get(gl_account)
         if category_id is not None:
+            if sign_convention == "costs_negative" and config.category_to_group.get(category_id) in EXPENSE_GROUPS:
+                amount = -amount
             totals[category_id] += amount
     return totals
 
@@ -163,24 +172,27 @@ def preprocess_period(entity_code: str, period: str, config, inbox_dir: Path) ->
             + "\n".join(f"  - {e}" for e in result.errors)
         )
 
-    actual_accounts = load_account_amounts(inbox_dir / f"{entity_code}_actuals_{period}.csv")
-    budget_accounts = load_account_amounts(inbox_dir / f"{entity_code}_budget_{period}.csv")
-    pnl_actual = compute_pnl(aggregate_categories(actual_accounts, config), config)
-    pnl_budget = compute_pnl(aggregate_categories(budget_accounts, config), config)
+    conventions = load_data_conventions(config.config_dir)
+    delimiter, sign_convention = conventions["delimiter"], conventions["sign_convention"]
+
+    actual_accounts = load_account_amounts(inbox_dir / f"{entity_code}_actuals_{period}.csv", delimiter)
+    budget_accounts = load_account_amounts(inbox_dir / f"{entity_code}_budget_{period}.csv", delimiter)
+    pnl_actual = compute_pnl(aggregate_categories(actual_accounts, config, sign_convention), config)
+    pnl_budget = compute_pnl(aggregate_categories(budget_accounts, config, sign_convention), config)
 
     pnl_last_year = None
     has_last_year = False
     if config.terminology.get("last_year_available"):
         ly_path = inbox_dir / f"{entity_code}_lastyear_{period}.csv"
         if ly_path.exists():
-            pnl_last_year = compute_pnl(aggregate_categories(load_account_amounts(ly_path), config), config)
+            pnl_last_year = compute_pnl(aggregate_categories(load_account_amounts(ly_path, delimiter), config, sign_convention), config)
             has_last_year = True
 
     stats_path = inbox_dir / f"{entity_code}_stats_{period}.csv"
     stats_row = {}
     if stats_path.exists():
         with open(stats_path, newline="") as f:
-            stats_row = next(csv.DictReader(f))
+            stats_row = next(csv.DictReader(f, delimiter=delimiter))
 
     return PeriodData(
         entity_code=entity_code,

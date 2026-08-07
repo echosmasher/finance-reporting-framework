@@ -28,6 +28,21 @@ REQUIRED_CONFIG_FILES = [
     "brand.md",
 ]
 
+# pnl-structure.yaml groups that are costs (higher actual = worse).
+# Shared by validate_data.py (sign-convention checks) and analyze.py
+# (favorability direction) so there's one definition, not two that could
+# drift apart.
+EXPENSE_GROUPS = {"departmental_expense", "undistributed_expense", "fixed_charge", "below_ebitda"}
+
+DEFAULT_CONVENTIONS = {
+    "delimiter": ",",
+    "decimal_separator": ".",
+    "thousands_separator": "",
+    "encoding": "utf-8",
+    "date_format": "%Y-%m-%d",
+    "sign_convention": "all_positive",
+}
+
 
 class ConfigError(Exception):
     """Raised when config/ is missing or incomplete. Callers (SKILL.md's
@@ -121,23 +136,34 @@ def load_config(config_dir: Path) -> Config:
     )
 
 
-BRAND_YAML_BLOCK_RE = re.compile(r"```yaml\n(.*?)\n```", re.DOTALL)
+YAML_BLOCK_RE = re.compile(r"```yaml\n(.*?)\n```", re.DOTALL)
+
+
+def extract_yaml_block(path: Path) -> dict:
+    """Several config files are human-readable docs (tables + prose) for
+    the /setup interview, with one fenced ```yaml block of the same
+    values for a script to read — brand.md (render_dashboard.py) and
+    data-dictionary.md (validate_data.py/preprocess.py). Raises
+    ConfigError if the file has no such block (e.g. someone hand-edited
+    it and deleted it — fail loudly rather than silently using wrong
+    values)."""
+    text = path.read_text()
+    match = YAML_BLOCK_RE.search(text)
+    if not match:
+        raise ConfigError(f"{path} has no fenced ```yaml token block — see the demo's version of this file for the expected shape.")
+    return yaml.safe_load(match.group(1))
 
 
 def load_brand(config_dir: Path) -> dict:
-    """brand.md is a human-readable doc (tables + prose) for the /setup
-    interview, with one fenced ```yaml block of the same tokens for
-    render_dashboard.py to read. Returns that block parsed; raises
-    ConfigError if brand.md has no such block (e.g. someone hand-edited
-    it and deleted it — fail loudly rather than rendering with silently
-    wrong colors)."""
-    config_dir = Path(config_dir)
-    brand_path = config_dir / "brand.md"
-    text = brand_path.read_text()
-    match = BRAND_YAML_BLOCK_RE.search(text)
-    if not match:
-        raise ConfigError(f"{brand_path} has no fenced ```yaml token block — see the demo's brand.md for the expected shape.")
-    return yaml.safe_load(match.group(1))
+    return extract_yaml_block(Path(config_dir) / "brand.md")
+
+
+def load_data_conventions(config_dir: Path) -> dict:
+    """DEFAULT_CONVENTIONS filled in with whatever data-dictionary.md's
+    fenced block overrides — a company that never touches the defaults
+    (comma delimiter, all-positive amounts) doesn't need to repeat them."""
+    overrides = extract_yaml_block(Path(config_dir) / "data-dictionary.md").get("conventions", {})
+    return {**DEFAULT_CONVENTIONS, **overrides}
 
 
 def fail(message: str):

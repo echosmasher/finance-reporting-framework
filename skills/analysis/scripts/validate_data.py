@@ -15,7 +15,7 @@ import sys
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from config_loader import Config, ConfigError, load_config
+from config_loader import EXPENSE_GROUPS, Config, ConfigError, load_config, load_data_conventions
 
 PERIOD_RE = re.compile(r"^(0[1-9]|1[0-2])-(\d{4})$")
 
@@ -66,10 +66,23 @@ def unmapped_account_floor(config: Config, currency: str) -> float:
     return float(config.thresholds["unmapped_account_materiality_floor"][currency])
 
 
+def amount_sign_ok(value: float, category_id, config: Config, sign_convention: str) -> bool:
+    """actuals/budget/transactions "amount" column only — stats numeric
+    columns (rooms_available, etc.) are operational counts, always
+    checked as plain non-negative regardless of sign_convention, not
+    routed through this function."""
+    if sign_convention == "all_positive" or category_id is None:
+        return value >= 0
+    if sign_convention == "costs_negative":
+        is_expense = config.category_to_group.get(category_id) in EXPENSE_GROUPS
+        return value <= 0 if is_expense else value >= 0
+    return True  # unrecognized convention: permissive rather than crashing
+
+
 def validate_file(path: Path, file_type: str, entity_code: str, period: str,
-                   config: Config, result: ValidationResult):
+                   config: Config, result: ValidationResult, conventions: dict):
     with open(path, newline="") as f:
-        reader = csv.DictReader(f)
+        reader = csv.DictReader(f, delimiter=conventions["delimiter"])
         expected = FILE_COLUMNS[file_type]
         if reader.fieldnames != expected:
             result.errors.append(
@@ -80,6 +93,8 @@ def validate_file(path: Path, file_type: str, entity_code: str, period: str,
         entity = config.entities.get(entity_code, {})
         currency = entity.get("currency")
         brand = entity.get("brand")
+        is_pnl_file = file_type in ("actuals", "budget", "transactions")
+        sign_convention = conventions["sign_convention"]
 
         for row_num, row in enumerate(reader, start=2):  # header is row 1
             if row["entity_code"] != entity_code:
@@ -93,6 +108,8 @@ def validate_file(path: Path, file_type: str, entity_code: str, period: str,
                     f"does not match filename period '{period}'"
                 )
 
+            category_id = config.account_to_category.get(row["gl_account"]) if is_pnl_file else None
+
             for col in NUMERIC_COLUMNS[file_type]:
                 try:
                     value = float(row[col])
@@ -102,15 +119,21 @@ def validate_file(path: Path, file_type: str, entity_code: str, period: str,
                         f"'{row[col]}' is not a number"
                     )
                     continue
-                if value < 0:
+                if col == "amount" and is_pnl_file:
+                    if not amount_sign_ok(value, category_id, config, sign_convention):
+                        result.errors.append(
+                            f"{path.name} row {row_num}, column '{col}': "
+                            f"{value} doesn't match data-dictionary.md's sign_convention "
+                            f"'{sign_convention}' for category '{category_id}'"
+                        )
+                elif value < 0:
                     result.errors.append(
                         f"{path.name} row {row_num}, column '{col}': "
-                        f"{value} is negative (data-dictionary.md sign convention: all amounts are positive)"
+                        f"{value} is negative (must be non-negative)"
                     )
 
-            if file_type in ("actuals", "budget", "transactions"):
+            if is_pnl_file:
                 gl_account = row["gl_account"]
-                category_id = config.account_to_category.get(gl_account)
                 if category_id is None:
                     amount = _safe_float(row.get("amount"))
                     floor = unmapped_account_floor(config, currency) if currency else None
@@ -146,6 +169,8 @@ def validate_period(period: str, entity_codes: list, config: Config, inbox_dir: 
         result.errors.append(f"period '{period}' is not a valid MM-YYYY calendar month")
         return result
 
+    conventions = load_data_conventions(config.config_dir)
+
     for entity_code in entity_codes:
         if entity_code not in config.entities:
             result.errors.append(f"entity_code '{entity_code}' is not in entities.csv")
@@ -156,7 +181,7 @@ def validate_period(period: str, entity_codes: list, config: Config, inbox_dir: 
             path = inbox_dir / f"{entity_code}_{file_type}_{period}.csv"
             found[file_type] = path.exists()
             if path.exists():
-                validate_file(path, file_type, entity_code, period, config, result)
+                validate_file(path, file_type, entity_code, period, config, result, conventions)
         result.files_found[entity_code] = found
 
         missing_required = [ft for ft in REQUIRED_FILE_TYPES if not found[ft]]

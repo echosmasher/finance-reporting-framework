@@ -1,6 +1,16 @@
 # Data Dictionary — Test Fixture
 
-Same conventions as `examples/example-hotels/config/data-dictionary.md`
-(comma-delimited, period decimal, UTF-8, `MM-YYYY` periods, all amounts
-positive). Not exercised by the test suite's assertions — exists only so
-`config_loader.require_config()` sees a complete config layer.
+Same conventions as `examples/example-hotels/config/data-dictionary.md`.
+`validate_data.py`/`preprocess.py` read the fenced block below, same as
+the real demo config — this file became load-bearing once
+`load_data_conventions()` started requiring every config to have one.
+
+```yaml
+conventions:
+  delimiter: ","
+  decimal_separator: "."
+  thousands_separator: ""
+  encoding: "utf-8"
+  date_format: "%Y-%m-%d"
+  sign_convention: "all_positive"
+```

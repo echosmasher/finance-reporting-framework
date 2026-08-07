@@ -6,6 +6,38 @@ playback. This is the contract `validate_data.py`, `preprocess.py`, and
 
 ## Conventions (apply to every file below)
 
+The table is for a human reading this file. `validate_data.py` and
+`preprocess.py` read *only* the fenced block below — keep them in sync
+if you edit either by hand.
+
+```yaml
+conventions:
+  delimiter: ","
+  decimal_separator: "."
+  thousands_separator: ""
+  encoding: "utf-8"
+  date_format: "%Y-%m-%d"
+  sign_convention: "all_positive"   # all_positive | costs_negative
+```
+
+`sign_convention: all_positive` means every amount in every file is
+positive; revenue vs. expense is inferred from the account's
+`category_id` (its `group` in `pnl-structure.yaml`), never from a sign
+in the source file. `costs_negative` means departmental/undistributed/
+fixed-charge/below-EBITDA accounts are stored negative and revenue
+accounts positive (a common real-world ERP export convention) —
+`preprocess.py` normalizes to costs-positive internally either way, so
+every subtotal formula in `pnl-structure.yaml` always sees the same
+sign regardless of which convention the source files use.
+`decimal_separator`/`thousands_separator` are documented here for a
+human but **not** currently read by the engine — every number must use
+a plain period-decimal, no-thousands-separator format (`1234.56`, not
+`1.234,56` or `1,234.56`) regardless of what's declared; a company
+whose ERP can't export that way needs a conversion step before this
+framework sees the file. This is a disclosed v1 limitation, not
+silently-wrong behavior — the `Decimal separator`/`Thousands separator`
+rows below describe what's *documented*, not what's *enforced*.
+
 | Convention | Value |
 |---|---|
 | Delimiter | comma (`,`) |

@@ -16,7 +16,7 @@ import json
 import sys
 from pathlib import Path
 
-from config_loader import ConfigError, load_config
+from config_loader import EXPENSE_GROUPS, ConfigError, load_config, load_data_conventions
 from preprocess import PreprocessError, preprocess_period
 
 STATUS_ON_TARGET = "ON TARGET"
@@ -178,12 +178,22 @@ def build_revenue_mix(data, config) -> list:
     return mix
 
 
-def load_transactions(entity_code: str, period: str, inbox_dir: Path) -> list:
+def load_transactions(entity_code: str, period: str, inbox_dir: Path, config, conventions: dict) -> list:
     path = inbox_dir / f"{entity_code}_transactions_{period}.csv"
     if not path.exists():
         return []
     with open(path, newline="") as f:
-        return list(csv.DictReader(f))
+        rows = list(csv.DictReader(f, delimiter=conventions["delimiter"]))
+    if conventions["sign_convention"] == "costs_negative":
+        # Normalize to positive for display, same as aggregate_categories
+        # does for P&L totals — a drill-down shouldn't show negative
+        # amounts while the P&L table above it shows the same costs
+        # positive.
+        for t in rows:
+            category_id = config.account_to_category.get(t["gl_account"])
+            if config.category_to_group.get(category_id) in EXPENSE_GROUPS:
+                t["amount"] = str(-float(t["amount"]))
+    return rows
 
 
 def build_drill_down(category_id: str, transactions: list, config) -> dict:
@@ -217,7 +227,8 @@ def analyze_period(entity_code: str, period: str, config, inbox_dir: Path) -> di
     flags = [e for e in pnl_entries if e["status"] != STATUS_ON_TARGET] + \
             [e for e in kpi_entries if e["status"] != STATUS_ON_TARGET]
 
-    transactions = load_transactions(entity_code, period, inbox_dir)
+    conventions = load_data_conventions(config.config_dir)
+    transactions = load_transactions(entity_code, period, inbox_dir, config, conventions)
     drill_downs = {}
     for entry in pnl_entries:
         if entry["kind"] == "category" and entry["status"] != STATUS_ON_TARGET:
