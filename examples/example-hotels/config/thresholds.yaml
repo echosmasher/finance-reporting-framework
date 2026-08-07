@@ -57,6 +57,20 @@ category_overrides:
     pct: 2.0
     absolute_by_currency: { NOK: 25000, SEK: 25000, DKK: 18000 }
 
+# KPI thresholds (kpi-definitions.yaml). A currency absolute floor doesn't
+# translate meaningfully to a per-room or percentage-point KPI, so these
+# use a simpler two-tier deviation-only shape instead of the category
+# pct+absolute AND logic: below notice = ON TARGET, at/above notice but
+# below investigate = NOTE, at/above investigate = INVESTIGATE.
+# occupancy_pct/gop_pct are already percentages, so their thresholds are
+# in percentage points (pp) of absolute deviation from Budget. revpar/
+# revenue_per_fte are currency-per-unit values, so theirs are relative %.
+kpi_thresholds:
+  occupancy_pct: { notice_pp: 3.0, investigate_pp: 6.0 }
+  gop_pct: { notice_pp: 2.0, investigate_pp: 4.0 }
+  revpar: { notice_pct: 3.0, investigate_pct: 6.0 }
+  revenue_per_fte: { notice_pct: 4.0, investigate_pct: 8.0 }
+
 # Below this, an unmapped GL account in validate_data.py is a warning
 # (listed, not blocking); at or above it, validation hard-fails and names
 # the account (PLAN.md §6 step 2).
