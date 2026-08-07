@@ -43,6 +43,7 @@ class Config:
     category_to_group: dict     # category_id -> group (revenue/departmental_expense/...)
     category_labels: dict       # category_id -> label
     categories_by_group: dict   # group -> [category_id, ...], in pnl-structure.yaml order
+    category_applies_to: dict   # category_id -> [entity attribute value, ...] or None (applies to all)
     subtotals: list             # [{id, label, formula, is_focus_metric?}, ...], in dependency order
     ratios: list                # [{id, label, formula}, ...]
     presentation_order: list    # category/subtotal ids, interleaved P&L row order
@@ -87,6 +88,7 @@ def load_config(config_dir: Path) -> Config:
 
     category_to_group = {c["id"]: c["group"] for c in pnl["categories"]}
     category_labels = {c["id"]: c["label"] for c in pnl["categories"]}
+    category_applies_to = {c["id"]: c.get("applies_to_brands") for c in pnl["categories"]}
     for s in pnl["subtotals"]:
         category_labels[s["id"]] = s["label"]
 
@@ -108,6 +110,7 @@ def load_config(config_dir: Path) -> Config:
         category_to_group=category_to_group,
         category_labels=category_labels,
         categories_by_group=categories_by_group,
+        category_applies_to=category_applies_to,
         subtotals=pnl["subtotals"],
         ratios=pnl["ratios"],
         presentation_order=pnl["presentation_order"],

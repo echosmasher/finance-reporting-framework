@@ -143,8 +143,12 @@ entity_code,period,gl_account,amount
 - `amount` (and stats numeric columns) must parse as a non-negative
   number — this data dictionary's sign convention means a negative
   value is always a data error, never a legitimate credit/contra entry.
-- Spa & Wellness (`spa_revenue`, `spa_payroll`, `spa_other_exp`)
-  accounts posting for a Compact-brand entity (see `entities.csv`
-  `brand` column) are a warning, not a hard fail — the department
-  genuinely doesn't exist for that brand, but a stray posting should
-  still surface for review.
+- A category whose `pnl-structure.yaml` entry has `applies_to_brands`
+  set is a warning, not a hard fail, if it posts for an entity whose
+  `entities.csv` `brand` isn't in that list — the engine reads this
+  generically off `pnl-structure.yaml`, it doesn't hardcode which
+  categories or brands this applies to. For Example Hotels: Spa &
+  Wellness (`spa_revenue`, `spa_payroll`, `spa_other_exp`) is scoped to
+  `[Signature]`, since the Compact brand genuinely has no Spa
+  department — but a stray posting should still surface for review
+  rather than being silently accepted or hard-failing.

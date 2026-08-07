@@ -113,12 +113,14 @@ def validate_file(path: Path, file_type: str, entity_code: str, period: str,
                         result.errors.append(message)
                     else:
                         result.warnings.append(message)
-                elif category_id.startswith("spa_") and brand and brand != "Signature":
-                    result.warnings.append(
-                        f"{path.name} row {row_num}: gl_account '{gl_account}' "
-                        f"({category_id}) posted for {brand}-brand entity '{entity_code}', "
-                        f"which has no Spa & Wellness department"
-                    )
+                else:
+                    allowed_brands = config.category_applies_to.get(category_id)
+                    if allowed_brands and brand and brand not in allowed_brands:
+                        result.warnings.append(
+                            f"{path.name} row {row_num}: gl_account '{gl_account}' "
+                            f"({category_id}) posted for {brand}-brand entity '{entity_code}', "
+                            f"but pnl-structure.yaml scopes this category to {allowed_brands}"
+                        )
 
 
 def _safe_float(value):
