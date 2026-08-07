@@ -1,0 +1,445 @@
+<!doctype html>
+<!--
+  Dashboard shell for /dashboard (PLAN.md §7). render_dashboard.py fills
+  every {{TOKEN}} below via plain string substitution (no templating
+  dependency) — brand tokens from config/brand.md's fenced yaml block,
+  content fragments built by render_dashboard.py's own render_* functions
+  from an entity's analysis_{ENTITY}_{PERIOD}.json + narrative JSON.
+  Single file, inline CSS, zero external requests (PLAN.md §7.2) — do not
+  add a <link>, <script src>, @import, or any other external reference
+  here or in what fills these tokens.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example Hotel Bergen — 03-2026</title>
+<style>
+  :root {
+    --primary: #1B3A4B;
+    --secondary: #C9A05C;
+    --neutral-dark: #20242A;
+    --neutral-light: #F4F1EC;
+    --surface: #FFFFFF;
+    --border: #DDD8CE;
+    --status-on-target: #2E7D4F;
+    --status-on-target-bg: rgb(226,237,230);
+    --status-note: #B8860B;
+    --status-note-bg: rgb(245,238,221);
+    --status-investigate: #B23A3A;
+    --status-investigate-bg: rgb(244,227,227);
+    --focus-metric-bg: rgb(247,242,232);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--neutral-light); color: var(--neutral-dark);
+    font-family: Inter, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-variant-numeric: tabular-nums;
+  }
+  .page { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+  header.masthead {
+    background: var(--primary); color: var(--surface);
+    padding: 2rem 1.5rem; margin-bottom: -1.5rem;
+  }
+  header.masthead .inner { max-width: 1080px; margin: 0 auto; display: flex;
+    align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+  .wordmark { color: var(--secondary); font-weight: 700; letter-spacing: 0.08em;
+    font-variant: small-caps; font-size: 0.95rem; }
+  header.masthead h1 { margin: 0.35rem 0 0; font-size: 1.6rem; font-weight: 600; }
+  header.masthead .period { color: var(--secondary); font-size: 1rem; }
+  section {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 1.5rem 1.75rem; margin-top: 1.5rem;
+  }
+  section > h2 {
+    margin: 0 0 1rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;
+    color: var(--primary); font-weight: 600;
+  }
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
+  .kpi-card { border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; }
+  .kpi-card .label { font-size: 0.82rem; color: var(--neutral-dark); opacity: 0.7; }
+  .kpi-card .value { font-size: 1.6rem; font-weight: 700; color: var(--primary); margin: 0.2rem 0; }
+  .kpi-card .delta { font-size: 0.85rem; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+  th, td { text-align: right; padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--border); }
+  th:first-child, td:first-child { text-align: left; }
+  th { font-weight: 600; color: var(--neutral-dark); opacity: 0.65; font-size: 0.78rem; text-transform: uppercase; }
+  tr.subtotal td { font-weight: 700; border-top: 1px solid var(--primary); }
+  tr.focus-metric td { background: var(--focus-metric-bg); font-weight: 700; }
+  .status-pill { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.1rem 0.55rem;
+    border-radius: 999px; font-size: 0.78rem; font-weight: 600; white-space: nowrap; }
+  .status-on-target { color: var(--status-on-target); background: var(--status-on-target-bg); }
+  .status-note { color: var(--status-note); background: var(--status-note-bg); }
+  .status-investigate { color: var(--status-investigate); background: var(--status-investigate-bg); }
+  .highlight-card { border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; margin-top: 1rem; }
+  .highlight-card h3 { margin: 0 0 0.5rem; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+  .highlight-card p { margin: 0; line-height: 1.55; }
+  details { margin-top: 0.75rem; }
+  summary { cursor: pointer; font-size: 0.85rem; color: var(--primary); font-weight: 600; }
+  .drill-table { margin-top: 0.6rem; }
+  footer { text-align: center; font-size: 0.78rem; color: var(--neutral-dark); opacity: 0.55;
+    margin-top: 2rem; padding-bottom: 1rem; }
+  @media (max-width: 640px) {
+    header.masthead .inner { flex-direction: column; align-items: flex-start; }
+    section { padding: 1.1rem 1.1rem; }
+    table { font-size: 0.82rem; }
+    th, td { padding: 0.4rem 0.35rem; }
+  }
+  @media print {
+    body { background: var(--surface); }
+    header.masthead { margin-bottom: 0; }
+    section { border: none; page-break-inside: avoid; }
+    details { display: block; }
+    summary { display: none; }
+  }
+</style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="inner">
+      <div>
+        <div class="wordmark">EXAMPLE HOTELS</div>
+        <h1>Example Hotel Bergen</h1>
+      </div>
+      <div class="period">03-2026 &middot; vs Budget</div>
+    </div>
+  </header>
+
+  <div class="page">
+    <section>
+      <h2>Key Performance Indicators</h2>
+      <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="label">Occupancy %</div>
+            <div class="value">52.0%</div>
+            <div class="delta status-pill status-on-target">− vs 52.0% Budget</div>
+          </div>
+          <div class="kpi-card">
+            <div class="label">RevPAR</div>
+            <div class="value">647 NOK</div>
+            <div class="delta status-pill status-on-target">− vs 650 NOK Budget</div>
+          </div>
+          <div class="kpi-card">
+            <div class="label">Revenue per FTE</div>
+            <div class="value">52,706 NOK</div>
+            <div class="delta status-pill status-on-target">− vs 53,106 NOK Budget</div>
+          </div>
+          <div class="kpi-card">
+            <div class="label">GOP %</div>
+            <div class="value">29.0%</div>
+            <div class="delta status-pill status-on-target">+ vs 28.7% Budget</div>
+          </div></div>
+    </section>
+
+    <section>
+      <h2>Profitability Summary</h2>
+      <p>GOP came in at 1,302,532 NOK, 0.7% (8,988 NOK) ahead of Budget of 1,293,543 NOK — a clean result with nothing to flag this month.</p>
+    </section>
+
+    <section>
+      <h2>P&amp;L</h2>
+      
+    <table>
+      <thead><tr><th>Category</th><th>Actual</th><th>Budget</th>
+        <th>Diff</th><th>Diff %</th><th>Status</th></tr></thead>
+      <tbody>
+          <tr class="">
+            <td>Rooms Revenue</td>
+            <td>2,807,299 NOK</td>
+            <td>2,821,250 NOK</td>
+            <td>-13,951 NOK</td>
+            <td>-0.5%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>F&amp;B Revenue</td>
+            <td>1,260,698 NOK</td>
+            <td>1,269,563 NOK</td>
+            <td>-8,865 NOK</td>
+            <td>-0.7%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Spa &amp; Wellness Revenue</td>
+            <td>224,993 NOK</td>
+            <td>225,700 NOK</td>
+            <td>-707 NOK</td>
+            <td>-0.3%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Other Operated Departments Revenue</td>
+            <td>141,346 NOK</td>
+            <td>141,062 NOK</td>
+            <td>283 NOK</td>
+            <td>+0.2%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Miscellaneous &amp; Rental Income</td>
+            <td>56,257 NOK</td>
+            <td>56,425 NOK</td>
+            <td>-168 NOK</td>
+            <td>-0.3%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Total Revenue</td>
+            <td>4,490,593 NOK</td>
+            <td>4,514,000 NOK</td>
+            <td>-23,407 NOK</td>
+            <td>-0.5%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Rooms – Payroll &amp; Related</td>
+            <td>496,428 NOK</td>
+            <td>507,825 NOK</td>
+            <td>-11,397 NOK</td>
+            <td>-2.2%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Rooms – Other Expenses</td>
+            <td>226,532 NOK</td>
+            <td>225,700 NOK</td>
+            <td>832 NOK</td>
+            <td>+0.4%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>F&amp;B – Cost of Sales</td>
+            <td>374,044 NOK</td>
+            <td>380,869 NOK</td>
+            <td>-6,825 NOK</td>
+            <td>-1.8%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>F&amp;B – Payroll &amp; Related</td>
+            <td>441,335 NOK</td>
+            <td>444,347 NOK</td>
+            <td>-3,012 NOK</td>
+            <td>-0.7%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>F&amp;B – Other Expenses</td>
+            <td>125,373 NOK</td>
+            <td>126,956 NOK</td>
+            <td>-1,583 NOK</td>
+            <td>-1.2%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Spa &amp; Wellness – Payroll &amp; Related</td>
+            <td>68,350 NOK</td>
+            <td>67,710 NOK</td>
+            <td>640 NOK</td>
+            <td>+0.9%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Spa &amp; Wellness – Other Expenses</td>
+            <td>33,501 NOK</td>
+            <td>33,855 NOK</td>
+            <td>-354 NOK</td>
+            <td>-1.0%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Other Operated Departments – Expenses</td>
+            <td>56,180 NOK</td>
+            <td>56,425 NOK</td>
+            <td>-245 NOK</td>
+            <td>-0.4%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Total Departmental Expenses</td>
+            <td>1,821,743 NOK</td>
+            <td>1,843,687 NOK</td>
+            <td>-21,944 NOK</td>
+            <td>-1.2%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Departmental Profit</td>
+            <td>2,668,850 NOK</td>
+            <td>2,670,313 NOK</td>
+            <td>-1,463 NOK</td>
+            <td>-0.1%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Administrative &amp; General</td>
+            <td>357,962 NOK</td>
+            <td>361,120 NOK</td>
+            <td>-3,158 NOK</td>
+            <td>-0.9%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Sales &amp; Marketing</td>
+            <td>311,421 NOK</td>
+            <td>315,980 NOK</td>
+            <td>-4,559 NOK</td>
+            <td>-1.4%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Property Operations &amp; Maintenance</td>
+            <td>225,707 NOK</td>
+            <td>225,700 NOK</td>
+            <td>7 NOK</td>
+            <td>+0.0%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Utilities</td>
+            <td>224,368 NOK</td>
+            <td>225,700 NOK</td>
+            <td>-1,332 NOK</td>
+            <td>-0.6%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>IT &amp; Systems</td>
+            <td>89,978 NOK</td>
+            <td>90,280 NOK</td>
+            <td>-302 NOK</td>
+            <td>-0.3%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Human Resources &amp; Training</td>
+            <td>89,373 NOK</td>
+            <td>90,280 NOK</td>
+            <td>-907 NOK</td>
+            <td>-1.0%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Security</td>
+            <td>67,509 NOK</td>
+            <td>67,710 NOK</td>
+            <td>-201 NOK</td>
+            <td>-0.3%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Total Undistributed Operating Expenses</td>
+            <td>1,366,318 NOK</td>
+            <td>1,376,770 NOK</td>
+            <td>-10,452 NOK</td>
+            <td>-0.8%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal focus-metric">
+            <td>Gross Operating Profit (GOP)</td>
+            <td>1,302,532 NOK</td>
+            <td>1,293,543 NOK</td>
+            <td>8,988 NOK</td>
+            <td>+0.7%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Management Fees</td>
+            <td>133,402 NOK</td>
+            <td>135,420 NOK</td>
+            <td>-2,018 NOK</td>
+            <td>-1.5%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Franchise &amp; Brand Fees</td>
+            <td>133,040 NOK</td>
+            <td>135,420 NOK</td>
+            <td>-2,380 NOK</td>
+            <td>-1.8%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Property &amp; Liability Insurance</td>
+            <td>67,503 NOK</td>
+            <td>67,710 NOK</td>
+            <td>-207 NOK</td>
+            <td>-0.3%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Property Tax &amp; Licenses</td>
+            <td>45,188 NOK</td>
+            <td>45,140 NOK</td>
+            <td>48 NOK</td>
+            <td>+0.1%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Rent / Lease</td>
+            <td>90,251 NOK</td>
+            <td>90,280 NOK</td>
+            <td>-29 NOK</td>
+            <td>-0.0%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Total Fixed Charges</td>
+            <td>469,386 NOK</td>
+            <td>473,970 NOK</td>
+            <td>-4,584 NOK</td>
+            <td>-1.0%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal focus-metric">
+            <td>EBITDA</td>
+            <td>833,146 NOK</td>
+            <td>819,573 NOK</td>
+            <td>13,573 NOK</td>
+            <td>+1.7%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Depreciation &amp; Amortization</td>
+            <td>271,564 NOK</td>
+            <td>270,840 NOK</td>
+            <td>724 NOK</td>
+            <td>+0.3%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>EBIT</td>
+            <td>561,582 NOK</td>
+            <td>548,733 NOK</td>
+            <td>12,849 NOK</td>
+            <td>+2.3%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Interest Expense</td>
+            <td>67,215 NOK</td>
+            <td>67,710 NOK</td>
+            <td>-495 NOK</td>
+            <td>-0.7%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Pre-tax Income</td>
+            <td>494,367 NOK</td>
+            <td>481,023 NOK</td>
+            <td>13,343 NOK</td>
+            <td>+2.8%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr></tbody>
+    </table>
+    </section>
+
+    <section>
+      <h2>Deviation Highlights</h2>
+      <p>No categories or KPIs breached threshold this period.</p>
+    </section>
+
+    <footer>Generated by the finance-reporting-framework &mdash; self-contained, no external requests.</footer>
+  </div>
+</body>
+</html>

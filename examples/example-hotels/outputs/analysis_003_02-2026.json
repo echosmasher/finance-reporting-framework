@@ -1,0 +1,973 @@
+{
+  "entity_code": "003",
+  "entity_name": "Example Hotel Stockholm",
+  "period": "02-2026",
+  "currency": "SEK",
+  "comparison_label": "Budget",
+  "focus_metric": "gop",
+  "secondary_metric": "ebitda",
+  "pnl": [
+    {
+      "id": "rooms_revenue",
+      "label": "Rooms Revenue",
+      "kind": "category",
+      "act": 1404597.07,
+      "budget": 1388900.01,
+      "favorable": true,
+      "diff": 15697.06,
+      "diff_pct": 1.13,
+      "status": "ON TARGET",
+      "threshold_pct": 2.0,
+      "threshold_absolute": 38000
+    },
+    {
+      "id": "fb_revenue",
+      "label": "F&B Revenue",
+      "kind": "category",
+      "act": 208710.24,
+      "budget": 208335.0,
+      "favorable": true,
+      "diff": 375.24,
+      "diff_pct": 0.18,
+      "status": "ON TARGET",
+      "threshold_pct": 2.0,
+      "threshold_absolute": 5700
+    },
+    {
+      "id": "spa_revenue",
+      "label": "Spa & Wellness Revenue",
+      "kind": "category",
+      "act": 0.0,
+      "budget": 0.0,
+      "favorable": null,
+      "diff": 0.0,
+      "diff_pct": null,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "other_ops_revenue",
+      "label": "Other Operated Departments Revenue",
+      "kind": "category",
+      "act": 56460.27,
+      "budget": 55556.0,
+      "favorable": true,
+      "diff": 904.27,
+      "diff_pct": 1.63,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "misc_income",
+      "label": "Miscellaneous & Rental Income",
+      "kind": "category",
+      "act": 28063.33,
+      "budget": 27778.0,
+      "favorable": true,
+      "diff": 285.33,
+      "diff_pct": 1.03,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "total_revenue",
+      "label": "Total Revenue",
+      "kind": "subtotal",
+      "act": 1697830.91,
+      "budget": 1680569.01,
+      "favorable": true,
+      "diff": 17261.9,
+      "diff_pct": 1.03,
+      "status": "ON TARGET",
+      "threshold_pct": 2.0,
+      "threshold_absolute": 46000
+    },
+    {
+      "id": "rooms_payroll",
+      "label": "Rooms \u2013 Payroll & Related",
+      "kind": "category",
+      "act": 252782.4,
+      "budget": 250002.02,
+      "favorable": false,
+      "diff": 2780.38,
+      "diff_pct": 1.11,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 10000
+    },
+    {
+      "id": "rooms_other_exp",
+      "label": "Rooms \u2013 Other Expenses",
+      "kind": "category",
+      "act": 112556.86,
+      "budget": 111112.0,
+      "favorable": false,
+      "diff": 1444.86,
+      "diff_pct": 1.3,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "fb_cogs",
+      "label": "F&B \u2013 Cost of Sales",
+      "kind": "category",
+      "act": 62115.03,
+      "budget": 62500.5,
+      "favorable": true,
+      "diff": -385.47,
+      "diff_pct": -0.62,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 2600
+    },
+    {
+      "id": "fb_payroll",
+      "label": "F&B \u2013 Payroll & Related",
+      "kind": "category",
+      "act": 73090.25,
+      "budget": 72917.24,
+      "favorable": false,
+      "diff": 173.01,
+      "diff_pct": 0.24,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 3000
+    },
+    {
+      "id": "fb_other_exp",
+      "label": "F&B \u2013 Other Expenses",
+      "kind": "category",
+      "act": 20961.41,
+      "budget": 20833.51,
+      "favorable": false,
+      "diff": 127.9,
+      "diff_pct": 0.61,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "spa_payroll",
+      "label": "Spa & Wellness \u2013 Payroll & Related",
+      "kind": "category",
+      "act": 0.0,
+      "budget": 0.0,
+      "favorable": null,
+      "diff": 0.0,
+      "diff_pct": null,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "spa_other_exp",
+      "label": "Spa & Wellness \u2013 Other Expenses",
+      "kind": "category",
+      "act": 0.0,
+      "budget": 0.0,
+      "favorable": null,
+      "diff": 0.0,
+      "diff_pct": null,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "other_ops_exp",
+      "label": "Other Operated Departments \u2013 Expenses",
+      "kind": "category",
+      "act": 22311.43,
+      "budget": 22222.41,
+      "favorable": false,
+      "diff": 89.02,
+      "diff_pct": 0.4,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "total_departmental_expenses",
+      "label": "Total Departmental Expenses",
+      "kind": "subtotal",
+      "act": 543817.38,
+      "budget": 539587.68,
+      "favorable": false,
+      "diff": 4229.7,
+      "diff_pct": 0.78,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 22000
+    },
+    {
+      "id": "departmental_profit",
+      "label": "Departmental Profit",
+      "kind": "subtotal",
+      "act": 1154013.53,
+      "budget": 1140981.33,
+      "favorable": true,
+      "diff": 13032.2,
+      "diff_pct": 1.14,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 47000
+    },
+    {
+      "id": "admin_general",
+      "label": "Administrative & General",
+      "kind": "category",
+      "act": 135159.73,
+      "budget": 134445.51,
+      "favorable": false,
+      "diff": 714.22,
+      "diff_pct": 0.53,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 5500
+    },
+    {
+      "id": "sales_marketing",
+      "label": "Sales & Marketing",
+      "kind": "category",
+      "act": 119784.4,
+      "budget": 117639.83,
+      "favorable": false,
+      "diff": 2144.57,
+      "diff_pct": 1.82,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "property_ops_maint",
+      "label": "Property Operations & Maintenance",
+      "kind": "category",
+      "act": 77306.17,
+      "budget": 84028.45,
+      "favorable": true,
+      "diff": -6722.28,
+      "diff_pct": -8.0,
+      "status": "INVESTIGATE",
+      "threshold_pct": 4.0,
+      "threshold_absolute": 4600
+    },
+    {
+      "id": "utilities",
+      "label": "Utilities",
+      "kind": "category",
+      "act": 85114.47,
+      "budget": 84028.46,
+      "favorable": false,
+      "diff": 1086.01,
+      "diff_pct": 1.29,
+      "status": "ON TARGET",
+      "threshold_pct": 4.0,
+      "threshold_absolute": 4600
+    },
+    {
+      "id": "it_systems",
+      "label": "IT & Systems",
+      "kind": "category",
+      "act": 30922.47,
+      "budget": 33611.36,
+      "favorable": true,
+      "diff": -2688.89,
+      "diff_pct": -8.0,
+      "status": "NOTE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "hr_training",
+      "label": "Human Resources & Training",
+      "kind": "category",
+      "act": 33879.0,
+      "budget": 33611.38,
+      "favorable": false,
+      "diff": 267.62,
+      "diff_pct": 0.8,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "security",
+      "label": "Security",
+      "kind": "category",
+      "act": 25254.52,
+      "budget": 25208.53,
+      "favorable": false,
+      "diff": 45.99,
+      "diff_pct": 0.18,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "total_undistributed_expenses",
+      "label": "Total Undistributed Operating Expenses",
+      "kind": "subtotal",
+      "act": 507420.76,
+      "budget": 512573.52,
+      "favorable": true,
+      "diff": -5152.76,
+      "diff_pct": -1.01,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 21000
+    },
+    {
+      "id": "gop",
+      "label": "Gross Operating Profit (GOP)",
+      "kind": "subtotal",
+      "act": 646592.77,
+      "budget": 628407.81,
+      "favorable": true,
+      "diff": 18184.96,
+      "diff_pct": 2.89,
+      "status": "INVESTIGATE",
+      "threshold_pct": 2.0,
+      "threshold_absolute": 17000
+    },
+    {
+      "id": "management_fees",
+      "label": "Management Fees",
+      "kind": "category",
+      "act": 50677.14,
+      "budget": 50417.06,
+      "favorable": false,
+      "diff": 260.08,
+      "diff_pct": 0.52,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "franchise_fees",
+      "label": "Franchise & Brand Fees",
+      "kind": "category",
+      "act": 51454.13,
+      "budget": 50417.07,
+      "favorable": false,
+      "diff": 1037.06,
+      "diff_pct": 2.06,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "insurance",
+      "label": "Property & Liability Insurance",
+      "kind": "category",
+      "act": 25306.31,
+      "budget": 25208.54,
+      "favorable": false,
+      "diff": 97.77,
+      "diff_pct": 0.39,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "property_tax",
+      "label": "Property Tax & Licenses",
+      "kind": "category",
+      "act": 16831.55,
+      "budget": 16805.69,
+      "favorable": false,
+      "diff": 25.86,
+      "diff_pct": 0.15,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "rent_lease",
+      "label": "Rent / Lease",
+      "kind": "category",
+      "act": 33527.8,
+      "budget": 33611.38,
+      "favorable": true,
+      "diff": -83.58,
+      "diff_pct": -0.25,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "total_fixed_charges",
+      "label": "Total Fixed Charges",
+      "kind": "subtotal",
+      "act": 177796.93,
+      "budget": 176459.74,
+      "favorable": false,
+      "diff": 1337.19,
+      "diff_pct": 0.76,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 7200
+    },
+    {
+      "id": "ebitda",
+      "label": "EBITDA",
+      "kind": "subtotal",
+      "act": 468795.84,
+      "budget": 451948.07,
+      "favorable": true,
+      "diff": 16847.77,
+      "diff_pct": 3.73,
+      "status": "INVESTIGATE",
+      "threshold_pct": 2.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "depreciation",
+      "label": "Depreciation & Amortization",
+      "kind": "category",
+      "act": 100782.15,
+      "budget": 100834.14,
+      "favorable": true,
+      "diff": -51.99,
+      "diff_pct": -0.05,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "ebit",
+      "label": "EBIT",
+      "kind": "subtotal",
+      "act": 368013.69,
+      "budget": 351113.93,
+      "favorable": true,
+      "diff": 16899.76,
+      "diff_pct": 4.81,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 14000
+    },
+    {
+      "id": "interest_expense",
+      "label": "Interest Expense",
+      "kind": "category",
+      "act": 25185.9,
+      "budget": 25208.54,
+      "favorable": true,
+      "diff": -22.64,
+      "diff_pct": -0.09,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "pretax_income",
+      "label": "Pre-tax Income",
+      "kind": "subtotal",
+      "act": 342827.79,
+      "budget": 325905.39,
+      "favorable": true,
+      "diff": 16922.4,
+      "diff_pct": 5.19,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 13000
+    }
+  ],
+  "kpis": [
+    {
+      "id": "occupancy_pct",
+      "label": "Occupancy %",
+      "format": "percent",
+      "act": 0.5893,
+      "budget": 0.5802,
+      "favorable": true,
+      "diff": 0.009126984126984095,
+      "status": "ON TARGET"
+    },
+    {
+      "id": "revpar",
+      "label": "RevPAR",
+      "format": "currency",
+      "act": 557.3798,
+      "budget": 551.1508,
+      "favorable": true,
+      "diff": 6.2289920634921145,
+      "status": "ON TARGET"
+    },
+    {
+      "id": "revenue_per_fte",
+      "label": "Revenue per FTE",
+      "format": "currency",
+      "act": 42339.9229,
+      "budget": 42014.2253,
+      "favorable": true,
+      "diff": 325.69769264339266,
+      "status": "ON TARGET"
+    },
+    {
+      "id": "gop_pct",
+      "label": "GOP %",
+      "format": "percent",
+      "act": 0.3808,
+      "budget": 0.3739,
+      "favorable": true,
+      "diff": 0.006908987968669789,
+      "status": "ON TARGET"
+    }
+  ],
+  "revenue_mix": [
+    {
+      "id": "rooms_revenue",
+      "label": "Rooms Revenue",
+      "mix_actual_pct": 82.73,
+      "mix_budget_pct": 82.64,
+      "mix_shift_pp": 0.08
+    },
+    {
+      "id": "fb_revenue",
+      "label": "F&B Revenue",
+      "mix_actual_pct": 12.29,
+      "mix_budget_pct": 12.4,
+      "mix_shift_pp": -0.1
+    },
+    {
+      "id": "spa_revenue",
+      "label": "Spa & Wellness Revenue",
+      "mix_actual_pct": 0.0,
+      "mix_budget_pct": 0.0,
+      "mix_shift_pp": 0.0
+    },
+    {
+      "id": "other_ops_revenue",
+      "label": "Other Operated Departments Revenue",
+      "mix_actual_pct": 3.33,
+      "mix_budget_pct": 3.31,
+      "mix_shift_pp": 0.02
+    },
+    {
+      "id": "misc_income",
+      "label": "Miscellaneous & Rental Income",
+      "mix_actual_pct": 1.65,
+      "mix_budget_pct": 1.65,
+      "mix_shift_pp": 0.0
+    }
+  ],
+  "flags": [
+    {
+      "id": "property_ops_maint",
+      "label": "Property Operations & Maintenance",
+      "kind": "category",
+      "act": 77306.17,
+      "budget": 84028.45,
+      "favorable": true,
+      "diff": -6722.28,
+      "diff_pct": -8.0,
+      "status": "INVESTIGATE",
+      "threshold_pct": 4.0,
+      "threshold_absolute": 4600
+    },
+    {
+      "id": "it_systems",
+      "label": "IT & Systems",
+      "kind": "category",
+      "act": 30922.47,
+      "budget": 33611.36,
+      "favorable": true,
+      "diff": -2688.89,
+      "diff_pct": -8.0,
+      "status": "NOTE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "gop",
+      "label": "Gross Operating Profit (GOP)",
+      "kind": "subtotal",
+      "act": 646592.77,
+      "budget": 628407.81,
+      "favorable": true,
+      "diff": 18184.96,
+      "diff_pct": 2.89,
+      "status": "INVESTIGATE",
+      "threshold_pct": 2.0,
+      "threshold_absolute": 17000
+    },
+    {
+      "id": "ebitda",
+      "label": "EBITDA",
+      "kind": "subtotal",
+      "act": 468795.84,
+      "budget": 451948.07,
+      "favorable": true,
+      "diff": 16847.77,
+      "diff_pct": 3.73,
+      "status": "INVESTIGATE",
+      "threshold_pct": 2.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "ebit",
+      "label": "EBIT",
+      "kind": "subtotal",
+      "act": 368013.69,
+      "budget": 351113.93,
+      "favorable": true,
+      "diff": 16899.76,
+      "diff_pct": 4.81,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 14000
+    },
+    {
+      "id": "pretax_income",
+      "label": "Pre-tax Income",
+      "kind": "subtotal",
+      "act": 342827.79,
+      "budget": 325905.39,
+      "favorable": true,
+      "diff": 16922.4,
+      "diff_pct": 5.19,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 13000
+    }
+  ],
+  "drill_downs": {
+    "property_ops_maint": {
+      "transaction_count": 14,
+      "by_vendor": [
+        {
+          "vendor": "GreenScape Landscaping",
+          "amount": 26103.51
+        },
+        {
+          "vendor": "ElevateTech Elevator Co",
+          "amount": 22250.09
+        },
+        {
+          "vendor": "Nordic Facilities Services",
+          "amount": 16773.22
+        },
+        {
+          "vendor": "Internal Payroll",
+          "amount": 12179.35
+        }
+      ],
+      "by_account": [
+        {
+          "gl_account": "6201",
+          "account_name": "Building Repairs & Maintenance",
+          "amount": 12191.34
+        },
+        {
+          "gl_account": "6200",
+          "account_name": "Engineering Salaries",
+          "amount": 12179.35
+        },
+        {
+          "gl_account": "6202",
+          "account_name": "Grounds & Landscaping",
+          "amount": 10942.06
+        },
+        {
+          "gl_account": "6204",
+          "account_name": "Maintenance Supplies",
+          "amount": 10570.68
+        },
+        {
+          "gl_account": "6207",
+          "account_name": "Pest Control",
+          "amount": 9929.35
+        },
+        {
+          "gl_account": "6205",
+          "account_name": "Furniture, Fixtures & Equipment Repairs",
+          "amount": 8386.35
+        },
+        {
+          "gl_account": "6203",
+          "account_name": "Elevator & Life Safety Contracts",
+          "amount": 7085.7
+        },
+        {
+          "gl_account": "6206",
+          "account_name": "HVAC Service Contracts",
+          "amount": 6021.34
+        }
+      ],
+      "transactions": [
+        {
+          "entity_code": "003",
+          "period": "02-2026",
+          "date": "2026-02-01",
+          "gl_account": "6200",
+          "vendor": "Internal Payroll",
+          "description": "Payroll run \u2014 Engineering Salaries",
+          "department": "Property Operations",
+          "amount": "12179.35"
+        },
+        {
+          "entity_code": "003",
+          "period": "02-2026",
+          "date": "2026-02-03",
+          "gl_account": "6201",
+          "vendor": "ElevateTech Elevator Co",
+          "description": "Maintenance contract charge \u2014 Building Repairs & Maintenance",
+          "department": "Property Operations",
+          "amount": "4063.78"
+        },
+        {
+          "entity_code": "003",
+          "period": "02-2026",
+          "date": "2026-02-05",
+          "gl_account": "6207",
+          "vendor": "ElevateTech Elevator Co",
+          "description": "Maintenance contract charge \u2014 Pest Control",
+          "department": "Property Operations",
+          "amount": "9929.35"
+        },
+        {
+          "entity_code": "003",
+          "period": "02-2026",
+          "date": "2026-02-06",
+          "gl_account": "6204",
+          "vendor": "GreenScape Landscaping",
+          "description": "Maintenance contract charge \u2014 Maintenance Supplies",
+          "department": "Property Operations",
+          "amount": "5285.34"
+        },
+        {
+          "entity_code": "003",
+          "period": "02-2026",
+          "date": "2026-02-07",
+          "gl_account": "6204",
+          "vendor": "Nordic Facilities Services",
+          "description": "Maintenance contract charge \u2014 Maintenance Supplies",
+          "department": "Property Operations",
+          "amount": "5285.34"
+        },
+        {
+          "entity_code": "003",
+          "period": "02-2026",
+          "date": "2026-02-07",
+          "gl_account": "6205",
+          "vendor": "Nordic Facilities Services",
+          "description": "Maintenance contract charge \u2014 Furniture, Fixtures & Equipment Repairs",
+          "department": "Property Operations",
+          "amount": "4193.17"
+        },
+        {
+          "entity_code": "003",
+          "period": "02-2026",
+          "date": "2026-02-09",
+          "gl_account": "6201",
+          "vendor": "GreenScape Landscaping",
+          "description": "Maintenance contract charge \u2014 Building Repairs & Maintenance",
+          "department": "Property Operations",
+          "amount": "4063.78"
+        },
+        {
+          "entity_code": "003",
+          "period": "02-2026",
+          "date": "2026-02-15",
+          "gl_account": "6201",
+          "vendor": "ElevateTech Elevator Co",
+          "description": "Maintenance contract charge \u2014 Building Repairs & Maintenance",
+          "department": "Property Operations",
+          "amount": "4063.78"
+        },
+        {
+          "entity_code": "003",
+          "period": "02-2026",
+          "date": "2026-02-19",
+          "gl_account": "6203",
+          "vendor": "GreenScape Landscaping",
+          "description": "Maintenance contract charge \u2014 Elevator & Life Safety Contracts",
+          "department": "Property Operations",
+          "amount": "7085.7"
+        },
+        {
+          "entity_code": "003",
+          "period": "02-2026",
+          "date": "2026-02-20",
+          "gl_account": "6205",
+          "vendor": "ElevateTech Elevator Co",
+          "description": "Maintenance contract charge \u2014 Furniture, Fixtures & Equipment Repairs",
+          "department": "Property Operations",
+          "amount": "4193.18"
+        },
+        {
+          "entity_code": "003",
+          "period": "02-2026",
+          "date": "2026-02-21",
+          "gl_account": "6202",
+          "vendor": "Nordic Facilities Services",
+          "description": "Maintenance contract charge \u2014 Grounds & Landscaping",
+          "department": "Property Operations",
+          "amount": "3647.35"
+        },
+        {
+          "entity_code": "003",
+          "period": "02-2026",
+          "date": "2026-02-23",
+          "gl_account": "6202",
+          "vendor": "Nordic Facilities Services",
+          "description": "Maintenance contract charge \u2014 Grounds & Landscaping",
+          "department": "Property Operations",
+          "amount": "3647.36"
+        },
+        {
+          "entity_code": "003",
+          "period": "02-2026",
+          "date": "2026-02-27",
+          "gl_account": "6206",
+          "vendor": "GreenScape Landscaping",
+          "description": "Maintenance contract charge \u2014 HVAC Service Contracts",
+          "department": "Property Operations",
+          "amount": "6021.34"
+        },
+        {
+          "entity_code": "003",
+          "period": "02-2026",
+          "date": "2026-02-28",
+          "gl_account": "6202",
+          "vendor": "GreenScape Landscaping",
+          "description": "Maintenance contract charge \u2014 Grounds & Landscaping",
+          "department": "Property Operations",
+          "amount": "3647.35"
+        }
+      ]
+    },
+    "it_systems": {
+      "transaction_count": 8,
+      "by_vendor": [
+        {
+          "vendor": "CloudHost Nordic",
+          "amount": 14499.68
+        },
+        {
+          "vendor": "PMS Systems AB",
+          "amount": 12667.4
+        },
+        {
+          "vendor": "TeleNordic Communications",
+          "amount": 3755.39
+        }
+      ],
+      "by_account": [
+        {
+          "gl_account": "6400",
+          "account_name": "PMS & POS System Fees",
+          "amount": 7531.96
+        },
+        {
+          "gl_account": "6403",
+          "account_name": "Software Licenses",
+          "amount": 7510.79
+        },
+        {
+          "gl_account": "6401",
+          "account_name": "IT Support Contract",
+          "amount": 7203.25
+        },
+        {
+          "gl_account": "6404",
+          "account_name": "Guest Wi-Fi Infrastructure",
+          "amount": 5146.02
+        },
+        {
+          "gl_account": "6402",
+          "account_name": "Telecom & Internet",
+          "amount": 3530.45
+        }
+      ],
+      "transactions": [
+        {
+          "entity_code": "003",
+          "period": "02-2026",
+          "date": "2026-02-02",
+          "gl_account": "6400",
+          "vendor": "CloudHost Nordic",
+          "description": "Systems & telecom invoice \u2014 PMS & POS System Fees",
+          "department": "IT",
+          "amount": "3765.98"
+        },
+        {
+          "entity_code": "003",
+          "period": "02-2026",
+          "date": "2026-02-07",
+          "gl_account": "6401",
+          "vendor": "CloudHost Nordic",
+          "description": "Systems & telecom invoice \u2014 IT Support Contract",
+          "department": "IT",
+          "amount": "7203.25"
+        },
+        {
+          "entity_code": "003",
+          "period": "02-2026",
+          "date": "2026-02-07",
+          "gl_account": "6403",
+          "vendor": "PMS Systems AB",
+          "description": "Systems & telecom invoice \u2014 Software Licenses",
+          "department": "IT",
+          "amount": "3755.4"
+        },
+        {
+          "entity_code": "003",
+          "period": "02-2026",
+          "date": "2026-02-09",
+          "gl_account": "6400",
+          "vendor": "PMS Systems AB",
+          "description": "Systems & telecom invoice \u2014 PMS & POS System Fees",
+          "department": "IT",
+          "amount": "3765.98"
+        },
+        {
+          "entity_code": "003",
+          "period": "02-2026",
+          "date": "2026-02-14",
+          "gl_account": "6402",
+          "vendor": "CloudHost Nordic",
+          "description": "Systems & telecom invoice \u2014 Telecom & Internet",
+          "department": "IT",
+          "amount": "1765.23"
+        },
+        {
+          "entity_code": "003",
+          "period": "02-2026",
+          "date": "2026-02-14",
+          "gl_account": "6404",
+          "vendor": "PMS Systems AB",
+          "description": "Systems & telecom invoice \u2014 Guest Wi-Fi Infrastructure",
+          "department": "IT",
+          "amount": "5146.02"
+        },
+        {
+          "entity_code": "003",
+          "period": "02-2026",
+          "date": "2026-02-16",
+          "gl_account": "6402",
+          "vendor": "CloudHost Nordic",
+          "description": "Systems & telecom invoice \u2014 Telecom & Internet",
+          "department": "IT",
+          "amount": "1765.22"
+        },
+        {
+          "entity_code": "003",
+          "period": "02-2026",
+          "date": "2026-02-20",
+          "gl_account": "6403",
+          "vendor": "TeleNordic Communications",
+          "description": "Systems & telecom invoice \u2014 Software Licenses",
+          "department": "IT",
+          "amount": "3755.39"
+        }
+      ]
+    }
+  },
+  "has_transactions": true,
+  "has_last_year": false
+}

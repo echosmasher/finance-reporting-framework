@@ -1,0 +1,484 @@
+<!doctype html>
+<!--
+  Dashboard shell for /dashboard (PLAN.md §7). render_dashboard.py fills
+  every {{TOKEN}} below via plain string substitution (no templating
+  dependency) — brand tokens from config/brand.md's fenced yaml block,
+  content fragments built by render_dashboard.py's own render_* functions
+  from an entity's analysis_{ENTITY}_{PERIOD}.json + narrative JSON.
+  Single file, inline CSS, zero external requests (PLAN.md §7.2) — do not
+  add a <link>, <script src>, @import, or any other external reference
+  here or in what fills these tokens.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Example Hotel Stockholm — 03-2026</title>
+<style>
+  :root {
+    --primary: #1B3A4B;
+    --secondary: #C9A05C;
+    --neutral-dark: #20242A;
+    --neutral-light: #F4F1EC;
+    --surface: #FFFFFF;
+    --border: #DDD8CE;
+    --status-on-target: #2E7D4F;
+    --status-on-target-bg: rgb(226,237,230);
+    --status-note: #B8860B;
+    --status-note-bg: rgb(245,238,221);
+    --status-investigate: #B23A3A;
+    --status-investigate-bg: rgb(244,227,227);
+    --focus-metric-bg: rgb(247,242,232);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--neutral-light); color: var(--neutral-dark);
+    font-family: Inter, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-variant-numeric: tabular-nums;
+  }
+  .page { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+  header.masthead {
+    background: var(--primary); color: var(--surface);
+    padding: 2rem 1.5rem; margin-bottom: -1.5rem;
+  }
+  header.masthead .inner { max-width: 1080px; margin: 0 auto; display: flex;
+    align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+  .wordmark { color: var(--secondary); font-weight: 700; letter-spacing: 0.08em;
+    font-variant: small-caps; font-size: 0.95rem; }
+  header.masthead h1 { margin: 0.35rem 0 0; font-size: 1.6rem; font-weight: 600; }
+  header.masthead .period { color: var(--secondary); font-size: 1rem; }
+  section {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 1.5rem 1.75rem; margin-top: 1.5rem;
+  }
+  section > h2 {
+    margin: 0 0 1rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;
+    color: var(--primary); font-weight: 600;
+  }
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
+  .kpi-card { border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; }
+  .kpi-card .label { font-size: 0.82rem; color: var(--neutral-dark); opacity: 0.7; }
+  .kpi-card .value { font-size: 1.6rem; font-weight: 700; color: var(--primary); margin: 0.2rem 0; }
+  .kpi-card .delta { font-size: 0.85rem; font-weight: 600; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+  th, td { text-align: right; padding: 0.5rem 0.6rem; border-bottom: 1px solid var(--border); }
+  th:first-child, td:first-child { text-align: left; }
+  th { font-weight: 600; color: var(--neutral-dark); opacity: 0.65; font-size: 0.78rem; text-transform: uppercase; }
+  tr.subtotal td { font-weight: 700; border-top: 1px solid var(--primary); }
+  tr.focus-metric td { background: var(--focus-metric-bg); font-weight: 700; }
+  .status-pill { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.1rem 0.55rem;
+    border-radius: 999px; font-size: 0.78rem; font-weight: 600; white-space: nowrap; }
+  .status-on-target { color: var(--status-on-target); background: var(--status-on-target-bg); }
+  .status-note { color: var(--status-note); background: var(--status-note-bg); }
+  .status-investigate { color: var(--status-investigate); background: var(--status-investigate-bg); }
+  .highlight-card { border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; margin-top: 1rem; }
+  .highlight-card h3 { margin: 0 0 0.5rem; font-size: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+  .highlight-card p { margin: 0; line-height: 1.55; }
+  details { margin-top: 0.75rem; }
+  summary { cursor: pointer; font-size: 0.85rem; color: var(--primary); font-weight: 600; }
+  .drill-table { margin-top: 0.6rem; }
+  footer { text-align: center; font-size: 0.78rem; color: var(--neutral-dark); opacity: 0.55;
+    margin-top: 2rem; padding-bottom: 1rem; }
+  @media (max-width: 640px) {
+    header.masthead .inner { flex-direction: column; align-items: flex-start; }
+    section { padding: 1.1rem 1.1rem; }
+    table { font-size: 0.82rem; }
+    th, td { padding: 0.4rem 0.35rem; }
+  }
+  @media print {
+    body { background: var(--surface); }
+    header.masthead { margin-bottom: 0; }
+    section { border: none; page-break-inside: avoid; }
+    details { display: block; }
+    summary { display: none; }
+  }
+</style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="inner">
+      <div>
+        <div class="wordmark">EXAMPLE HOTELS</div>
+        <h1>Example Hotel Stockholm</h1>
+      </div>
+      <div class="period">03-2026 &middot; vs Budget</div>
+    </div>
+  </header>
+
+  <div class="page">
+    <section>
+      <h2>Key Performance Indicators</h2>
+      <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="label">Occupancy %</div>
+            <div class="value">62.0%</div>
+            <div class="delta status-pill status-on-target">± vs 62.0% Budget</div>
+          </div>
+          <div class="kpi-card">
+            <div class="label">RevPAR</div>
+            <div class="value">590 SEK</div>
+            <div class="delta status-pill status-on-target">+ vs 589 SEK Budget</div>
+          </div>
+          <div class="kpi-card">
+            <div class="label">Revenue per FTE</div>
+            <div class="value">50,472 SEK</div>
+            <div class="delta status-pill status-on-target">+ vs 49,716 SEK Budget</div>
+          </div>
+          <div class="kpi-card">
+            <div class="label">GOP %</div>
+            <div class="value">38.1%</div>
+            <div class="delta status-pill status-on-target">+ vs 37.4% Budget</div>
+          </div></div>
+    </section>
+
+    <section>
+      <h2>Profitability Summary</h2>
+      <p>GOP was 757,708 SEK against a Budget of 743,602 SEK, up 1.9% (14,106 SEK) — on target, capping a quarter where GOP beat or matched Budget every single month.</p>
+    </section>
+
+    <section>
+      <h2>P&amp;L</h2>
+      
+    <table>
+      <thead><tr><th>Category</th><th>Actual</th><th>Budget</th>
+        <th>Diff</th><th>Diff %</th><th>Status</th></tr></thead>
+      <tbody>
+          <tr class="">
+            <td>Rooms Revenue</td>
+            <td>1,645,881 SEK</td>
+            <td>1,643,500 SEK</td>
+            <td>2,381 SEK</td>
+            <td>+0.1%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>F&amp;B Revenue</td>
+            <td>244,364 SEK</td>
+            <td>246,525 SEK</td>
+            <td>-2,161 SEK</td>
+            <td>-0.9%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Spa &amp; Wellness Revenue</td>
+            <td>0 SEK</td>
+            <td>0 SEK</td>
+            <td>0 SEK</td>
+            <td>—</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Other Operated Departments Revenue</td>
+            <td>65,747 SEK</td>
+            <td>65,740 SEK</td>
+            <td>7 SEK</td>
+            <td>+0.0%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Miscellaneous &amp; Rental Income</td>
+            <td>32,622 SEK</td>
+            <td>32,870 SEK</td>
+            <td>-248 SEK</td>
+            <td>-0.8%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Total Revenue</td>
+            <td>1,988,613 SEK</td>
+            <td>1,988,635 SEK</td>
+            <td>-22 SEK</td>
+            <td>-0.0%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Rooms – Payroll &amp; Related</td>
+            <td>296,471 SEK</td>
+            <td>295,830 SEK</td>
+            <td>641 SEK</td>
+            <td>+0.2%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Rooms – Other Expenses</td>
+            <td>130,944 SEK</td>
+            <td>131,480 SEK</td>
+            <td>-536 SEK</td>
+            <td>-0.4%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>F&amp;B – Cost of Sales</td>
+            <td>72,906 SEK</td>
+            <td>73,958 SEK</td>
+            <td>-1,051 SEK</td>
+            <td>-1.4%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>F&amp;B – Payroll &amp; Related</td>
+            <td>86,664 SEK</td>
+            <td>86,284 SEK</td>
+            <td>380 SEK</td>
+            <td>+0.4%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>F&amp;B – Other Expenses</td>
+            <td>24,137 SEK</td>
+            <td>24,652 SEK</td>
+            <td>-515 SEK</td>
+            <td>-2.1%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Spa &amp; Wellness – Payroll &amp; Related</td>
+            <td>0 SEK</td>
+            <td>0 SEK</td>
+            <td>0 SEK</td>
+            <td>—</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Spa &amp; Wellness – Other Expenses</td>
+            <td>0 SEK</td>
+            <td>0 SEK</td>
+            <td>0 SEK</td>
+            <td>—</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Other Operated Departments – Expenses</td>
+            <td>26,646 SEK</td>
+            <td>26,296 SEK</td>
+            <td>350 SEK</td>
+            <td>+1.3%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Total Departmental Expenses</td>
+            <td>637,770 SEK</td>
+            <td>638,500 SEK</td>
+            <td>-730 SEK</td>
+            <td>-0.1%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Departmental Profit</td>
+            <td>1,350,844 SEK</td>
+            <td>1,350,135 SEK</td>
+            <td>709 SEK</td>
+            <td>+0.1%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Administrative &amp; General</td>
+            <td>158,721 SEK</td>
+            <td>159,091 SEK</td>
+            <td>-370 SEK</td>
+            <td>-0.2%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Sales &amp; Marketing</td>
+            <td>138,397 SEK</td>
+            <td>139,204 SEK</td>
+            <td>-808 SEK</td>
+            <td>-0.6%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Property Operations &amp; Maintenance</td>
+            <td>91,477 SEK</td>
+            <td>99,432 SEK</td>
+            <td>-7,955 SEK</td>
+            <td>-8.0%</td>
+            <td><span class="status-pill status-investigate">INVESTIGATE</span></td>
+          </tr>
+          <tr class="">
+            <td>Utilities</td>
+            <td>98,570 SEK</td>
+            <td>99,432 SEK</td>
+            <td>-862 SEK</td>
+            <td>-0.9%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>IT &amp; Systems</td>
+            <td>36,591 SEK</td>
+            <td>39,773 SEK</td>
+            <td>-3,182 SEK</td>
+            <td>-8.0%</td>
+            <td><span class="status-pill status-note">NOTE</span></td>
+          </tr>
+          <tr class="">
+            <td>Human Resources &amp; Training</td>
+            <td>39,432 SEK</td>
+            <td>39,773 SEK</td>
+            <td>-341 SEK</td>
+            <td>-0.9%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Security</td>
+            <td>29,949 SEK</td>
+            <td>29,830 SEK</td>
+            <td>119 SEK</td>
+            <td>+0.4%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Total Undistributed Operating Expenses</td>
+            <td>593,136 SEK</td>
+            <td>606,534 SEK</td>
+            <td>-13,398 SEK</td>
+            <td>-2.2%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal focus-metric">
+            <td>Gross Operating Profit (GOP)</td>
+            <td>757,708 SEK</td>
+            <td>743,602 SEK</td>
+            <td>14,106 SEK</td>
+            <td>+1.9%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Management Fees</td>
+            <td>59,915 SEK</td>
+            <td>59,659 SEK</td>
+            <td>256 SEK</td>
+            <td>+0.4%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Franchise &amp; Brand Fees</td>
+            <td>60,032 SEK</td>
+            <td>59,659 SEK</td>
+            <td>373 SEK</td>
+            <td>+0.6%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Property &amp; Liability Insurance</td>
+            <td>29,917 SEK</td>
+            <td>29,830 SEK</td>
+            <td>88 SEK</td>
+            <td>+0.3%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Property Tax &amp; Licenses</td>
+            <td>19,918 SEK</td>
+            <td>19,886 SEK</td>
+            <td>32 SEK</td>
+            <td>+0.2%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Rent / Lease</td>
+            <td>39,921 SEK</td>
+            <td>39,773 SEK</td>
+            <td>148 SEK</td>
+            <td>+0.4%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Total Fixed Charges</td>
+            <td>209,703 SEK</td>
+            <td>208,807 SEK</td>
+            <td>897 SEK</td>
+            <td>+0.4%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal focus-metric">
+            <td>EBITDA</td>
+            <td>548,004 SEK</td>
+            <td>534,795 SEK</td>
+            <td>13,209 SEK</td>
+            <td>+2.5%</td>
+            <td><span class="status-pill status-investigate">INVESTIGATE</span></td>
+          </tr>
+          <tr class="">
+            <td>Depreciation &amp; Amortization</td>
+            <td>119,572 SEK</td>
+            <td>119,318 SEK</td>
+            <td>254 SEK</td>
+            <td>+0.2%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>EBIT</td>
+            <td>428,432 SEK</td>
+            <td>415,477 SEK</td>
+            <td>12,955 SEK</td>
+            <td>+3.1%</td>
+            <td><span class="status-pill status-note">NOTE</span></td>
+          </tr>
+          <tr class="">
+            <td>Interest Expense</td>
+            <td>29,855 SEK</td>
+            <td>29,830 SEK</td>
+            <td>25 SEK</td>
+            <td>+0.1%</td>
+            <td><span class="status-pill status-on-target">ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Pre-tax Income</td>
+            <td>398,577 SEK</td>
+            <td>385,647 SEK</td>
+            <td>12,930 SEK</td>
+            <td>+3.4%</td>
+            <td><span class="status-pill status-note">NOTE</span></td>
+          </tr></tbody>
+    </table>
+    </section>
+
+    <section>
+      <h2>Deviation Highlights</h2>
+      
+        <div class="highlight-card">
+          <h3><span class="status-pill status-investigate">INVESTIGATE</span> Property Operations &amp; Maintenance</h3>
+          <p>Property Operations &amp; Maintenance ran 8.0% under Budget for the third consecutive month — a sustained, consistent pattern rather than noise. Worth a check-in with the team on whether this reflects genuinely lower maintenance need or deferred work; three months running is long enough that it&#x27;s worth confirming deliberately rather than assuming.</p>
+          
+    <details>
+      <summary>Transaction drill-down (15 transaction(s))</summary>
+      <table class="drill-table">
+        <thead><tr><th>Vendor</th><th>Amount</th></tr></thead>
+        <tbody><tr><td>GreenScape Landscaping</td><td>32,280 SEK</td></tr><tr><td>ElevateTech Elevator Co</td><td>16,291 SEK</td></tr><tr><td>Nordic Facilities Services</td><td>16,262 SEK</td></tr><tr><td>Internal Payroll</td><td>14,412 SEK</td></tr><tr><td>CoolFlow HVAC Services</td><td>12,232 SEK</td></tr></tbody>
+      </table>
+    </details>
+        </div>
+        <div class="highlight-card">
+          <h3><span class="status-pill status-note">NOTE</span> IT &amp; Systems</h3>
+          <p>IT &amp; Systems ran 8.0% under Budget, the third straight month at the same margin — consistent, sustained cost control.</p>
+          
+    <details>
+      <summary>Transaction drill-down (7 transaction(s))</summary>
+      <table class="drill-table">
+        <thead><tr><th>Vendor</th><th>Amount</th></tr></thead>
+        <tbody><tr><td>CloudHost Nordic</td><td>27,957 SEK</td></tr><tr><td>TeleNordic Communications</td><td>4,456 SEK</td></tr><tr><td>PMS Systems AB</td><td>4,178 SEK</td></tr></tbody>
+      </table>
+    </details>
+        </div>
+        <div class="highlight-card">
+          <h3><span class="status-pill status-investigate">INVESTIGATE</span> EBITDA</h3>
+          <p>EBITDA beat Budget by 2.5%, carried by the same Property Operations &amp; Maintenance and IT &amp; Systems savings as GOP.</p>
+          
+        </div>
+        <div class="highlight-card">
+          <h3><span class="status-pill status-note">NOTE</span> EBIT</h3>
+          <p>EBIT beat Budget by 3.1% — the same underlying driver, flowing through cleanly.</p>
+          
+        </div>
+        <div class="highlight-card">
+          <h3><span class="status-pill status-note">NOTE</span> Pre-tax Income</h3>
+          <p>Pre-tax Income beat Budget by 3.4% — a clean, favorable quarter end to end, with no offsetting concerns below GOP.</p>
+          
+        </div>
+    </section>
+
+    <footer>Generated by the finance-reporting-framework &mdash; self-contained, no external requests.</footer>
+  </div>
+</body>
+</html>

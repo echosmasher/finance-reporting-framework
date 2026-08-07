@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Example Hotel Copenhagen — Analysis 02-2026</title>
+<style>
+  body { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; color: #20242A;
+         background: #F7F7F5; margin: 0; padding: 2rem; line-height: 1.5; }
+  .report { max-width: 960px; margin: 0 auto; background: #fff; border: 1px solid #DDD8CE;
+            border-radius: 8px; padding: 2rem 2.5rem; }
+  h1 { font-size: 1.5rem; margin: 0 0 0.25rem; }
+  .subtitle { color: #55606B; margin: 0 0 1.5rem; }
+  h2 { font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.04em; color: #55606B;
+       border-bottom: 1px solid #E4E1D9; padding-bottom: 0.4rem; margin-top: 2.2rem; }
+  p.narrative { white-space: pre-wrap; }
+  table { width: 100%; border-collapse: collapse; margin-top: 0.75rem; font-size: 0.92rem; }
+  th, td { text-align: right; padding: 0.4rem 0.6rem; border-bottom: 1px solid #EEECE5; }
+  th:first-child, td:first-child { text-align: left; }
+  th { font-weight: 600; color: #55606B; font-size: 0.82rem; text-transform: uppercase; }
+  tr.subtotal td { font-weight: 700; border-top: 1px solid #C9C4B8; }
+  .status-pill { display: inline-block; padding: 0.05rem 0.5rem; border-radius: 999px;
+                 font-size: 0.8rem; font-weight: 600; white-space: nowrap; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+              gap: 0.75rem; margin-top: 0.75rem; }
+  .kpi-card { border: 1px solid #E4E1D9; border-radius: 6px; padding: 0.75rem 1rem; }
+  .kpi-card .label { font-size: 0.8rem; color: #55606B; }
+  .kpi-card .value { font-size: 1.3rem; font-weight: 700; margin: 0.15rem 0; }
+  .flag-block { border: 1px solid #E4E1D9; border-radius: 6px; padding: 1rem 1.2rem; margin-top: 1rem; }
+  .flag-block h3 { margin: 0 0 0.4rem; font-size: 1rem; }
+  details { margin-top: 0.6rem; }
+  summary { cursor: pointer; color: #55606B; font-size: 0.88rem; }
+  .drill-table { margin-top: 0.5rem; }
+  .missing-narrative { color: #55606B; font-style: italic; }
+  @media print { body { background: #fff; padding: 0; } .report { border: none; } }
+</style>
+</head>
+<body>
+  <div class="report">
+    <h1>Example Hotel Copenhagen</h1>
+    <p class="subtitle">Analysis for 02-2026 — vs Budget</p>
+
+    <h2>Executive Summary</h2>
+    <p class="narrative">A quiet, on-target month for Copenhagen. GOP is within 2% of Budget and every KPI — occupancy, RevPAR, Revenue per FTE, and GOP % — is on target. EBITDA, EBIT, and Pre-tax Income sit a few points below Budget, but the underlying GOP and fixed-charge lines that drive them are both on target, so this is routine rounding through the cascade rather than a new cost story.</p>
+
+    <h2>Key Performance Indicators</h2>
+    <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="label">Occupancy %</div>
+            <div class="value" style="color:#2E7D4F">69.8%</div>
+            <div>✓ vs 70.0% Budget</div>
+          </div>
+          <div class="kpi-card">
+            <div class="label">RevPAR</div>
+            <div class="value" style="color:#2E7D4F">763 DKK</div>
+            <div>✓ vs 770 DKK Budget</div>
+          </div>
+          <div class="kpi-card">
+            <div class="label">Revenue per FTE</div>
+            <div class="value" style="color:#2E7D4F">58,569 DKK</div>
+            <div>✓ vs 58,099 DKK Budget</div>
+          </div>
+          <div class="kpi-card">
+            <div class="label">GOP %</div>
+            <div class="value" style="color:#2E7D4F">28.3%</div>
+            <div>✓ vs 28.7% Budget</div>
+          </div></div>
+
+    <h2>Profitability Summary</h2>
+    <p class="narrative">GOP came in at 1,551,729 DKK, 1.9% (29,912 DKK) below Budget — inside threshold. Nothing else on the P&amp;L or in the KPIs points to a specific driver worth chasing this month.</p>
+
+    <h2>P&amp;L</h2>
+    
+    <table>
+      <thead><tr><th>Category</th><th>Actual</th><th>Budget</th>
+        <th>Diff</th><th>Diff %</th><th>Status</th></tr></thead>
+      <tbody>
+          <tr class="">
+            <td>Rooms Revenue</td>
+            <td>3,417,463 DKK</td>
+            <td>3,449,600 DKK</td>
+            <td>-32,137 DKK</td>
+            <td>-0.9%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>F&amp;B Revenue</td>
+            <td>1,552,227 DKK</td>
+            <td>1,552,320 DKK</td>
+            <td>-93 DKK</td>
+            <td>-0.0%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Spa &amp; Wellness Revenue</td>
+            <td>270,573 DKK</td>
+            <td>275,968 DKK</td>
+            <td>-5,395 DKK</td>
+            <td>-2.0%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Other Operated Departments Revenue</td>
+            <td>168,198 DKK</td>
+            <td>172,480 DKK</td>
+            <td>-4,282 DKK</td>
+            <td>-2.5%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Miscellaneous &amp; Rental Income</td>
+            <td>67,782 DKK</td>
+            <td>68,992 DKK</td>
+            <td>-1,210 DKK</td>
+            <td>-1.8%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Total Revenue</td>
+            <td>5,476,243 DKK</td>
+            <td>5,519,360 DKK</td>
+            <td>-43,117 DKK</td>
+            <td>-0.8%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Rooms – Payroll &amp; Related</td>
+            <td>629,068 DKK</td>
+            <td>620,928 DKK</td>
+            <td>8,140 DKK</td>
+            <td>+1.3%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Rooms – Other Expenses</td>
+            <td>276,502 DKK</td>
+            <td>275,968 DKK</td>
+            <td>534 DKK</td>
+            <td>+0.2%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>F&amp;B – Cost of Sales</td>
+            <td>459,546 DKK</td>
+            <td>465,696 DKK</td>
+            <td>-6,150 DKK</td>
+            <td>-1.3%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>F&amp;B – Payroll &amp; Related</td>
+            <td>539,342 DKK</td>
+            <td>543,312 DKK</td>
+            <td>-3,970 DKK</td>
+            <td>-0.7%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>F&amp;B – Other Expenses</td>
+            <td>156,095 DKK</td>
+            <td>155,232 DKK</td>
+            <td>863 DKK</td>
+            <td>+0.6%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Spa &amp; Wellness – Payroll &amp; Related</td>
+            <td>82,571 DKK</td>
+            <td>82,790 DKK</td>
+            <td>-219 DKK</td>
+            <td>-0.3%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Spa &amp; Wellness – Other Expenses</td>
+            <td>40,672 DKK</td>
+            <td>41,395 DKK</td>
+            <td>-724 DKK</td>
+            <td>-1.8%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Other Operated Departments – Expenses</td>
+            <td>67,073 DKK</td>
+            <td>68,992 DKK</td>
+            <td>-1,919 DKK</td>
+            <td>-2.8%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Total Departmental Expenses</td>
+            <td>2,250,869 DKK</td>
+            <td>2,254,314 DKK</td>
+            <td>-3,444 DKK</td>
+            <td>-0.1%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Departmental Profit</td>
+            <td>3,225,374 DKK</td>
+            <td>3,265,046 DKK</td>
+            <td>-39,672 DKK</td>
+            <td>-1.2%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Administrative &amp; General</td>
+            <td>440,040 DKK</td>
+            <td>441,549 DKK</td>
+            <td>-1,509 DKK</td>
+            <td>-0.3%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Sales &amp; Marketing</td>
+            <td>384,797 DKK</td>
+            <td>386,355 DKK</td>
+            <td>-1,558 DKK</td>
+            <td>-0.4%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Property Operations &amp; Maintenance</td>
+            <td>273,338 DKK</td>
+            <td>275,968 DKK</td>
+            <td>-2,630 DKK</td>
+            <td>-0.9%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Utilities</td>
+            <td>274,594 DKK</td>
+            <td>275,968 DKK</td>
+            <td>-1,374 DKK</td>
+            <td>-0.5%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>IT &amp; Systems</td>
+            <td>108,759 DKK</td>
+            <td>110,387 DKK</td>
+            <td>-1,628 DKK</td>
+            <td>-1.5%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Human Resources &amp; Training</td>
+            <td>109,457 DKK</td>
+            <td>110,387 DKK</td>
+            <td>-930 DKK</td>
+            <td>-0.8%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Security</td>
+            <td>82,659 DKK</td>
+            <td>82,790 DKK</td>
+            <td>-132 DKK</td>
+            <td>-0.2%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Total Undistributed Operating Expenses</td>
+            <td>1,673,645 DKK</td>
+            <td>1,683,405 DKK</td>
+            <td>-9,760 DKK</td>
+            <td>-0.6%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Gross Operating Profit (GOP)</td>
+            <td>1,551,729 DKK</td>
+            <td>1,581,642 DKK</td>
+            <td>-29,912 DKK</td>
+            <td>-1.9%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Management Fees</td>
+            <td>164,083 DKK</td>
+            <td>165,581 DKK</td>
+            <td>-1,498 DKK</td>
+            <td>-0.9%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Franchise &amp; Brand Fees</td>
+            <td>164,371 DKK</td>
+            <td>165,581 DKK</td>
+            <td>-1,210 DKK</td>
+            <td>-0.7%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Property &amp; Liability Insurance</td>
+            <td>82,860 DKK</td>
+            <td>82,790 DKK</td>
+            <td>70 DKK</td>
+            <td>+0.1%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Property Tax &amp; Licenses</td>
+            <td>55,161 DKK</td>
+            <td>55,194 DKK</td>
+            <td>-32 DKK</td>
+            <td>-0.1%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Rent / Lease</td>
+            <td>110,468 DKK</td>
+            <td>110,387 DKK</td>
+            <td>81 DKK</td>
+            <td>+0.1%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Total Fixed Charges</td>
+            <td>576,944 DKK</td>
+            <td>579,533 DKK</td>
+            <td>-2,589 DKK</td>
+            <td>-0.5%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>EBITDA</td>
+            <td>974,786 DKK</td>
+            <td>1,002,109 DKK</td>
+            <td>-27,323 DKK</td>
+            <td>-2.7%</td>
+            <td><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span></td>
+          </tr>
+          <tr class="">
+            <td>Depreciation &amp; Amortization</td>
+            <td>331,797 DKK</td>
+            <td>331,162 DKK</td>
+            <td>636 DKK</td>
+            <td>+0.2%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>EBIT</td>
+            <td>642,989 DKK</td>
+            <td>670,947 DKK</td>
+            <td>-27,959 DKK</td>
+            <td>-4.2%</td>
+            <td><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span></td>
+          </tr>
+          <tr class="">
+            <td>Interest Expense</td>
+            <td>82,637 DKK</td>
+            <td>82,790 DKK</td>
+            <td>-153 DKK</td>
+            <td>-0.2%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Pre-tax Income</td>
+            <td>560,351 DKK</td>
+            <td>588,157 DKK</td>
+            <td>-27,805 DKK</td>
+            <td>-4.7%</td>
+            <td><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span></td>
+          </tr></tbody>
+    </table>
+
+    <h2>Revenue Mix</h2>
+    
+    <table>
+      <thead><tr><th>Category</th><th>Actual mix</th><th>Budget mix</th><th>Shift</th></tr></thead>
+      <tbody><tr><td>Rooms Revenue</td><td>62.4%</td><td>62.5%</td><td>-0.1pp</td></tr><tr><td>F&amp;B Revenue</td><td>28.3%</td><td>28.1%</td><td>+0.2pp</td></tr><tr><td>Spa &amp; Wellness Revenue</td><td>4.9%</td><td>5.0%</td><td>-0.1pp</td></tr><tr><td>Other Operated Departments Revenue</td><td>3.1%</td><td>3.1%</td><td>-0.1pp</td></tr><tr><td>Miscellaneous &amp; Rental Income</td><td>1.2%</td><td>1.2%</td><td>-0.0pp</td></tr></tbody>
+    </table>
+
+    <h2>Flagged Items</h2>
+    
+        <div class="flag-block">
+          <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> EBITDA</h3>
+          <p class="narrative">EBITDA is 2.7% below Budget, but GOP and Total Fixed Charges — the two lines that determine it — are both on target individually. This reflects the cumulative effect of small, ordinary variances rather than one identifiable cause; no action needed unless it persists.</p>
+          
+        </div>
+        <div class="flag-block">
+          <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> EBIT</h3>
+          <p class="narrative">Follows EBITDA&#x27;s small variance above for the same reason — not an independent story.</p>
+          
+        </div>
+        <div class="flag-block">
+          <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> Pre-tax Income</h3>
+          <p class="narrative">Follows EBITDA/EBIT&#x27;s small variance above — not an independent story.</p>
+          
+        </div>
+  </div>
+</body>
+</html>

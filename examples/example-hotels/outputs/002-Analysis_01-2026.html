@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Example Hotel Bergen — Analysis 01-2026</title>
+<style>
+  body { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; color: #20242A;
+         background: #F7F7F5; margin: 0; padding: 2rem; line-height: 1.5; }
+  .report { max-width: 960px; margin: 0 auto; background: #fff; border: 1px solid #DDD8CE;
+            border-radius: 8px; padding: 2rem 2.5rem; }
+  h1 { font-size: 1.5rem; margin: 0 0 0.25rem; }
+  .subtitle { color: #55606B; margin: 0 0 1.5rem; }
+  h2 { font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.04em; color: #55606B;
+       border-bottom: 1px solid #E4E1D9; padding-bottom: 0.4rem; margin-top: 2.2rem; }
+  p.narrative { white-space: pre-wrap; }
+  table { width: 100%; border-collapse: collapse; margin-top: 0.75rem; font-size: 0.92rem; }
+  th, td { text-align: right; padding: 0.4rem 0.6rem; border-bottom: 1px solid #EEECE5; }
+  th:first-child, td:first-child { text-align: left; }
+  th { font-weight: 600; color: #55606B; font-size: 0.82rem; text-transform: uppercase; }
+  tr.subtotal td { font-weight: 700; border-top: 1px solid #C9C4B8; }
+  .status-pill { display: inline-block; padding: 0.05rem 0.5rem; border-radius: 999px;
+                 font-size: 0.8rem; font-weight: 600; white-space: nowrap; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+              gap: 0.75rem; margin-top: 0.75rem; }
+  .kpi-card { border: 1px solid #E4E1D9; border-radius: 6px; padding: 0.75rem 1rem; }
+  .kpi-card .label { font-size: 0.8rem; color: #55606B; }
+  .kpi-card .value { font-size: 1.3rem; font-weight: 700; margin: 0.15rem 0; }
+  .flag-block { border: 1px solid #E4E1D9; border-radius: 6px; padding: 1rem 1.2rem; margin-top: 1rem; }
+  .flag-block h3 { margin: 0 0 0.4rem; font-size: 1rem; }
+  details { margin-top: 0.6rem; }
+  summary { cursor: pointer; color: #55606B; font-size: 0.88rem; }
+  .drill-table { margin-top: 0.5rem; }
+  .missing-narrative { color: #55606B; font-style: italic; }
+  @media print { body { background: #fff; padding: 0; } .report { border: none; } }
+</style>
+</head>
+<body>
+  <div class="report">
+    <h1>Example Hotel Bergen</h1>
+    <p class="subtitle">Analysis for 01-2026 — vs Budget</p>
+
+    <h2>Executive Summary</h2>
+    <p class="narrative">Revenue tracked slightly ahead of Budget in January (+2.1%), a clean start to the year. The month&#x27;s headline swing — EBITDA down 97% and Pre-tax Income negative — is not an operating problem: it&#x27;s the annual Property &amp; Liability Insurance premium and external audit fee, both invoiced in full this month per the usual January pattern, landing against a Budget that spreads them evenly across the year. GOP, the metric that actually reflects operating performance, came in only modestly under Budget (-2.7%).</p>
+
+    <h2>Key Performance Indicators</h2>
+    <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="label">Occupancy %</div>
+            <div class="value" style="color:#2E7D4F">45.5%</div>
+            <div>✓ vs 45.0% Budget</div>
+          </div>
+          <div class="kpi-card">
+            <div class="label">RevPAR</div>
+            <div class="value" style="color:#2E7D4F">573 NOK</div>
+            <div>✓ vs 562 NOK Budget</div>
+          </div>
+          <div class="kpi-card">
+            <div class="label">Revenue per FTE</div>
+            <div class="value" style="color:#2E7D4F">47,129 NOK</div>
+            <div>✓ vs 45,953 NOK Budget</div>
+          </div>
+          <div class="kpi-card">
+            <div class="label">GOP %</div>
+            <div class="value" style="color:#2E7D4F">27.3%</div>
+            <div>✓ vs 28.7% Budget</div>
+          </div></div>
+
+    <h2>Profitability Summary</h2>
+    <p class="narrative">GOP came in at 1,089,555 NOK, 2.7% (29,758 NOK) below Budget of 1,119,313 NOK — a modest miss driven mainly by Administrative &amp; General&#x27;s audit-fee timing and a handful of small routine variances, not a single operating cause. EBITDA and everything below it are dominated by the January insurance timing described below and don&#x27;t reflect ongoing performance.</p>
+
+    <h2>P&amp;L</h2>
+    
+    <table>
+      <thead><tr><th>Category</th><th>Actual</th><th>Budget</th>
+        <th>Diff</th><th>Diff %</th><th>Status</th></tr></thead>
+      <tbody>
+          <tr class="">
+            <td>Rooms Revenue</td>
+            <td>2,485,400 NOK</td>
+            <td>2,441,250 NOK</td>
+            <td>44,150 NOK</td>
+            <td>+1.8%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>F&amp;B Revenue</td>
+            <td>1,130,020 NOK</td>
+            <td>1,098,562 NOK</td>
+            <td>31,458 NOK</td>
+            <td>+2.9%</td>
+            <td><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span></td>
+          </tr>
+          <tr class="">
+            <td>Spa &amp; Wellness Revenue</td>
+            <td>196,421 NOK</td>
+            <td>195,300 NOK</td>
+            <td>1,121 NOK</td>
+            <td>+0.6%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Other Operated Departments Revenue</td>
+            <td>125,642 NOK</td>
+            <td>122,062 NOK</td>
+            <td>3,580 NOK</td>
+            <td>+2.9%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Miscellaneous &amp; Rental Income</td>
+            <td>49,618 NOK</td>
+            <td>48,825 NOK</td>
+            <td>793 NOK</td>
+            <td>+1.6%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Total Revenue</td>
+            <td>3,987,102 NOK</td>
+            <td>3,906,000 NOK</td>
+            <td>81,102 NOK</td>
+            <td>+2.1%</td>
+            <td><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span></td>
+          </tr>
+          <tr class="">
+            <td>Rooms – Payroll &amp; Related</td>
+            <td>450,744 NOK</td>
+            <td>439,425 NOK</td>
+            <td>11,319 NOK</td>
+            <td>+2.6%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Rooms – Other Expenses</td>
+            <td>198,960 NOK</td>
+            <td>195,300 NOK</td>
+            <td>3,660 NOK</td>
+            <td>+1.9%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>F&amp;B – Cost of Sales</td>
+            <td>334,332 NOK</td>
+            <td>329,569 NOK</td>
+            <td>4,764 NOK</td>
+            <td>+1.4%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>F&amp;B – Payroll &amp; Related</td>
+            <td>398,274 NOK</td>
+            <td>384,497 NOK</td>
+            <td>13,777 NOK</td>
+            <td>+3.6%</td>
+            <td><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span></td>
+          </tr>
+          <tr class="">
+            <td>F&amp;B – Other Expenses</td>
+            <td>110,820 NOK</td>
+            <td>109,856 NOK</td>
+            <td>964 NOK</td>
+            <td>+0.9%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Spa &amp; Wellness – Payroll &amp; Related</td>
+            <td>58,741 NOK</td>
+            <td>58,590 NOK</td>
+            <td>151 NOK</td>
+            <td>+0.3%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Spa &amp; Wellness – Other Expenses</td>
+            <td>29,574 NOK</td>
+            <td>29,295 NOK</td>
+            <td>279 NOK</td>
+            <td>+0.9%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Other Operated Departments – Expenses</td>
+            <td>50,864 NOK</td>
+            <td>48,825 NOK</td>
+            <td>2,039 NOK</td>
+            <td>+4.2%</td>
+            <td><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Total Departmental Expenses</td>
+            <td>1,632,309 NOK</td>
+            <td>1,595,357 NOK</td>
+            <td>36,952 NOK</td>
+            <td>+2.3%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Departmental Profit</td>
+            <td>2,354,793 NOK</td>
+            <td>2,310,643 NOK</td>
+            <td>44,150 NOK</td>
+            <td>+1.9%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Administrative &amp; General</td>
+            <td>364,096 NOK</td>
+            <td>312,480 NOK</td>
+            <td>51,616 NOK</td>
+            <td>+16.5%</td>
+            <td><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span></td>
+          </tr>
+          <tr class="">
+            <td>Sales &amp; Marketing</td>
+            <td>281,728 NOK</td>
+            <td>273,420 NOK</td>
+            <td>8,308 NOK</td>
+            <td>+3.0%</td>
+            <td><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span></td>
+          </tr>
+          <tr class="">
+            <td>Property Operations &amp; Maintenance</td>
+            <td>199,227 NOK</td>
+            <td>195,300 NOK</td>
+            <td>3,927 NOK</td>
+            <td>+2.0%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Utilities</td>
+            <td>200,321 NOK</td>
+            <td>195,300 NOK</td>
+            <td>5,021 NOK</td>
+            <td>+2.6%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>IT &amp; Systems</td>
+            <td>79,732 NOK</td>
+            <td>78,120 NOK</td>
+            <td>1,612 NOK</td>
+            <td>+2.1%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Human Resources &amp; Training</td>
+            <td>79,661 NOK</td>
+            <td>78,120 NOK</td>
+            <td>1,541 NOK</td>
+            <td>+2.0%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Security</td>
+            <td>60,473 NOK</td>
+            <td>58,590 NOK</td>
+            <td>1,883 NOK</td>
+            <td>+3.2%</td>
+            <td><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Total Undistributed Operating Expenses</td>
+            <td>1,265,239 NOK</td>
+            <td>1,191,330 NOK</td>
+            <td>73,909 NOK</td>
+            <td>+6.2%</td>
+            <td><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Gross Operating Profit (GOP)</td>
+            <td>1,089,555 NOK</td>
+            <td>1,119,313 NOK</td>
+            <td>-29,758 NOK</td>
+            <td>-2.7%</td>
+            <td><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span></td>
+          </tr>
+          <tr class="">
+            <td>Management Fees</td>
+            <td>119,133 NOK</td>
+            <td>117,180 NOK</td>
+            <td>1,953 NOK</td>
+            <td>+1.7%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Franchise &amp; Brand Fees</td>
+            <td>120,651 NOK</td>
+            <td>117,180 NOK</td>
+            <td>3,471 NOK</td>
+            <td>+3.0%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Property &amp; Liability Insurance</td>
+            <td>714,458 NOK</td>
+            <td>58,590 NOK</td>
+            <td>655,868 NOK</td>
+            <td>+1119.4%</td>
+            <td><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span></td>
+          </tr>
+          <tr class="">
+            <td>Property Tax &amp; Licenses</td>
+            <td>38,912 NOK</td>
+            <td>39,060 NOK</td>
+            <td>-148 NOK</td>
+            <td>-0.4%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Rent / Lease</td>
+            <td>78,238 NOK</td>
+            <td>78,120 NOK</td>
+            <td>118 NOK</td>
+            <td>+0.1%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Total Fixed Charges</td>
+            <td>1,071,392 NOK</td>
+            <td>410,130 NOK</td>
+            <td>661,262 NOK</td>
+            <td>+161.2%</td>
+            <td><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>EBITDA</td>
+            <td>18,163 NOK</td>
+            <td>709,183 NOK</td>
+            <td>-691,020 NOK</td>
+            <td>-97.4%</td>
+            <td><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span></td>
+          </tr>
+          <tr class="">
+            <td>Depreciation &amp; Amortization</td>
+            <td>234,670 NOK</td>
+            <td>234,360 NOK</td>
+            <td>310 NOK</td>
+            <td>+0.1%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>EBIT</td>
+            <td>-216,507 NOK</td>
+            <td>474,823 NOK</td>
+            <td>-691,330 NOK</td>
+            <td>-145.6%</td>
+            <td><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span></td>
+          </tr>
+          <tr class="">
+            <td>Interest Expense</td>
+            <td>58,526 NOK</td>
+            <td>58,590 NOK</td>
+            <td>-64 NOK</td>
+            <td>-0.1%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Pre-tax Income</td>
+            <td>-275,033 NOK</td>
+            <td>416,233 NOK</td>
+            <td>-691,266 NOK</td>
+            <td>-166.1%</td>
+            <td><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span></td>
+          </tr></tbody>
+    </table>
+
+    <h2>Revenue Mix</h2>
+    
+    <table>
+      <thead><tr><th>Category</th><th>Actual mix</th><th>Budget mix</th><th>Shift</th></tr></thead>
+      <tbody><tr><td>Rooms Revenue</td><td>62.3%</td><td>62.5%</td><td>-0.2pp</td></tr><tr><td>F&amp;B Revenue</td><td>28.3%</td><td>28.1%</td><td>+0.2pp</td></tr><tr><td>Spa &amp; Wellness Revenue</td><td>4.9%</td><td>5.0%</td><td>-0.1pp</td></tr><tr><td>Other Operated Departments Revenue</td><td>3.1%</td><td>3.1%</td><td>+0.0pp</td></tr><tr><td>Miscellaneous &amp; Rental Income</td><td>1.2%</td><td>1.2%</td><td>-0.0pp</td></tr></tbody>
+    </table>
+
+    <h2>Flagged Items</h2>
+    
+        <div class="flag-block">
+          <h3><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span> F&amp;B Revenue</h3>
+          <p class="narrative">F&amp;B Revenue ran 2.9% ahead of Budget (31,458 NOK) — a modest, favorable start to the year.</p>
+          
+        </div>
+        <div class="flag-block">
+          <h3><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span> Total Revenue</h3>
+          <p class="narrative">Total Revenue landed 2.1% ahead of Budget (81,102 NOK), led by F&amp;B.</p>
+          
+        </div>
+        <div class="flag-block">
+          <h3><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span> F&amp;B – Payroll &amp; Related</h3>
+          <p class="narrative">F&amp;B Payroll &amp; Related ran 3.6% over Budget (13,777 NOK). Check whether banquet or group business drove temporary labor costs this month — F&amp;B Temporary Labor is one of the larger postings in the drill-down.</p>
+          
+    <details>
+      <summary>Transaction drill-down (5 transaction(s))</summary>
+      <table class="drill-table">
+        <thead><tr><th>Vendor</th><th>Amount</th></tr></thead>
+        <tbody><tr><td>Internal Payroll</td><td>398,274 NOK</td></tr></tbody>
+      </table>
+      <table class="drill-table">
+        <thead><tr><th>Date</th><th>Vendor</th><th>Description</th><th>Amount</th></tr></thead>
+        <tbody><tr><td>2026-01-03</td><td>Internal Payroll</td><td>Payroll run — F&amp;B Temporary Labor</td><td>75,588 NOK</td></tr><tr><td>2026-01-07</td><td>Internal Payroll</td><td>Payroll run — F&amp;B Payroll Tax &amp; Benefits</td><td>89,700 NOK</td></tr><tr><td>2026-01-10</td><td>Internal Payroll</td><td>Payroll run — Banquet Service Salaries</td><td>86,351 NOK</td></tr><tr><td>2026-01-12</td><td>Internal Payroll</td><td>Payroll run — Restaurant &amp; Bar Salaries</td><td>81,833 NOK</td></tr><tr><td>2026-01-24</td><td>Internal Payroll</td><td>Payroll run — Kitchen Salaries</td><td>64,802 NOK</td></tr></tbody>
+      </table>
+    </details>
+        </div>
+        <div class="flag-block">
+          <h3><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span> Other Operated Departments – Expenses</h3>
+          <p class="narrative">Other Operated Departments Expenses ran 4.2% over Budget (2,039 NOK) — a small variance, not concerning at this size.</p>
+          
+    <details>
+      <summary>Transaction drill-down (8 transaction(s))</summary>
+      <table class="drill-table">
+        <thead><tr><th>Vendor</th><th>Amount</th></tr></thead>
+        <tbody><tr><td>Business Services Nordic</td><td>32,594 NOK</td></tr><tr><td>ParkTech Systems</td><td>18,270 NOK</td></tr></tbody>
+      </table>
+      <table class="drill-table">
+        <thead><tr><th>Date</th><th>Vendor</th><th>Description</th><th>Amount</th></tr></thead>
+        <tbody><tr><td>2026-01-03</td><td>Business Services Nordic</td><td>Invoice — Business Center Operating Expense</td><td>9,007 NOK</td></tr><tr><td>2026-01-04</td><td>ParkTech Systems</td><td>Invoice — Gift Shop Cost of Sales</td><td>5,898 NOK</td></tr><tr><td>2026-01-05</td><td>ParkTech Systems</td><td>Invoice — Laundry &amp; Valet Operating Expense</td><td>12,372 NOK</td></tr><tr><td>2026-01-05</td><td>Business Services Nordic</td><td>Invoice — Gift Shop Cost of Sales</td><td>5,898 NOK</td></tr><tr><td>2026-01-08</td><td>Business Services Nordic</td><td>Invoice — Parking Operating Expense</td><td>2,894 NOK</td></tr><tr><td>2026-01-17</td><td>Business Services Nordic</td><td>Invoice — Parking Operating Expense</td><td>2,894 NOK</td></tr><tr><td>2026-01-20</td><td>Business Services Nordic</td><td>Invoice — Business Center Operating Expense</td><td>9,007 NOK</td></tr><tr><td>2026-01-26</td><td>Business Services Nordic</td><td>Invoice — Parking Operating Expense</td><td>2,894 NOK</td></tr></tbody>
+      </table>
+    </details>
+        </div>
+        <div class="flag-block">
+          <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> Administrative &amp; General</h3>
+          <p class="narrative">Administrative &amp; General ran 16.5% over Budget (51,616 NOK) — expected, not a concern. This is the external audit fee, invoiced as a single charge in January per the usual pattern (see Professional Fees – Audit and Bad Debt Expense in the drill-down); Budget spreads a flat allocation across the year, so January always shows this gap.</p>
+          
+    <details>
+      <summary>Transaction drill-down (19 transaction(s))</summary>
+      <table class="drill-table">
+        <thead><tr><th>Vendor</th><th>Amount</th></tr></thead>
+        <tbody><tr><td>Baltic Audit &amp; Assurance</td><td>126,434 NOK</td></tr><tr><td>Office Plus Nordic</td><td>123,708 NOK</td></tr><tr><td>Internal Payroll</td><td>62,219 NOK</td></tr><tr><td>Nordheim Legal Partners</td><td>42,973 NOK</td></tr><tr><td>Nordic Payments Processing</td><td>8,762 NOK</td></tr></tbody>
+      </table>
+      <table class="drill-table">
+        <thead><tr><th>Date</th><th>Vendor</th><th>Description</th><th>Amount</th></tr></thead>
+        <tbody><tr><td>2026-01-03</td><td>Internal Payroll</td><td>Payroll run — Finance &amp; Accounting Salaries</td><td>24,739 NOK</td></tr><tr><td>2026-01-04</td><td>Office Plus Nordic</td><td>Professional services invoice — Professional Fees – Legal</td><td>12,121 NOK</td></tr><tr><td>2026-01-04</td><td>Baltic Audit &amp; Assurance</td><td>Professional services invoice — Board &amp; Owner Reporting Costs</td><td>13,777 NOK</td></tr><tr><td>2026-01-05</td><td>Baltic Audit &amp; Assurance</td><td>Professional services invoice — Board &amp; Owner Reporting Costs</td><td>13,777 NOK</td></tr><tr><td>2026-01-08</td><td>Office Plus Nordic</td><td>Professional services invoice — Office Supplies &amp; Postage</td><td>14,868 NOK</td></tr><tr><td>2026-01-09</td><td>Baltic Audit &amp; Assurance</td><td>Professional services invoice — Bad Debt Expense</td><td>48,129 NOK</td></tr><tr><td>2026-01-10</td><td>Baltic Audit &amp; Assurance</td><td>Professional services invoice — Office Supplies &amp; Postage</td><td>14,868 NOK</td></tr><tr><td>2026-01-10</td><td>Office Plus Nordic</td><td>Professional services invoice — Office Supplies &amp; Postage</td><td>14,868 NOK</td></tr><tr><td>2026-01-10</td><td>Baltic Audit &amp; Assurance</td><td>Professional services invoice — General Admin Other</td><td>18,360 NOK</td></tr><tr><td>2026-01-12</td><td>Nordheim Legal Partners</td><td>Professional services invoice — Professional Fees – Legal</td><td>12,121 NOK</td></tr><tr><td>2026-01-14</td><td>Internal Payroll</td><td>Payroll run — Executive Office Salaries</td><td>37,480 NOK</td></tr><tr><td>2026-01-16</td><td>Office Plus Nordic</td><td>Professional services invoice — Bank Charges &amp; Merchant Fees</td><td>18,731 NOK</td></tr><tr><td>2026-01-21</td><td>Office Plus Nordic</td><td>Professional services invoice — General Admin Other</td><td>18,360 NOK</td></tr><tr><td>2026-01-23</td><td>Nordheim Legal Partners</td><td>Professional services invoice — Professional Fees – Legal</td><td>12,121 NOK</td></tr><tr><td>2026-01-23</td><td>Nordic Payments Processing</td><td>Professional services invoice — Professional Fees – Audit</td><td>8,762 NOK</td></tr><tr><td>2026-01-25</td><td>Office Plus Nordic</td><td>Professional services invoice — IT &amp; Admin Travel</td><td>44,760 NOK</td></tr><tr><td>2026-01-26</td><td>Baltic Audit &amp; Assurance</td><td>Professional services invoice — Professional Fees – Audit</td><td>8,762 NOK</td></tr><tr><td>2026-01-30</td><td>Nordheim Legal Partners</td><td>Professional services invoice — Bank Charges &amp; Merchant Fees</td><td>18,731 NOK</td></tr><tr><td>2026-01-31</td><td>Baltic Audit &amp; Assurance</td><td>Professional services invoice — Professional Fees – Audit</td><td>8,762 NOK</td></tr></tbody>
+      </table>
+    </details>
+        </div>
+        <div class="flag-block">
+          <h3><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span> Sales &amp; Marketing</h3>
+          <p class="narrative">Sales &amp; Marketing ran 3.0% over Budget (8,308 NOK) — a small, routine variance.</p>
+          
+    <details>
+      <summary>Transaction drill-down (17 transaction(s))</summary>
+      <table class="drill-table">
+        <thead><tr><th>Vendor</th><th>Amount</th></tr></thead>
+        <tbody><tr><td>Nordic PR Partners</td><td>103,284 NOK</td></tr><tr><td>Nordic Print &amp; Signage</td><td>81,106 NOK</td></tr><tr><td>BookingBridge OTA Services</td><td>38,433 NOK</td></tr><tr><td>Scandinavian Media Group</td><td>31,884 NOK</td></tr><tr><td>Internal Payroll</td><td>27,022 NOK</td></tr></tbody>
+      </table>
+      <table class="drill-table">
+        <thead><tr><th>Date</th><th>Vendor</th><th>Description</th><th>Amount</th></tr></thead>
+        <tbody><tr><td>2026-01-03</td><td>Nordic Print &amp; Signage</td><td>Marketing services invoice — Sales &amp; Marketing Travel</td><td>25,313 NOK</td></tr><tr><td>2026-01-04</td><td>Internal Payroll</td><td>Payroll run — Sales Team Salaries</td><td>27,022 NOK</td></tr><tr><td>2026-01-04</td><td>Nordic Print &amp; Signage</td><td>Marketing services invoice — Advertising &amp; Media</td><td>13,510 NOK</td></tr><tr><td>2026-01-06</td><td>Nordic PR Partners</td><td>Marketing services invoice — Trade Show &amp; Sponsorship Costs</td><td>16,611 NOK</td></tr><tr><td>2026-01-07</td><td>Nordic Print &amp; Signage</td><td>Marketing services invoice — Trade Show &amp; Sponsorship Costs</td><td>16,611 NOK</td></tr><tr><td>2026-01-08</td><td>BookingBridge OTA Services</td><td>Marketing services invoice — Advertising &amp; Media</td><td>13,510 NOK</td></tr><tr><td>2026-01-16</td><td>Scandinavian Media Group</td><td>Marketing services invoice — Digital Marketing &amp; OTA Commission</td><td>11,412 NOK</td></tr><tr><td>2026-01-22</td><td>Nordic PR Partners</td><td>Marketing services invoice — Loyalty Program Costs</td><td>17,063 NOK</td></tr><tr><td>2026-01-23</td><td>Scandinavian Media Group</td><td>Marketing services invoice — Digital Marketing &amp; OTA Commission</td><td>11,412 NOK</td></tr><tr><td>2026-01-23</td><td>Nordic PR Partners</td><td>Marketing services invoice — Loyalty Program Costs</td><td>17,063 NOK</td></tr><tr><td>2026-01-25</td><td>BookingBridge OTA Services</td><td>Marketing services invoice — Advertising &amp; Media</td><td>13,510 NOK</td></tr><tr><td>2026-01-25</td><td>Scandinavian Media Group</td><td>Marketing services invoice — Public Relations</td><td>9,060 NOK</td></tr><tr><td>2026-01-26</td><td>BookingBridge OTA Services</td><td>Marketing services invoice — Digital Marketing &amp; OTA Commission</td><td>11,412 NOK</td></tr><tr><td>2026-01-26</td><td>Nordic Print &amp; Signage</td><td>Marketing services invoice — Public Relations</td><td>9,060 NOK</td></tr><tr><td>2026-01-29</td><td>Nordic PR Partners</td><td>Marketing services invoice — Public Relations</td><td>9,060 NOK</td></tr><tr><td>2026-01-29</td><td>Nordic Print &amp; Signage</td><td>Marketing services invoice — Trade Show &amp; Sponsorship Costs</td><td>16,611 NOK</td></tr><tr><td>2026-01-30</td><td>Nordic PR Partners</td><td>Marketing services invoice — Website &amp; Photography</td><td>43,486 NOK</td></tr></tbody>
+      </table>
+    </details>
+        </div>
+        <div class="flag-block">
+          <h3><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span> Security</h3>
+          <p class="narrative">Security ran 3.2% over Budget (1,883 NOK) — immaterial at this size.</p>
+          
+    <details>
+      <summary>Transaction drill-down (9 transaction(s))</summary>
+      <table class="drill-table">
+        <thead><tr><th>Vendor</th><th>Amount</th></tr></thead>
+        <tbody><tr><td>SecureNordic Services</td><td>60,473 NOK</td></tr></tbody>
+      </table>
+      <table class="drill-table">
+        <thead><tr><th>Date</th><th>Vendor</th><th>Description</th><th>Amount</th></tr></thead>
+        <tbody><tr><td>2026-01-03</td><td>SecureNordic Services</td><td>Security services contract — CCTV Maintenance</td><td>8,335 NOK</td></tr><tr><td>2026-01-05</td><td>SecureNordic Services</td><td>Security services contract — CCTV Maintenance</td><td>8,335 NOK</td></tr><tr><td>2026-01-13</td><td>SecureNordic Services</td><td>Security services contract — Security Systems &amp; Monitoring</td><td>5,837 NOK</td></tr><tr><td>2026-01-16</td><td>SecureNordic Services</td><td>Security services contract — CCTV Maintenance</td><td>8,335 NOK</td></tr><tr><td>2026-01-20</td><td>SecureNordic Services</td><td>Security services contract — Security Staff &amp; Contracts</td><td>5,986 NOK</td></tr><tr><td>2026-01-21</td><td>SecureNordic Services</td><td>Security services contract — Security Staff &amp; Contracts</td><td>5,986 NOK</td></tr><tr><td>2026-01-24</td><td>SecureNordic Services</td><td>Security services contract — Security Systems &amp; Monitoring</td><td>5,837 NOK</td></tr><tr><td>2026-01-30</td><td>SecureNordic Services</td><td>Security services contract — Security Staff &amp; Contracts</td><td>5,986 NOK</td></tr><tr><td>2026-01-30</td><td>SecureNordic Services</td><td>Security services contract — Security Systems &amp; Monitoring</td><td>5,837 NOK</td></tr></tbody>
+      </table>
+    </details>
+        </div>
+        <div class="flag-block">
+          <h3><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span> Total Undistributed Operating Expenses</h3>
+          <p class="narrative">Total Undistributed Operating Expenses ran 6.2% over Budget (73,909 NOK), almost entirely explained by Administrative &amp; General&#x27;s January audit-fee timing above.</p>
+          
+        </div>
+        <div class="flag-block">
+          <h3><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span> Gross Operating Profit (GOP)</h3>
+          <p class="narrative">GOP came in 2.7% under Budget (29,758 NOK) — a modest miss, mostly the flow-through of Administrative &amp; General&#x27;s January audit-fee timing rather than an operating issue. Revenue tracked ahead of Budget and departmental costs were essentially on target.</p>
+          
+        </div>
+        <div class="flag-block">
+          <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> Property &amp; Liability Insurance</h3>
+          <p class="narrative">Property &amp; Liability Insurance came in at 714,458 NOK against a Budget of 58,590 NOK — expected, not a concern. This is the annual premium (Property, General Liability, and Business Interruption combined — see the drill-down), invoiced as a single charge every January while Budget spreads a flat monthly allocation across the year. The same pattern will repeat every January.</p>
+          
+    <details>
+      <summary>Transaction drill-down (9 transaction(s))</summary>
+      <table class="drill-table">
+        <thead><tr><th>Vendor</th><th>Amount</th></tr></thead>
+        <tbody><tr><td>Nordic Property Insurers</td><td>714,458 NOK</td></tr></tbody>
+      </table>
+      <table class="drill-table">
+        <thead><tr><th>Date</th><th>Vendor</th><th>Description</th><th>Amount</th></tr></thead>
+        <tbody><tr><td>2026-01-03</td><td>Nordic Property Insurers</td><td>Insurance premium — Business Interruption Insurance</td><td>76,193 NOK</td></tr><tr><td>2026-01-05</td><td>Nordic Property Insurers</td><td>Insurance premium — General Liability Insurance</td><td>59,985 NOK</td></tr><tr><td>2026-01-09</td><td>Nordic Property Insurers</td><td>Insurance premium — Property Insurance</td><td>101,975 NOK</td></tr><tr><td>2026-01-12</td><td>Nordic Property Insurers</td><td>Insurance premium — Property Insurance</td><td>101,975 NOK</td></tr><tr><td>2026-01-14</td><td>Nordic Property Insurers</td><td>Insurance premium — General Liability Insurance</td><td>59,985 NOK</td></tr><tr><td>2026-01-18</td><td>Nordic Property Insurers</td><td>Insurance premium — General Liability Insurance</td><td>59,985 NOK</td></tr><tr><td>2026-01-21</td><td>Nordic Property Insurers</td><td>Insurance premium — Business Interruption Insurance</td><td>76,193 NOK</td></tr><tr><td>2026-01-25</td><td>Nordic Property Insurers</td><td>Insurance premium — Property Insurance</td><td>101,975 NOK</td></tr><tr><td>2026-01-30</td><td>Nordic Property Insurers</td><td>Insurance premium — Business Interruption Insurance</td><td>76,193 NOK</td></tr></tbody>
+      </table>
+    </details>
+        </div>
+        <div class="flag-block">
+          <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> Total Fixed Charges</h3>
+          <p class="narrative">Total Fixed Charges ran 161% over Budget (661,262 NOK), driven entirely by the January insurance premium above — not a new or separate issue.</p>
+          
+        </div>
+        <div class="flag-block">
+          <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> EBITDA</h3>
+          <p class="narrative">EBITDA is down 97% vs Budget (691,020 NOK), driven entirely by the January insurance premium and the Administrative &amp; General audit-fee timing above — both expected. GOP, which excludes these fixed charges, is the more useful read on this month&#x27;s actual operating performance and came in only modestly under Budget.</p>
+          
+        </div>
+        <div class="flag-block">
+          <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> EBIT</h3>
+          <p class="narrative">Same January insurance/audit-fee driver as EBITDA above — no separate action needed here.</p>
+          
+        </div>
+        <div class="flag-block">
+          <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> Pre-tax Income</h3>
+          <p class="narrative">Same January insurance/audit-fee driver as EBITDA/EBIT above — no separate action needed here.</p>
+          
+        </div>
+  </div>
+</body>
+</html>

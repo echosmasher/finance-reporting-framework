@@ -1,0 +1,14 @@
+{
+  "executive_summary": "Occupancy, RevPAR, and Revenue per FTE are all on target this month, so the GOP miss isn't a demand problem — it's concentrated in Rooms Payroll, which ran 25% over Budget while occupancy moved less than 1 point. That's the signal worth chasing: payroll and occupancy normally track together, and this month they didn't.",
+  "profitability_summary": "GOP came in at 1,285,301 DKK, 10.4% (169,513 DKK) below Budget — the largest miss of the quarter, driven almost entirely by Rooms Payroll rather than a broad-based cost or revenue issue.",
+  "category_narratives": {
+    "rooms_payroll": "Rooms Payroll landed at 797,940 DKK against a Budget of 638,352 DKK — 25% over, while occupancy was 64.2% vs. a budgeted 65.0%, essentially flat. Payroll should move with occupancy, not diverge from it this sharply. The drill-down shows why: two overtime postings for Front Office and Housekeeping (\"covering extended staff leave\") plus a temporary housekeeping labor charge from Nordic Staffing Partners, together accounting for roughly 180,700 DKK of the overage. Check whether the underlying staff leave was planned or unplanned, and whether the current mix of overtime plus an external staffing agency is the most cost-effective way to cover it going forward — the agency line alone is a meaningful chunk of the gap.",
+    "total_departmental_expenses": "The departmental-expense total is over Budget for the same reason as Rooms Payroll above — not a separate, broader cost trend.",
+    "departmental_profit": "Departmental Profit is below Budget, tracing entirely to the Rooms Payroll overage above.",
+    "gop": "GOP missed Budget by 10.4% this month — the largest gap of the quarter, and it traces to one line: Rooms Payroll's overtime and temporary-labor costs (see above), not a demand or revenue issue.",
+    "ebitda": "Follows GOP's variance for the same reason — the Rooms Payroll story above flows straight through. Not an independent driver.",
+    "ebit": "Same driver as GOP/EBITDA above — no separate action needed here.",
+    "pretax_income": "Same driver as GOP/EBITDA/EBIT above — no separate action needed here.",
+    "gop_pct": "GOP % is below Budget for the same reason as the GOP dollar figure above — the Rooms Payroll overage, not a margin-structure issue."
+  }
+}

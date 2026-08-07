@@ -1,0 +1,782 @@
+{
+  "entity_code": "004",
+  "entity_name": "Example Hotel Copenhagen",
+  "period": "03-2026",
+  "currency": "DKK",
+  "comparison_label": "Budget",
+  "focus_metric": "gop",
+  "secondary_metric": "ebitda",
+  "pnl": [
+    {
+      "id": "rooms_revenue",
+      "label": "Rooms Revenue",
+      "kind": "category",
+      "act": 3530708.19,
+      "budget": 3546400.01,
+      "favorable": false,
+      "diff": -15691.82,
+      "diff_pct": -0.44,
+      "status": "ON TARGET",
+      "threshold_pct": 2.0,
+      "threshold_absolute": 82000
+    },
+    {
+      "id": "fb_revenue",
+      "label": "F&B Revenue",
+      "kind": "category",
+      "act": 1594255.89,
+      "budget": 1595879.99,
+      "favorable": false,
+      "diff": -1624.1,
+      "diff_pct": -0.1,
+      "status": "ON TARGET",
+      "threshold_pct": 2.0,
+      "threshold_absolute": 37000
+    },
+    {
+      "id": "spa_revenue",
+      "label": "Spa & Wellness Revenue",
+      "kind": "category",
+      "act": 283751.34,
+      "budget": 283711.99,
+      "favorable": true,
+      "diff": 39.35,
+      "diff_pct": 0.01,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "other_ops_revenue",
+      "label": "Other Operated Departments Revenue",
+      "kind": "category",
+      "act": 176048.57,
+      "budget": 177320.0,
+      "favorable": false,
+      "diff": -1271.43,
+      "diff_pct": -0.72,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "misc_income",
+      "label": "Miscellaneous & Rental Income",
+      "kind": "category",
+      "act": 71277.78,
+      "budget": 70928.0,
+      "favorable": true,
+      "diff": 349.78,
+      "diff_pct": 0.49,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "total_revenue",
+      "label": "Total Revenue",
+      "kind": "subtotal",
+      "act": 5656041.77,
+      "budget": 5674239.99,
+      "favorable": false,
+      "diff": -18198.22,
+      "diff_pct": -0.32,
+      "status": "ON TARGET",
+      "threshold_pct": 2.0,
+      "threshold_absolute": 132000
+    },
+    {
+      "id": "rooms_payroll",
+      "label": "Rooms \u2013 Payroll & Related",
+      "kind": "category",
+      "act": 797940.01,
+      "budget": 638352.01,
+      "favorable": false,
+      "diff": 159588.0,
+      "diff_pct": 25.0,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 22000
+    },
+    {
+      "id": "rooms_other_exp",
+      "label": "Rooms \u2013 Other Expenses",
+      "kind": "category",
+      "act": 282281.6,
+      "budget": 283712.01,
+      "favorable": true,
+      "diff": -1430.41,
+      "diff_pct": -0.5,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "fb_cogs",
+      "label": "F&B \u2013 Cost of Sales",
+      "kind": "category",
+      "act": 484220.85,
+      "budget": 478764.0,
+      "favorable": false,
+      "diff": 5456.85,
+      "diff_pct": 1.14,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 16500
+    },
+    {
+      "id": "fb_payroll",
+      "label": "F&B \u2013 Payroll & Related",
+      "kind": "category",
+      "act": 551056.69,
+      "budget": 558558.01,
+      "favorable": true,
+      "diff": -7501.32,
+      "diff_pct": -1.34,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 19500
+    },
+    {
+      "id": "fb_other_exp",
+      "label": "F&B \u2013 Other Expenses",
+      "kind": "category",
+      "act": 157916.0,
+      "budget": 159588.0,
+      "favorable": true,
+      "diff": -1672.0,
+      "diff_pct": -1.05,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "spa_payroll",
+      "label": "Spa & Wellness \u2013 Payroll & Related",
+      "kind": "category",
+      "act": 85808.51,
+      "budget": 85113.59,
+      "favorable": false,
+      "diff": 694.92,
+      "diff_pct": 0.82,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "spa_other_exp",
+      "label": "Spa & Wellness \u2013 Other Expenses",
+      "kind": "category",
+      "act": 42378.11,
+      "budget": 42556.8,
+      "favorable": true,
+      "diff": -178.69,
+      "diff_pct": -0.42,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "other_ops_exp",
+      "label": "Other Operated Departments \u2013 Expenses",
+      "kind": "category",
+      "act": 70852.41,
+      "budget": 70927.99,
+      "favorable": true,
+      "diff": -75.58,
+      "diff_pct": -0.11,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "total_departmental_expenses",
+      "label": "Total Departmental Expenses",
+      "kind": "subtotal",
+      "act": 2472454.18,
+      "budget": 2317572.41,
+      "favorable": false,
+      "diff": 154881.77,
+      "diff_pct": 6.68,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 80000
+    },
+    {
+      "id": "departmental_profit",
+      "label": "Departmental Profit",
+      "kind": "subtotal",
+      "act": 3183587.59,
+      "budget": 3356667.58,
+      "favorable": false,
+      "diff": -173079.99,
+      "diff_pct": -5.16,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 117000
+    },
+    {
+      "id": "admin_general",
+      "label": "Administrative & General",
+      "kind": "category",
+      "act": 448335.49,
+      "budget": 453939.2,
+      "favorable": true,
+      "diff": -5603.71,
+      "diff_pct": -1.23,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 15800
+    },
+    {
+      "id": "sales_marketing",
+      "label": "Sales & Marketing",
+      "kind": "category",
+      "act": 397053.85,
+      "budget": 397196.8,
+      "favorable": true,
+      "diff": -142.95,
+      "diff_pct": -0.04,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "property_ops_maint",
+      "label": "Property Operations & Maintenance",
+      "kind": "category",
+      "act": 287257.95,
+      "budget": 283712.0,
+      "favorable": false,
+      "diff": 3545.95,
+      "diff_pct": 1.25,
+      "status": "ON TARGET",
+      "threshold_pct": 4.0,
+      "threshold_absolute": 13000
+    },
+    {
+      "id": "utilities",
+      "label": "Utilities",
+      "kind": "category",
+      "act": 281701.12,
+      "budget": 283711.99,
+      "favorable": true,
+      "diff": -2010.87,
+      "diff_pct": -0.71,
+      "status": "ON TARGET",
+      "threshold_pct": 4.0,
+      "threshold_absolute": 13000
+    },
+    {
+      "id": "it_systems",
+      "label": "IT & Systems",
+      "kind": "category",
+      "act": 113792.49,
+      "budget": 113484.81,
+      "favorable": false,
+      "diff": 307.68,
+      "diff_pct": 0.27,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "hr_training",
+      "label": "Human Resources & Training",
+      "kind": "category",
+      "act": 113479.62,
+      "budget": 113484.8,
+      "favorable": true,
+      "diff": -5.18,
+      "diff_pct": -0.0,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "security",
+      "label": "Security",
+      "kind": "category",
+      "act": 85455.25,
+      "budget": 85113.6,
+      "favorable": false,
+      "diff": 341.65,
+      "diff_pct": 0.4,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "total_undistributed_expenses",
+      "label": "Total Undistributed Operating Expenses",
+      "kind": "subtotal",
+      "act": 1727075.77,
+      "budget": 1730643.2,
+      "favorable": true,
+      "diff": -3567.43,
+      "diff_pct": -0.21,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 60000
+    },
+    {
+      "id": "gop",
+      "label": "Gross Operating Profit (GOP)",
+      "kind": "subtotal",
+      "act": 1456511.82,
+      "budget": 1626024.38,
+      "favorable": false,
+      "diff": -169512.56,
+      "diff_pct": -10.42,
+      "status": "INVESTIGATE",
+      "threshold_pct": 2.0,
+      "threshold_absolute": 38000
+    },
+    {
+      "id": "management_fees",
+      "label": "Management Fees",
+      "kind": "category",
+      "act": 169919.17,
+      "budget": 170227.2,
+      "favorable": true,
+      "diff": -308.03,
+      "diff_pct": -0.18,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "franchise_fees",
+      "label": "Franchise & Brand Fees",
+      "kind": "category",
+      "act": 170701.28,
+      "budget": 170227.2,
+      "favorable": false,
+      "diff": 474.08,
+      "diff_pct": 0.28,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "insurance",
+      "label": "Property & Liability Insurance",
+      "kind": "category",
+      "act": 84713.52,
+      "budget": 85113.6,
+      "favorable": true,
+      "diff": -400.08,
+      "diff_pct": -0.47,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "property_tax",
+      "label": "Property Tax & Licenses",
+      "kind": "category",
+      "act": 56936.48,
+      "budget": 56742.4,
+      "favorable": false,
+      "diff": 194.08,
+      "diff_pct": 0.34,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "rent_lease",
+      "label": "Rent / Lease",
+      "kind": "category",
+      "act": 113768.88,
+      "budget": 113484.8,
+      "favorable": false,
+      "diff": 284.08,
+      "diff_pct": 0.25,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "total_fixed_charges",
+      "label": "Total Fixed Charges",
+      "kind": "subtotal",
+      "act": 596039.33,
+      "budget": 595795.2,
+      "favorable": false,
+      "diff": 244.13,
+      "diff_pct": 0.04,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 20700
+    },
+    {
+      "id": "ebitda",
+      "label": "EBITDA",
+      "kind": "subtotal",
+      "act": 860472.49,
+      "budget": 1030229.18,
+      "favorable": false,
+      "diff": -169756.69,
+      "diff_pct": -16.48,
+      "status": "INVESTIGATE",
+      "threshold_pct": 2.0,
+      "threshold_absolute": 24000
+    },
+    {
+      "id": "depreciation",
+      "label": "Depreciation & Amortization",
+      "kind": "category",
+      "act": 339275.76,
+      "budget": 340454.4,
+      "favorable": true,
+      "diff": -1178.64,
+      "diff_pct": -0.35,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "ebit",
+      "label": "EBIT",
+      "kind": "subtotal",
+      "act": 521196.73,
+      "budget": 689774.78,
+      "favorable": false,
+      "diff": -168578.05,
+      "diff_pct": -24.44,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 24000
+    },
+    {
+      "id": "interest_expense",
+      "label": "Interest Expense",
+      "kind": "category",
+      "act": 84699.96,
+      "budget": 85113.6,
+      "favorable": true,
+      "diff": -413.64,
+      "diff_pct": -0.49,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "pretax_income",
+      "label": "Pre-tax Income",
+      "kind": "subtotal",
+      "act": 436496.77,
+      "budget": 604661.18,
+      "favorable": false,
+      "diff": -168164.41,
+      "diff_pct": -27.81,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 21000
+    }
+  ],
+  "kpis": [
+    {
+      "id": "occupancy_pct",
+      "label": "Occupancy %",
+      "format": "percent",
+      "act": 0.6421,
+      "budget": 0.65,
+      "favorable": false,
+      "diff": -0.007862903225806517,
+      "status": "ON TARGET"
+    },
+    {
+      "id": "revpar",
+      "label": "RevPAR",
+      "format": "currency",
+      "act": 711.8363,
+      "budget": 715.0,
+      "favorable": false,
+      "diff": -3.163673387096651,
+      "status": "ON TARGET"
+    },
+    {
+      "id": "revenue_per_fte",
+      "label": "Revenue per FTE",
+      "format": "currency",
+      "act": 58430.1836,
+      "budget": 59728.842,
+      "favorable": false,
+      "diff": -1298.658425619833,
+      "status": "ON TARGET"
+    },
+    {
+      "id": "gop_pct",
+      "label": "GOP %",
+      "format": "percent",
+      "act": 0.2575,
+      "budget": 0.2866,
+      "favorable": false,
+      "diff": -0.029048164656005127,
+      "status": "NOTE"
+    }
+  ],
+  "revenue_mix": [
+    {
+      "id": "rooms_revenue",
+      "label": "Rooms Revenue",
+      "mix_actual_pct": 62.42,
+      "mix_budget_pct": 62.5,
+      "mix_shift_pp": -0.08
+    },
+    {
+      "id": "fb_revenue",
+      "label": "F&B Revenue",
+      "mix_actual_pct": 28.19,
+      "mix_budget_pct": 28.12,
+      "mix_shift_pp": 0.06
+    },
+    {
+      "id": "spa_revenue",
+      "label": "Spa & Wellness Revenue",
+      "mix_actual_pct": 5.02,
+      "mix_budget_pct": 5.0,
+      "mix_shift_pp": 0.02
+    },
+    {
+      "id": "other_ops_revenue",
+      "label": "Other Operated Departments Revenue",
+      "mix_actual_pct": 3.11,
+      "mix_budget_pct": 3.13,
+      "mix_shift_pp": -0.01
+    },
+    {
+      "id": "misc_income",
+      "label": "Miscellaneous & Rental Income",
+      "mix_actual_pct": 1.26,
+      "mix_budget_pct": 1.25,
+      "mix_shift_pp": 0.01
+    }
+  ],
+  "flags": [
+    {
+      "id": "rooms_payroll",
+      "label": "Rooms \u2013 Payroll & Related",
+      "kind": "category",
+      "act": 797940.01,
+      "budget": 638352.01,
+      "favorable": false,
+      "diff": 159588.0,
+      "diff_pct": 25.0,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 22000
+    },
+    {
+      "id": "total_departmental_expenses",
+      "label": "Total Departmental Expenses",
+      "kind": "subtotal",
+      "act": 2472454.18,
+      "budget": 2317572.41,
+      "favorable": false,
+      "diff": 154881.77,
+      "diff_pct": 6.68,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 80000
+    },
+    {
+      "id": "departmental_profit",
+      "label": "Departmental Profit",
+      "kind": "subtotal",
+      "act": 3183587.59,
+      "budget": 3356667.58,
+      "favorable": false,
+      "diff": -173079.99,
+      "diff_pct": -5.16,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 117000
+    },
+    {
+      "id": "gop",
+      "label": "Gross Operating Profit (GOP)",
+      "kind": "subtotal",
+      "act": 1456511.82,
+      "budget": 1626024.38,
+      "favorable": false,
+      "diff": -169512.56,
+      "diff_pct": -10.42,
+      "status": "INVESTIGATE",
+      "threshold_pct": 2.0,
+      "threshold_absolute": 38000
+    },
+    {
+      "id": "ebitda",
+      "label": "EBITDA",
+      "kind": "subtotal",
+      "act": 860472.49,
+      "budget": 1030229.18,
+      "favorable": false,
+      "diff": -169756.69,
+      "diff_pct": -16.48,
+      "status": "INVESTIGATE",
+      "threshold_pct": 2.0,
+      "threshold_absolute": 24000
+    },
+    {
+      "id": "ebit",
+      "label": "EBIT",
+      "kind": "subtotal",
+      "act": 521196.73,
+      "budget": 689774.78,
+      "favorable": false,
+      "diff": -168578.05,
+      "diff_pct": -24.44,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 24000
+    },
+    {
+      "id": "pretax_income",
+      "label": "Pre-tax Income",
+      "kind": "subtotal",
+      "act": 436496.77,
+      "budget": 604661.18,
+      "favorable": false,
+      "diff": -168164.41,
+      "diff_pct": -27.81,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 21000
+    },
+    {
+      "id": "gop_pct",
+      "label": "GOP %",
+      "format": "percent",
+      "act": 0.2575,
+      "budget": 0.2866,
+      "favorable": false,
+      "diff": -0.029048164656005127,
+      "status": "NOTE"
+    }
+  ],
+  "drill_downs": {
+    "rooms_payroll": {
+      "transaction_count": 7,
+      "by_vendor": [
+        {
+          "vendor": "Internal Payroll",
+          "amount": 617229.47
+        },
+        {
+          "vendor": "Nordic Staffing Partners",
+          "amount": 180710.54
+        }
+      ],
+      "by_account": [
+        {
+          "gl_account": "5005",
+          "account_name": "Rooms Division Temporary Labor",
+          "amount": 180710.54
+        },
+        {
+          "gl_account": "5002",
+          "account_name": "Rooms Division Overtime",
+          "amount": 166515.54
+        },
+        {
+          "gl_account": "5000",
+          "account_name": "Front Office Salaries",
+          "amount": 128249.5
+        },
+        {
+          "gl_account": "5004",
+          "account_name": "Concierge & Guest Services Salaries",
+          "amount": 125076.74
+        },
+        {
+          "gl_account": "5001",
+          "account_name": "Housekeeping Salaries",
+          "amount": 119305.57
+        },
+        {
+          "gl_account": "5003",
+          "account_name": "Rooms Division Payroll Tax & Benefits",
+          "amount": 78082.12
+        }
+      ],
+      "transactions": [
+        {
+          "entity_code": "004",
+          "period": "03-2026",
+          "date": "2026-03-06",
+          "gl_account": "5003",
+          "vendor": "Internal Payroll",
+          "description": "Payroll run \u2014 Rooms Division Payroll Tax & Benefits",
+          "department": "Rooms",
+          "amount": "78082.12"
+        },
+        {
+          "entity_code": "004",
+          "period": "03-2026",
+          "date": "2026-03-12",
+          "gl_account": "5001",
+          "vendor": "Internal Payroll",
+          "description": "Payroll run \u2014 Housekeeping Salaries",
+          "department": "Rooms",
+          "amount": "119305.57"
+        },
+        {
+          "entity_code": "004",
+          "period": "03-2026",
+          "date": "2026-03-15",
+          "gl_account": "5004",
+          "vendor": "Internal Payroll",
+          "description": "Payroll run \u2014 Concierge & Guest Services Salaries",
+          "department": "Rooms",
+          "amount": "125076.74"
+        },
+        {
+          "entity_code": "004",
+          "period": "03-2026",
+          "date": "2026-03-16",
+          "gl_account": "5002",
+          "vendor": "Internal Payroll",
+          "description": "Overtime \u2014 Front Office (covering extended staff leave)",
+          "department": "Rooms",
+          "amount": "99909.32"
+        },
+        {
+          "entity_code": "004",
+          "period": "03-2026",
+          "date": "2026-03-16",
+          "gl_account": "5002",
+          "vendor": "Internal Payroll",
+          "description": "Overtime \u2014 Housekeeping (covering extended staff leave)",
+          "department": "Rooms",
+          "amount": "66606.22"
+        },
+        {
+          "entity_code": "004",
+          "period": "03-2026",
+          "date": "2026-03-18",
+          "gl_account": "5005",
+          "vendor": "Nordic Staffing Partners",
+          "description": "Temporary housekeeping labor \u2014 staffing gap coverage",
+          "department": "Rooms",
+          "amount": "180710.54"
+        },
+        {
+          "entity_code": "004",
+          "period": "03-2026",
+          "date": "2026-03-30",
+          "gl_account": "5000",
+          "vendor": "Internal Payroll",
+          "description": "Payroll run \u2014 Front Office Salaries",
+          "department": "Rooms",
+          "amount": "128249.5"
+        }
+      ]
+    }
+  },
+  "has_transactions": true,
+  "has_last_year": false
+}

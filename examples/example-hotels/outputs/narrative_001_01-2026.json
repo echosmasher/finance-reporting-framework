@@ -1,0 +1,14 @@
+{
+  "executive_summary": "January's numbers look dramatic below GOP — EBITDA and Pre-tax Income both swing sharply negative — but that's entirely the annual Property & Liability Insurance premium landing in this single month, not a change in operating performance. GOP itself, the metric the GM controls, is only 3.4% under Budget, driven by the expected January audit-fee bump in Administrative & General. Nothing here needs investigation beyond confirming the numbers below GOP; they're timing, not performance.",
+  "profitability_summary": "GOP came in at 2,866,680 NOK, 3.4% (101,099 NOK) under Budget of 2,967,779 NOK — the shortfall traces to Administrative & General's January audit-fee bump, not to departmental performance. EBITDA and below look far worse (EBITDA down 95%, EBIT and Pre-tax Income both swinging negative) purely because the annual Property & Liability Insurance premium (1,849,829 NOK actual vs. a flat 155,347 NOK monthly Budget allocation) posts entirely in January — expected every year, not a concern.",
+  "category_narratives": {
+    "admin_general": "Administrative & General ran 938,694 NOK against a Budget of 828,518 NOK — 13.3% over. This is the expected annual external-audit-fee bump layered onto the normal January insurance/audit invoicing pattern (see company-profile.md's seasonality notes), not a new cost. Confirm the drill-down ties to the audit engagement and not an unrelated one-off professional fee.",
+    "total_undistributed_expenses": "Tracks Administrative & General's January bump above — no separate driver.",
+    "gop": "GOP is 3.4% (101,099 NOK) under Budget, entirely attributable to the Administrative & General audit-fee timing above, not a departmental performance issue. No further investigation needed this month.",
+    "insurance": "Property & Liability Insurance posted 1,849,829 NOK against a flat 155,347 NOK monthly Budget allocation — the annual premium, invoiced as a single January charge every year (see company-profile.md and thresholds.yaml seasonality notes). Expected, not a concern; Budget will look \"under\" every January by design since it spreads the premium evenly across the year rather than matching the invoice timing.",
+    "total_fixed_charges": "Driven entirely by the Insurance premium above.",
+    "ebitda": "EBITDA is down sharply (90,099 NOK vs. 1,880,348 NOK Budget) purely because the Insurance premium above sits below GOP in the P&L cascade — a timing effect, not a decline in operating performance. GOP, the metric that actually reflects the property's controllable performance, is only 3.4% off Budget this month.",
+    "ebit": "Same driver as EBITDA above — the January insurance premium, not operating performance.",
+    "pretax_income": "Same driver as EBITDA/EBIT above — the January insurance premium, not operating performance."
+  }
+}

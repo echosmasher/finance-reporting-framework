@@ -1,0 +1,16 @@
+{
+  "executive_summary": "March's GOP miss (-8.8% vs. Budget) is the other side of February's apparent beat: the missing February electricity invoice caught up this month in a single Utilities charge covering both months. Look at Utilities across February-March together rather than either month in isolation — combined, the two months are close to on-target. F&B Revenue's modest softness and two small favorable cost variances (Spa & Wellness Other Expenses, Other Operated Departments Expenses) are routine and don't need investigation.",
+  "profitability_summary": "GOP came in at 3,066,651 NOK, 8.8% (296,699 NOK) under Budget of 3,363,350 NOK, driven almost entirely by the Utilities catch-up below — not a genuine deterioration in operating performance. Combined with February's Utilities-driven beat, the two months largely offset.",
+  "category_narratives": {
+    "fb_revenue": "F&B Revenue ran 2.1% under Budget (67,962 NOK) — within routine variance, no specific driver worth chasing this month.",
+    "spa_other_exp": "Spa & Wellness Other Expenses ran 3.1% under Budget — a modest favorable variance, routine.",
+    "other_ops_exp": "Other Operated Departments Expenses ran 3.1% under Budget — a modest favorable variance, routine.",
+    "utilities": "Utilities landed at 788,234 NOK against a Budget of 586,844 NOK — 34.3% over. This is the other half of February's story: the drill-down shows the Electricity account alone carrying 327,260 NOK this month, split between a specific \"catch-up billing, includes unpaid February charges\" transaction and March's own usage. This is the expected resolution of last month's missing invoice, not a new cost — see February's Utilities note. Combined, Feb and Mar's Utilities lines are close to two months of normal Budget.",
+    "total_undistributed_expenses": "Tracks the Utilities catch-up above — no separate driver.",
+    "gop": "GOP's 8.8% miss traces almost entirely to the Utilities catch-up above. Read together with February's Utilities-driven beat, the two months roughly offset — this isn't a genuine two-month decline in operating performance.",
+    "ebitda": "Follows GOP's shortfall for the same reason — the Utilities catch-up flows straight through.",
+    "ebit": "Same driver as GOP/EBITDA above.",
+    "pretax_income": "Same driver as GOP/EBITDA/EBIT above.",
+    "gop_pct": "GOP % at 26.5% vs. a 28.7% Budget — the same Utilities-driven story as the GOP dollar figure above, expressed as a margin."
+  }
+}

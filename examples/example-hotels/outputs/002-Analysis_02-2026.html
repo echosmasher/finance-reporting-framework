@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Example Hotel Bergen — Analysis 02-2026</title>
+<style>
+  body { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; color: #20242A;
+         background: #F7F7F5; margin: 0; padding: 2rem; line-height: 1.5; }
+  .report { max-width: 960px; margin: 0 auto; background: #fff; border: 1px solid #DDD8CE;
+            border-radius: 8px; padding: 2rem 2.5rem; }
+  h1 { font-size: 1.5rem; margin: 0 0 0.25rem; }
+  .subtitle { color: #55606B; margin: 0 0 1.5rem; }
+  h2 { font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.04em; color: #55606B;
+       border-bottom: 1px solid #E4E1D9; padding-bottom: 0.4rem; margin-top: 2.2rem; }
+  p.narrative { white-space: pre-wrap; }
+  table { width: 100%; border-collapse: collapse; margin-top: 0.75rem; font-size: 0.92rem; }
+  th, td { text-align: right; padding: 0.4rem 0.6rem; border-bottom: 1px solid #EEECE5; }
+  th:first-child, td:first-child { text-align: left; }
+  th { font-weight: 600; color: #55606B; font-size: 0.82rem; text-transform: uppercase; }
+  tr.subtotal td { font-weight: 700; border-top: 1px solid #C9C4B8; }
+  .status-pill { display: inline-block; padding: 0.05rem 0.5rem; border-radius: 999px;
+                 font-size: 0.8rem; font-weight: 600; white-space: nowrap; }
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+              gap: 0.75rem; margin-top: 0.75rem; }
+  .kpi-card { border: 1px solid #E4E1D9; border-radius: 6px; padding: 0.75rem 1rem; }
+  .kpi-card .label { font-size: 0.8rem; color: #55606B; }
+  .kpi-card .value { font-size: 1.3rem; font-weight: 700; margin: 0.15rem 0; }
+  .flag-block { border: 1px solid #E4E1D9; border-radius: 6px; padding: 1rem 1.2rem; margin-top: 1rem; }
+  .flag-block h3 { margin: 0 0 0.4rem; font-size: 1rem; }
+  details { margin-top: 0.6rem; }
+  summary { cursor: pointer; color: #55606B; font-size: 0.88rem; }
+  .drill-table { margin-top: 0.5rem; }
+  .missing-narrative { color: #55606B; font-style: italic; }
+  @media print { body { background: #fff; padding: 0; } .report { border: none; } }
+</style>
+</head>
+<body>
+  <div class="report">
+    <h1>Example Hotel Bergen</h1>
+    <p class="subtitle">Analysis for 02-2026 — vs Budget</p>
+
+    <h2>Executive Summary</h2>
+    <p class="narrative">February&#x27;s GOP came in 10.8% below Budget (116,015 NOK), driven almost entirely by a single event: a 203,321 NOK F&amp;B inventory write-off following a physical stock count, on top of otherwise-normal food and beverage cost of sales. This isn&#x27;t a trend — it&#x27;s a one-time inventory correction, not a change in the underlying cost structure. Revenue and every other departmental cost line tracked close to Budget this month.</p>
+
+    <h2>Key Performance Indicators</h2>
+    <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="label">Occupancy %</div>
+            <div class="value" style="color:#2E7D4F">48.3%</div>
+            <div>✓ vs 48.0% Budget</div>
+          </div>
+          <div class="kpi-card">
+            <div class="label">RevPAR</div>
+            <div class="value" style="color:#2E7D4F">606 NOK</div>
+            <div>✓ vs 600 NOK Budget</div>
+          </div>
+          <div class="kpi-card">
+            <div class="label">Revenue per FTE</div>
+            <div class="value" style="color:#2E7D4F">44,674 NOK</div>
+            <div>✓ vs 44,282 NOK Budget</div>
+          </div>
+          <div class="kpi-card">
+            <div class="label">GOP %</div>
+            <div class="value" style="color:#B8860B">25.4%</div>
+            <div>● vs 28.7% Budget</div>
+          </div></div>
+
+    <h2>Profitability Summary</h2>
+    <p class="narrative">GOP came in at 962,606 NOK, 10.8% (116,015 NOK) below Budget of 1,078,621 NOK, driven almost entirely by the F&amp;B inventory write-off below rather than a broad-based cost issue.</p>
+
+    <h2>P&amp;L</h2>
+    
+    <table>
+      <thead><tr><th>Category</th><th>Actual</th><th>Budget</th>
+        <th>Diff</th><th>Diff %</th><th>Status</th></tr></thead>
+      <tbody>
+          <tr class="">
+            <td>Rooms Revenue</td>
+            <td>2,375,458 NOK</td>
+            <td>2,352,500 NOK</td>
+            <td>22,958 NOK</td>
+            <td>+1.0%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>F&amp;B Revenue</td>
+            <td>1,064,607 NOK</td>
+            <td>1,058,625 NOK</td>
+            <td>5,982 NOK</td>
+            <td>+0.6%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Spa &amp; Wellness Revenue</td>
+            <td>190,157 NOK</td>
+            <td>188,200 NOK</td>
+            <td>1,957 NOK</td>
+            <td>+1.0%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Other Operated Departments Revenue</td>
+            <td>119,769 NOK</td>
+            <td>117,625 NOK</td>
+            <td>2,144 NOK</td>
+            <td>+1.8%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Miscellaneous &amp; Rental Income</td>
+            <td>47,284 NOK</td>
+            <td>47,050 NOK</td>
+            <td>234 NOK</td>
+            <td>+0.5%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Total Revenue</td>
+            <td>3,797,274 NOK</td>
+            <td>3,764,000 NOK</td>
+            <td>33,274 NOK</td>
+            <td>+0.9%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Rooms – Payroll &amp; Related</td>
+            <td>429,805 NOK</td>
+            <td>423,450 NOK</td>
+            <td>6,355 NOK</td>
+            <td>+1.5%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Rooms – Other Expenses</td>
+            <td>188,731 NOK</td>
+            <td>188,200 NOK</td>
+            <td>531 NOK</td>
+            <td>+0.3%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>F&amp;B – Cost of Sales</td>
+            <td>444,623 NOK</td>
+            <td>317,588 NOK</td>
+            <td>127,035 NOK</td>
+            <td>+40.0%</td>
+            <td><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span></td>
+          </tr>
+          <tr class="">
+            <td>F&amp;B – Payroll &amp; Related</td>
+            <td>373,926 NOK</td>
+            <td>370,519 NOK</td>
+            <td>3,407 NOK</td>
+            <td>+0.9%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>F&amp;B – Other Expenses</td>
+            <td>107,312 NOK</td>
+            <td>105,862 NOK</td>
+            <td>1,450 NOK</td>
+            <td>+1.4%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Spa &amp; Wellness – Payroll &amp; Related</td>
+            <td>56,423 NOK</td>
+            <td>56,460 NOK</td>
+            <td>-37 NOK</td>
+            <td>-0.1%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Spa &amp; Wellness – Other Expenses</td>
+            <td>28,299 NOK</td>
+            <td>28,230 NOK</td>
+            <td>69 NOK</td>
+            <td>+0.2%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Other Operated Departments – Expenses</td>
+            <td>48,183 NOK</td>
+            <td>47,050 NOK</td>
+            <td>1,133 NOK</td>
+            <td>+2.4%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Total Departmental Expenses</td>
+            <td>1,677,302 NOK</td>
+            <td>1,537,359 NOK</td>
+            <td>139,944 NOK</td>
+            <td>+9.1%</td>
+            <td><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Departmental Profit</td>
+            <td>2,119,972 NOK</td>
+            <td>2,226,641 NOK</td>
+            <td>-106,669 NOK</td>
+            <td>-4.8%</td>
+            <td><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span></td>
+          </tr>
+          <tr class="">
+            <td>Administrative &amp; General</td>
+            <td>307,649 NOK</td>
+            <td>301,120 NOK</td>
+            <td>6,529 NOK</td>
+            <td>+2.2%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Sales &amp; Marketing</td>
+            <td>264,432 NOK</td>
+            <td>263,480 NOK</td>
+            <td>952 NOK</td>
+            <td>+0.4%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Property Operations &amp; Maintenance</td>
+            <td>188,373 NOK</td>
+            <td>188,200 NOK</td>
+            <td>173 NOK</td>
+            <td>+0.1%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Utilities</td>
+            <td>187,217 NOK</td>
+            <td>188,200 NOK</td>
+            <td>-983 NOK</td>
+            <td>-0.5%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>IT &amp; Systems</td>
+            <td>76,659 NOK</td>
+            <td>75,280 NOK</td>
+            <td>1,379 NOK</td>
+            <td>+1.8%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Human Resources &amp; Training</td>
+            <td>75,590 NOK</td>
+            <td>75,280 NOK</td>
+            <td>310 NOK</td>
+            <td>+0.4%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Security</td>
+            <td>57,447 NOK</td>
+            <td>56,460 NOK</td>
+            <td>987 NOK</td>
+            <td>+1.8%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Total Undistributed Operating Expenses</td>
+            <td>1,157,366 NOK</td>
+            <td>1,148,020 NOK</td>
+            <td>9,346 NOK</td>
+            <td>+0.8%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Gross Operating Profit (GOP)</td>
+            <td>962,606 NOK</td>
+            <td>1,078,621 NOK</td>
+            <td>-116,015 NOK</td>
+            <td>-10.8%</td>
+            <td><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span></td>
+          </tr>
+          <tr class="">
+            <td>Management Fees</td>
+            <td>113,388 NOK</td>
+            <td>112,920 NOK</td>
+            <td>468 NOK</td>
+            <td>+0.4%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Franchise &amp; Brand Fees</td>
+            <td>113,476 NOK</td>
+            <td>112,920 NOK</td>
+            <td>556 NOK</td>
+            <td>+0.5%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Property &amp; Liability Insurance</td>
+            <td>56,669 NOK</td>
+            <td>56,460 NOK</td>
+            <td>209 NOK</td>
+            <td>+0.4%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Property Tax &amp; Licenses</td>
+            <td>37,544 NOK</td>
+            <td>37,640 NOK</td>
+            <td>-96 NOK</td>
+            <td>-0.3%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="">
+            <td>Rent / Lease</td>
+            <td>75,337 NOK</td>
+            <td>75,280 NOK</td>
+            <td>57 NOK</td>
+            <td>+0.1%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Total Fixed Charges</td>
+            <td>396,414 NOK</td>
+            <td>395,220 NOK</td>
+            <td>1,194 NOK</td>
+            <td>+0.3%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>EBITDA</td>
+            <td>566,192 NOK</td>
+            <td>683,401 NOK</td>
+            <td>-117,209 NOK</td>
+            <td>-17.1%</td>
+            <td><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span></td>
+          </tr>
+          <tr class="">
+            <td>Depreciation &amp; Amortization</td>
+            <td>225,907 NOK</td>
+            <td>225,840 NOK</td>
+            <td>67 NOK</td>
+            <td>+0.0%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>EBIT</td>
+            <td>340,285 NOK</td>
+            <td>457,561 NOK</td>
+            <td>-117,276 NOK</td>
+            <td>-25.6%</td>
+            <td><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span></td>
+          </tr>
+          <tr class="">
+            <td>Interest Expense</td>
+            <td>56,112 NOK</td>
+            <td>56,460 NOK</td>
+            <td>-348 NOK</td>
+            <td>-0.6%</td>
+            <td><span class="status-pill" style="color:#2E7D4F;background:#EAF5EE">✓ ON TARGET</span></td>
+          </tr>
+          <tr class="subtotal">
+            <td>Pre-tax Income</td>
+            <td>284,174 NOK</td>
+            <td>401,101 NOK</td>
+            <td>-116,928 NOK</td>
+            <td>-29.1%</td>
+            <td><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span></td>
+          </tr></tbody>
+    </table>
+
+    <h2>Revenue Mix</h2>
+    
+    <table>
+      <thead><tr><th>Category</th><th>Actual mix</th><th>Budget mix</th><th>Shift</th></tr></thead>
+      <tbody><tr><td>Rooms Revenue</td><td>62.6%</td><td>62.5%</td><td>+0.1pp</td></tr><tr><td>F&amp;B Revenue</td><td>28.0%</td><td>28.1%</td><td>-0.1pp</td></tr><tr><td>Spa &amp; Wellness Revenue</td><td>5.0%</td><td>5.0%</td><td>+0.0pp</td></tr><tr><td>Other Operated Departments Revenue</td><td>3.1%</td><td>3.1%</td><td>+0.0pp</td></tr><tr><td>Miscellaneous &amp; Rental Income</td><td>1.2%</td><td>1.2%</td><td>-0.0pp</td></tr></tbody>
+    </table>
+
+    <h2>Flagged Items</h2>
+    
+        <div class="flag-block">
+          <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> F&amp;B – Cost of Sales</h3>
+          <p class="narrative">F&amp;B – Cost of Sales came in 40% over Budget (127,035 NOK) — driven by a single 203,321 NOK write-off following a physical inventory count (see the drill-down: &quot;obsolete and spoiled stock write-off&quot;, booked to F&amp;B Inventory Adjustment). Normal food, beverage, and banquet cost of sales otherwise tracked close to Budget this month. Confirm the count was accurate and check whether the obsolete stock points to an ordering or rotation issue worth addressing, but this reads as a one-time correction, not a new cost run-rate.</p>
+          
+    <details>
+      <summary>Transaction drill-down (10 transaction(s))</summary>
+      <table class="drill-table">
+        <thead><tr><th>Vendor</th><th>Amount</th></tr></thead>
+        <tbody><tr><td>Internal Adjustment</td><td>203,321 NOK</td></tr><tr><td>Nordic Food Distributors AS</td><td>151,622 NOK</td></tr><tr><td>Baltic Beverage Supply</td><td>72,779 NOK</td></tr><tr><td>Urban Produce Co</td><td>16,901 NOK</td></tr></tbody>
+      </table>
+      <table class="drill-table">
+        <thead><tr><th>Date</th><th>Vendor</th><th>Description</th><th>Amount</th></tr></thead>
+        <tbody><tr><td>2026-02-16</td><td>Nordic Food Distributors AS</td><td>Food &amp; beverage supply delivery — Food Cost of Sales</td><td>16,901 NOK</td></tr><tr><td>2026-02-17</td><td>Baltic Beverage Supply</td><td>Food &amp; beverage supply delivery — Beverage Cost of Sales</td><td>34,401 NOK</td></tr><tr><td>2026-02-18</td><td>Nordic Food Distributors AS</td><td>Food &amp; beverage supply delivery — Banquet Cost of Sales</td><td>19,189 NOK</td></tr><tr><td>2026-02-20</td><td>Nordic Food Distributors AS</td><td>Food &amp; beverage supply delivery — Beverage Cost of Sales</td><td>34,401 NOK</td></tr><tr><td>2026-02-21</td><td>Baltic Beverage Supply</td><td>Food &amp; beverage supply delivery — Banquet Cost of Sales</td><td>19,189 NOK</td></tr><tr><td>2026-02-24</td><td>Internal Adjustment</td><td>F&amp;B inventory adjustment — obsolete and spoiled stock write-off following physical count</td><td>203,321 NOK</td></tr><tr><td>2026-02-24</td><td>Nordic Food Distributors AS</td><td>Food &amp; beverage supply delivery — Food Cost of Sales</td><td>16,901 NOK</td></tr><tr><td>2026-02-27</td><td>Urban Produce Co</td><td>Food &amp; beverage supply delivery — Food Cost of Sales</td><td>16,901 NOK</td></tr><tr><td>2026-02-27</td><td>Baltic Beverage Supply</td><td>Food &amp; beverage supply delivery — Banquet Cost of Sales</td><td>19,189 NOK</td></tr><tr><td>2026-02-27</td><td>Nordic Food Distributors AS</td><td>Food &amp; beverage supply delivery — F&amp;B Waste &amp; Spoilage</td><td>64,230 NOK</td></tr></tbody>
+      </table>
+    </details>
+        </div>
+        <div class="flag-block">
+          <h3><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span> Total Departmental Expenses</h3>
+          <p class="narrative">Total Departmental Expenses ran 9.1% over Budget, entirely attributable to the F&amp;B inventory write-off above — every other departmental line tracked close to Budget.</p>
+          
+        </div>
+        <div class="flag-block">
+          <h3><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span> Departmental Profit</h3>
+          <p class="narrative">Departmental Profit came in 4.8% under Budget, the direct result of the F&amp;B inventory write-off above; revenue tracked close to Budget.</p>
+          
+        </div>
+        <div class="flag-block">
+          <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> Gross Operating Profit (GOP)</h3>
+          <p class="narrative">GOP came in 10.8% under Budget (116,015 NOK), driven almost entirely by the F&amp;B inventory write-off — see F&amp;B – Cost of Sales above for the detail. This is a one-time correction, not an indication of a broader cost problem this month.</p>
+          
+        </div>
+        <div class="flag-block">
+          <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> EBITDA</h3>
+          <p class="narrative">Follows GOP&#x27;s shortfall for the same reason — the F&amp;B inventory write-off flows straight through. Not an independent issue.</p>
+          
+        </div>
+        <div class="flag-block">
+          <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> EBIT</h3>
+          <p class="narrative">Same driver as GOP/EBITDA above — no separate action needed here.</p>
+          
+        </div>
+        <div class="flag-block">
+          <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> Pre-tax Income</h3>
+          <p class="narrative">Same driver as GOP/EBITDA/EBIT above — no separate action needed here.</p>
+          
+        </div>
+        <div class="flag-block">
+          <h3><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span> GOP %</h3>
+          <p class="narrative">GOP % came in at 25.0% of revenue against a Budget of 28.7% — the same F&amp;B inventory write-off driving the GOP shortfall above, not a separate margin issue.</p>
+          
+        </div>
+  </div>
+</body>
+</html>

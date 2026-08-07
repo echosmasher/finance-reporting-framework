@@ -1,0 +1,21 @@
+{
+  "executive_summary": "Stockholm opens the year on track: GOP came in essentially at Budget (+1.0%), with a genuinely strong month of tight overhead control on Property Operations & Maintenance and IT & Systems, both running about 8% under Budget. The one real item worth a look is F&B Payroll, which pulled in temporary labor for the month. Everything else flagged below the EBITDA line is the annual insurance premium landing in January as expected — not a concern.",
+  "profitability_summary": "GOP was 666,243 SEK against a Budget of 659,785 SEK, a 0.98% beat — on target, and the underlying departmental performance is healthy; the swing below GOP is entirely the January insurance premium (see Fixed Charges below).",
+  "category_narratives": {
+    "fb_revenue": "F&B Revenue ran 2.3% ahead of Budget — a modest, genuine beat, no action needed.",
+    "fb_payroll": "F&B Payroll ran 4.2% over Budget. The drill-down shows 15,135 SEK in F&B Temporary Labor this month — check whether a banquet or group event pulled in agency staff, which costs more per hour than core staff; confirm the booking against this month's F&B revenue to see if it's already paid for itself.",
+    "fb_other_exp": "F&B Other Expenses ran 3.8% over Budget — minor, spread across normal operating supply and contract-service invoices, nothing concentrated enough to flag on its own.",
+    "admin_general": "Administrative & General ran 15.9% over Budget. This is the expected annual external-audit-fee bump layered on top of the normal monthly run rate — see the Insurance note below for the same January pattern. Not a concern.",
+    "property_ops_maint": "Property Operations & Maintenance ran 8.0% under Budget — a genuine, welcome result. Confirm this reflects efficient scheduling rather than deferred preventive maintenance that could resurface as a larger repair later.",
+    "it_systems": "IT & Systems ran 8.0% under Budget — tight cost control, consistent with Property Operations this month. No action needed.",
+    "hr_training": "Human Resources & Training ran 3.3% over Budget — immaterial, ordinary month-to-month movement.",
+    "security": "Security ran 3.1% over Budget — immaterial, ordinary month-to-month movement.",
+    "total_undistributed_expenses": "Total Undistributed Operating Expenses ran 3.4% over Budget, net of the Administrative & General audit-fee bump against savings in Property Operations & Maintenance and IT & Systems — the underlying picture here is healthy, not a concern.",
+    "insurance": "Property & Liability Insurance shows an enormous variance because the annual premium is invoiced as a single January charge, while Budget spreads the cost evenly across the year — exactly the pattern documented in the company's seasonality notes. Expected, not a concern; this reverses on its own from February onward.",
+    "total_fixed_charges": "Total Fixed Charges is driven entirely by the January insurance premium above — not an independent issue.",
+    "ebitda": "EBITDA's shortfall against Budget this month is the January insurance premium timing, not an operating problem — GOP (the line above fixed charges) is on target.",
+    "ebit": "Same driver as EBITDA above — the January insurance premium, not an operating issue.",
+    "pretax_income": "Same driver as EBITDA/EBIT above — the January insurance premium, not an operating issue.",
+    "revenue_per_fte": "Revenue per FTE ran ahead of Budget this month, consistent with the modest revenue beat above — a favorable result, no action needed."
+  }
+}

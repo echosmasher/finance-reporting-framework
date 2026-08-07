@@ -1,0 +1,14 @@
+{
+  "executive_summary": "February's GOP came in 10.8% below Budget (116,015 NOK), driven almost entirely by a single event: a 203,321 NOK F&B inventory write-off following a physical stock count, on top of otherwise-normal food and beverage cost of sales. This isn't a trend — it's a one-time inventory correction, not a change in the underlying cost structure. Revenue and every other departmental cost line tracked close to Budget this month.",
+  "profitability_summary": "GOP came in at 962,606 NOK, 10.8% (116,015 NOK) below Budget of 1,078,621 NOK, driven almost entirely by the F&B inventory write-off below rather than a broad-based cost issue.",
+  "category_narratives": {
+    "fb_cogs": "F&B – Cost of Sales came in 40% over Budget (127,035 NOK) — driven by a single 203,321 NOK write-off following a physical inventory count (see the drill-down: \"obsolete and spoiled stock write-off\", booked to F&B Inventory Adjustment). Normal food, beverage, and banquet cost of sales otherwise tracked close to Budget this month. Confirm the count was accurate and check whether the obsolete stock points to an ordering or rotation issue worth addressing, but this reads as a one-time correction, not a new cost run-rate.",
+    "total_departmental_expenses": "Total Departmental Expenses ran 9.1% over Budget, entirely attributable to the F&B inventory write-off above — every other departmental line tracked close to Budget.",
+    "departmental_profit": "Departmental Profit came in 4.8% under Budget, the direct result of the F&B inventory write-off above; revenue tracked close to Budget.",
+    "gop": "GOP came in 10.8% under Budget (116,015 NOK), driven almost entirely by the F&B inventory write-off — see F&B – Cost of Sales above for the detail. This is a one-time correction, not an indication of a broader cost problem this month.",
+    "ebitda": "Follows GOP's shortfall for the same reason — the F&B inventory write-off flows straight through. Not an independent issue.",
+    "ebit": "Same driver as GOP/EBITDA above — no separate action needed here.",
+    "pretax_income": "Same driver as GOP/EBITDA/EBIT above — no separate action needed here.",
+    "gop_pct": "GOP % came in at 25.0% of revenue against a Budget of 28.7% — the same F&B inventory write-off driving the GOP shortfall above, not a separate margin issue."
+  }
+}

@@ -1,0 +1,1030 @@
+{
+  "entity_code": "001",
+  "entity_name": "Example Hotel Oslo",
+  "period": "03-2026",
+  "currency": "NOK",
+  "comparison_label": "Budget",
+  "focus_metric": "gop",
+  "secondary_metric": "ebitda",
+  "pnl": [
+    {
+      "id": "rooms_revenue",
+      "label": "Rooms Revenue",
+      "kind": "category",
+      "act": 7231001.49,
+      "budget": 7335550.01,
+      "favorable": false,
+      "diff": -104548.52,
+      "diff_pct": -1.43,
+      "status": "ON TARGET",
+      "threshold_pct": 2.0,
+      "threshold_absolute": 170000
+    },
+    {
+      "id": "fb_revenue",
+      "label": "F&B Revenue",
+      "kind": "category",
+      "act": 3233035.37,
+      "budget": 3300997.5,
+      "favorable": false,
+      "diff": -67962.13,
+      "diff_pct": -2.06,
+      "status": "NOTE",
+      "threshold_pct": 2.0,
+      "threshold_absolute": 75000
+    },
+    {
+      "id": "spa_revenue",
+      "label": "Spa & Wellness Revenue",
+      "kind": "category",
+      "act": 583277.93,
+      "budget": 586844.0,
+      "favorable": false,
+      "diff": -3566.07,
+      "diff_pct": -0.61,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 40000
+    },
+    {
+      "id": "other_ops_revenue",
+      "label": "Other Operated Departments Revenue",
+      "kind": "category",
+      "act": 360723.49,
+      "budget": 366777.51,
+      "favorable": false,
+      "diff": -6054.02,
+      "diff_pct": -1.65,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 40000
+    },
+    {
+      "id": "misc_income",
+      "label": "Miscellaneous & Rental Income",
+      "kind": "category",
+      "act": 145162.08,
+      "budget": 146711.0,
+      "favorable": false,
+      "diff": -1548.92,
+      "diff_pct": -1.06,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 40000
+    },
+    {
+      "id": "total_revenue",
+      "label": "Total Revenue",
+      "kind": "subtotal",
+      "act": 11553200.36,
+      "budget": 11736880.02,
+      "favorable": false,
+      "diff": -183679.66,
+      "diff_pct": -1.56,
+      "status": "ON TARGET",
+      "threshold_pct": 2.0,
+      "threshold_absolute": 270000
+    },
+    {
+      "id": "rooms_payroll",
+      "label": "Rooms \u2013 Payroll & Related",
+      "kind": "category",
+      "act": 1326410.59,
+      "budget": 1320399.01,
+      "favorable": false,
+      "diff": 6011.58,
+      "diff_pct": 0.46,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 45000
+    },
+    {
+      "id": "rooms_other_exp",
+      "label": "Rooms \u2013 Other Expenses",
+      "kind": "category",
+      "act": 582773.84,
+      "budget": 586844.0,
+      "favorable": true,
+      "diff": -4070.16,
+      "diff_pct": -0.69,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 40000
+    },
+    {
+      "id": "fb_cogs",
+      "label": "F&B \u2013 Cost of Sales",
+      "kind": "category",
+      "act": 968142.62,
+      "budget": 990299.24,
+      "favorable": true,
+      "diff": -22156.62,
+      "diff_pct": -2.24,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 34000
+    },
+    {
+      "id": "fb_payroll",
+      "label": "F&B \u2013 Payroll & Related",
+      "kind": "category",
+      "act": 1145375.57,
+      "budget": 1155349.13,
+      "favorable": true,
+      "diff": -9973.56,
+      "diff_pct": -0.86,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 40000
+    },
+    {
+      "id": "fb_other_exp",
+      "label": "F&B \u2013 Other Expenses",
+      "kind": "category",
+      "act": 324120.26,
+      "budget": 330099.75,
+      "favorable": true,
+      "diff": -5979.49,
+      "diff_pct": -1.81,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 40000
+    },
+    {
+      "id": "spa_payroll",
+      "label": "Spa & Wellness \u2013 Payroll & Related",
+      "kind": "category",
+      "act": 175125.9,
+      "budget": 176053.2,
+      "favorable": true,
+      "diff": -927.3,
+      "diff_pct": -0.53,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 40000
+    },
+    {
+      "id": "spa_other_exp",
+      "label": "Spa & Wellness \u2013 Other Expenses",
+      "kind": "category",
+      "act": 85340.38,
+      "budget": 88026.6,
+      "favorable": true,
+      "diff": -2686.22,
+      "diff_pct": -3.05,
+      "status": "NOTE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 40000
+    },
+    {
+      "id": "other_ops_exp",
+      "label": "Other Operated Departments \u2013 Expenses",
+      "kind": "category",
+      "act": 142221.34,
+      "budget": 146710.99,
+      "favorable": true,
+      "diff": -4489.65,
+      "diff_pct": -3.06,
+      "status": "NOTE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 40000
+    },
+    {
+      "id": "total_departmental_expenses",
+      "label": "Total Departmental Expenses",
+      "kind": "subtotal",
+      "act": 4749510.5,
+      "budget": 4793781.92,
+      "favorable": true,
+      "diff": -44271.42,
+      "diff_pct": -0.92,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 165000
+    },
+    {
+      "id": "departmental_profit",
+      "label": "Departmental Profit",
+      "kind": "subtotal",
+      "act": 6803689.86,
+      "budget": 6943098.1,
+      "favorable": false,
+      "diff": -139408.24,
+      "diff_pct": -2.01,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 239000
+    },
+    {
+      "id": "admin_general",
+      "label": "Administrative & General",
+      "kind": "category",
+      "act": 922525.66,
+      "budget": 938950.41,
+      "favorable": true,
+      "diff": -16424.75,
+      "diff_pct": -1.75,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 32000
+    },
+    {
+      "id": "sales_marketing",
+      "label": "Sales & Marketing",
+      "kind": "category",
+      "act": 811749.56,
+      "budget": 821581.6,
+      "favorable": true,
+      "diff": -9832.04,
+      "diff_pct": -1.2,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 40000
+    },
+    {
+      "id": "property_ops_maint",
+      "label": "Property Operations & Maintenance",
+      "kind": "category",
+      "act": 576191.61,
+      "budget": 586844.0,
+      "favorable": true,
+      "diff": -10652.39,
+      "diff_pct": -1.82,
+      "status": "ON TARGET",
+      "threshold_pct": 4.0,
+      "threshold_absolute": 27000
+    },
+    {
+      "id": "utilities",
+      "label": "Utilities",
+      "kind": "category",
+      "act": 788234.49,
+      "budget": 586844.0,
+      "favorable": false,
+      "diff": 201390.49,
+      "diff_pct": 34.32,
+      "status": "INVESTIGATE",
+      "threshold_pct": 4.0,
+      "threshold_absolute": 27000
+    },
+    {
+      "id": "it_systems",
+      "label": "IT & Systems",
+      "kind": "category",
+      "act": 233507.4,
+      "budget": 234737.6,
+      "favorable": true,
+      "diff": -1230.2,
+      "diff_pct": -0.52,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 40000
+    },
+    {
+      "id": "hr_training",
+      "label": "Human Resources & Training",
+      "kind": "category",
+      "act": 229975.92,
+      "budget": 234737.6,
+      "favorable": true,
+      "diff": -4761.68,
+      "diff_pct": -2.03,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 40000
+    },
+    {
+      "id": "security",
+      "label": "Security",
+      "kind": "category",
+      "act": 174854.11,
+      "budget": 176053.2,
+      "favorable": true,
+      "diff": -1199.09,
+      "diff_pct": -0.68,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 40000
+    },
+    {
+      "id": "total_undistributed_expenses",
+      "label": "Total Undistributed Operating Expenses",
+      "kind": "subtotal",
+      "act": 3737038.75,
+      "budget": 3579748.41,
+      "favorable": false,
+      "diff": 157290.34,
+      "diff_pct": 4.39,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 123000
+    },
+    {
+      "id": "gop",
+      "label": "Gross Operating Profit (GOP)",
+      "kind": "subtotal",
+      "act": 3066651.11,
+      "budget": 3363349.69,
+      "favorable": false,
+      "diff": -296698.58,
+      "diff_pct": -8.82,
+      "status": "INVESTIGATE",
+      "threshold_pct": 2.0,
+      "threshold_absolute": 77000
+    },
+    {
+      "id": "management_fees",
+      "label": "Management Fees",
+      "kind": "category",
+      "act": 347263.48,
+      "budget": 352106.4,
+      "favorable": true,
+      "diff": -4842.92,
+      "diff_pct": -1.38,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 40000
+    },
+    {
+      "id": "franchise_fees",
+      "label": "Franchise & Brand Fees",
+      "kind": "category",
+      "act": 345059.87,
+      "budget": 352106.4,
+      "favorable": true,
+      "diff": -7046.53,
+      "diff_pct": -2.0,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 40000
+    },
+    {
+      "id": "insurance",
+      "label": "Property & Liability Insurance",
+      "kind": "category",
+      "act": 175346.25,
+      "budget": 176053.2,
+      "favorable": true,
+      "diff": -706.95,
+      "diff_pct": -0.4,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 40000
+    },
+    {
+      "id": "property_tax",
+      "label": "Property Tax & Licenses",
+      "kind": "category",
+      "act": 117450.62,
+      "budget": 117368.8,
+      "favorable": false,
+      "diff": 81.82,
+      "diff_pct": 0.07,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 40000
+    },
+    {
+      "id": "rent_lease",
+      "label": "Rent / Lease",
+      "kind": "category",
+      "act": 234505.36,
+      "budget": 234737.61,
+      "favorable": true,
+      "diff": -232.25,
+      "diff_pct": -0.1,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 40000
+    },
+    {
+      "id": "total_fixed_charges",
+      "label": "Total Fixed Charges",
+      "kind": "subtotal",
+      "act": 1219625.58,
+      "budget": 1232372.41,
+      "favorable": true,
+      "diff": -12746.83,
+      "diff_pct": -1.03,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 42000
+    },
+    {
+      "id": "ebitda",
+      "label": "EBITDA",
+      "kind": "subtotal",
+      "act": 1847025.53,
+      "budget": 2130977.28,
+      "favorable": false,
+      "diff": -283951.75,
+      "diff_pct": -13.32,
+      "status": "INVESTIGATE",
+      "threshold_pct": 2.0,
+      "threshold_absolute": 49000
+    },
+    {
+      "id": "depreciation",
+      "label": "Depreciation & Amortization",
+      "kind": "category",
+      "act": 706176.61,
+      "budget": 704212.8,
+      "favorable": false,
+      "diff": 1963.81,
+      "diff_pct": 0.28,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 40000
+    },
+    {
+      "id": "ebit",
+      "label": "EBIT",
+      "kind": "subtotal",
+      "act": 1140848.92,
+      "budget": 1426764.48,
+      "favorable": false,
+      "diff": -285915.56,
+      "diff_pct": -20.04,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 49000
+    },
+    {
+      "id": "interest_expense",
+      "label": "Interest Expense",
+      "kind": "category",
+      "act": 177017.58,
+      "budget": 176053.2,
+      "favorable": false,
+      "diff": 964.38,
+      "diff_pct": 0.55,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 40000
+    },
+    {
+      "id": "pretax_income",
+      "label": "Pre-tax Income",
+      "kind": "subtotal",
+      "act": 963831.34,
+      "budget": 1250711.28,
+      "favorable": false,
+      "diff": -286879.94,
+      "diff_pct": -22.94,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 43000
+    }
+  ],
+  "kpis": [
+    {
+      "id": "occupancy_pct",
+      "label": "Occupancy %",
+      "format": "percent",
+      "act": 0.672,
+      "budget": 0.68,
+      "favorable": false,
+      "diff": -0.007930107526881724,
+      "status": "ON TARGET"
+    },
+    {
+      "id": "revpar",
+      "label": "RevPAR",
+      "format": "currency",
+      "act": 971.9088,
+      "budget": 985.961,
+      "favorable": false,
+      "diff": -14.052220430107582,
+      "status": "ON TARGET"
+    },
+    {
+      "id": "revenue_per_fte",
+      "label": "Revenue per FTE",
+      "format": "currency",
+      "act": 78807.6423,
+      "budget": 80944.0001,
+      "favorable": false,
+      "diff": -2136.3578459801356,
+      "status": "ON TARGET"
+    },
+    {
+      "id": "gop_pct",
+      "label": "GOP %",
+      "format": "percent",
+      "act": 0.2654,
+      "budget": 0.2866,
+      "favorable": false,
+      "diff": -0.021125131537682085,
+      "status": "NOTE"
+    }
+  ],
+  "revenue_mix": [
+    {
+      "id": "rooms_revenue",
+      "label": "Rooms Revenue",
+      "mix_actual_pct": 62.59,
+      "mix_budget_pct": 62.5,
+      "mix_shift_pp": 0.09
+    },
+    {
+      "id": "fb_revenue",
+      "label": "F&B Revenue",
+      "mix_actual_pct": 27.98,
+      "mix_budget_pct": 28.12,
+      "mix_shift_pp": -0.14
+    },
+    {
+      "id": "spa_revenue",
+      "label": "Spa & Wellness Revenue",
+      "mix_actual_pct": 5.05,
+      "mix_budget_pct": 5.0,
+      "mix_shift_pp": 0.05
+    },
+    {
+      "id": "other_ops_revenue",
+      "label": "Other Operated Departments Revenue",
+      "mix_actual_pct": 3.12,
+      "mix_budget_pct": 3.13,
+      "mix_shift_pp": -0.0
+    },
+    {
+      "id": "misc_income",
+      "label": "Miscellaneous & Rental Income",
+      "mix_actual_pct": 1.26,
+      "mix_budget_pct": 1.25,
+      "mix_shift_pp": 0.01
+    }
+  ],
+  "flags": [
+    {
+      "id": "fb_revenue",
+      "label": "F&B Revenue",
+      "kind": "category",
+      "act": 3233035.37,
+      "budget": 3300997.5,
+      "favorable": false,
+      "diff": -67962.13,
+      "diff_pct": -2.06,
+      "status": "NOTE",
+      "threshold_pct": 2.0,
+      "threshold_absolute": 75000
+    },
+    {
+      "id": "spa_other_exp",
+      "label": "Spa & Wellness \u2013 Other Expenses",
+      "kind": "category",
+      "act": 85340.38,
+      "budget": 88026.6,
+      "favorable": true,
+      "diff": -2686.22,
+      "diff_pct": -3.05,
+      "status": "NOTE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 40000
+    },
+    {
+      "id": "other_ops_exp",
+      "label": "Other Operated Departments \u2013 Expenses",
+      "kind": "category",
+      "act": 142221.34,
+      "budget": 146710.99,
+      "favorable": true,
+      "diff": -4489.65,
+      "diff_pct": -3.06,
+      "status": "NOTE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 40000
+    },
+    {
+      "id": "utilities",
+      "label": "Utilities",
+      "kind": "category",
+      "act": 788234.49,
+      "budget": 586844.0,
+      "favorable": false,
+      "diff": 201390.49,
+      "diff_pct": 34.32,
+      "status": "INVESTIGATE",
+      "threshold_pct": 4.0,
+      "threshold_absolute": 27000
+    },
+    {
+      "id": "total_undistributed_expenses",
+      "label": "Total Undistributed Operating Expenses",
+      "kind": "subtotal",
+      "act": 3737038.75,
+      "budget": 3579748.41,
+      "favorable": false,
+      "diff": 157290.34,
+      "diff_pct": 4.39,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 123000
+    },
+    {
+      "id": "gop",
+      "label": "Gross Operating Profit (GOP)",
+      "kind": "subtotal",
+      "act": 3066651.11,
+      "budget": 3363349.69,
+      "favorable": false,
+      "diff": -296698.58,
+      "diff_pct": -8.82,
+      "status": "INVESTIGATE",
+      "threshold_pct": 2.0,
+      "threshold_absolute": 77000
+    },
+    {
+      "id": "ebitda",
+      "label": "EBITDA",
+      "kind": "subtotal",
+      "act": 1847025.53,
+      "budget": 2130977.28,
+      "favorable": false,
+      "diff": -283951.75,
+      "diff_pct": -13.32,
+      "status": "INVESTIGATE",
+      "threshold_pct": 2.0,
+      "threshold_absolute": 49000
+    },
+    {
+      "id": "ebit",
+      "label": "EBIT",
+      "kind": "subtotal",
+      "act": 1140848.92,
+      "budget": 1426764.48,
+      "favorable": false,
+      "diff": -285915.56,
+      "diff_pct": -20.04,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 49000
+    },
+    {
+      "id": "pretax_income",
+      "label": "Pre-tax Income",
+      "kind": "subtotal",
+      "act": 963831.34,
+      "budget": 1250711.28,
+      "favorable": false,
+      "diff": -286879.94,
+      "diff_pct": -22.94,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 43000
+    },
+    {
+      "id": "gop_pct",
+      "label": "GOP %",
+      "format": "percent",
+      "act": 0.2654,
+      "budget": 0.2866,
+      "favorable": false,
+      "diff": -0.021125131537682085,
+      "status": "NOTE"
+    }
+  ],
+  "drill_downs": {
+    "spa_other_exp": {
+      "transaction_count": 4,
+      "by_vendor": [
+        {
+          "vendor": "Spa Retail Distributors",
+          "amount": 70121.36
+        },
+        {
+          "vendor": "Wellness Supply Nordic",
+          "amount": 15219.02
+        }
+      ],
+      "by_account": [
+        {
+          "gl_account": "5600",
+          "account_name": "Spa Operating Supplies",
+          "amount": 33598.63
+        },
+        {
+          "gl_account": "5602",
+          "account_name": "Spa Equipment Maintenance",
+          "amount": 30438.05
+        },
+        {
+          "gl_account": "5601",
+          "account_name": "Spa Retail Cost of Sales",
+          "amount": 21303.7
+        }
+      ],
+      "transactions": [
+        {
+          "entity_code": "001",
+          "period": "03-2026",
+          "date": "2026-03-01",
+          "gl_account": "5600",
+          "vendor": "Spa Retail Distributors",
+          "description": "Invoice \u2014 Spa Operating Supplies",
+          "department": "Spa & Wellness",
+          "amount": "33598.63"
+        },
+        {
+          "entity_code": "001",
+          "period": "03-2026",
+          "date": "2026-03-02",
+          "gl_account": "5601",
+          "vendor": "Spa Retail Distributors",
+          "description": "Invoice \u2014 Spa Retail Cost of Sales",
+          "department": "Spa & Wellness",
+          "amount": "21303.7"
+        },
+        {
+          "entity_code": "001",
+          "period": "03-2026",
+          "date": "2026-03-14",
+          "gl_account": "5602",
+          "vendor": "Spa Retail Distributors",
+          "description": "Invoice \u2014 Spa Equipment Maintenance",
+          "department": "Spa & Wellness",
+          "amount": "15219.03"
+        },
+        {
+          "entity_code": "001",
+          "period": "03-2026",
+          "date": "2026-03-16",
+          "gl_account": "5602",
+          "vendor": "Wellness Supply Nordic",
+          "description": "Invoice \u2014 Spa Equipment Maintenance",
+          "department": "Spa & Wellness",
+          "amount": "15219.02"
+        }
+      ]
+    },
+    "other_ops_exp": {
+      "transaction_count": 8,
+      "by_vendor": [
+        {
+          "vendor": "ParkTech Systems",
+          "amount": 101147.71
+        },
+        {
+          "vendor": "Business Services Nordic",
+          "amount": 41073.63
+        }
+      ],
+      "by_account": [
+        {
+          "gl_account": "5701",
+          "account_name": "Business Center Operating Expense",
+          "amount": 50367.21
+        },
+        {
+          "gl_account": "5702",
+          "account_name": "Laundry & Valet Operating Expense",
+          "amount": 34594.29
+        },
+        {
+          "gl_account": "5703",
+          "account_name": "Gift Shop Cost of Sales",
+          "amount": 32980.53
+        },
+        {
+          "gl_account": "5700",
+          "account_name": "Parking Operating Expense",
+          "amount": 24279.31
+        }
+      ],
+      "transactions": [
+        {
+          "entity_code": "001",
+          "period": "03-2026",
+          "date": "2026-03-05",
+          "gl_account": "5700",
+          "vendor": "ParkTech Systems",
+          "description": "Invoice \u2014 Parking Operating Expense",
+          "department": "Other Operated",
+          "amount": "8093.11"
+        },
+        {
+          "entity_code": "001",
+          "period": "03-2026",
+          "date": "2026-03-14",
+          "gl_account": "5700",
+          "vendor": "Business Services Nordic",
+          "description": "Invoice \u2014 Parking Operating Expense",
+          "department": "Other Operated",
+          "amount": "8093.1"
+        },
+        {
+          "entity_code": "001",
+          "period": "03-2026",
+          "date": "2026-03-16",
+          "gl_account": "5703",
+          "vendor": "Business Services Nordic",
+          "description": "Invoice \u2014 Gift Shop Cost of Sales",
+          "department": "Other Operated",
+          "amount": "16490.27"
+        },
+        {
+          "entity_code": "001",
+          "period": "03-2026",
+          "date": "2026-03-19",
+          "gl_account": "5701",
+          "vendor": "ParkTech Systems",
+          "description": "Invoice \u2014 Business Center Operating Expense",
+          "department": "Other Operated",
+          "amount": "25183.61"
+        },
+        {
+          "entity_code": "001",
+          "period": "03-2026",
+          "date": "2026-03-20",
+          "gl_account": "5700",
+          "vendor": "ParkTech Systems",
+          "description": "Invoice \u2014 Parking Operating Expense",
+          "department": "Other Operated",
+          "amount": "8093.1"
+        },
+        {
+          "entity_code": "001",
+          "period": "03-2026",
+          "date": "2026-03-20",
+          "gl_account": "5703",
+          "vendor": "Business Services Nordic",
+          "description": "Invoice \u2014 Gift Shop Cost of Sales",
+          "department": "Other Operated",
+          "amount": "16490.26"
+        },
+        {
+          "entity_code": "001",
+          "period": "03-2026",
+          "date": "2026-03-22",
+          "gl_account": "5701",
+          "vendor": "ParkTech Systems",
+          "description": "Invoice \u2014 Business Center Operating Expense",
+          "department": "Other Operated",
+          "amount": "25183.6"
+        },
+        {
+          "entity_code": "001",
+          "period": "03-2026",
+          "date": "2026-03-24",
+          "gl_account": "5702",
+          "vendor": "ParkTech Systems",
+          "description": "Invoice \u2014 Laundry & Valet Operating Expense",
+          "department": "Other Operated",
+          "amount": "34594.29"
+        }
+      ]
+    },
+    "utilities": {
+      "transaction_count": 10,
+      "by_vendor": [
+        {
+          "vendor": "Oslo Energi AS",
+          "amount": 453652.23
+        },
+        {
+          "vendor": "Nordic District Heating",
+          "amount": 240231.13
+        },
+        {
+          "vendor": "Bergen Kraft AS",
+          "amount": 65000.69
+        },
+        {
+          "vendor": "City Water Utility",
+          "amount": 29350.44
+        }
+      ],
+      "by_account": [
+        {
+          "gl_account": "6300",
+          "account_name": "Electricity",
+          "amount": 327259.54
+        },
+        {
+          "gl_account": "6301",
+          "account_name": "District Heating",
+          "amount": 135383.62
+        },
+        {
+          "gl_account": "6302",
+          "account_name": "Water & Sewer",
+          "amount": 130001.37
+        },
+        {
+          "gl_account": "6304",
+          "account_name": "Fuel Oil / Backup Generator Fuel",
+          "amount": 107538.64
+        },
+        {
+          "gl_account": "6303",
+          "account_name": "Waste & Recycling",
+          "amount": 88051.32
+        }
+      ],
+      "transactions": [
+        {
+          "entity_code": "001",
+          "period": "03-2026",
+          "date": "2026-03-05",
+          "gl_account": "6303",
+          "vendor": "City Water Utility",
+          "description": "Monthly utility invoice \u2014 Waste & Recycling",
+          "department": "Property Operations",
+          "amount": "29350.44"
+        },
+        {
+          "entity_code": "001",
+          "period": "03-2026",
+          "date": "2026-03-05",
+          "gl_account": "6304",
+          "vendor": "Nordic District Heating",
+          "description": "Monthly utility invoice \u2014 Fuel Oil / Backup Generator Fuel",
+          "department": "Property Operations",
+          "amount": "107538.64"
+        },
+        {
+          "entity_code": "001",
+          "period": "03-2026",
+          "date": "2026-03-08",
+          "gl_account": "6300",
+          "vendor": "Oslo Energi AS",
+          "description": "Electricity invoice \u2014 catch-up billing, includes unpaid February charges",
+          "department": "Property Operations",
+          "amount": "202900.91"
+        },
+        {
+          "entity_code": "001",
+          "period": "03-2026",
+          "date": "2026-03-08",
+          "gl_account": "6300",
+          "vendor": "Oslo Energi AS",
+          "description": "Electricity invoice \u2014 March usage",
+          "department": "Property Operations",
+          "amount": "124358.63"
+        },
+        {
+          "entity_code": "001",
+          "period": "03-2026",
+          "date": "2026-03-09",
+          "gl_account": "6302",
+          "vendor": "Nordic District Heating",
+          "description": "Monthly utility invoice \u2014 Water & Sewer",
+          "department": "Property Operations",
+          "amount": "65000.68"
+        },
+        {
+          "entity_code": "001",
+          "period": "03-2026",
+          "date": "2026-03-10",
+          "gl_account": "6303",
+          "vendor": "Oslo Energi AS",
+          "description": "Monthly utility invoice \u2014 Waste & Recycling",
+          "department": "Property Operations",
+          "amount": "29350.44"
+        },
+        {
+          "entity_code": "001",
+          "period": "03-2026",
+          "date": "2026-03-13",
+          "gl_account": "6301",
+          "vendor": "Oslo Energi AS",
+          "description": "Monthly utility invoice \u2014 District Heating",
+          "department": "Property Operations",
+          "amount": "67691.81"
+        },
+        {
+          "entity_code": "001",
+          "period": "03-2026",
+          "date": "2026-03-22",
+          "gl_account": "6302",
+          "vendor": "Bergen Kraft AS",
+          "description": "Monthly utility invoice \u2014 Water & Sewer",
+          "department": "Property Operations",
+          "amount": "65000.69"
+        },
+        {
+          "entity_code": "001",
+          "period": "03-2026",
+          "date": "2026-03-23",
+          "gl_account": "6303",
+          "vendor": "Oslo Energi AS",
+          "description": "Monthly utility invoice \u2014 Waste & Recycling",
+          "department": "Property Operations",
+          "amount": "29350.44"
+        },
+        {
+          "entity_code": "001",
+          "period": "03-2026",
+          "date": "2026-03-27",
+          "gl_account": "6301",
+          "vendor": "Nordic District Heating",
+          "description": "Monthly utility invoice \u2014 District Heating",
+          "department": "Property Operations",
+          "amount": "67691.81"
+        }
+      ]
+    }
+  },
+  "has_transactions": true,
+  "has_last_year": false
+}

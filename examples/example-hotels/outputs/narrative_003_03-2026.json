@@ -1,0 +1,11 @@
+{
+  "executive_summary": "Stockholm closes the quarter the way it opened it: GOP essentially on target against Budget (+1.9%), and every flagged item favorable. Property Operations & Maintenance and IT & Systems have now run consistently under Budget for three straight months — at this point it's simply how the department operates, not a one-off worth continued flagging.",
+  "profitability_summary": "GOP was 757,708 SEK against a Budget of 743,602 SEK, up 1.9% (14,106 SEK) — on target, capping a quarter where GOP beat or matched Budget every single month.",
+  "category_narratives": {
+    "property_ops_maint": "Property Operations & Maintenance ran 8.0% under Budget for the third consecutive month — a sustained, consistent pattern rather than noise. Worth a check-in with the team on whether this reflects genuinely lower maintenance need or deferred work; three months running is long enough that it's worth confirming deliberately rather than assuming.",
+    "it_systems": "IT & Systems ran 8.0% under Budget, the third straight month at the same margin — consistent, sustained cost control.",
+    "ebitda": "EBITDA beat Budget by 2.5%, carried by the same Property Operations & Maintenance and IT & Systems savings as GOP.",
+    "ebit": "EBIT beat Budget by 3.1% — the same underlying driver, flowing through cleanly.",
+    "pretax_income": "Pre-tax Income beat Budget by 3.4% — a clean, favorable quarter end to end, with no offsetting concerns below GOP."
+  }
+}

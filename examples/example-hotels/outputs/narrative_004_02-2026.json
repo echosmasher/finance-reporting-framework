@@ -1,0 +1,9 @@
+{
+  "executive_summary": "A quiet, on-target month for Copenhagen. GOP is within 2% of Budget and every KPI — occupancy, RevPAR, Revenue per FTE, and GOP % — is on target. EBITDA, EBIT, and Pre-tax Income sit a few points below Budget, but the underlying GOP and fixed-charge lines that drive them are both on target, so this is routine rounding through the cascade rather than a new cost story.",
+  "profitability_summary": "GOP came in at 1,551,729 DKK, 1.9% (29,912 DKK) below Budget — inside threshold. Nothing else on the P&L or in the KPIs points to a specific driver worth chasing this month.",
+  "category_narratives": {
+    "ebitda": "EBITDA is 2.7% below Budget, but GOP and Total Fixed Charges — the two lines that determine it — are both on target individually. This reflects the cumulative effect of small, ordinary variances rather than one identifiable cause; no action needed unless it persists.",
+    "ebit": "Follows EBITDA's small variance above for the same reason — not an independent story.",
+    "pretax_income": "Follows EBITDA/EBIT's small variance above — not an independent story."
+  }
+}

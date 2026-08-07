@@ -1,0 +1,1090 @@
+{
+  "entity_code": "004",
+  "entity_name": "Example Hotel Copenhagen",
+  "period": "01-2026",
+  "currency": "DKK",
+  "comparison_label": "Budget",
+  "focus_metric": "gop",
+  "secondary_metric": "ebitda",
+  "pnl": [
+    {
+      "id": "rooms_revenue",
+      "label": "Rooms Revenue",
+      "kind": "category",
+      "act": 3212953.67,
+      "budget": 3164700.01,
+      "favorable": true,
+      "diff": 48253.66,
+      "diff_pct": 1.52,
+      "status": "ON TARGET",
+      "threshold_pct": 2.0,
+      "threshold_absolute": 82000
+    },
+    {
+      "id": "fb_revenue",
+      "label": "F&B Revenue",
+      "kind": "category",
+      "act": 1445845.57,
+      "budget": 1424115.01,
+      "favorable": true,
+      "diff": 21730.56,
+      "diff_pct": 1.53,
+      "status": "ON TARGET",
+      "threshold_pct": 2.0,
+      "threshold_absolute": 37000
+    },
+    {
+      "id": "spa_revenue",
+      "label": "Spa & Wellness Revenue",
+      "kind": "category",
+      "act": 256188.6,
+      "budget": 253176.0,
+      "favorable": true,
+      "diff": 3012.6,
+      "diff_pct": 1.19,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "other_ops_revenue",
+      "label": "Other Operated Departments Revenue",
+      "kind": "category",
+      "act": 161116.56,
+      "budget": 158235.0,
+      "favorable": true,
+      "diff": 2881.56,
+      "diff_pct": 1.82,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "misc_income",
+      "label": "Miscellaneous & Rental Income",
+      "kind": "category",
+      "act": 63656.13,
+      "budget": 63294.0,
+      "favorable": true,
+      "diff": 362.13,
+      "diff_pct": 0.57,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "total_revenue",
+      "label": "Total Revenue",
+      "kind": "subtotal",
+      "act": 5139760.53,
+      "budget": 5063520.02,
+      "favorable": true,
+      "diff": 76240.51,
+      "diff_pct": 1.51,
+      "status": "ON TARGET",
+      "threshold_pct": 2.0,
+      "threshold_absolute": 132000
+    },
+    {
+      "id": "rooms_payroll",
+      "label": "Rooms \u2013 Payroll & Related",
+      "kind": "category",
+      "act": 575722.38,
+      "budget": 569646.0,
+      "favorable": false,
+      "diff": 6076.38,
+      "diff_pct": 1.07,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 22000
+    },
+    {
+      "id": "rooms_other_exp",
+      "label": "Rooms \u2013 Other Expenses",
+      "kind": "category",
+      "act": 256412.96,
+      "budget": 253176.01,
+      "favorable": false,
+      "diff": 3236.95,
+      "diff_pct": 1.28,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "fb_cogs",
+      "label": "F&B \u2013 Cost of Sales",
+      "kind": "category",
+      "act": 431309.12,
+      "budget": 427234.5,
+      "favorable": false,
+      "diff": 4074.62,
+      "diff_pct": 0.95,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 16500
+    },
+    {
+      "id": "fb_payroll",
+      "label": "F&B \u2013 Payroll & Related",
+      "kind": "category",
+      "act": 506191.23,
+      "budget": 498440.25,
+      "favorable": false,
+      "diff": 7750.98,
+      "diff_pct": 1.56,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 19500
+    },
+    {
+      "id": "fb_other_exp",
+      "label": "F&B \u2013 Other Expenses",
+      "kind": "category",
+      "act": 143570.94,
+      "budget": 142411.5,
+      "favorable": false,
+      "diff": 1159.44,
+      "diff_pct": 0.81,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "spa_payroll",
+      "label": "Spa & Wellness \u2013 Payroll & Related",
+      "kind": "category",
+      "act": 78072.71,
+      "budget": 75952.8,
+      "favorable": false,
+      "diff": 2119.91,
+      "diff_pct": 2.79,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "spa_other_exp",
+      "label": "Spa & Wellness \u2013 Other Expenses",
+      "kind": "category",
+      "act": 39191.22,
+      "budget": 37976.4,
+      "favorable": false,
+      "diff": 1214.82,
+      "diff_pct": 3.2,
+      "status": "NOTE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "other_ops_exp",
+      "label": "Other Operated Departments \u2013 Expenses",
+      "kind": "category",
+      "act": 63196.57,
+      "budget": 63294.0,
+      "favorable": true,
+      "diff": -97.43,
+      "diff_pct": -0.15,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "total_departmental_expenses",
+      "label": "Total Departmental Expenses",
+      "kind": "subtotal",
+      "act": 2093667.13,
+      "budget": 2068131.46,
+      "favorable": false,
+      "diff": 25535.67,
+      "diff_pct": 1.23,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 80000
+    },
+    {
+      "id": "departmental_profit",
+      "label": "Departmental Profit",
+      "kind": "subtotal",
+      "act": 3046093.4,
+      "budget": 2995388.56,
+      "favorable": true,
+      "diff": 50704.84,
+      "diff_pct": 1.69,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 117000
+    },
+    {
+      "id": "admin_general",
+      "label": "Administrative & General",
+      "kind": "category",
+      "act": 479344.02,
+      "budget": 405081.61,
+      "favorable": false,
+      "diff": 74262.41,
+      "diff_pct": 18.33,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 15800
+    },
+    {
+      "id": "sales_marketing",
+      "label": "Sales & Marketing",
+      "kind": "category",
+      "act": 359345.59,
+      "budget": 354446.4,
+      "favorable": false,
+      "diff": 4899.19,
+      "diff_pct": 1.38,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "property_ops_maint",
+      "label": "Property Operations & Maintenance",
+      "kind": "category",
+      "act": 257266.03,
+      "budget": 253176.0,
+      "favorable": false,
+      "diff": 4090.03,
+      "diff_pct": 1.62,
+      "status": "ON TARGET",
+      "threshold_pct": 4.0,
+      "threshold_absolute": 13000
+    },
+    {
+      "id": "utilities",
+      "label": "Utilities",
+      "kind": "category",
+      "act": 261173.93,
+      "budget": 253176.0,
+      "favorable": false,
+      "diff": 7997.93,
+      "diff_pct": 3.16,
+      "status": "ON TARGET",
+      "threshold_pct": 4.0,
+      "threshold_absolute": 13000
+    },
+    {
+      "id": "it_systems",
+      "label": "IT & Systems",
+      "kind": "category",
+      "act": 102791.99,
+      "budget": 101270.41,
+      "favorable": false,
+      "diff": 1521.58,
+      "diff_pct": 1.5,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "hr_training",
+      "label": "Human Resources & Training",
+      "kind": "category",
+      "act": 102596.47,
+      "budget": 101270.4,
+      "favorable": false,
+      "diff": 1326.07,
+      "diff_pct": 1.31,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "security",
+      "label": "Security",
+      "kind": "category",
+      "act": 77866.17,
+      "budget": 75952.8,
+      "favorable": false,
+      "diff": 1913.37,
+      "diff_pct": 2.52,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "total_undistributed_expenses",
+      "label": "Total Undistributed Operating Expenses",
+      "kind": "subtotal",
+      "act": 1640384.2,
+      "budget": 1544373.62,
+      "favorable": false,
+      "diff": 96010.58,
+      "diff_pct": 6.22,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 60000
+    },
+    {
+      "id": "gop",
+      "label": "Gross Operating Profit (GOP)",
+      "kind": "subtotal",
+      "act": 1405709.2,
+      "budget": 1451014.94,
+      "favorable": false,
+      "diff": -45305.74,
+      "diff_pct": -3.12,
+      "status": "INVESTIGATE",
+      "threshold_pct": 2.0,
+      "threshold_absolute": 38000
+    },
+    {
+      "id": "management_fees",
+      "label": "Management Fees",
+      "kind": "category",
+      "act": 154860.47,
+      "budget": 151905.6,
+      "favorable": false,
+      "diff": 2954.87,
+      "diff_pct": 1.95,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "franchise_fees",
+      "label": "Franchise & Brand Fees",
+      "kind": "category",
+      "act": 155485.4,
+      "budget": 151905.6,
+      "favorable": false,
+      "diff": 3579.8,
+      "diff_pct": 2.36,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "insurance",
+      "label": "Property & Liability Insurance",
+      "kind": "category",
+      "act": 928518.03,
+      "budget": 75952.8,
+      "favorable": false,
+      "diff": 852565.23,
+      "diff_pct": 1122.49,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "property_tax",
+      "label": "Property Tax & Licenses",
+      "kind": "category",
+      "act": 50609.2,
+      "budget": 50635.2,
+      "favorable": true,
+      "diff": -26.0,
+      "diff_pct": -0.05,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "rent_lease",
+      "label": "Rent / Lease",
+      "kind": "category",
+      "act": 100928.27,
+      "budget": 101270.41,
+      "favorable": true,
+      "diff": -342.14,
+      "diff_pct": -0.34,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "total_fixed_charges",
+      "label": "Total Fixed Charges",
+      "kind": "subtotal",
+      "act": 1390401.37,
+      "budget": 531669.61,
+      "favorable": false,
+      "diff": 858731.76,
+      "diff_pct": 161.52,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 20700
+    },
+    {
+      "id": "ebitda",
+      "label": "EBITDA",
+      "kind": "subtotal",
+      "act": 15307.83,
+      "budget": 919345.33,
+      "favorable": false,
+      "diff": -904037.5,
+      "diff_pct": -98.33,
+      "status": "INVESTIGATE",
+      "threshold_pct": 2.0,
+      "threshold_absolute": 24000
+    },
+    {
+      "id": "depreciation",
+      "label": "Depreciation & Amortization",
+      "kind": "category",
+      "act": 304603.44,
+      "budget": 303811.19,
+      "favorable": false,
+      "diff": 792.25,
+      "diff_pct": 0.26,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "ebit",
+      "label": "EBIT",
+      "kind": "subtotal",
+      "act": -289295.61,
+      "budget": 615534.14,
+      "favorable": false,
+      "diff": -904829.75,
+      "diff_pct": -147.0,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 24000
+    },
+    {
+      "id": "interest_expense",
+      "label": "Interest Expense",
+      "kind": "category",
+      "act": 76167.32,
+      "budget": 75952.8,
+      "favorable": false,
+      "diff": 214.52,
+      "diff_pct": 0.28,
+      "status": "ON TARGET",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "pretax_income",
+      "label": "Pre-tax Income",
+      "kind": "subtotal",
+      "act": -365462.93,
+      "budget": 539581.34,
+      "favorable": false,
+      "diff": -905044.27,
+      "diff_pct": -167.73,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 21000
+    }
+  ],
+  "kpis": [
+    {
+      "id": "occupancy_pct",
+      "label": "Occupancy %",
+      "format": "percent",
+      "act": 0.5831,
+      "budget": 0.58,
+      "favorable": true,
+      "diff": 0.003024193548387011,
+      "status": "ON TARGET"
+    },
+    {
+      "id": "revpar",
+      "label": "RevPAR",
+      "format": "currency",
+      "act": 647.7729,
+      "budget": 638.0444,
+      "favorable": true,
+      "diff": 9.728560483870979,
+      "status": "ON TARGET"
+    },
+    {
+      "id": "revenue_per_fte",
+      "label": "Revenue per FTE",
+      "format": "currency",
+      "act": 54911.9715,
+      "budget": 53300.2107,
+      "favorable": true,
+      "diff": 1611.7607375168664,
+      "status": "ON TARGET"
+    },
+    {
+      "id": "gop_pct",
+      "label": "GOP %",
+      "format": "percent",
+      "act": 0.2735,
+      "budget": 0.2866,
+      "favorable": false,
+      "diff": -0.013065474649655018,
+      "status": "ON TARGET"
+    }
+  ],
+  "revenue_mix": [
+    {
+      "id": "rooms_revenue",
+      "label": "Rooms Revenue",
+      "mix_actual_pct": 62.51,
+      "mix_budget_pct": 62.5,
+      "mix_shift_pp": 0.01
+    },
+    {
+      "id": "fb_revenue",
+      "label": "F&B Revenue",
+      "mix_actual_pct": 28.13,
+      "mix_budget_pct": 28.13,
+      "mix_shift_pp": 0.01
+    },
+    {
+      "id": "spa_revenue",
+      "label": "Spa & Wellness Revenue",
+      "mix_actual_pct": 4.98,
+      "mix_budget_pct": 5.0,
+      "mix_shift_pp": -0.02
+    },
+    {
+      "id": "other_ops_revenue",
+      "label": "Other Operated Departments Revenue",
+      "mix_actual_pct": 3.13,
+      "mix_budget_pct": 3.12,
+      "mix_shift_pp": 0.01
+    },
+    {
+      "id": "misc_income",
+      "label": "Miscellaneous & Rental Income",
+      "mix_actual_pct": 1.24,
+      "mix_budget_pct": 1.25,
+      "mix_shift_pp": -0.01
+    }
+  ],
+  "flags": [
+    {
+      "id": "spa_other_exp",
+      "label": "Spa & Wellness \u2013 Other Expenses",
+      "kind": "category",
+      "act": 39191.22,
+      "budget": 37976.4,
+      "favorable": false,
+      "diff": 1214.82,
+      "diff_pct": 3.2,
+      "status": "NOTE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "admin_general",
+      "label": "Administrative & General",
+      "kind": "category",
+      "act": 479344.02,
+      "budget": 405081.61,
+      "favorable": false,
+      "diff": 74262.41,
+      "diff_pct": 18.33,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 15800
+    },
+    {
+      "id": "total_undistributed_expenses",
+      "label": "Total Undistributed Operating Expenses",
+      "kind": "subtotal",
+      "act": 1640384.2,
+      "budget": 1544373.62,
+      "favorable": false,
+      "diff": 96010.58,
+      "diff_pct": 6.22,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 60000
+    },
+    {
+      "id": "gop",
+      "label": "Gross Operating Profit (GOP)",
+      "kind": "subtotal",
+      "act": 1405709.2,
+      "budget": 1451014.94,
+      "favorable": false,
+      "diff": -45305.74,
+      "diff_pct": -3.12,
+      "status": "INVESTIGATE",
+      "threshold_pct": 2.0,
+      "threshold_absolute": 38000
+    },
+    {
+      "id": "insurance",
+      "label": "Property & Liability Insurance",
+      "kind": "category",
+      "act": 928518.03,
+      "budget": 75952.8,
+      "favorable": false,
+      "diff": 852565.23,
+      "diff_pct": 1122.49,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 12000
+    },
+    {
+      "id": "total_fixed_charges",
+      "label": "Total Fixed Charges",
+      "kind": "subtotal",
+      "act": 1390401.37,
+      "budget": 531669.61,
+      "favorable": false,
+      "diff": 858731.76,
+      "diff_pct": 161.52,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 20700
+    },
+    {
+      "id": "ebitda",
+      "label": "EBITDA",
+      "kind": "subtotal",
+      "act": 15307.83,
+      "budget": 919345.33,
+      "favorable": false,
+      "diff": -904037.5,
+      "diff_pct": -98.33,
+      "status": "INVESTIGATE",
+      "threshold_pct": 2.0,
+      "threshold_absolute": 24000
+    },
+    {
+      "id": "ebit",
+      "label": "EBIT",
+      "kind": "subtotal",
+      "act": -289295.61,
+      "budget": 615534.14,
+      "favorable": false,
+      "diff": -904829.75,
+      "diff_pct": -147.0,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 24000
+    },
+    {
+      "id": "pretax_income",
+      "label": "Pre-tax Income",
+      "kind": "subtotal",
+      "act": -365462.93,
+      "budget": 539581.34,
+      "favorable": false,
+      "diff": -905044.27,
+      "diff_pct": -167.73,
+      "status": "INVESTIGATE",
+      "threshold_pct": 3.0,
+      "threshold_absolute": 21000
+    }
+  ],
+  "drill_downs": {
+    "spa_other_exp": {
+      "transaction_count": 6,
+      "by_vendor": [
+        {
+          "vendor": "Spa Retail Distributors",
+          "amount": 34531.83
+        },
+        {
+          "vendor": "Wellness Supply Nordic",
+          "amount": 4659.39
+        }
+      ],
+      "by_account": [
+        {
+          "gl_account": "5600",
+          "account_name": "Spa Operating Supplies",
+          "amount": 15429.64
+        },
+        {
+          "gl_account": "5602",
+          "account_name": "Spa Equipment Maintenance",
+          "amount": 13978.19
+        },
+        {
+          "gl_account": "5601",
+          "account_name": "Spa Retail Cost of Sales",
+          "amount": 9783.39
+        }
+      ],
+      "transactions": [
+        {
+          "entity_code": "004",
+          "period": "01-2026",
+          "date": "2026-01-16",
+          "gl_account": "5602",
+          "vendor": "Spa Retail Distributors",
+          "description": "Invoice \u2014 Spa Equipment Maintenance",
+          "department": "Spa & Wellness",
+          "amount": "4659.4"
+        },
+        {
+          "entity_code": "004",
+          "period": "01-2026",
+          "date": "2026-01-20",
+          "gl_account": "5602",
+          "vendor": "Wellness Supply Nordic",
+          "description": "Invoice \u2014 Spa Equipment Maintenance",
+          "department": "Spa & Wellness",
+          "amount": "4659.39"
+        },
+        {
+          "entity_code": "004",
+          "period": "01-2026",
+          "date": "2026-01-26",
+          "gl_account": "5602",
+          "vendor": "Spa Retail Distributors",
+          "description": "Invoice \u2014 Spa Equipment Maintenance",
+          "department": "Spa & Wellness",
+          "amount": "4659.4"
+        },
+        {
+          "entity_code": "004",
+          "period": "01-2026",
+          "date": "2026-01-29",
+          "gl_account": "5600",
+          "vendor": "Spa Retail Distributors",
+          "description": "Invoice \u2014 Spa Operating Supplies",
+          "department": "Spa & Wellness",
+          "amount": "15429.64"
+        },
+        {
+          "entity_code": "004",
+          "period": "01-2026",
+          "date": "2026-01-30",
+          "gl_account": "5601",
+          "vendor": "Spa Retail Distributors",
+          "description": "Invoice \u2014 Spa Retail Cost of Sales",
+          "department": "Spa & Wellness",
+          "amount": "4891.7"
+        },
+        {
+          "entity_code": "004",
+          "period": "01-2026",
+          "date": "2026-01-31",
+          "gl_account": "5601",
+          "vendor": "Spa Retail Distributors",
+          "description": "Invoice \u2014 Spa Retail Cost of Sales",
+          "department": "Spa & Wellness",
+          "amount": "4891.69"
+        }
+      ]
+    },
+    "admin_general": {
+      "transaction_count": 15,
+      "by_vendor": [
+        {
+          "vendor": "Nordheim Legal Partners",
+          "amount": 181880.51
+        },
+        {
+          "vendor": "Baltic Audit & Assurance",
+          "amount": 126781.08
+        },
+        {
+          "vendor": "Internal Payroll",
+          "amount": 81912.87
+        },
+        {
+          "vendor": "Office Plus Nordic",
+          "amount": 77234.3
+        },
+        {
+          "vendor": "Nordic Payments Processing",
+          "amount": 11535.26
+        }
+      ],
+      "by_account": [
+        {
+          "gl_account": "6005",
+          "account_name": "Bad Debt Expense",
+          "amount": 63363.26
+        },
+        {
+          "gl_account": "6008",
+          "account_name": "IT & Admin Travel",
+          "amount": 58927.81
+        },
+        {
+          "gl_account": "6006",
+          "account_name": "Office Supplies & Postage",
+          "amount": 58722.09
+        },
+        {
+          "gl_account": "6000",
+          "account_name": "Executive Office Salaries",
+          "amount": 49343.18
+        },
+        {
+          "gl_account": "6004",
+          "account_name": "Bank Charges & Merchant Fees",
+          "amount": 49320.29
+        },
+        {
+          "gl_account": "6007",
+          "account_name": "General Admin Other",
+          "amount": 48344.15
+        },
+        {
+          "gl_account": "6002",
+          "account_name": "Professional Fees \u2013 Legal",
+          "amount": 47873.26
+        },
+        {
+          "gl_account": "6009",
+          "account_name": "Board & Owner Reporting Costs",
+          "amount": 36274.5
+        },
+        {
+          "gl_account": "6003",
+          "account_name": "Professional Fees \u2013 Audit",
+          "amount": 34605.79
+        },
+        {
+          "gl_account": "6001",
+          "account_name": "Finance & Accounting Salaries",
+          "amount": 32569.69
+        }
+      ],
+      "transactions": [
+        {
+          "entity_code": "004",
+          "period": "01-2026",
+          "date": "2026-01-03",
+          "gl_account": "6008",
+          "vendor": "Baltic Audit & Assurance",
+          "description": "Professional services invoice \u2014 IT & Admin Travel",
+          "department": "Administrative",
+          "amount": "29463.9"
+        },
+        {
+          "entity_code": "004",
+          "period": "01-2026",
+          "date": "2026-01-03",
+          "gl_account": "6008",
+          "vendor": "Nordheim Legal Partners",
+          "description": "Professional services invoice \u2014 IT & Admin Travel",
+          "department": "Administrative",
+          "amount": "29463.91"
+        },
+        {
+          "entity_code": "004",
+          "period": "01-2026",
+          "date": "2026-01-08",
+          "gl_account": "6006",
+          "vendor": "Office Plus Nordic",
+          "description": "Professional services invoice \u2014 Office Supplies & Postage",
+          "department": "Administrative",
+          "amount": "29361.04"
+        },
+        {
+          "entity_code": "004",
+          "period": "01-2026",
+          "date": "2026-01-09",
+          "gl_account": "6003",
+          "vendor": "Nordheim Legal Partners",
+          "description": "Professional services invoice \u2014 Professional Fees \u2013 Audit",
+          "department": "Administrative",
+          "amount": "11535.26"
+        },
+        {
+          "entity_code": "004",
+          "period": "01-2026",
+          "date": "2026-01-13",
+          "gl_account": "6001",
+          "vendor": "Internal Payroll",
+          "description": "Payroll run \u2014 Finance & Accounting Salaries",
+          "department": "Administrative",
+          "amount": "32569.69"
+        },
+        {
+          "entity_code": "004",
+          "period": "01-2026",
+          "date": "2026-01-15",
+          "gl_account": "6006",
+          "vendor": "Baltic Audit & Assurance",
+          "description": "Professional services invoice \u2014 Office Supplies & Postage",
+          "department": "Administrative",
+          "amount": "29361.05"
+        },
+        {
+          "entity_code": "004",
+          "period": "01-2026",
+          "date": "2026-01-17",
+          "gl_account": "6000",
+          "vendor": "Internal Payroll",
+          "description": "Payroll run \u2014 Executive Office Salaries",
+          "department": "Administrative",
+          "amount": "49343.18"
+        },
+        {
+          "entity_code": "004",
+          "period": "01-2026",
+          "date": "2026-01-17",
+          "gl_account": "6007",
+          "vendor": "Nordheim Legal Partners",
+          "description": "Professional services invoice \u2014 General Admin Other",
+          "department": "Administrative",
+          "amount": "48344.15"
+        },
+        {
+          "entity_code": "004",
+          "period": "01-2026",
+          "date": "2026-01-19",
+          "gl_account": "6005",
+          "vendor": "Baltic Audit & Assurance",
+          "description": "Professional services invoice \u2014 Bad Debt Expense",
+          "department": "Administrative",
+          "amount": "31681.63"
+        },
+        {
+          "entity_code": "004",
+          "period": "01-2026",
+          "date": "2026-01-19",
+          "gl_account": "6009",
+          "vendor": "Baltic Audit & Assurance",
+          "description": "Professional services invoice \u2014 Board & Owner Reporting Costs",
+          "department": "Administrative",
+          "amount": "36274.5"
+        },
+        {
+          "entity_code": "004",
+          "period": "01-2026",
+          "date": "2026-01-21",
+          "gl_account": "6005",
+          "vendor": "Nordheim Legal Partners",
+          "description": "Professional services invoice \u2014 Bad Debt Expense",
+          "department": "Administrative",
+          "amount": "31681.63"
+        },
+        {
+          "entity_code": "004",
+          "period": "01-2026",
+          "date": "2026-01-23",
+          "gl_account": "6004",
+          "vendor": "Nordheim Legal Partners",
+          "description": "Professional services invoice \u2014 Bank Charges & Merchant Fees",
+          "department": "Administrative",
+          "amount": "49320.29"
+        },
+        {
+          "entity_code": "004",
+          "period": "01-2026",
+          "date": "2026-01-25",
+          "gl_account": "6002",
+          "vendor": "Office Plus Nordic",
+          "description": "Professional services invoice \u2014 Professional Fees \u2013 Legal",
+          "department": "Administrative",
+          "amount": "47873.26"
+        },
+        {
+          "entity_code": "004",
+          "period": "01-2026",
+          "date": "2026-01-25",
+          "gl_account": "6003",
+          "vendor": "Nordic Payments Processing",
+          "description": "Professional services invoice \u2014 Professional Fees \u2013 Audit",
+          "department": "Administrative",
+          "amount": "11535.26"
+        },
+        {
+          "entity_code": "004",
+          "period": "01-2026",
+          "date": "2026-01-27",
+          "gl_account": "6003",
+          "vendor": "Nordheim Legal Partners",
+          "description": "Professional services invoice \u2014 Professional Fees \u2013 Audit",
+          "department": "Administrative",
+          "amount": "11535.27"
+        }
+      ]
+    },
+    "insurance": {
+      "transaction_count": 6,
+      "by_vendor": [
+        {
+          "vendor": "Nordic Property Insurers",
+          "amount": 928518.03
+        }
+      ],
+      "by_account": [
+        {
+          "gl_account": "7200",
+          "account_name": "Property Insurance",
+          "amount": 397584.26
+        },
+        {
+          "gl_account": "7202",
+          "account_name": "Business Interruption Insurance",
+          "amount": 297062.7
+        },
+        {
+          "gl_account": "7201",
+          "account_name": "General Liability Insurance",
+          "amount": 233871.07
+        }
+      ],
+      "transactions": [
+        {
+          "entity_code": "004",
+          "period": "01-2026",
+          "date": "2026-01-04",
+          "gl_account": "7200",
+          "vendor": "Nordic Property Insurers",
+          "description": "Insurance premium \u2014 Property Insurance",
+          "department": "Fixed Charges",
+          "amount": "132528.09"
+        },
+        {
+          "entity_code": "004",
+          "period": "01-2026",
+          "date": "2026-01-11",
+          "gl_account": "7201",
+          "vendor": "Nordic Property Insurers",
+          "description": "Insurance premium \u2014 General Liability Insurance",
+          "department": "Fixed Charges",
+          "amount": "233871.07"
+        },
+        {
+          "entity_code": "004",
+          "period": "01-2026",
+          "date": "2026-01-20",
+          "gl_account": "7202",
+          "vendor": "Nordic Property Insurers",
+          "description": "Insurance premium \u2014 Business Interruption Insurance",
+          "department": "Fixed Charges",
+          "amount": "148531.35"
+        },
+        {
+          "entity_code": "004",
+          "period": "01-2026",
+          "date": "2026-01-29",
+          "gl_account": "7202",
+          "vendor": "Nordic Property Insurers",
+          "description": "Insurance premium \u2014 Business Interruption Insurance",
+          "department": "Fixed Charges",
+          "amount": "148531.35"
+        },
+        {
+          "entity_code": "004",
+          "period": "01-2026",
+          "date": "2026-01-30",
+          "gl_account": "7200",
+          "vendor": "Nordic Property Insurers",
+          "description": "Insurance premium \u2014 Property Insurance",
+          "department": "Fixed Charges",
+          "amount": "132528.09"
+        },
+        {
+          "entity_code": "004",
+          "period": "01-2026",
+          "date": "2026-01-31",
+          "gl_account": "7200",
+          "vendor": "Nordic Property Insurers",
+          "description": "Insurance premium \u2014 Property Insurance",
+          "department": "Fixed Charges",
+          "amount": "132528.08"
+        }
+      ]
+    }
+  },
+  "has_transactions": true,
+  "has_last_year": false
+}

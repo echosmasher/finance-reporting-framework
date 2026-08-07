@@ -1,0 +1,12 @@
+{
+  "executive_summary": "A clean beat this month: GOP came in 2.9% ahead of Budget, and every flagged item is favorable. Continued tight cost control on Property Operations & Maintenance and IT & Systems is carrying straight through to EBITDA, EBIT, and Pre-tax Income — nothing here needs the GM's attention beyond noting a genuinely good month.",
+  "profitability_summary": "GOP was 646,593 SEK against a Budget of 628,408 SEK, up 2.9% (18,185 SEK) — a real, clean beat with nothing offsetting it below the line this month.",
+  "category_narratives": {
+    "property_ops_maint": "Property Operations & Maintenance ran 8.0% under Budget for the second straight month. Worth a quick confirmation that this is efficient scheduling and not deferred preventive maintenance building up for a larger repair later — but two consecutive months of the same margin suggests this is simply how the team is running the department, not a one-off.",
+    "it_systems": "IT & Systems ran 8.0% under Budget, consistent with January — tight, sustained cost control, no action needed.",
+    "gop": "GOP's beat traces directly to the Property Operations & Maintenance and IT & Systems savings above — a genuine operational win, not a timing artifact.",
+    "ebitda": "EBITDA tracks GOP's favorable variance — the same underlying cost control, flowing straight through.",
+    "ebit": "Same driver as EBITDA above.",
+    "pretax_income": "Same driver as EBITDA/EBIT above — a clean, favorable month end to end."
+  }
+}

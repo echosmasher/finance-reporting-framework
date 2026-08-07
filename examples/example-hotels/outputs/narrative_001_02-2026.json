@@ -1,0 +1,11 @@
+{
+  "executive_summary": "Oslo's GOP ran 5.4% ahead of Budget in February, but that beat is not fully organic — it traces substantially to a Utilities shortfall that looks like a missing invoice rather than a genuine saving. Worth flagging to the GM before this reads as a clean win.",
+  "profitability_summary": "GOP came in at 2,966,278 NOK, 5.4% (151,409 NOK) ahead of Budget of 2,814,869 NOK. Most of that beat traces to Utilities running well under Budget this month — see the Utilities note below before reading this as a clean win on cost control.",
+  "category_narratives": {
+    "utilities": "Utilities landed at 391,068 NOK against a Budget of 491,144 NOK — 20.4% under. Confirm the February electricity invoice was actually received and posted: the drill-down shows only a 5,267 NOK \"estimated accrual\" for Electricity this month, while every other utilities account (heating, water, waste, fuel) is running at its normal level. A gap this size, concentrated in a single account, usually means the invoice hasn't arrived yet rather than genuine savings — expect this to reverse, and likely overshoot, once it's billed.",
+    "gop": "GOP beat Budget by 5.4% (151,409 NOK), but the Utilities shortfall above accounts for most of it. On a normalized basis — adding back the missing utilities charge — the underlying beat is closer to flat. Worth keeping in mind before this reads as a clean operational win.",
+    "ebitda": "Follows GOP's favorable variance for the same reason — the Utilities timing gap flows straight through. Not an independent story.",
+    "ebit": "Same driver as GOP/EBITDA above — no separate action needed here.",
+    "pretax_income": "Same driver as GOP/EBITDA/EBIT above — no separate action needed here."
+  }
+}

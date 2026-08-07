@@ -1,0 +1,20 @@
+{
+  "executive_summary": "Revenue tracked slightly ahead of Budget in January (+2.1%), a clean start to the year. The month's headline swing — EBITDA down 97% and Pre-tax Income negative — is not an operating problem: it's the annual Property & Liability Insurance premium and external audit fee, both invoiced in full this month per the usual January pattern, landing against a Budget that spreads them evenly across the year. GOP, the metric that actually reflects operating performance, came in only modestly under Budget (-2.7%).",
+  "profitability_summary": "GOP came in at 1,089,555 NOK, 2.7% (29,758 NOK) below Budget of 1,119,313 NOK — a modest miss driven mainly by Administrative & General's audit-fee timing and a handful of small routine variances, not a single operating cause. EBITDA and everything below it are dominated by the January insurance timing described below and don't reflect ongoing performance.",
+  "category_narratives": {
+    "fb_revenue": "F&B Revenue ran 2.9% ahead of Budget (31,458 NOK) — a modest, favorable start to the year.",
+    "total_revenue": "Total Revenue landed 2.1% ahead of Budget (81,102 NOK), led by F&B.",
+    "fb_payroll": "F&B Payroll & Related ran 3.6% over Budget (13,777 NOK). Check whether banquet or group business drove temporary labor costs this month — F&B Temporary Labor is one of the larger postings in the drill-down.",
+    "other_ops_exp": "Other Operated Departments Expenses ran 4.2% over Budget (2,039 NOK) — a small variance, not concerning at this size.",
+    "admin_general": "Administrative & General ran 16.5% over Budget (51,616 NOK) — expected, not a concern. This is the external audit fee, invoiced as a single charge in January per the usual pattern (see Professional Fees – Audit and Bad Debt Expense in the drill-down); Budget spreads a flat allocation across the year, so January always shows this gap.",
+    "sales_marketing": "Sales & Marketing ran 3.0% over Budget (8,308 NOK) — a small, routine variance.",
+    "security": "Security ran 3.2% over Budget (1,883 NOK) — immaterial at this size.",
+    "total_undistributed_expenses": "Total Undistributed Operating Expenses ran 6.2% over Budget (73,909 NOK), almost entirely explained by Administrative & General's January audit-fee timing above.",
+    "gop": "GOP came in 2.7% under Budget (29,758 NOK) — a modest miss, mostly the flow-through of Administrative & General's January audit-fee timing rather than an operating issue. Revenue tracked ahead of Budget and departmental costs were essentially on target.",
+    "insurance": "Property & Liability Insurance came in at 714,458 NOK against a Budget of 58,590 NOK — expected, not a concern. This is the annual premium (Property, General Liability, and Business Interruption combined — see the drill-down), invoiced as a single charge every January while Budget spreads a flat monthly allocation across the year. The same pattern will repeat every January.",
+    "total_fixed_charges": "Total Fixed Charges ran 161% over Budget (661,262 NOK), driven entirely by the January insurance premium above — not a new or separate issue.",
+    "ebitda": "EBITDA is down 97% vs Budget (691,020 NOK), driven entirely by the January insurance premium and the Administrative & General audit-fee timing above — both expected. GOP, which excludes these fixed charges, is the more useful read on this month's actual operating performance and came in only modestly under Budget.",
+    "ebit": "Same January insurance/audit-fee driver as EBITDA above — no separate action needed here.",
+    "pretax_income": "Same January insurance/audit-fee driver as EBITDA/EBIT above — no separate action needed here."
+  }
+}

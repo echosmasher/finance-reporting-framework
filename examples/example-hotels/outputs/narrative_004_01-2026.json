@@ -1,0 +1,15 @@
+{
+  "executive_summary": "Copenhagen's KPIs are all on target this month — occupancy, RevPAR, Revenue per FTE, and GOP % all landed in line with Budget. The one thing pulling GOP below Budget in dollar terms is the annual insurance premium and audit fee, both invoiced as a single January charge — expected every year, not an operating concern.",
+  "profitability_summary": "GOP came in at 1,405,709 DKK, 3.1% (45,306 DKK) below Budget. The gap traces entirely to Property & Liability Insurance and Administrative & General, both carrying their annual January lump sum — strip those out and the underlying month is on target.",
+  "category_narratives": {
+    "insurance": "Insurance landed at roughly 12x its flat monthly Budget allocation — this is the annual Property & Liability Insurance premium, invoiced as a single January charge every year. Expected, not a concern; Budget is spread evenly across the year rather than matching the actual invoicing pattern.",
+    "admin_general": "Administrative & General ran 18.3% over Budget, driven by the external audit fee that lands alongside the insurance premium each January (see above). No action needed — this is the same annual invoicing pattern, not a new cost.",
+    "total_undistributed_expenses": "The undistributed-expense total is over Budget for the same reason as Administrative & General above — the January insurance/audit timing, not a broader cost trend.",
+    "gop": "GOP is 3.1% below Budget this month, but the entire gap is explained by the January insurance/audit timing above — excluding that, the property is tracking to plan.",
+    "total_fixed_charges": "Fixed charges are elevated for the same reason as Insurance above — the annual premium, not a new recurring cost.",
+    "ebitda": "Follows GOP's variance for the same reason — the January insurance/audit timing flows straight through. Not an independent story.",
+    "ebit": "Same driver as GOP/EBITDA above — no separate action needed here.",
+    "pretax_income": "Same driver as GOP/EBITDA/EBIT above — no separate action needed here.",
+    "spa_other_exp": "Spa & Wellness Other Expenses ran 3.2% over Budget — a small, immaterial variance on a small-dollar category. Worth a glance at the transaction detail next month if it repeats, not an action item on its own."
+  }
+}
