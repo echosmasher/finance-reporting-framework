@@ -11,13 +11,25 @@ __pycache__/
 .venv/
 venv/
 .pytest_cache/
+.coverage
+htmlcov/
 
-# Working directories — user data, not source (see PLAN.md §3)
-inbox/*
-!inbox/.gitkeep
-outputs/*
-!outputs/.gitkeep
-config/*
-!config/.gitkeep
-references/*
-!references/.gitkeep
+# Editors
+.vscode/
+.idea/
+
+# Env files — never commit secrets
+.env
+.env.local
+
+# Working directories — user data, not source (see PLAN.md §3).
+# Anchored to repo root: must NOT match examples/example-hotels/{inbox,outputs},
+# whose contents are the committed demo and are tracked deliberately.
+/inbox/*
+!/inbox/.gitkeep
+/outputs/*
+!/outputs/.gitkeep
+/config/*
+!/config/.gitkeep
+/references/*
+!/references/.gitkeep
