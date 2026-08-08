@@ -88,6 +88,8 @@ jobs:
             python3 skills/analysis/scripts/render_analysis.py "$period" --outputs-dir /tmp/ci-outputs
             python3 skills/dashboard/scripts/render_dashboard.py "$period" \
               --config-dir examples/example-hotels/config --outputs-dir /tmp/ci-outputs
+            python3 skills/dashboard/scripts/render_portfolio.py "$period" \
+              --config-dir examples/example-hotels/config --outputs-dir /tmp/ci-outputs
           done
 
   deploy-pages:

@@ -18,7 +18,10 @@
       "diff_pct": 0.14,
       "status": "ON TARGET",
       "threshold_pct": 2.0,
-      "threshold_absolute": 38000
+      "threshold_absolute": 38000,
+      "threshold_source": "category_overrides.rooms_revenue",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "fb_revenue",
@@ -31,7 +34,10 @@
       "diff_pct": -0.88,
       "status": "ON TARGET",
       "threshold_pct": 2.0,
-      "threshold_absolute": 5700
+      "threshold_absolute": 5700,
+      "threshold_source": "category_overrides.fb_revenue",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "spa_revenue",
@@ -44,7 +50,10 @@
       "diff_pct": null,
       "status": "ON TARGET",
       "threshold_pct": 3.0,
-      "threshold_absolute": 12000
+      "threshold_absolute": 12000,
+      "threshold_source": "default",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "other_ops_revenue",
@@ -57,7 +66,10 @@
       "diff_pct": 0.01,
       "status": "ON TARGET",
       "threshold_pct": 3.0,
-      "threshold_absolute": 12000
+      "threshold_absolute": 12000,
+      "threshold_source": "default",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "misc_income",
@@ -70,7 +82,10 @@
       "diff_pct": -0.75,
       "status": "ON TARGET",
       "threshold_pct": 3.0,
-      "threshold_absolute": 12000
+      "threshold_absolute": 12000,
+      "threshold_source": "default",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "total_revenue",
@@ -83,7 +98,10 @@
       "diff_pct": -0.0,
       "status": "ON TARGET",
       "threshold_pct": 2.0,
-      "threshold_absolute": 46000
+      "threshold_absolute": 46000,
+      "threshold_source": "category_overrides.total_revenue",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "rooms_payroll",
@@ -96,7 +114,10 @@
       "diff_pct": 0.22,
       "status": "ON TARGET",
       "threshold_pct": 3.0,
-      "threshold_absolute": 10000
+      "threshold_absolute": 10000,
+      "threshold_source": "category_overrides.rooms_payroll",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "rooms_other_exp",
@@ -109,7 +130,10 @@
       "diff_pct": -0.41,
       "status": "ON TARGET",
       "threshold_pct": 3.0,
-      "threshold_absolute": 12000
+      "threshold_absolute": 12000,
+      "threshold_source": "default",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "fb_cogs",
@@ -122,7 +146,10 @@
       "diff_pct": -1.42,
       "status": "ON TARGET",
       "threshold_pct": 3.0,
-      "threshold_absolute": 2600
+      "threshold_absolute": 2600,
+      "threshold_source": "category_overrides.fb_cogs",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "fb_payroll",
@@ -135,7 +162,10 @@
       "diff_pct": 0.44,
       "status": "ON TARGET",
       "threshold_pct": 3.0,
-      "threshold_absolute": 3000
+      "threshold_absolute": 3000,
+      "threshold_source": "category_overrides.fb_payroll",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "fb_other_exp",
@@ -148,7 +178,10 @@
       "diff_pct": -2.09,
       "status": "ON TARGET",
       "threshold_pct": 3.0,
-      "threshold_absolute": 12000
+      "threshold_absolute": 12000,
+      "threshold_source": "default",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "spa_payroll",
@@ -161,7 +194,10 @@
       "diff_pct": null,
       "status": "ON TARGET",
       "threshold_pct": 3.0,
-      "threshold_absolute": 12000
+      "threshold_absolute": 12000,
+      "threshold_source": "default",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "spa_other_exp",
@@ -174,7 +210,10 @@
       "diff_pct": null,
       "status": "ON TARGET",
       "threshold_pct": 3.0,
-      "threshold_absolute": 12000
+      "threshold_absolute": 12000,
+      "threshold_source": "default",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "other_ops_exp",
@@ -187,7 +226,10 @@
       "diff_pct": 1.33,
       "status": "ON TARGET",
       "threshold_pct": 3.0,
-      "threshold_absolute": 12000
+      "threshold_absolute": 12000,
+      "threshold_source": "default",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "total_departmental_expenses",
@@ -200,7 +242,10 @@
       "diff_pct": -0.11,
       "status": "ON TARGET",
       "threshold_pct": 3.0,
-      "threshold_absolute": 22000
+      "threshold_absolute": 22000,
+      "threshold_source": "category_overrides.total_departmental_expenses",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "departmental_profit",
@@ -213,7 +258,10 @@
       "diff_pct": 0.05,
       "status": "ON TARGET",
       "threshold_pct": 3.0,
-      "threshold_absolute": 47000
+      "threshold_absolute": 47000,
+      "threshold_source": "category_overrides.departmental_profit",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "admin_general",
@@ -226,7 +274,10 @@
       "diff_pct": -0.23,
       "status": "ON TARGET",
       "threshold_pct": 3.0,
-      "threshold_absolute": 5500
+      "threshold_absolute": 5500,
+      "threshold_source": "category_overrides.admin_general",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "sales_marketing",
@@ -239,7 +290,10 @@
       "diff_pct": -0.58,
       "status": "ON TARGET",
       "threshold_pct": 3.0,
-      "threshold_absolute": 12000
+      "threshold_absolute": 12000,
+      "threshold_source": "default",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "property_ops_maint",
@@ -252,7 +306,10 @@
       "diff_pct": -8.0,
       "status": "INVESTIGATE",
       "threshold_pct": 4.0,
-      "threshold_absolute": 4600
+      "threshold_absolute": 4600,
+      "threshold_source": "category_overrides.property_ops_maint",
+      "pct_breached": true,
+      "absolute_breached": true
     },
     {
       "id": "utilities",
@@ -265,7 +322,10 @@
       "diff_pct": -0.87,
       "status": "ON TARGET",
       "threshold_pct": 4.0,
-      "threshold_absolute": 4600
+      "threshold_absolute": 4600,
+      "threshold_source": "category_overrides.utilities",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "it_systems",
@@ -278,7 +338,10 @@
       "diff_pct": -8.0,
       "status": "NOTE",
       "threshold_pct": 3.0,
-      "threshold_absolute": 12000
+      "threshold_absolute": 12000,
+      "threshold_source": "default",
+      "pct_breached": true,
+      "absolute_breached": false
     },
     {
       "id": "hr_training",
@@ -291,7 +354,10 @@
       "diff_pct": -0.86,
       "status": "ON TARGET",
       "threshold_pct": 3.0,
-      "threshold_absolute": 12000
+      "threshold_absolute": 12000,
+      "threshold_source": "default",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "security",
@@ -304,7 +370,10 @@
       "diff_pct": 0.4,
       "status": "ON TARGET",
       "threshold_pct": 3.0,
-      "threshold_absolute": 12000
+      "threshold_absolute": 12000,
+      "threshold_source": "default",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "total_undistributed_expenses",
@@ -317,7 +386,10 @@
       "diff_pct": -2.21,
       "status": "ON TARGET",
       "threshold_pct": 3.0,
-      "threshold_absolute": 21000
+      "threshold_absolute": 21000,
+      "threshold_source": "category_overrides.total_undistributed_expenses",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "gop",
@@ -330,7 +402,10 @@
       "diff_pct": 1.9,
       "status": "ON TARGET",
       "threshold_pct": 2.0,
-      "threshold_absolute": 17000
+      "threshold_absolute": 17000,
+      "threshold_source": "category_overrides.gop",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "management_fees",
@@ -343,7 +418,10 @@
       "diff_pct": 0.43,
       "status": "ON TARGET",
       "threshold_pct": 3.0,
-      "threshold_absolute": 12000
+      "threshold_absolute": 12000,
+      "threshold_source": "default",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "franchise_fees",
@@ -356,7 +434,10 @@
       "diff_pct": 0.63,
       "status": "ON TARGET",
       "threshold_pct": 3.0,
-      "threshold_absolute": 12000
+      "threshold_absolute": 12000,
+      "threshold_source": "default",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "insurance",
@@ -369,7 +450,10 @@
       "diff_pct": 0.29,
       "status": "ON TARGET",
       "threshold_pct": 3.0,
-      "threshold_absolute": 12000
+      "threshold_absolute": 12000,
+      "threshold_source": "default",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "property_tax",
@@ -382,7 +466,10 @@
       "diff_pct": 0.16,
       "status": "ON TARGET",
       "threshold_pct": 3.0,
-      "threshold_absolute": 12000
+      "threshold_absolute": 12000,
+      "threshold_source": "default",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "rent_lease",
@@ -395,7 +482,10 @@
       "diff_pct": 0.37,
       "status": "ON TARGET",
       "threshold_pct": 3.0,
-      "threshold_absolute": 12000
+      "threshold_absolute": 12000,
+      "threshold_source": "default",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "total_fixed_charges",
@@ -408,7 +498,10 @@
       "diff_pct": 0.43,
       "status": "ON TARGET",
       "threshold_pct": 3.0,
-      "threshold_absolute": 7200
+      "threshold_absolute": 7200,
+      "threshold_source": "category_overrides.total_fixed_charges",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "ebitda",
@@ -421,7 +514,10 @@
       "diff_pct": 2.47,
       "status": "INVESTIGATE",
       "threshold_pct": 2.0,
-      "threshold_absolute": 12000
+      "threshold_absolute": 12000,
+      "threshold_source": "category_overrides.ebitda",
+      "pct_breached": true,
+      "absolute_breached": true
     },
     {
       "id": "depreciation",
@@ -434,7 +530,10 @@
       "diff_pct": 0.21,
       "status": "ON TARGET",
       "threshold_pct": 3.0,
-      "threshold_absolute": 12000
+      "threshold_absolute": 12000,
+      "threshold_source": "default",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "ebit",
@@ -447,7 +546,10 @@
       "diff_pct": 3.12,
       "status": "NOTE",
       "threshold_pct": 3.0,
-      "threshold_absolute": 14000
+      "threshold_absolute": 14000,
+      "threshold_source": "category_overrides.ebit",
+      "pct_breached": true,
+      "absolute_breached": false
     },
     {
       "id": "interest_expense",
@@ -460,7 +562,10 @@
       "diff_pct": 0.09,
       "status": "ON TARGET",
       "threshold_pct": 3.0,
-      "threshold_absolute": 12000
+      "threshold_absolute": 12000,
+      "threshold_source": "default",
+      "pct_breached": false,
+      "absolute_breached": false
     },
     {
       "id": "pretax_income",
@@ -473,7 +578,10 @@
       "diff_pct": 3.35,
       "status": "NOTE",
       "threshold_pct": 3.0,
-      "threshold_absolute": 13000
+      "threshold_absolute": 13000,
+      "threshold_source": "category_overrides.pretax_income",
+      "pct_breached": true,
+      "absolute_breached": false
     }
   ],
   "kpis": [
@@ -485,7 +593,12 @@
       "budget": 0.6201,
       "favorable": null,
       "diff": 0.0,
-      "status": "ON TARGET"
+      "status": "ON TARGET",
+      "threshold_kind": "pp",
+      "threshold_notice": 3.0,
+      "threshold_investigate": 6.0,
+      "threshold_source": "kpi_thresholds.occupancy_pct",
+      "threshold_deviation": 0.0
     },
     {
       "id": "revpar",
@@ -495,7 +608,12 @@
       "budget": 589.0681,
       "favorable": true,
       "diff": 0.8532795698922655,
-      "status": "ON TARGET"
+      "status": "ON TARGET",
+      "threshold_kind": "pct",
+      "threshold_notice": 3.0,
+      "threshold_investigate": 6.0,
+      "threshold_source": "kpi_thresholds.revpar",
+      "threshold_deviation": 0.14
     },
     {
       "id": "revenue_per_fte",
@@ -505,7 +623,12 @@
       "budget": 49715.875,
       "favorable": true,
       "diff": 756.5473350253669,
-      "status": "ON TARGET"
+      "status": "ON TARGET",
+      "threshold_kind": "pct",
+      "threshold_notice": 4.0,
+      "threshold_investigate": 8.0,
+      "threshold_source": "kpi_thresholds.revenue_per_fte",
+      "threshold_deviation": 1.52
     },
     {
       "id": "gop_pct",
@@ -515,7 +638,12 @@
       "budget": 0.3739,
       "favorable": true,
       "diff": 0.007097534167479491,
-      "status": "ON TARGET"
+      "status": "ON TARGET",
+      "threshold_kind": "pp",
+      "threshold_notice": 2.0,
+      "threshold_investigate": 4.0,
+      "threshold_source": "kpi_thresholds.gop_pct",
+      "threshold_deviation": 0.71
     }
   ],
   "revenue_mix": [
@@ -567,7 +695,10 @@
       "diff_pct": -8.0,
       "status": "INVESTIGATE",
       "threshold_pct": 4.0,
-      "threshold_absolute": 4600
+      "threshold_absolute": 4600,
+      "threshold_source": "category_overrides.property_ops_maint",
+      "pct_breached": true,
+      "absolute_breached": true
     },
     {
       "id": "it_systems",
@@ -580,7 +711,10 @@
       "diff_pct": -8.0,
       "status": "NOTE",
       "threshold_pct": 3.0,
-      "threshold_absolute": 12000
+      "threshold_absolute": 12000,
+      "threshold_source": "default",
+      "pct_breached": true,
+      "absolute_breached": false
     },
     {
       "id": "ebitda",
@@ -593,7 +727,10 @@
       "diff_pct": 2.47,
       "status": "INVESTIGATE",
       "threshold_pct": 2.0,
-      "threshold_absolute": 12000
+      "threshold_absolute": 12000,
+      "threshold_source": "category_overrides.ebitda",
+      "pct_breached": true,
+      "absolute_breached": true
     },
     {
       "id": "ebit",
@@ -606,7 +743,10 @@
       "diff_pct": 3.12,
       "status": "NOTE",
       "threshold_pct": 3.0,
-      "threshold_absolute": 14000
+      "threshold_absolute": 14000,
+      "threshold_source": "category_overrides.ebit",
+      "pct_breached": true,
+      "absolute_breached": false
     },
     {
       "id": "pretax_income",
@@ -619,7 +759,10 @@
       "diff_pct": 3.35,
       "status": "NOTE",
       "threshold_pct": 3.0,
-      "threshold_absolute": 13000
+      "threshold_absolute": 13000,
+      "threshold_source": "category_overrides.pretax_income",
+      "pct_breached": true,
+      "absolute_breached": false
     }
   ],
   "drill_downs": {

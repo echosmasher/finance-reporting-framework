@@ -37,17 +37,23 @@ class TestClassifyCategory:
         result = classify_category("staff_cost", act=5300.0, budget=5000.0, config=config, currency="USD")
         assert result["status"] == STATUS_NOTE
         assert result["diff_pct"] == pytest.approx(6.0)
+        assert result["pct_breached"] is True
+        assert result["absolute_breached"] is False
 
     def test_note_when_only_absolute_breached(self, config):
         # default pct=5%, absolute=1000. 4% under threshold but 1200 diff over it.
         result = classify_category("staff_cost", act=31200.0, budget=30000.0, config=config, currency="USD")
         assert result["status"] == STATUS_NOTE
         assert result["diff_pct"] == pytest.approx(4.0)
+        assert result["pct_breached"] is False
+        assert result["absolute_breached"] is True
 
     def test_investigate_when_both_breached(self, config):
         # room_revenue override: pct=2%, absolute=500.
         result = classify_category("room_revenue", act=10800.0, budget=10000.0, config=config, currency="USD")
         assert result["status"] == STATUS_INVESTIGATE
+        assert result["pct_breached"] is True
+        assert result["absolute_breached"] is True
 
     def test_zero_budget_nonzero_actual_is_a_breach(self, config):
         result = classify_category("admin_cost", act=500.0, budget=0.0, config=config, currency="USD")
@@ -57,6 +63,18 @@ class TestClassifyCategory:
     def test_zero_budget_zero_actual_is_on_target(self, config):
         result = classify_category("admin_cost", act=0.0, budget=0.0, config=config, currency="USD")
         assert result["status"] == STATUS_ON_TARGET
+
+    def test_threshold_source_names_the_override_that_applied(self, config):
+        result = classify_category("room_revenue", act=10800.0, budget=10000.0, config=config, currency="USD")
+        assert result["threshold_source"] == "category_overrides.room_revenue"
+        assert result["threshold_pct"] == 2.0
+        assert result["threshold_absolute"] == 500
+
+    def test_threshold_source_is_default_for_an_unlisted_category(self, config):
+        result = classify_category("staff_cost", act=5300.0, budget=5000.0, config=config, currency="USD")
+        assert result["threshold_source"] == "default"
+        assert result["threshold_pct"] == 5.0
+        assert result["threshold_absolute"] == 1000
 
 
 class TestFavorability:
@@ -95,6 +113,22 @@ class TestClassifyKpi:
     def test_currency_format_investigate_tier(self, config):
         result = classify_kpi("revenue_per_available_room", act=115.0, budget=100.0, kpi_format="currency", config=config)
         assert result["status"] == STATUS_INVESTIGATE  # 15% >= investigate_pct(10)
+
+    def test_threshold_fields_reflect_pp_kind(self, config):
+        result = classify_kpi("occupancy_rate", act=0.68, budget=0.60, kpi_format="percent", config=config)
+        assert result["threshold_kind"] == "pp"
+        assert result["threshold_notice"] == 3.0
+        assert result["threshold_investigate"] == 6.0
+        assert result["threshold_source"] == "kpi_thresholds.occupancy_rate"
+        assert result["threshold_deviation"] == pytest.approx(8.0)
+
+    def test_threshold_fields_reflect_pct_kind(self, config):
+        result = classify_kpi("revenue_per_available_room", act=108.0, budget=100.0, kpi_format="currency", config=config)
+        assert result["threshold_kind"] == "pct"
+        assert result["threshold_notice"] == 5.0
+        assert result["threshold_investigate"] == 10.0
+        assert result["threshold_source"] == "kpi_thresholds.revenue_per_available_room"
+        assert result["threshold_deviation"] == pytest.approx(8.0)
 
 
 class TestDrillDown:

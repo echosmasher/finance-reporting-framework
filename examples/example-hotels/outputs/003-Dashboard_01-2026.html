@@ -55,6 +55,22 @@
     margin: 0 0 1rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;
     color: var(--primary); font-weight: 600;
   }
+  .bridge-chart { overflow-x: auto; }
+  .bridge-chart svg { min-width: 480px; }
+  .bridge-legend { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.75rem; font-size: 0.8rem; color: var(--neutral-dark); }
+  .legend-item { display: inline-flex; align-items: center; gap: 0.4rem; opacity: 0.85; }
+  .legend-item .swatch { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+  .trend-block { margin-top: 1.25rem; }
+  .trend-block:first-child { margin-top: 0; }
+  .trend-block h3 { margin: 0 0 0.5rem; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em;
+    color: var(--neutral-dark); opacity: 0.7; font-weight: 600; }
+  table.flag-history { width: auto; min-width: 100%; }
+  table.flag-history th, table.flag-history td { text-align: center; }
+  table.flag-history th:first-child, table.flag-history td:first-child { text-align: left; }
+  table.flag-history .status-pill { cursor: default; }
+  .sparkline { display: block; vertical-align: middle; }
+  .sparkline-wrap { margin-top: 0.5rem; }
+  td .sparkline { margin: 0 auto; }
   .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
   .kpi-card { border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; }
   .kpi-card .label { font-size: 0.82rem; color: var(--neutral-dark); opacity: 0.7; }
@@ -77,6 +93,18 @@
   details { margin-top: 0.75rem; }
   summary { cursor: pointer; font-size: 0.85rem; color: var(--primary); font-weight: 600; }
   .drill-table { margin-top: 0.6rem; }
+  .audit-fields { display: grid; grid-template-columns: max-content 1fr; gap: 0.35rem 1rem;
+    margin: 0.6rem 0 0; font-size: 0.85rem; line-height: 1.55; }
+  .audit-fields dt { color: var(--neutral-dark); opacity: 0.6; font-weight: 600; white-space: nowrap; }
+  .audit-fields dd { margin: 0; }
+  .audit-fields code { font-size: 0.82rem; background: var(--neutral-light); padding: 0.05rem 0.4rem;
+    border-radius: 4px; }
+  .comments { display: flex; flex-direction: column; gap: 0.5rem; }
+  .comment-note { border-left: 3px solid var(--secondary); padding: 0.4rem 0 0.4rem 0.7rem; }
+  .comment-note p { margin: 0; font-size: 0.85rem; line-height: 1.5; font-style: italic; }
+  .comment-byline { margin-top: 0.2rem; font-size: 0.72rem; opacity: 0.6; font-style: normal; }
+  tr.comment-row td { padding: 0.5rem 0.6rem 0.75rem; border-bottom: 1px solid var(--border); text-align: left; }
+  .kpi-card .comments { margin-top: 0.6rem; }
   footer { text-align: center; font-size: 0.78rem; color: var(--neutral-dark); opacity: 0.55;
     margin-top: 2rem; padding-bottom: 1rem; }
   @media (max-width: 640px) {
@@ -107,27 +135,58 @@
 
   <div class="page">
     <section>
+      <h2>Gross Operating Profit (GOP) Bridge &mdash; Budget &rarr; Actual</h2>
+      <div class="bridge-chart">
+    <div class="bridge-legend">
+      <span class="legend-item"><span class="swatch" style="background:#1B3A4B"></span>Gross Operating Profit (GOP) total</span>
+      <span class="legend-item"><span class="swatch" style="background:#2E7D4F"></span>Increases Gross Operating Profit (GOP)</span>
+      <span class="legend-item"><span class="swatch" style="background:#B23A3A"></span>Decreases Gross Operating Profit (GOP)</span>
+    </div>
+    <svg viewBox="0 0 900 340" role="img" aria-label="Gross Operating Profit (GOP) bridge from Budget to Actual"
+         style="width:100%;height:auto;display:block;font-family:inherit">
+      <line x1="90.0" y1="193.2" x2="880.0" y2="193.2" stroke="#DDD8CE" stroke-width="1"/><text x="82.0" y="196.2" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.65">640,000</text><line x1="90.0" y1="146.0" x2="880.0" y2="146.0" stroke="#DDD8CE" stroke-width="1"/><text x="82.0" y="149.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.65">650,000</text><line x1="90.0" y1="98.8" x2="880.0" y2="98.8" stroke="#DDD8CE" stroke-width="1"/><text x="82.0" y="101.8" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.65">660,000</text>
+      <line x1="90.0" y1="240.0" x2="880.0" y2="240.0" stroke="#DDD8CE" stroke-width="1.5"/>
+      <line x1="125.9" y1="99.8" x2="185.7" y2="99.8" stroke="#DDD8CE" stroke-width="1" stroke-dasharray="2,2"/><line x1="197.7" y1="75.9" x2="257.5" y2="75.9" stroke="#DDD8CE" stroke-width="1" stroke-dasharray="2,2"/><line x1="269.5" y1="90.9" x2="329.4" y2="90.9" stroke="#DDD8CE" stroke-width="1" stroke-dasharray="2,2"/><line x1="341.4" y1="94.9" x2="401.2" y2="94.9" stroke="#DDD8CE" stroke-width="1" stroke-dasharray="2,2"/><line x1="413.2" y1="200.6" x2="473.0" y2="200.6" stroke="#DDD8CE" stroke-width="1" stroke-dasharray="2,2"/><line x1="485.0" y1="167.3" x2="544.8" y2="167.3" stroke="#DDD8CE" stroke-width="1" stroke-dasharray="2,2"/><line x1="556.8" y1="154.0" x2="616.6" y2="154.0" stroke="#DDD8CE" stroke-width="1" stroke-dasharray="2,2"/><line x1="628.6" y1="159.5" x2="688.5" y2="159.5" stroke="#DDD8CE" stroke-width="1" stroke-dasharray="2,2"/><line x1="700.5" y1="163.4" x2="760.3" y2="163.4" stroke="#DDD8CE" stroke-width="1" stroke-dasharray="2,2"/><line x1="772.3" y1="69.4" x2="832.1" y2="69.4" stroke="#DDD8CE" stroke-width="1" stroke-dasharray="2,2"/>
+      <path d="M113.9,240.0 L113.9,103.8 Q113.9,99.8 117.9,99.8 L133.9,99.8 Q137.9,99.8 137.9,103.8 L137.9,240.0 Z" fill="#1B3A4B"><title>Budget: 659,785 SEK</title></path><path d="M185.7,99.8 L185.7,79.9 Q185.7,75.9 189.7,75.9 L205.7,75.9 Q209.7,75.9 209.7,79.9 L209.7,99.8 Z" fill="#2E7D4F"><title>F&amp;B Revenue: +5,082 SEK</title></path><path d="M257.5,90.9 L257.5,79.9 Q257.5,75.9 261.5,75.9 L277.5,75.9 Q281.5,75.9 281.5,79.9 L281.5,90.9 Z" fill="#B23A3A"><title>F&amp;B – Payroll &amp; Related: −3,190 SEK</title></path><path d="M329.4,94.9 L329.4,92.9 Q329.4,90.9 331.3,90.9 L351.4,90.9 Q353.4,90.9 353.4,92.9 L353.4,94.9 Z" fill="#B23A3A"><title>F&amp;B – Other Expenses: −838 SEK</title></path><path d="M401.2,200.6 L401.2,98.9 Q401.2,94.9 405.2,94.9 L421.2,94.9 Q425.2,94.9 425.2,98.9 L425.2,200.6 Z" fill="#B23A3A"><title>Administrative &amp; General: −22,419 SEK</title></path><path d="M473.0,200.6 L473.0,171.3 Q473.0,167.3 477.0,167.3 L493.0,167.3 Q497.0,167.3 497.0,171.3 L497.0,200.6 Z" fill="#2E7D4F"><title>Property Operations &amp; Maintenance: +7,058 SEK</title></path><path d="M544.8,167.3 L544.8,158.0 Q544.8,154.0 548.8,154.0 L564.8,154.0 Q568.8,154.0 568.8,158.0 L568.8,167.3 Z" fill="#2E7D4F"><title>IT &amp; Systems: +2,823 SEK</title></path><path d="M616.6,159.5 L616.6,156.8 Q616.6,154.0 619.4,154.0 L637.9,154.0 Q640.6,154.0 640.6,156.8 L640.6,159.5 Z" fill="#B23A3A"><title>Human Resources &amp; Training: −1,161 SEK</title></path><path d="M688.5,163.4 L688.5,161.4 Q688.5,159.5 690.4,159.5 L710.5,159.5 Q712.5,159.5 712.5,161.4 L712.5,163.4 Z" fill="#B23A3A"><title>Security: −829 SEK</title></path><path d="M760.3,163.4 L760.3,73.4 Q760.3,69.4 764.3,69.4 L780.3,69.4 Q784.3,69.4 784.3,73.4 L784.3,163.4 Z" fill="#2E7D4F"><title>Other categories (12): +19,932 SEK</title></path><path d="M832.1,240.0 L832.1,73.4 Q832.1,69.4 836.1,69.4 L852.1,69.4 Q856.1,69.4 856.1,73.4 L856.1,240.0 Z" fill="#1B3A4B"><title>Actual: 666,243 SEK</title></path>
+      <text x="125.9" y="91.8" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">659,785</text><text x="125.9" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 125.9 254.0)">Budget</text><text x="197.7" y="67.9" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">+5,082</text><text x="197.7" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 197.7 254.0)">F&amp;B Revenue</text><text x="269.5" y="106.9" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">−3,190</text><text x="269.5" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 269.5 254.0)">F&amp;B – Payroll &amp; Related</text><text x="341.4" y="110.9" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">−838</text><text x="341.4" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 341.4 254.0)">F&amp;B – Other Expenses</text><text x="413.2" y="216.6" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">−22,419</text><text x="413.2" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 413.2 254.0)">Administrative &amp; General</text><text x="485.0" y="159.3" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">+7,058</text><text x="485.0" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 485.0 254.0)">Property Operations &amp; Ma…</text><text x="556.8" y="146.0" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">+2,823</text><text x="556.8" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 556.8 254.0)">IT &amp; Systems</text><text x="628.6" y="175.5" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">−1,161</text><text x="628.6" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 628.6 254.0)">Human Resources &amp; Training</text><text x="700.5" y="179.4" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">−829</text><text x="700.5" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 700.5 254.0)">Security</text><text x="772.3" y="61.4" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">+19,932</text><text x="772.3" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 772.3 254.0)">Other categories (12)</text><text x="844.1" y="61.4" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">666,243</text><text x="844.1" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 844.1 254.0)">Actual</text>
+    </svg></div>
+    </section>
+
+    <section>
+      <h2>Trend</h2>
+      <p>Trend view needs at least 2 analyzed periods for this entity — only 1 committed so far.</p>
+    </section>
+
+    <section>
       <h2>Key Performance Indicators</h2>
       <div class="kpi-grid">
           <div class="kpi-card">
             <div class="label">Occupancy %</div>
             <div class="value">55.7%</div>
             <div class="delta status-pill status-on-target">+ vs 55.0% Budget</div>
+            
+            
           </div>
           <div class="kpi-card">
             <div class="label">RevPAR</div>
             <div class="value">533 SEK</div>
             <div class="delta status-pill status-on-target">+ vs 523 SEK Budget</div>
+            
+            
           </div>
           <div class="kpi-card">
             <div class="label">Revenue per FTE</div>
             <div class="value">46,383 SEK</div>
             <div class="delta status-pill status-note">+ vs 44,112 SEK Budget</div>
+            
+            
           </div>
           <div class="kpi-card">
             <div class="label">GOP %</div>
             <div class="value">37.0%</div>
             <div class="delta status-pill status-on-target">− vs 37.4% Budget</div>
+            
+            
           </div></div>
     </section>
 
@@ -141,7 +200,7 @@
       
     <table>
       <thead><tr><th>Category</th><th>Actual</th><th>Budget</th>
-        <th>Diff</th><th>Diff %</th><th>Status</th></tr></thead>
+        <th>Diff</th><th>Diff %</th><th>Status</th><th>Trend</th></tr></thead>
       <tbody>
           <tr class="">
             <td>Rooms Revenue</td>
@@ -150,6 +209,7 @@
             <td>28,365 SEK</td>
             <td>+1.9%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>F&amp;B Revenue</td>
@@ -158,6 +218,7 @@
             <td>5,082 SEK</td>
             <td>+2.3%</td>
             <td><span class="status-pill status-note">NOTE</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Spa &amp; Wellness Revenue</td>
@@ -166,6 +227,7 @@
             <td>0 SEK</td>
             <td>—</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Other Operated Departments Revenue</td>
@@ -174,6 +236,7 @@
             <td>1,323 SEK</td>
             <td>+2.3%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Miscellaneous &amp; Rental Income</td>
@@ -182,6 +245,7 @@
             <td>425 SEK</td>
             <td>+1.5%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Total Revenue</td>
@@ -190,6 +254,7 @@
             <td>35,194 SEK</td>
             <td>+2.0%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Rooms – Payroll &amp; Related</td>
@@ -198,6 +263,7 @@
             <td>2,780 SEK</td>
             <td>+1.1%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Rooms – Other Expenses</td>
@@ -206,6 +272,7 @@
             <td>3,182 SEK</td>
             <td>+2.7%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>F&amp;B – Cost of Sales</td>
@@ -214,6 +281,7 @@
             <td>132 SEK</td>
             <td>+0.2%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>F&amp;B – Payroll &amp; Related</td>
@@ -222,6 +290,7 @@
             <td>3,190 SEK</td>
             <td>+4.2%</td>
             <td><span class="status-pill status-investigate">INVESTIGATE</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>F&amp;B – Other Expenses</td>
@@ -230,6 +299,7 @@
             <td>838 SEK</td>
             <td>+3.8%</td>
             <td><span class="status-pill status-note">NOTE</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Spa &amp; Wellness – Payroll &amp; Related</td>
@@ -238,6 +308,7 @@
             <td>0 SEK</td>
             <td>—</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Spa &amp; Wellness – Other Expenses</td>
@@ -246,6 +317,7 @@
             <td>0 SEK</td>
             <td>—</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Other Operated Departments – Expenses</td>
@@ -254,6 +326,7 @@
             <td>200 SEK</td>
             <td>+0.9%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Total Departmental Expenses</td>
@@ -262,6 +335,7 @@
             <td>10,322 SEK</td>
             <td>+1.8%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Departmental Profit</td>
@@ -270,6 +344,7 @@
             <td>24,872 SEK</td>
             <td>+2.1%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Administrative &amp; General</td>
@@ -278,6 +353,7 @@
             <td>22,419 SEK</td>
             <td>+15.9%</td>
             <td><span class="status-pill status-investigate">INVESTIGATE</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Sales &amp; Marketing</td>
@@ -286,6 +362,7 @@
             <td>3,102 SEK</td>
             <td>+2.5%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Property Operations &amp; Maintenance</td>
@@ -294,6 +371,7 @@
             <td>-7,058 SEK</td>
             <td>-8.0%</td>
             <td><span class="status-pill status-investigate">INVESTIGATE</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Utilities</td>
@@ -302,6 +380,7 @@
             <td>785 SEK</td>
             <td>+0.9%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>IT &amp; Systems</td>
@@ -310,6 +389,7 @@
             <td>-2,823 SEK</td>
             <td>-8.0%</td>
             <td><span class="status-pill status-note">NOTE</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Human Resources &amp; Training</td>
@@ -318,6 +398,7 @@
             <td>1,161 SEK</td>
             <td>+3.3%</td>
             <td><span class="status-pill status-note">NOTE</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Security</td>
@@ -326,6 +407,7 @@
             <td>829 SEK</td>
             <td>+3.1%</td>
             <td><span class="status-pill status-note">NOTE</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Total Undistributed Operating Expenses</td>
@@ -334,6 +416,7 @@
             <td>18,415 SEK</td>
             <td>+3.4%</td>
             <td><span class="status-pill status-note">NOTE</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal focus-metric">
             <td>Gross Operating Profit (GOP)</td>
@@ -342,6 +425,7 @@
             <td>6,458 SEK</td>
             <td>+1.0%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Management Fees</td>
@@ -350,6 +434,7 @@
             <td>1,011 SEK</td>
             <td>+1.9%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Franchise &amp; Brand Fees</td>
@@ -358,6 +443,7 @@
             <td>1,281 SEK</td>
             <td>+2.4%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Property &amp; Liability Insurance</td>
@@ -366,6 +452,7 @@
             <td>295,020 SEK</td>
             <td>+1114.7%</td>
             <td><span class="status-pill status-investigate">INVESTIGATE</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Property Tax &amp; Licenses</td>
@@ -374,6 +461,7 @@
             <td>83 SEK</td>
             <td>+0.5%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Rent / Lease</td>
@@ -382,6 +470,7 @@
             <td>-4 SEK</td>
             <td>-0.0%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Total Fixed Charges</td>
@@ -390,6 +479,7 @@
             <td>297,392 SEK</td>
             <td>+160.5%</td>
             <td><span class="status-pill status-investigate">INVESTIGATE</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal focus-metric">
             <td>EBITDA</td>
@@ -398,6 +488,7 @@
             <td>-290,934 SEK</td>
             <td>-61.3%</td>
             <td><span class="status-pill status-investigate">INVESTIGATE</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Depreciation &amp; Amortization</td>
@@ -406,6 +497,7 @@
             <td>-223 SEK</td>
             <td>-0.2%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>EBIT</td>
@@ -414,6 +506,7 @@
             <td>-290,711 SEK</td>
             <td>-78.9%</td>
             <td><span class="status-pill status-investigate">INVESTIGATE</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Interest Expense</td>
@@ -422,6 +515,7 @@
             <td>92 SEK</td>
             <td>+0.3%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Pre-tax Income</td>
@@ -430,6 +524,7 @@
             <td>-290,803 SEK</td>
             <td>-85.0%</td>
             <td><span class="status-pill status-investigate">INVESTIGATE</span></td>
+            <td>—</td>
           </tr></tbody>
     </table>
     </section>
@@ -441,10 +536,28 @@
           <h3><span class="status-pill status-note">NOTE</span> F&amp;B Revenue</h3>
           <p>F&amp;B Revenue ran 2.3% ahead of Budget — a modest, genuine beat, no action needed.</p>
           
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 2.0% threshold <strong>and</strong> the 5,700 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 2.3% (5,082 SEK) vs Budget — percentage threshold <strong>breached</strong> (2.3% vs 2.0% limit), absolute threshold <strong>not breached</strong> (5,082 SEK vs 5,700 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.fb_revenue</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="highlight-card">
           <h3><span class="status-pill status-investigate">INVESTIGATE</span> F&amp;B – Payroll &amp; Related</h3>
           <p>F&amp;B Payroll ran 4.2% over Budget. The drill-down shows 15,135 SEK in F&amp;B Temporary Labor this month — check whether a banquet or group event pulled in agency staff, which costs more per hour than core staff; confirm the booking against this month&#x27;s F&amp;B revenue to see if it&#x27;s already paid for itself.</p>
+          
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 3,000 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 4.2% (3,190 SEK) vs Budget — percentage threshold <strong>breached</strong> (4.2% vs 3.0% limit), absolute threshold <strong>breached</strong> (3,190 SEK vs 3,000 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.fb_payroll</code></dd>
+      </dl>
+    </details>
           
     <details>
       <summary>Transaction drill-down (5 transaction(s))</summary>
@@ -458,6 +571,15 @@
           <h3><span class="status-pill status-note">NOTE</span> F&amp;B – Other Expenses</h3>
           <p>F&amp;B Other Expenses ran 3.8% over Budget — minor, spread across normal operating supply and contract-service invoices, nothing concentrated enough to flag on its own.</p>
           
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 12,000 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 3.8% (838 SEK) vs Budget — percentage threshold <strong>breached</strong> (3.8% vs 3.0% limit), absolute threshold <strong>not breached</strong> (838 SEK vs 12,000 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; default</code></dd>
+      </dl>
+    </details>
+          
     <details>
       <summary>Transaction drill-down (10 transaction(s))</summary>
       <table class="drill-table">
@@ -469,6 +591,15 @@
         <div class="highlight-card">
           <h3><span class="status-pill status-investigate">INVESTIGATE</span> Administrative &amp; General</h3>
           <p>Administrative &amp; General ran 15.9% over Budget. This is the expected annual external-audit-fee bump layered on top of the normal monthly run rate — see the Insurance note below for the same January pattern. Not a concern.</p>
+          
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 5,500 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 15.9% (22,419 SEK) vs Budget — percentage threshold <strong>breached</strong> (15.9% vs 3.0% limit), absolute threshold <strong>breached</strong> (22,419 SEK vs 5,500 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.admin_general</code></dd>
+      </dl>
+    </details>
           
     <details>
       <summary>Transaction drill-down (18 transaction(s))</summary>
@@ -482,6 +613,15 @@
           <h3><span class="status-pill status-investigate">INVESTIGATE</span> Property Operations &amp; Maintenance</h3>
           <p>Property Operations &amp; Maintenance ran 8.0% under Budget — a genuine, welcome result. Confirm this reflects efficient scheduling rather than deferred preventive maintenance that could resurface as a larger repair later.</p>
           
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 4.0% threshold <strong>and</strong> the 4,600 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 8.0% (7,058 SEK) vs Budget — percentage threshold <strong>breached</strong> (8.0% vs 4.0% limit), absolute threshold <strong>breached</strong> (7,058 SEK vs 4,600 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.property_ops_maint</code></dd>
+      </dl>
+    </details>
+          
     <details>
       <summary>Transaction drill-down (18 transaction(s))</summary>
       <table class="drill-table">
@@ -493,6 +633,15 @@
         <div class="highlight-card">
           <h3><span class="status-pill status-note">NOTE</span> IT &amp; Systems</h3>
           <p>IT &amp; Systems ran 8.0% under Budget — tight cost control, consistent with Property Operations this month. No action needed.</p>
+          
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 12,000 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 8.0% (2,823 SEK) vs Budget — percentage threshold <strong>breached</strong> (8.0% vs 3.0% limit), absolute threshold <strong>not breached</strong> (2,823 SEK vs 12,000 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; default</code></dd>
+      </dl>
+    </details>
           
     <details>
       <summary>Transaction drill-down (9 transaction(s))</summary>
@@ -506,6 +655,15 @@
           <h3><span class="status-pill status-note">NOTE</span> Human Resources &amp; Training</h3>
           <p>Human Resources &amp; Training ran 3.3% over Budget — immaterial, ordinary month-to-month movement.</p>
           
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 12,000 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 3.3% (1,161 SEK) vs Budget — percentage threshold <strong>breached</strong> (3.3% vs 3.0% limit), absolute threshold <strong>not breached</strong> (1,161 SEK vs 12,000 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; default</code></dd>
+      </dl>
+    </details>
+          
     <details>
       <summary>Transaction drill-down (12 transaction(s))</summary>
       <table class="drill-table">
@@ -517,6 +675,15 @@
         <div class="highlight-card">
           <h3><span class="status-pill status-note">NOTE</span> Security</h3>
           <p>Security ran 3.1% over Budget — immaterial, ordinary month-to-month movement.</p>
+          
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 12,000 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 3.1% (829 SEK) vs Budget — percentage threshold <strong>breached</strong> (3.1% vs 3.0% limit), absolute threshold <strong>not breached</strong> (829 SEK vs 12,000 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; default</code></dd>
+      </dl>
+    </details>
           
     <details>
       <summary>Transaction drill-down (9 transaction(s))</summary>
@@ -530,10 +697,28 @@
           <h3><span class="status-pill status-note">NOTE</span> Total Undistributed Operating Expenses</h3>
           <p>Total Undistributed Operating Expenses ran 3.4% over Budget, net of the Administrative &amp; General audit-fee bump against savings in Property Operations &amp; Maintenance and IT &amp; Systems — the underlying picture here is healthy, not a concern.</p>
           
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 21,000 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 3.4% (18,415 SEK) vs Budget — percentage threshold <strong>breached</strong> (3.4% vs 3.0% limit), absolute threshold <strong>not breached</strong> (18,415 SEK vs 21,000 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.total_undistributed_expenses</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="highlight-card">
           <h3><span class="status-pill status-investigate">INVESTIGATE</span> Property &amp; Liability Insurance</h3>
           <p>Property &amp; Liability Insurance shows an enormous variance because the annual premium is invoiced as a single January charge, while Budget spreads the cost evenly across the year — exactly the pattern documented in the company&#x27;s seasonality notes. Expected, not a concern; this reverses on its own from February onward.</p>
+          
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 12,000 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 1114.7% (295,020 SEK) vs Budget — percentage threshold <strong>breached</strong> (1114.7% vs 3.0% limit), absolute threshold <strong>breached</strong> (295,020 SEK vs 12,000 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; default</code></dd>
+      </dl>
+    </details>
           
     <details>
       <summary>Transaction drill-down (5 transaction(s))</summary>
@@ -547,25 +732,70 @@
           <h3><span class="status-pill status-investigate">INVESTIGATE</span> Total Fixed Charges</h3>
           <p>Total Fixed Charges is driven entirely by the January insurance premium above — not an independent issue.</p>
           
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 7,200 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 160.5% (297,392 SEK) vs Budget — percentage threshold <strong>breached</strong> (160.5% vs 3.0% limit), absolute threshold <strong>breached</strong> (297,392 SEK vs 7,200 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.total_fixed_charges</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="highlight-card">
           <h3><span class="status-pill status-investigate">INVESTIGATE</span> EBITDA</h3>
           <p>EBITDA&#x27;s shortfall against Budget this month is the January insurance premium timing, not an operating problem — GOP (the line above fixed charges) is on target.</p>
+          
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 2.0% threshold <strong>and</strong> the 12,000 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 61.3% (290,934 SEK) vs Budget — percentage threshold <strong>breached</strong> (61.3% vs 2.0% limit), absolute threshold <strong>breached</strong> (290,934 SEK vs 12,000 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.ebitda</code></dd>
+      </dl>
+    </details>
           
         </div>
         <div class="highlight-card">
           <h3><span class="status-pill status-investigate">INVESTIGATE</span> EBIT</h3>
           <p>Same driver as EBITDA above — the January insurance premium, not an operating issue.</p>
           
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 14,000 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 78.9% (290,711 SEK) vs Budget — percentage threshold <strong>breached</strong> (78.9% vs 3.0% limit), absolute threshold <strong>breached</strong> (290,711 SEK vs 14,000 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.ebit</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="highlight-card">
           <h3><span class="status-pill status-investigate">INVESTIGATE</span> Pre-tax Income</h3>
           <p>Same driver as EBITDA/EBIT above — the January insurance premium, not an operating issue.</p>
           
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 13,000 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 85.0% (290,803 SEK) vs Budget — percentage threshold <strong>breached</strong> (85.0% vs 3.0% limit), absolute threshold <strong>breached</strong> (290,803 SEK vs 13,000 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.pretax_income</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="highlight-card">
           <h3><span class="status-pill status-note">NOTE</span> Revenue per FTE</h3>
           <p>Revenue per FTE ran ahead of Budget this month, consistent with the modest revenue beat above — a favorable result, no action needed.</p>
+          
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>KPI thresholds are a single two-tier deviation check (no AND logic): NOTE at or above 4.0% deviation from Budget, INVESTIGATE at or above 8.0%. No absolute-currency floor applies to KPIs.</dd>
+        <dt>This period</dt><dd>This period's deviation: <strong>5.2%</strong> from Budget.</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; kpi_thresholds.revenue_per_fte</code></dd>
+      </dl>
+    </details>
           
         </div>
     </section>

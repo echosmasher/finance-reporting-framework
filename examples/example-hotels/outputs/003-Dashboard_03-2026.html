@@ -55,6 +55,22 @@
     margin: 0 0 1rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;
     color: var(--primary); font-weight: 600;
   }
+  .bridge-chart { overflow-x: auto; }
+  .bridge-chart svg { min-width: 480px; }
+  .bridge-legend { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.75rem; font-size: 0.8rem; color: var(--neutral-dark); }
+  .legend-item { display: inline-flex; align-items: center; gap: 0.4rem; opacity: 0.85; }
+  .legend-item .swatch { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+  .trend-block { margin-top: 1.25rem; }
+  .trend-block:first-child { margin-top: 0; }
+  .trend-block h3 { margin: 0 0 0.5rem; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em;
+    color: var(--neutral-dark); opacity: 0.7; font-weight: 600; }
+  table.flag-history { width: auto; min-width: 100%; }
+  table.flag-history th, table.flag-history td { text-align: center; }
+  table.flag-history th:first-child, table.flag-history td:first-child { text-align: left; }
+  table.flag-history .status-pill { cursor: default; }
+  .sparkline { display: block; vertical-align: middle; }
+  .sparkline-wrap { margin-top: 0.5rem; }
+  td .sparkline { margin: 0 auto; }
   .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
   .kpi-card { border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; }
   .kpi-card .label { font-size: 0.82rem; color: var(--neutral-dark); opacity: 0.7; }
@@ -77,6 +93,18 @@
   details { margin-top: 0.75rem; }
   summary { cursor: pointer; font-size: 0.85rem; color: var(--primary); font-weight: 600; }
   .drill-table { margin-top: 0.6rem; }
+  .audit-fields { display: grid; grid-template-columns: max-content 1fr; gap: 0.35rem 1rem;
+    margin: 0.6rem 0 0; font-size: 0.85rem; line-height: 1.55; }
+  .audit-fields dt { color: var(--neutral-dark); opacity: 0.6; font-weight: 600; white-space: nowrap; }
+  .audit-fields dd { margin: 0; }
+  .audit-fields code { font-size: 0.82rem; background: var(--neutral-light); padding: 0.05rem 0.4rem;
+    border-radius: 4px; }
+  .comments { display: flex; flex-direction: column; gap: 0.5rem; }
+  .comment-note { border-left: 3px solid var(--secondary); padding: 0.4rem 0 0.4rem 0.7rem; }
+  .comment-note p { margin: 0; font-size: 0.85rem; line-height: 1.5; font-style: italic; }
+  .comment-byline { margin-top: 0.2rem; font-size: 0.72rem; opacity: 0.6; font-style: normal; }
+  tr.comment-row td { padding: 0.5rem 0.6rem 0.75rem; border-bottom: 1px solid var(--border); text-align: left; }
+  .kpi-card .comments { margin-top: 0.6rem; }
   footer { text-align: center; font-size: 0.78rem; color: var(--neutral-dark); opacity: 0.55;
     margin-top: 2rem; padding-bottom: 1rem; }
   @media (max-width: 640px) {
@@ -107,27 +135,83 @@
 
   <div class="page">
     <section>
+      <h2>Gross Operating Profit (GOP) Bridge &mdash; Budget &rarr; Actual</h2>
+      <div class="bridge-chart">
+    <div class="bridge-legend">
+      <span class="legend-item"><span class="swatch" style="background:#1B3A4B"></span>Gross Operating Profit (GOP) total</span>
+      <span class="legend-item"><span class="swatch" style="background:#2E7D4F"></span>Increases Gross Operating Profit (GOP)</span>
+      <span class="legend-item"><span class="swatch" style="background:#B23A3A"></span>Decreases Gross Operating Profit (GOP)</span>
+    </div>
+    <svg viewBox="0 0 900 340" role="img" aria-label="Gross Operating Profit (GOP) bridge from Budget to Actual"
+         style="width:100%;height:auto;display:block;font-family:inherit">
+      <line x1="90.0" y1="234.1" x2="880.0" y2="234.1" stroke="#DDD8CE" stroke-width="1"/><text x="82.0" y="237.1" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.65">740,000</text><line x1="90.0" y1="187.6" x2="880.0" y2="187.6" stroke="#DDD8CE" stroke-width="1"/><text x="82.0" y="190.6" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.65">745,000</text><line x1="90.0" y1="141.1" x2="880.0" y2="141.1" stroke="#DDD8CE" stroke-width="1"/><text x="82.0" y="144.1" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.65">750,000</text><line x1="90.0" y1="94.6" x2="880.0" y2="94.6" stroke="#DDD8CE" stroke-width="1"/><text x="82.0" y="97.6" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.65">755,000</text>
+      <line x1="90.0" y1="240.0" x2="880.0" y2="240.0" stroke="#DDD8CE" stroke-width="1.5"/>
+      <line x1="169.0" y1="200.6" x2="315.0" y2="200.6" stroke="#DDD8CE" stroke-width="1" stroke-dasharray="2,2"/><line x1="327.0" y1="126.6" x2="473.0" y2="126.6" stroke="#DDD8CE" stroke-width="1" stroke-dasharray="2,2"/><line x1="485.0" y1="97.0" x2="631.0" y2="97.0" stroke="#DDD8CE" stroke-width="1" stroke-dasharray="2,2"/><line x1="643.0" y1="69.4" x2="789.0" y2="69.4" stroke="#DDD8CE" stroke-width="1" stroke-dasharray="2,2"/>
+      <path d="M157.0,240.0 L157.0,204.6 Q157.0,200.6 161.0,200.6 L177.0,200.6 Q181.0,200.6 181.0,204.6 L181.0,240.0 Z" fill="#1B3A4B"><title>Budget: 743,602 SEK</title></path><path d="M315.0,200.6 L315.0,130.6 Q315.0,126.6 319.0,126.6 L335.0,126.6 Q339.0,126.6 339.0,130.6 L339.0,200.6 Z" fill="#2E7D4F"><title>Property Operations &amp; Maintenance: +7,955 SEK</title></path><path d="M473.0,126.6 L473.0,101.0 Q473.0,97.0 477.0,97.0 L493.0,97.0 Q497.0,97.0 497.0,101.0 L497.0,126.6 Z" fill="#2E7D4F"><title>IT &amp; Systems: +3,182 SEK</title></path><path d="M631.0,97.0 L631.0,73.4 Q631.0,69.4 635.0,69.4 L651.0,69.4 Q655.0,69.4 655.0,73.4 L655.0,97.0 Z" fill="#2E7D4F"><title>Other categories (18): +2,970 SEK</title></path><path d="M789.0,240.0 L789.0,73.4 Q789.0,69.4 793.0,69.4 L809.0,69.4 Q813.0,69.4 813.0,73.4 L813.0,240.0 Z" fill="#1B3A4B"><title>Actual: 757,708 SEK</title></path>
+      <text x="169.0" y="192.6" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">743,602</text><text x="169.0" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 169.0 254.0)">Budget</text><text x="327.0" y="118.6" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">+7,955</text><text x="327.0" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 327.0 254.0)">Property Operations &amp; Ma…</text><text x="485.0" y="89.0" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">+3,182</text><text x="485.0" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 485.0 254.0)">IT &amp; Systems</text><text x="643.0" y="61.4" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">+2,970</text><text x="643.0" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 643.0 254.0)">Other categories (18)</text><text x="801.0" y="61.4" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">757,708</text><text x="801.0" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 801.0 254.0)">Actual</text>
+    </svg></div>
+    </section>
+
+    <section>
+      <h2>Trend</h2>
+      
+    <div class="trend-block">
+      <h3>Gross Operating Profit (GOP) by month</h3>
+      <div class="bridge-chart">
+    <div class="bridge-legend">
+      <span class="legend-item"><span class="swatch" style="background:#2E7D4F"></span>Favorable month</span>
+      <span class="legend-item"><span class="swatch" style="background:#B23A3A"></span>Unfavorable month</span>
+      <span class="legend-item"><span class="swatch" style="background:#1B3A4B;height:3px;width:14px;border-radius:0"></span>Budget</span>
+    </div>
+    <svg viewBox="0 0 900 220" role="img" aria-label="Gross Operating Profit (GOP) actual by month, vs Budget"
+         style="width:100%;height:auto;display:block;font-family:inherit">
+      <line x1="90.0" y1="180.0" x2="880.0" y2="180.0" stroke="#DDD8CE" stroke-width="1"/><text x="82.0" y="183.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.65">0</text><line x1="90.0" y1="93.9" x2="880.0" y2="93.9" stroke="#DDD8CE" stroke-width="1"/><text x="82.0" y="96.9" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.65">500,000</text>
+      <line x1="90.0" y1="180.0" x2="880.0" y2="180.0" stroke="#DDD8CE" stroke-width="1.5"/>
+      <path d="M193.7,180.0 L193.7,69.3 Q193.7,65.3 197.7,65.3 L245.7,65.3 Q249.7,65.3 249.7,69.3 L249.7,180.0 Z" fill="#2E7D4F"><title>01-2026: 666,243 SEK actual vs 659,785 SEK budget</title></path><path d="M457.0,180.0 L457.0,72.7 Q457.0,68.7 461.0,68.7 L509.0,68.7 Q513.0,68.7 513.0,72.7 L513.0,180.0 Z" fill="#2E7D4F"><title>02-2026: 646,593 SEK actual vs 628,408 SEK budget</title></path><path d="M720.3,180.0 L720.3,53.6 Q720.3,49.6 724.3,49.6 L772.3,49.6 Q776.3,49.6 776.3,53.6 L776.3,180.0 Z" fill="#2E7D4F"><title>03-2026: 757,708 SEK actual vs 743,602 SEK budget</title></path>
+      <line x1="189.7" y1="66.4" x2="253.7" y2="66.4" stroke="#1B3A4B" stroke-width="2.5"><title>Budget: 659,785 SEK</title></line><line x1="453.0" y1="71.8" x2="517.0" y2="71.8" stroke="#1B3A4B" stroke-width="2.5"><title>Budget: 628,408 SEK</title></line><line x1="716.3" y1="52.0" x2="780.3" y2="52.0" stroke="#1B3A4B" stroke-width="2.5"><title>Budget: 743,602 SEK</title></line>
+      <text x="221.7" y="55.3" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">666,243</text><text x="221.7" y="198.0" text-anchor="middle" font-size="11" fill="#20242A" fill-opacity="0.75">01-2026</text><text x="485.0" y="58.7" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">646,593</text><text x="485.0" y="198.0" text-anchor="middle" font-size="11" fill="#20242A" fill-opacity="0.75">02-2026</text><text x="748.3" y="39.6" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">757,708</text><text x="748.3" y="198.0" text-anchor="middle" font-size="11" fill="#20242A" fill-opacity="0.75">03-2026</text>
+    </svg></div>
+    </div>
+    <div class="trend-block">
+      <h3>Flag history by category</h3>
+      
+    <table class="flag-history">
+      <thead><tr><th>Category</th><th>01-2026</th><th>02-2026</th><th>03-2026</th></tr></thead>
+      <tbody><tr><td>F&amp;B Revenue</td><td><span class="status-pill status-note" title="NOTE (favorable): +2.3%">●</span></td><td><span class="status-pill status-on-target" title="ON TARGET (favorable): +0.2%">✓</span></td><td><span class="status-pill status-on-target" title="ON TARGET (unfavorable): -0.9%">✓</span></td></tr><tr><td>F&amp;B – Payroll &amp; Related</td><td><span class="status-pill status-investigate" title="INVESTIGATE (unfavorable): +4.2%">▲</span></td><td><span class="status-pill status-on-target" title="ON TARGET (unfavorable): +0.2%">✓</span></td><td><span class="status-pill status-on-target" title="ON TARGET (unfavorable): +0.4%">✓</span></td></tr><tr><td>F&amp;B – Other Expenses</td><td><span class="status-pill status-note" title="NOTE (unfavorable): +3.8%">●</span></td><td><span class="status-pill status-on-target" title="ON TARGET (unfavorable): +0.6%">✓</span></td><td><span class="status-pill status-on-target" title="ON TARGET (favorable): -2.1%">✓</span></td></tr><tr><td>Administrative &amp; General</td><td><span class="status-pill status-investigate" title="INVESTIGATE (unfavorable): +15.9%">▲</span></td><td><span class="status-pill status-on-target" title="ON TARGET (unfavorable): +0.5%">✓</span></td><td><span class="status-pill status-on-target" title="ON TARGET (favorable): -0.2%">✓</span></td></tr><tr><td>Property Operations &amp; Maintenance</td><td><span class="status-pill status-investigate" title="INVESTIGATE (favorable): -8.0%">▲</span></td><td><span class="status-pill status-investigate" title="INVESTIGATE (favorable): -8.0%">▲</span></td><td><span class="status-pill status-investigate" title="INVESTIGATE (favorable): -8.0%">▲</span></td></tr><tr><td>IT &amp; Systems</td><td><span class="status-pill status-note" title="NOTE (favorable): -8.0%">●</span></td><td><span class="status-pill status-note" title="NOTE (favorable): -8.0%">●</span></td><td><span class="status-pill status-note" title="NOTE (favorable): -8.0%">●</span></td></tr><tr><td>Human Resources &amp; Training</td><td><span class="status-pill status-note" title="NOTE (unfavorable): +3.3%">●</span></td><td><span class="status-pill status-on-target" title="ON TARGET (unfavorable): +0.8%">✓</span></td><td><span class="status-pill status-on-target" title="ON TARGET (favorable): -0.9%">✓</span></td></tr><tr><td>Security</td><td><span class="status-pill status-note" title="NOTE (unfavorable): +3.1%">●</span></td><td><span class="status-pill status-on-target" title="ON TARGET (unfavorable): +0.2%">✓</span></td><td><span class="status-pill status-on-target" title="ON TARGET (unfavorable): +0.4%">✓</span></td></tr><tr><td>Property &amp; Liability Insurance</td><td><span class="status-pill status-investigate" title="INVESTIGATE (unfavorable): +1114.7%">▲</span></td><td><span class="status-pill status-on-target" title="ON TARGET (unfavorable): +0.4%">✓</span></td><td><span class="status-pill status-on-target" title="ON TARGET (unfavorable): +0.3%">✓</span></td></tr></tbody>
+    </table>
+    </div>
+    </section>
+
+    <section>
       <h2>Key Performance Indicators</h2>
       <div class="kpi-grid">
           <div class="kpi-card">
             <div class="label">Occupancy %</div>
             <div class="value">62.0%</div>
             <div class="delta status-pill status-on-target">± vs 62.0% Budget</div>
+            <div class="sparkline-wrap"><svg class="sparkline" viewBox="0 0 64 22" width="64" height="22" role="img" aria-label="trend over 3 periods"><path d="M3.0,19.0 L32.0,10.8 L61.0,3.0" fill="none" stroke="#DDD8CE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="61.0" cy="3.0" r="2.5" fill="#2E7D4F"/></svg></div>
+            
           </div>
           <div class="kpi-card">
             <div class="label">RevPAR</div>
             <div class="value">590 SEK</div>
             <div class="delta status-pill status-on-target">+ vs 589 SEK Budget</div>
+            <div class="sparkline-wrap"><svg class="sparkline" viewBox="0 0 64 22" width="64" height="22" role="img" aria-label="trend over 3 periods"><path d="M3.0,19.0 L32.0,12.1 L61.0,3.0" fill="none" stroke="#DDD8CE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="61.0" cy="3.0" r="2.5" fill="#2E7D4F"/></svg></div>
+            
           </div>
           <div class="kpi-card">
             <div class="label">Revenue per FTE</div>
             <div class="value">50,472 SEK</div>
             <div class="delta status-pill status-on-target">+ vs 49,716 SEK Budget</div>
+            <div class="sparkline-wrap"><svg class="sparkline" viewBox="0 0 64 22" width="64" height="22" role="img" aria-label="trend over 3 periods"><path d="M3.0,11.0 L32.0,19.0 L61.0,3.0" fill="none" stroke="#DDD8CE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="61.0" cy="3.0" r="2.5" fill="#2E7D4F"/></svg></div>
+            
           </div>
           <div class="kpi-card">
             <div class="label">GOP %</div>
             <div class="value">38.1%</div>
             <div class="delta status-pill status-on-target">+ vs 37.4% Budget</div>
+            <div class="sparkline-wrap"><svg class="sparkline" viewBox="0 0 64 22" width="64" height="22" role="img" aria-label="trend over 3 periods"><path d="M3.0,19.0 L32.0,3.3 L61.0,3.0" fill="none" stroke="#DDD8CE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="61.0" cy="3.0" r="2.5" fill="#2E7D4F"/></svg></div>
+            
           </div></div>
     </section>
 
@@ -141,7 +225,7 @@
       
     <table>
       <thead><tr><th>Category</th><th>Actual</th><th>Budget</th>
-        <th>Diff</th><th>Diff %</th><th>Status</th></tr></thead>
+        <th>Diff</th><th>Diff %</th><th>Status</th><th>Trend</th></tr></thead>
       <tbody>
           <tr class="">
             <td>Rooms Revenue</td>
@@ -150,6 +234,7 @@
             <td>2,381 SEK</td>
             <td>+0.1%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>F&amp;B Revenue</td>
@@ -158,6 +243,7 @@
             <td>-2,161 SEK</td>
             <td>-0.9%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Spa &amp; Wellness Revenue</td>
@@ -166,6 +252,7 @@
             <td>0 SEK</td>
             <td>—</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Other Operated Departments Revenue</td>
@@ -174,6 +261,7 @@
             <td>7 SEK</td>
             <td>+0.0%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Miscellaneous &amp; Rental Income</td>
@@ -182,6 +270,7 @@
             <td>-248 SEK</td>
             <td>-0.8%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Total Revenue</td>
@@ -190,6 +279,7 @@
             <td>-22 SEK</td>
             <td>-0.0%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Rooms – Payroll &amp; Related</td>
@@ -198,6 +288,7 @@
             <td>641 SEK</td>
             <td>+0.2%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Rooms – Other Expenses</td>
@@ -206,6 +297,7 @@
             <td>-536 SEK</td>
             <td>-0.4%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>F&amp;B – Cost of Sales</td>
@@ -214,6 +306,7 @@
             <td>-1,051 SEK</td>
             <td>-1.4%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>F&amp;B – Payroll &amp; Related</td>
@@ -222,6 +315,7 @@
             <td>380 SEK</td>
             <td>+0.4%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>F&amp;B – Other Expenses</td>
@@ -230,6 +324,7 @@
             <td>-515 SEK</td>
             <td>-2.1%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Spa &amp; Wellness – Payroll &amp; Related</td>
@@ -238,6 +333,7 @@
             <td>0 SEK</td>
             <td>—</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Spa &amp; Wellness – Other Expenses</td>
@@ -246,6 +342,7 @@
             <td>0 SEK</td>
             <td>—</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Other Operated Departments – Expenses</td>
@@ -254,6 +351,7 @@
             <td>350 SEK</td>
             <td>+1.3%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Total Departmental Expenses</td>
@@ -262,6 +360,7 @@
             <td>-730 SEK</td>
             <td>-0.1%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Departmental Profit</td>
@@ -270,6 +369,7 @@
             <td>709 SEK</td>
             <td>+0.1%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Administrative &amp; General</td>
@@ -278,6 +378,7 @@
             <td>-370 SEK</td>
             <td>-0.2%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Sales &amp; Marketing</td>
@@ -286,6 +387,7 @@
             <td>-808 SEK</td>
             <td>-0.6%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Property Operations &amp; Maintenance</td>
@@ -294,6 +396,7 @@
             <td>-7,955 SEK</td>
             <td>-8.0%</td>
             <td><span class="status-pill status-investigate">INVESTIGATE</span></td>
+            <td><svg class="sparkline" viewBox="0 0 64 22" width="64" height="22" role="img" aria-label="trend over 3 periods"><path d="M3.0,14.6 L32.0,19.0 L61.0,3.0" fill="none" stroke="#DDD8CE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="61.0" cy="3.0" r="2.5" fill="#B23A3A"/></svg></td>
           </tr>
           <tr class="">
             <td>Utilities</td>
@@ -302,6 +405,7 @@
             <td>-862 SEK</td>
             <td>-0.9%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>IT &amp; Systems</td>
@@ -310,6 +414,7 @@
             <td>-3,182 SEK</td>
             <td>-8.0%</td>
             <td><span class="status-pill status-note">NOTE</span></td>
+            <td><svg class="sparkline" viewBox="0 0 64 22" width="64" height="22" role="img" aria-label="trend over 3 periods"><path d="M3.0,14.6 L32.0,19.0 L61.0,3.0" fill="none" stroke="#DDD8CE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="61.0" cy="3.0" r="2.5" fill="#B8860B"/></svg></td>
           </tr>
           <tr class="">
             <td>Human Resources &amp; Training</td>
@@ -318,6 +423,7 @@
             <td>-341 SEK</td>
             <td>-0.9%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Security</td>
@@ -326,6 +432,7 @@
             <td>119 SEK</td>
             <td>+0.4%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Total Undistributed Operating Expenses</td>
@@ -334,6 +441,7 @@
             <td>-13,398 SEK</td>
             <td>-2.2%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal focus-metric">
             <td>Gross Operating Profit (GOP)</td>
@@ -342,6 +450,7 @@
             <td>14,106 SEK</td>
             <td>+1.9%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Management Fees</td>
@@ -350,6 +459,7 @@
             <td>256 SEK</td>
             <td>+0.4%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Franchise &amp; Brand Fees</td>
@@ -358,6 +468,7 @@
             <td>373 SEK</td>
             <td>+0.6%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Property &amp; Liability Insurance</td>
@@ -366,6 +477,7 @@
             <td>88 SEK</td>
             <td>+0.3%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Property Tax &amp; Licenses</td>
@@ -374,6 +486,7 @@
             <td>32 SEK</td>
             <td>+0.2%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Rent / Lease</td>
@@ -382,6 +495,7 @@
             <td>148 SEK</td>
             <td>+0.4%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Total Fixed Charges</td>
@@ -390,6 +504,7 @@
             <td>897 SEK</td>
             <td>+0.4%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal focus-metric">
             <td>EBITDA</td>
@@ -398,6 +513,7 @@
             <td>13,209 SEK</td>
             <td>+2.5%</td>
             <td><span class="status-pill status-investigate">INVESTIGATE</span></td>
+            <td><svg class="sparkline" viewBox="0 0 64 22" width="64" height="22" role="img" aria-label="trend over 3 periods"><path d="M3.0,19.0 L32.0,6.5 L61.0,3.0" fill="none" stroke="#DDD8CE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="61.0" cy="3.0" r="2.5" fill="#B23A3A"/></svg></td>
           </tr>
           <tr class="">
             <td>Depreciation &amp; Amortization</td>
@@ -406,6 +522,7 @@
             <td>254 SEK</td>
             <td>+0.2%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>EBIT</td>
@@ -414,6 +531,7 @@
             <td>12,955 SEK</td>
             <td>+3.1%</td>
             <td><span class="status-pill status-note">NOTE</span></td>
+            <td><svg class="sparkline" viewBox="0 0 64 22" width="64" height="22" role="img" aria-label="trend over 3 periods"><path d="M3.0,19.0 L32.0,5.8 L61.0,3.0" fill="none" stroke="#DDD8CE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="61.0" cy="3.0" r="2.5" fill="#B8860B"/></svg></td>
           </tr>
           <tr class="">
             <td>Interest Expense</td>
@@ -422,6 +540,7 @@
             <td>25 SEK</td>
             <td>+0.1%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Pre-tax Income</td>
@@ -430,6 +549,7 @@
             <td>12,930 SEK</td>
             <td>+3.4%</td>
             <td><span class="status-pill status-note">NOTE</span></td>
+            <td><svg class="sparkline" viewBox="0 0 64 22" width="64" height="22" role="img" aria-label="trend over 3 periods"><path d="M3.0,19.0 L32.0,5.6 L61.0,3.0" fill="none" stroke="#DDD8CE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="61.0" cy="3.0" r="2.5" fill="#B8860B"/></svg></td>
           </tr></tbody>
     </table>
     </section>
@@ -440,6 +560,15 @@
         <div class="highlight-card">
           <h3><span class="status-pill status-investigate">INVESTIGATE</span> Property Operations &amp; Maintenance</h3>
           <p>Property Operations &amp; Maintenance ran 8.0% under Budget for the third consecutive month — a sustained, consistent pattern rather than noise. Worth a check-in with the team on whether this reflects genuinely lower maintenance need or deferred work; three months running is long enough that it&#x27;s worth confirming deliberately rather than assuming.</p>
+          
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 4.0% threshold <strong>and</strong> the 4,600 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 8.0% (7,955 SEK) vs Budget — percentage threshold <strong>breached</strong> (8.0% vs 4.0% limit), absolute threshold <strong>breached</strong> (7,955 SEK vs 4,600 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.property_ops_maint</code></dd>
+      </dl>
+    </details>
           
     <details>
       <summary>Transaction drill-down (15 transaction(s))</summary>
@@ -453,6 +582,15 @@
           <h3><span class="status-pill status-note">NOTE</span> IT &amp; Systems</h3>
           <p>IT &amp; Systems ran 8.0% under Budget, the third straight month at the same margin — consistent, sustained cost control.</p>
           
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 12,000 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 8.0% (3,182 SEK) vs Budget — percentage threshold <strong>breached</strong> (8.0% vs 3.0% limit), absolute threshold <strong>not breached</strong> (3,182 SEK vs 12,000 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; default</code></dd>
+      </dl>
+    </details>
+          
     <details>
       <summary>Transaction drill-down (7 transaction(s))</summary>
       <table class="drill-table">
@@ -465,15 +603,42 @@
           <h3><span class="status-pill status-investigate">INVESTIGATE</span> EBITDA</h3>
           <p>EBITDA beat Budget by 2.5%, carried by the same Property Operations &amp; Maintenance and IT &amp; Systems savings as GOP.</p>
           
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 2.0% threshold <strong>and</strong> the 12,000 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 2.5% (13,209 SEK) vs Budget — percentage threshold <strong>breached</strong> (2.5% vs 2.0% limit), absolute threshold <strong>breached</strong> (13,209 SEK vs 12,000 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.ebitda</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="highlight-card">
           <h3><span class="status-pill status-note">NOTE</span> EBIT</h3>
           <p>EBIT beat Budget by 3.1% — the same underlying driver, flowing through cleanly.</p>
           
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 14,000 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 3.1% (12,955 SEK) vs Budget — percentage threshold <strong>breached</strong> (3.1% vs 3.0% limit), absolute threshold <strong>not breached</strong> (12,955 SEK vs 14,000 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.ebit</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="highlight-card">
           <h3><span class="status-pill status-note">NOTE</span> Pre-tax Income</h3>
           <p>Pre-tax Income beat Budget by 3.4% — a clean, favorable quarter end to end, with no offsetting concerns below GOP.</p>
+          
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 13,000 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 3.4% (12,930 SEK) vs Budget — percentage threshold <strong>breached</strong> (3.4% vs 3.0% limit), absolute threshold <strong>not breached</strong> (12,930 SEK vs 13,000 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.pretax_income</code></dd>
+      </dl>
+    </details>
           
         </div>
     </section>

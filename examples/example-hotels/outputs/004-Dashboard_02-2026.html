@@ -55,6 +55,22 @@
     margin: 0 0 1rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;
     color: var(--primary); font-weight: 600;
   }
+  .bridge-chart { overflow-x: auto; }
+  .bridge-chart svg { min-width: 480px; }
+  .bridge-legend { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.75rem; font-size: 0.8rem; color: var(--neutral-dark); }
+  .legend-item { display: inline-flex; align-items: center; gap: 0.4rem; opacity: 0.85; }
+  .legend-item .swatch { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+  .trend-block { margin-top: 1.25rem; }
+  .trend-block:first-child { margin-top: 0; }
+  .trend-block h3 { margin: 0 0 0.5rem; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em;
+    color: var(--neutral-dark); opacity: 0.7; font-weight: 600; }
+  table.flag-history { width: auto; min-width: 100%; }
+  table.flag-history th, table.flag-history td { text-align: center; }
+  table.flag-history th:first-child, table.flag-history td:first-child { text-align: left; }
+  table.flag-history .status-pill { cursor: default; }
+  .sparkline { display: block; vertical-align: middle; }
+  .sparkline-wrap { margin-top: 0.5rem; }
+  td .sparkline { margin: 0 auto; }
   .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
   .kpi-card { border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; }
   .kpi-card .label { font-size: 0.82rem; color: var(--neutral-dark); opacity: 0.7; }
@@ -77,6 +93,18 @@
   details { margin-top: 0.75rem; }
   summary { cursor: pointer; font-size: 0.85rem; color: var(--primary); font-weight: 600; }
   .drill-table { margin-top: 0.6rem; }
+  .audit-fields { display: grid; grid-template-columns: max-content 1fr; gap: 0.35rem 1rem;
+    margin: 0.6rem 0 0; font-size: 0.85rem; line-height: 1.55; }
+  .audit-fields dt { color: var(--neutral-dark); opacity: 0.6; font-weight: 600; white-space: nowrap; }
+  .audit-fields dd { margin: 0; }
+  .audit-fields code { font-size: 0.82rem; background: var(--neutral-light); padding: 0.05rem 0.4rem;
+    border-radius: 4px; }
+  .comments { display: flex; flex-direction: column; gap: 0.5rem; }
+  .comment-note { border-left: 3px solid var(--secondary); padding: 0.4rem 0 0.4rem 0.7rem; }
+  .comment-note p { margin: 0; font-size: 0.85rem; line-height: 1.5; font-style: italic; }
+  .comment-byline { margin-top: 0.2rem; font-size: 0.72rem; opacity: 0.6; font-style: normal; }
+  tr.comment-row td { padding: 0.5rem 0.6rem 0.75rem; border-bottom: 1px solid var(--border); text-align: left; }
+  .kpi-card .comments { margin-top: 0.6rem; }
   footer { text-align: center; font-size: 0.78rem; color: var(--neutral-dark); opacity: 0.55;
     margin-top: 2rem; padding-bottom: 1rem; }
   @media (max-width: 640px) {
@@ -107,27 +135,83 @@
 
   <div class="page">
     <section>
+      <h2>Gross Operating Profit (GOP) Bridge &mdash; Budget &rarr; Actual</h2>
+      <div class="bridge-chart">
+    <div class="bridge-legend">
+      <span class="legend-item"><span class="swatch" style="background:#1B3A4B"></span>Gross Operating Profit (GOP) total</span>
+      <span class="legend-item"><span class="swatch" style="background:#2E7D4F"></span>Increases Gross Operating Profit (GOP)</span>
+      <span class="legend-item"><span class="swatch" style="background:#B23A3A"></span>Decreases Gross Operating Profit (GOP)</span>
+    </div>
+    <svg viewBox="0 0 900 340" role="img" aria-label="Gross Operating Profit (GOP) bridge from Budget to Actual"
+         style="width:100%;height:auto;display:block;font-family:inherit">
+      <line x1="90.0" y1="208.2" x2="880.0" y2="208.2" stroke="#DDD8CE" stroke-width="1"/><text x="82.0" y="211.2" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.65">1,550,000</text><line x1="90.0" y1="164.3" x2="880.0" y2="164.3" stroke="#DDD8CE" stroke-width="1"/><text x="82.0" y="167.3" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.65">1,560,000</text><line x1="90.0" y1="120.5" x2="880.0" y2="120.5" stroke="#DDD8CE" stroke-width="1"/><text x="82.0" y="123.5" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.65">1,570,000</text><line x1="90.0" y1="76.6" x2="880.0" y2="76.6" stroke="#DDD8CE" stroke-width="1"/><text x="82.0" y="79.6" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.65">1,580,000</text>
+      <line x1="90.0" y1="240.0" x2="880.0" y2="240.0" stroke="#DDD8CE" stroke-width="1.5"/>
+      <line x1="221.7" y1="69.4" x2="473.0" y2="69.4" stroke="#DDD8CE" stroke-width="1" stroke-dasharray="2,2"/><line x1="485.0" y1="200.6" x2="736.3" y2="200.6" stroke="#DDD8CE" stroke-width="1" stroke-dasharray="2,2"/>
+      <path d="M209.7,240.0 L209.7,73.4 Q209.7,69.4 213.7,69.4 L229.7,69.4 Q233.7,69.4 233.7,73.4 L233.7,240.0 Z" fill="#1B3A4B"><title>Budget: 1,581,642 DKK</title></path><path d="M473.0,200.6 L473.0,73.4 Q473.0,69.4 477.0,69.4 L493.0,69.4 Q497.0,69.4 497.0,73.4 L497.0,200.6 Z" fill="#B23A3A"><title>Other categories (20): −29,912 DKK</title></path><path d="M736.3,240.0 L736.3,204.6 Q736.3,200.6 740.3,200.6 L756.3,200.6 Q760.3,200.6 760.3,204.6 L760.3,240.0 Z" fill="#1B3A4B"><title>Actual: 1,551,729 DKK</title></path>
+      <text x="221.7" y="61.4" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">1,581,642</text><text x="221.7" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 221.7 254.0)">Budget</text><text x="485.0" y="216.6" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">−29,912</text><text x="485.0" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 485.0 254.0)">Other categories (20)</text><text x="748.3" y="192.6" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">1,551,729</text><text x="748.3" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 748.3 254.0)">Actual</text>
+    </svg></div>
+    </section>
+
+    <section>
+      <h2>Trend</h2>
+      
+    <div class="trend-block">
+      <h3>Gross Operating Profit (GOP) by month</h3>
+      <div class="bridge-chart">
+    <div class="bridge-legend">
+      <span class="legend-item"><span class="swatch" style="background:#2E7D4F"></span>Favorable month</span>
+      <span class="legend-item"><span class="swatch" style="background:#B23A3A"></span>Unfavorable month</span>
+      <span class="legend-item"><span class="swatch" style="background:#1B3A4B;height:3px;width:14px;border-radius:0"></span>Budget</span>
+    </div>
+    <svg viewBox="0 0 900 220" role="img" aria-label="Gross Operating Profit (GOP) actual by month, vs Budget"
+         style="width:100%;height:auto;display:block;font-family:inherit">
+      <line x1="90.0" y1="180.0" x2="880.0" y2="180.0" stroke="#DDD8CE" stroke-width="1"/><text x="82.0" y="183.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.65">0</text><line x1="90.0" y1="138.8" x2="880.0" y2="138.8" stroke="#DDD8CE" stroke-width="1"/><text x="82.0" y="141.8" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.65">500,000</text><line x1="90.0" y1="97.5" x2="880.0" y2="97.5" stroke="#DDD8CE" stroke-width="1"/><text x="82.0" y="100.5" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.65">1,000,000</text><line x1="90.0" y1="56.3" x2="880.0" y2="56.3" stroke="#DDD8CE" stroke-width="1"/><text x="82.0" y="59.3" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.65">1,500,000</text>
+      <line x1="90.0" y1="180.0" x2="880.0" y2="180.0" stroke="#DDD8CE" stroke-width="1.5"/>
+      <path d="M259.5,180.0 L259.5,68.1 Q259.5,64.1 263.5,64.1 L311.5,64.1 Q315.5,64.1 315.5,68.1 L315.5,180.0 Z" fill="#B23A3A"><title>01-2026: 1,405,709 DKK actual vs 1,451,015 DKK budget</title></path><path d="M654.5,180.0 L654.5,56.0 Q654.5,52.0 658.5,52.0 L706.5,52.0 Q710.5,52.0 710.5,56.0 L710.5,180.0 Z" fill="#B23A3A"><title>02-2026: 1,551,729 DKK actual vs 1,581,642 DKK budget</title></path>
+      <line x1="255.5" y1="60.3" x2="319.5" y2="60.3" stroke="#1B3A4B" stroke-width="2.5"><title>Budget: 1,451,015 DKK</title></line><line x1="650.5" y1="49.6" x2="714.5" y2="49.6" stroke="#1B3A4B" stroke-width="2.5"><title>Budget: 1,581,642 DKK</title></line>
+      <text x="287.5" y="50.3" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">1,405,709</text><text x="287.5" y="198.0" text-anchor="middle" font-size="11" fill="#20242A" fill-opacity="0.75">01-2026</text><text x="682.5" y="39.6" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">1,551,729</text><text x="682.5" y="198.0" text-anchor="middle" font-size="11" fill="#20242A" fill-opacity="0.75">02-2026</text>
+    </svg></div>
+    </div>
+    <div class="trend-block">
+      <h3>Flag history by category</h3>
+      
+    <table class="flag-history">
+      <thead><tr><th>Category</th><th>01-2026</th><th>02-2026</th></tr></thead>
+      <tbody><tr><td>Spa &amp; Wellness – Other Expenses</td><td><span class="status-pill status-note" title="NOTE (unfavorable): +3.2%">●</span></td><td><span class="status-pill status-on-target" title="ON TARGET (favorable): -1.8%">✓</span></td></tr><tr><td>Administrative &amp; General</td><td><span class="status-pill status-investigate" title="INVESTIGATE (unfavorable): +18.3%">▲</span></td><td><span class="status-pill status-on-target" title="ON TARGET (favorable): -0.3%">✓</span></td></tr><tr><td>Property &amp; Liability Insurance</td><td><span class="status-pill status-investigate" title="INVESTIGATE (unfavorable): +1122.5%">▲</span></td><td><span class="status-pill status-on-target" title="ON TARGET (unfavorable): +0.1%">✓</span></td></tr></tbody>
+    </table>
+    </div>
+    </section>
+
+    <section>
       <h2>Key Performance Indicators</h2>
       <div class="kpi-grid">
           <div class="kpi-card">
             <div class="label">Occupancy %</div>
             <div class="value">69.8%</div>
             <div class="delta status-pill status-on-target">− vs 70.0% Budget</div>
+            <div class="sparkline-wrap"><svg class="sparkline" viewBox="0 0 64 22" width="64" height="22" role="img" aria-label="trend over 2 periods"><path d="M3.0,19.0 L61.0,3.0" fill="none" stroke="#DDD8CE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="61.0" cy="3.0" r="2.5" fill="#2E7D4F"/></svg></div>
+            
           </div>
           <div class="kpi-card">
             <div class="label">RevPAR</div>
             <div class="value">763 DKK</div>
             <div class="delta status-pill status-on-target">− vs 770 DKK Budget</div>
+            <div class="sparkline-wrap"><svg class="sparkline" viewBox="0 0 64 22" width="64" height="22" role="img" aria-label="trend over 2 periods"><path d="M3.0,19.0 L61.0,3.0" fill="none" stroke="#DDD8CE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="61.0" cy="3.0" r="2.5" fill="#2E7D4F"/></svg></div>
+            
           </div>
           <div class="kpi-card">
             <div class="label">Revenue per FTE</div>
             <div class="value">58,569 DKK</div>
             <div class="delta status-pill status-on-target">+ vs 58,099 DKK Budget</div>
+            <div class="sparkline-wrap"><svg class="sparkline" viewBox="0 0 64 22" width="64" height="22" role="img" aria-label="trend over 2 periods"><path d="M3.0,19.0 L61.0,3.0" fill="none" stroke="#DDD8CE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="61.0" cy="3.0" r="2.5" fill="#2E7D4F"/></svg></div>
+            
           </div>
           <div class="kpi-card">
             <div class="label">GOP %</div>
             <div class="value">28.3%</div>
             <div class="delta status-pill status-on-target">− vs 28.7% Budget</div>
+            <div class="sparkline-wrap"><svg class="sparkline" viewBox="0 0 64 22" width="64" height="22" role="img" aria-label="trend over 2 periods"><path d="M3.0,19.0 L61.0,3.0" fill="none" stroke="#DDD8CE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="61.0" cy="3.0" r="2.5" fill="#2E7D4F"/></svg></div>
+            
           </div></div>
     </section>
 
@@ -141,7 +225,7 @@
       
     <table>
       <thead><tr><th>Category</th><th>Actual</th><th>Budget</th>
-        <th>Diff</th><th>Diff %</th><th>Status</th></tr></thead>
+        <th>Diff</th><th>Diff %</th><th>Status</th><th>Trend</th></tr></thead>
       <tbody>
           <tr class="">
             <td>Rooms Revenue</td>
@@ -150,6 +234,7 @@
             <td>-32,137 DKK</td>
             <td>-0.9%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>F&amp;B Revenue</td>
@@ -158,6 +243,7 @@
             <td>-93 DKK</td>
             <td>-0.0%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Spa &amp; Wellness Revenue</td>
@@ -166,6 +252,7 @@
             <td>-5,395 DKK</td>
             <td>-2.0%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Other Operated Departments Revenue</td>
@@ -174,6 +261,7 @@
             <td>-4,282 DKK</td>
             <td>-2.5%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Miscellaneous &amp; Rental Income</td>
@@ -182,6 +270,7 @@
             <td>-1,210 DKK</td>
             <td>-1.8%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Total Revenue</td>
@@ -190,6 +279,7 @@
             <td>-43,117 DKK</td>
             <td>-0.8%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Rooms – Payroll &amp; Related</td>
@@ -198,6 +288,7 @@
             <td>8,140 DKK</td>
             <td>+1.3%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Rooms – Other Expenses</td>
@@ -206,6 +297,7 @@
             <td>534 DKK</td>
             <td>+0.2%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>F&amp;B – Cost of Sales</td>
@@ -214,6 +306,7 @@
             <td>-6,150 DKK</td>
             <td>-1.3%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>F&amp;B – Payroll &amp; Related</td>
@@ -222,6 +315,7 @@
             <td>-3,970 DKK</td>
             <td>-0.7%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>F&amp;B – Other Expenses</td>
@@ -230,6 +324,7 @@
             <td>863 DKK</td>
             <td>+0.6%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Spa &amp; Wellness – Payroll &amp; Related</td>
@@ -238,6 +333,7 @@
             <td>-219 DKK</td>
             <td>-0.3%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Spa &amp; Wellness – Other Expenses</td>
@@ -246,6 +342,7 @@
             <td>-724 DKK</td>
             <td>-1.8%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Other Operated Departments – Expenses</td>
@@ -254,6 +351,7 @@
             <td>-1,919 DKK</td>
             <td>-2.8%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Total Departmental Expenses</td>
@@ -262,6 +360,7 @@
             <td>-3,444 DKK</td>
             <td>-0.1%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Departmental Profit</td>
@@ -270,6 +369,7 @@
             <td>-39,672 DKK</td>
             <td>-1.2%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Administrative &amp; General</td>
@@ -278,6 +378,7 @@
             <td>-1,509 DKK</td>
             <td>-0.3%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Sales &amp; Marketing</td>
@@ -286,6 +387,7 @@
             <td>-1,558 DKK</td>
             <td>-0.4%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Property Operations &amp; Maintenance</td>
@@ -294,6 +396,7 @@
             <td>-2,630 DKK</td>
             <td>-0.9%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Utilities</td>
@@ -302,6 +405,7 @@
             <td>-1,374 DKK</td>
             <td>-0.5%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>IT &amp; Systems</td>
@@ -310,6 +414,7 @@
             <td>-1,628 DKK</td>
             <td>-1.5%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Human Resources &amp; Training</td>
@@ -318,6 +423,7 @@
             <td>-930 DKK</td>
             <td>-0.8%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Security</td>
@@ -326,6 +432,7 @@
             <td>-132 DKK</td>
             <td>-0.2%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Total Undistributed Operating Expenses</td>
@@ -334,6 +441,7 @@
             <td>-9,760 DKK</td>
             <td>-0.6%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal focus-metric">
             <td>Gross Operating Profit (GOP)</td>
@@ -342,6 +450,7 @@
             <td>-29,912 DKK</td>
             <td>-1.9%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Management Fees</td>
@@ -350,6 +459,7 @@
             <td>-1,498 DKK</td>
             <td>-0.9%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Franchise &amp; Brand Fees</td>
@@ -358,6 +468,7 @@
             <td>-1,210 DKK</td>
             <td>-0.7%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Property &amp; Liability Insurance</td>
@@ -366,6 +477,7 @@
             <td>70 DKK</td>
             <td>+0.1%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Property Tax &amp; Licenses</td>
@@ -374,6 +486,7 @@
             <td>-32 DKK</td>
             <td>-0.1%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Rent / Lease</td>
@@ -382,6 +495,7 @@
             <td>81 DKK</td>
             <td>+0.1%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Total Fixed Charges</td>
@@ -390,6 +504,7 @@
             <td>-2,589 DKK</td>
             <td>-0.5%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal focus-metric">
             <td>EBITDA</td>
@@ -398,6 +513,7 @@
             <td>-27,323 DKK</td>
             <td>-2.7%</td>
             <td><span class="status-pill status-investigate">INVESTIGATE</span></td>
+            <td><svg class="sparkline" viewBox="0 0 64 22" width="64" height="22" role="img" aria-label="trend over 2 periods"><path d="M3.0,19.0 L61.0,3.0" fill="none" stroke="#DDD8CE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="61.0" cy="3.0" r="2.5" fill="#B23A3A"/></svg></td>
           </tr>
           <tr class="">
             <td>Depreciation &amp; Amortization</td>
@@ -406,6 +522,7 @@
             <td>636 DKK</td>
             <td>+0.2%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>EBIT</td>
@@ -414,6 +531,7 @@
             <td>-27,959 DKK</td>
             <td>-4.2%</td>
             <td><span class="status-pill status-investigate">INVESTIGATE</span></td>
+            <td><svg class="sparkline" viewBox="0 0 64 22" width="64" height="22" role="img" aria-label="trend over 2 periods"><path d="M3.0,19.0 L61.0,3.0" fill="none" stroke="#DDD8CE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="61.0" cy="3.0" r="2.5" fill="#B23A3A"/></svg></td>
           </tr>
           <tr class="">
             <td>Interest Expense</td>
@@ -422,6 +540,7 @@
             <td>-153 DKK</td>
             <td>-0.2%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Pre-tax Income</td>
@@ -430,6 +549,7 @@
             <td>-27,805 DKK</td>
             <td>-4.7%</td>
             <td><span class="status-pill status-investigate">INVESTIGATE</span></td>
+            <td><svg class="sparkline" viewBox="0 0 64 22" width="64" height="22" role="img" aria-label="trend over 2 periods"><path d="M3.0,19.0 L61.0,3.0" fill="none" stroke="#DDD8CE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="61.0" cy="3.0" r="2.5" fill="#B23A3A"/></svg></td>
           </tr></tbody>
     </table>
     </section>
@@ -441,15 +561,42 @@
           <h3><span class="status-pill status-investigate">INVESTIGATE</span> EBITDA</h3>
           <p>EBITDA is 2.7% below Budget, but GOP and Total Fixed Charges — the two lines that determine it — are both on target individually. This reflects the cumulative effect of small, ordinary variances rather than one identifiable cause; no action needed unless it persists.</p>
           
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 2.0% threshold <strong>and</strong> the 24,000 DKK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 2.7% (27,323 DKK) vs Budget — percentage threshold <strong>breached</strong> (2.7% vs 2.0% limit), absolute threshold <strong>breached</strong> (27,323 DKK vs 24,000 DKK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.ebitda</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="highlight-card">
           <h3><span class="status-pill status-investigate">INVESTIGATE</span> EBIT</h3>
           <p>Follows EBITDA&#x27;s small variance above for the same reason — not an independent story.</p>
           
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 24,000 DKK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 4.2% (27,959 DKK) vs Budget — percentage threshold <strong>breached</strong> (4.2% vs 3.0% limit), absolute threshold <strong>breached</strong> (27,959 DKK vs 24,000 DKK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.ebit</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="highlight-card">
           <h3><span class="status-pill status-investigate">INVESTIGATE</span> Pre-tax Income</h3>
           <p>Follows EBITDA/EBIT&#x27;s small variance above — not an independent story.</p>
+          
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 21,000 DKK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 4.7% (27,805 DKK) vs Budget — percentage threshold <strong>breached</strong> (4.7% vs 3.0% limit), absolute threshold <strong>breached</strong> (27,805 DKK vs 21,000 DKK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.pretax_income</code></dd>
+      </dl>
+    </details>
           
         </div>
     </section>

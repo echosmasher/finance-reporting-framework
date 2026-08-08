@@ -64,6 +64,19 @@ def get_category_threshold(config, item_id) -> dict:
     return config.thresholds["category_overrides"].get(item_id, config.thresholds["default"])
 
 
+def get_category_threshold_source(config, item_id) -> str:
+    """Which thresholds.yaml block actually produced this category's
+    threshold -- part of the audit trail a flagged row shows (PLAN's
+    'auditable AI' thesis): a reader shouldn't have to trust that a
+    threshold came from where the dashboard claims, so the exact config
+    path is recorded here, the same run that decided the threshold,
+    rather than re-derived later by a renderer re-reading thresholds.yaml
+    (which would risk drifting out of sync with this decision)."""
+    if item_id in config.thresholds["category_overrides"]:
+        return f"category_overrides.{item_id}"
+    return "default"
+
+
 def classify_category(item_id: str, act: float, budget: float, config, currency: str) -> dict:
     diff, pct = compute_variance(act, budget)
     threshold = get_category_threshold(config, item_id)
@@ -78,7 +91,9 @@ def classify_category(item_id: str, act: float, budget: float, config, currency:
         status = STATUS_ON_TARGET
 
     return dict(diff=round(diff, 2), diff_pct=(round(pct, 2) if pct is not None else None), status=status,
-                threshold_pct=threshold["pct"], threshold_absolute=threshold["absolute_by_currency"][currency])
+                threshold_pct=threshold["pct"], threshold_absolute=threshold["absolute_by_currency"][currency],
+                threshold_source=get_category_threshold_source(config, item_id),
+                pct_breached=pct_hit, absolute_breached=absolute_hit)
 
 
 def classify_kpi(kpi_id: str, act: float, budget: float, kpi_format: str, config) -> dict:
@@ -99,7 +114,9 @@ def classify_kpi(kpi_id: str, act: float, budget: float, kpi_format: str, config
         status = STATUS_NOTE
     else:
         status = STATUS_ON_TARGET
-    return dict(diff=diff, status=status)
+    return dict(diff=diff, status=status, threshold_kind=kind, threshold_notice=notice,
+                threshold_investigate=investigate, threshold_source=f"kpi_thresholds.{kpi_id}",
+                threshold_deviation=round(deviation, 2))
 
 
 def is_expense_like_subtotal(item_id: str, config) -> bool:

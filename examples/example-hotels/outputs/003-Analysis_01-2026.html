@@ -30,6 +30,11 @@
   details { margin-top: 0.6rem; }
   summary { cursor: pointer; color: #55606B; font-size: 0.88rem; }
   .drill-table { margin-top: 0.5rem; }
+  .audit-fields { display: grid; grid-template-columns: max-content 1fr; gap: 0.3rem 1rem;
+    margin: 0.5rem 0 0; font-size: 0.85rem; line-height: 1.55; }
+  .audit-fields dt { color: #55606B; font-weight: 600; white-space: nowrap; }
+  .audit-fields dd { margin: 0; }
+  .audit-fields code { font-size: 0.82rem; background: #F4F1EC; padding: 0.05rem 0.4rem; border-radius: 4px; }
   .missing-narrative { color: #55606B; font-style: italic; }
   @media print { body { background: #fff; padding: 0; } .report { border: none; } }
 </style>
@@ -377,10 +382,28 @@
           <h3><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span> F&amp;B Revenue</h3>
           <p class="narrative">F&amp;B Revenue ran 2.3% ahead of Budget — a modest, genuine beat, no action needed.</p>
           
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 2.0% threshold <strong>and</strong> the 5,700 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 2.3% (5,082 SEK) vs Budget — percentage threshold <strong>breached</strong> (2.3% vs 2.0% limit), absolute threshold <strong>not breached</strong> (5,082 SEK vs 5,700 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.fb_revenue</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="flag-block">
           <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> F&amp;B – Payroll &amp; Related</h3>
           <p class="narrative">F&amp;B Payroll ran 4.2% over Budget. The drill-down shows 15,135 SEK in F&amp;B Temporary Labor this month — check whether a banquet or group event pulled in agency staff, which costs more per hour than core staff; confirm the booking against this month&#x27;s F&amp;B revenue to see if it&#x27;s already paid for itself.</p>
+          
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 3,000 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 4.2% (3,190 SEK) vs Budget — percentage threshold <strong>breached</strong> (4.2% vs 3.0% limit), absolute threshold <strong>breached</strong> (3,190 SEK vs 3,000 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.fb_payroll</code></dd>
+      </dl>
+    </details>
           
     <details>
       <summary>Transaction drill-down (5 transaction(s))</summary>
@@ -399,6 +422,15 @@
           <p class="narrative">F&amp;B Other Expenses ran 3.8% over Budget — minor, spread across normal operating supply and contract-service invoices, nothing concentrated enough to flag on its own.</p>
           
     <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 12,000 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 3.8% (838 SEK) vs Budget — percentage threshold <strong>breached</strong> (3.8% vs 3.0% limit), absolute threshold <strong>not breached</strong> (838 SEK vs 12,000 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; default</code></dd>
+      </dl>
+    </details>
+          
+    <details>
       <summary>Transaction drill-down (10 transaction(s))</summary>
       <table class="drill-table">
         <thead><tr><th>Vendor</th><th>Amount</th></tr></thead>
@@ -413,6 +445,15 @@
         <div class="flag-block">
           <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> Administrative &amp; General</h3>
           <p class="narrative">Administrative &amp; General ran 15.9% over Budget. This is the expected annual external-audit-fee bump layered on top of the normal monthly run rate — see the Insurance note below for the same January pattern. Not a concern.</p>
+          
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 5,500 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 15.9% (22,419 SEK) vs Budget — percentage threshold <strong>breached</strong> (15.9% vs 3.0% limit), absolute threshold <strong>breached</strong> (22,419 SEK vs 5,500 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.admin_general</code></dd>
+      </dl>
+    </details>
           
     <details>
       <summary>Transaction drill-down (18 transaction(s))</summary>
@@ -431,6 +472,15 @@
           <p class="narrative">Property Operations &amp; Maintenance ran 8.0% under Budget — a genuine, welcome result. Confirm this reflects efficient scheduling rather than deferred preventive maintenance that could resurface as a larger repair later.</p>
           
     <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 4.0% threshold <strong>and</strong> the 4,600 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 8.0% (7,058 SEK) vs Budget — percentage threshold <strong>breached</strong> (8.0% vs 4.0% limit), absolute threshold <strong>breached</strong> (7,058 SEK vs 4,600 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.property_ops_maint</code></dd>
+      </dl>
+    </details>
+          
+    <details>
       <summary>Transaction drill-down (18 transaction(s))</summary>
       <table class="drill-table">
         <thead><tr><th>Vendor</th><th>Amount</th></tr></thead>
@@ -445,6 +495,15 @@
         <div class="flag-block">
           <h3><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span> IT &amp; Systems</h3>
           <p class="narrative">IT &amp; Systems ran 8.0% under Budget — tight cost control, consistent with Property Operations this month. No action needed.</p>
+          
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 12,000 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 8.0% (2,823 SEK) vs Budget — percentage threshold <strong>breached</strong> (8.0% vs 3.0% limit), absolute threshold <strong>not breached</strong> (2,823 SEK vs 12,000 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; default</code></dd>
+      </dl>
+    </details>
           
     <details>
       <summary>Transaction drill-down (9 transaction(s))</summary>
@@ -463,6 +522,15 @@
           <p class="narrative">Human Resources &amp; Training ran 3.3% over Budget — immaterial, ordinary month-to-month movement.</p>
           
     <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 12,000 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 3.3% (1,161 SEK) vs Budget — percentage threshold <strong>breached</strong> (3.3% vs 3.0% limit), absolute threshold <strong>not breached</strong> (1,161 SEK vs 12,000 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; default</code></dd>
+      </dl>
+    </details>
+          
+    <details>
       <summary>Transaction drill-down (12 transaction(s))</summary>
       <table class="drill-table">
         <thead><tr><th>Vendor</th><th>Amount</th></tr></thead>
@@ -477,6 +545,15 @@
         <div class="flag-block">
           <h3><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span> Security</h3>
           <p class="narrative">Security ran 3.1% over Budget — immaterial, ordinary month-to-month movement.</p>
+          
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 12,000 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 3.1% (829 SEK) vs Budget — percentage threshold <strong>breached</strong> (3.1% vs 3.0% limit), absolute threshold <strong>not breached</strong> (829 SEK vs 12,000 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; default</code></dd>
+      </dl>
+    </details>
           
     <details>
       <summary>Transaction drill-down (9 transaction(s))</summary>
@@ -494,10 +571,28 @@
           <h3><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span> Total Undistributed Operating Expenses</h3>
           <p class="narrative">Total Undistributed Operating Expenses ran 3.4% over Budget, net of the Administrative &amp; General audit-fee bump against savings in Property Operations &amp; Maintenance and IT &amp; Systems — the underlying picture here is healthy, not a concern.</p>
           
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 21,000 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 3.4% (18,415 SEK) vs Budget — percentage threshold <strong>breached</strong> (3.4% vs 3.0% limit), absolute threshold <strong>not breached</strong> (18,415 SEK vs 21,000 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.total_undistributed_expenses</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="flag-block">
           <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> Property &amp; Liability Insurance</h3>
           <p class="narrative">Property &amp; Liability Insurance shows an enormous variance because the annual premium is invoiced as a single January charge, while Budget spreads the cost evenly across the year — exactly the pattern documented in the company&#x27;s seasonality notes. Expected, not a concern; this reverses on its own from February onward.</p>
+          
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 12,000 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 1114.7% (295,020 SEK) vs Budget — percentage threshold <strong>breached</strong> (1114.7% vs 3.0% limit), absolute threshold <strong>breached</strong> (295,020 SEK vs 12,000 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; default</code></dd>
+      </dl>
+    </details>
           
     <details>
       <summary>Transaction drill-down (5 transaction(s))</summary>
@@ -515,25 +610,70 @@
           <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> Total Fixed Charges</h3>
           <p class="narrative">Total Fixed Charges is driven entirely by the January insurance premium above — not an independent issue.</p>
           
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 7,200 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 160.5% (297,392 SEK) vs Budget — percentage threshold <strong>breached</strong> (160.5% vs 3.0% limit), absolute threshold <strong>breached</strong> (297,392 SEK vs 7,200 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.total_fixed_charges</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="flag-block">
           <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> EBITDA</h3>
           <p class="narrative">EBITDA&#x27;s shortfall against Budget this month is the January insurance premium timing, not an operating problem — GOP (the line above fixed charges) is on target.</p>
+          
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 2.0% threshold <strong>and</strong> the 12,000 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 61.3% (290,934 SEK) vs Budget — percentage threshold <strong>breached</strong> (61.3% vs 2.0% limit), absolute threshold <strong>breached</strong> (290,934 SEK vs 12,000 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.ebitda</code></dd>
+      </dl>
+    </details>
           
         </div>
         <div class="flag-block">
           <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> EBIT</h3>
           <p class="narrative">Same driver as EBITDA above — the January insurance premium, not an operating issue.</p>
           
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 14,000 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 78.9% (290,711 SEK) vs Budget — percentage threshold <strong>breached</strong> (78.9% vs 3.0% limit), absolute threshold <strong>breached</strong> (290,711 SEK vs 14,000 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.ebit</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="flag-block">
           <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> Pre-tax Income</h3>
           <p class="narrative">Same driver as EBITDA/EBIT above — the January insurance premium, not an operating issue.</p>
           
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 13,000 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 85.0% (290,803 SEK) vs Budget — percentage threshold <strong>breached</strong> (85.0% vs 3.0% limit), absolute threshold <strong>breached</strong> (290,803 SEK vs 13,000 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.pretax_income</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="flag-block">
           <h3><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span> Revenue per FTE</h3>
           <p class="narrative">Revenue per FTE ran ahead of Budget this month, consistent with the modest revenue beat above — a favorable result, no action needed.</p>
+          
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>KPI thresholds are a single two-tier deviation check (no AND logic): NOTE at or above 4.0% deviation from Budget, INVESTIGATE at or above 8.0%. No absolute-currency floor applies to KPIs.</dd>
+        <dt>This period</dt><dd>This period's deviation: <strong>5.2%</strong> from Budget.</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; kpi_thresholds.revenue_per_fte</code></dd>
+      </dl>
+    </details>
           
         </div>
   </div>

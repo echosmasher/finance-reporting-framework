@@ -55,6 +55,22 @@
     margin: 0 0 1rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;
     color: var(--primary); font-weight: 600;
   }
+  .bridge-chart { overflow-x: auto; }
+  .bridge-chart svg { min-width: 480px; }
+  .bridge-legend { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.75rem; font-size: 0.8rem; color: var(--neutral-dark); }
+  .legend-item { display: inline-flex; align-items: center; gap: 0.4rem; opacity: 0.85; }
+  .legend-item .swatch { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+  .trend-block { margin-top: 1.25rem; }
+  .trend-block:first-child { margin-top: 0; }
+  .trend-block h3 { margin: 0 0 0.5rem; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em;
+    color: var(--neutral-dark); opacity: 0.7; font-weight: 600; }
+  table.flag-history { width: auto; min-width: 100%; }
+  table.flag-history th, table.flag-history td { text-align: center; }
+  table.flag-history th:first-child, table.flag-history td:first-child { text-align: left; }
+  table.flag-history .status-pill { cursor: default; }
+  .sparkline { display: block; vertical-align: middle; }
+  .sparkline-wrap { margin-top: 0.5rem; }
+  td .sparkline { margin: 0 auto; }
   .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
   .kpi-card { border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; }
   .kpi-card .label { font-size: 0.82rem; color: var(--neutral-dark); opacity: 0.7; }
@@ -77,6 +93,18 @@
   details { margin-top: 0.75rem; }
   summary { cursor: pointer; font-size: 0.85rem; color: var(--primary); font-weight: 600; }
   .drill-table { margin-top: 0.6rem; }
+  .audit-fields { display: grid; grid-template-columns: max-content 1fr; gap: 0.35rem 1rem;
+    margin: 0.6rem 0 0; font-size: 0.85rem; line-height: 1.55; }
+  .audit-fields dt { color: var(--neutral-dark); opacity: 0.6; font-weight: 600; white-space: nowrap; }
+  .audit-fields dd { margin: 0; }
+  .audit-fields code { font-size: 0.82rem; background: var(--neutral-light); padding: 0.05rem 0.4rem;
+    border-radius: 4px; }
+  .comments { display: flex; flex-direction: column; gap: 0.5rem; }
+  .comment-note { border-left: 3px solid var(--secondary); padding: 0.4rem 0 0.4rem 0.7rem; }
+  .comment-note p { margin: 0; font-size: 0.85rem; line-height: 1.5; font-style: italic; }
+  .comment-byline { margin-top: 0.2rem; font-size: 0.72rem; opacity: 0.6; font-style: normal; }
+  tr.comment-row td { padding: 0.5rem 0.6rem 0.75rem; border-bottom: 1px solid var(--border); text-align: left; }
+  .kpi-card .comments { margin-top: 0.6rem; }
   footer { text-align: center; font-size: 0.78rem; color: var(--neutral-dark); opacity: 0.55;
     margin-top: 2rem; padding-bottom: 1rem; }
   @media (max-width: 640px) {
@@ -107,27 +135,58 @@
 
   <div class="page">
     <section>
+      <h2>Gross Operating Profit (GOP) Bridge &mdash; Budget &rarr; Actual</h2>
+      <div class="bridge-chart">
+    <div class="bridge-legend">
+      <span class="legend-item"><span class="swatch" style="background:#1B3A4B"></span>Gross Operating Profit (GOP) total</span>
+      <span class="legend-item"><span class="swatch" style="background:#2E7D4F"></span>Increases Gross Operating Profit (GOP)</span>
+      <span class="legend-item"><span class="swatch" style="background:#B23A3A"></span>Decreases Gross Operating Profit (GOP)</span>
+    </div>
+    <svg viewBox="0 0 900 340" role="img" aria-label="Gross Operating Profit (GOP) bridge from Budget to Actual"
+         style="width:100%;height:auto;display:block;font-family:inherit">
+      <line x1="90.0" y1="239.8" x2="880.0" y2="239.8" stroke="#DDD8CE" stroke-width="1"/><text x="82.0" y="242.8" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.65">1,050,000</text><line x1="90.0" y1="155.2" x2="880.0" y2="155.2" stroke="#DDD8CE" stroke-width="1"/><text x="82.0" y="158.2" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.65">1,100,000</text><line x1="90.0" y1="70.7" x2="880.0" y2="70.7" stroke="#DDD8CE" stroke-width="1"/><text x="82.0" y="73.7" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.65">1,150,000</text>
+      <line x1="90.0" y1="240.0" x2="880.0" y2="240.0" stroke="#DDD8CE" stroke-width="1.5"/>
+      <line x1="133.9" y1="122.6" x2="209.7" y2="122.6" stroke="#DDD8CE" stroke-width="1" stroke-dasharray="2,2"/><line x1="221.7" y1="69.4" x2="297.4" y2="69.4" stroke="#DDD8CE" stroke-width="1" stroke-dasharray="2,2"/><line x1="309.4" y1="92.7" x2="385.2" y2="92.7" stroke="#DDD8CE" stroke-width="1" stroke-dasharray="2,2"/><line x1="397.2" y1="96.1" x2="473.0" y2="96.1" stroke="#DDD8CE" stroke-width="1" stroke-dasharray="2,2"/><line x1="485.0" y1="183.4" x2="560.8" y2="183.4" stroke="#DDD8CE" stroke-width="1" stroke-dasharray="2,2"/><line x1="572.8" y1="197.4" x2="648.6" y2="197.4" stroke="#DDD8CE" stroke-width="1" stroke-dasharray="2,2"/><line x1="660.6" y1="200.6" x2="736.3" y2="200.6" stroke="#DDD8CE" stroke-width="1" stroke-dasharray="2,2"/><line x1="748.3" y1="172.9" x2="824.1" y2="172.9" stroke="#DDD8CE" stroke-width="1" stroke-dasharray="2,2"/>
+      <path d="M121.9,240.0 L121.9,126.6 Q121.9,122.6 125.9,122.6 L141.9,122.6 Q145.9,122.6 145.9,126.6 L145.9,240.0 Z" fill="#1B3A4B"><title>Budget: 1,119,313 NOK</title></path><path d="M209.7,122.6 L209.7,73.4 Q209.7,69.4 213.7,69.4 L229.7,69.4 Q233.7,69.4 233.7,73.4 L233.7,122.6 Z" fill="#2E7D4F"><title>F&amp;B Revenue: +31,458 NOK</title></path><path d="M297.4,92.7 L297.4,73.4 Q297.4,69.4 301.4,69.4 L317.4,69.4 Q321.4,69.4 321.4,73.4 L321.4,92.7 Z" fill="#B23A3A"><title>F&amp;B – Payroll &amp; Related: −13,777 NOK</title></path><path d="M385.2,96.1 L385.2,94.4 Q385.2,92.7 386.9,92.7 L407.5,92.7 Q409.2,92.7 409.2,94.4 L409.2,96.1 Z" fill="#B23A3A"><title>Other Operated Departments – Expenses: −2,039 NOK</title></path><path d="M473.0,183.4 L473.0,100.1 Q473.0,96.1 477.0,96.1 L493.0,96.1 Q497.0,96.1 497.0,100.1 L497.0,183.4 Z" fill="#B23A3A"><title>Administrative &amp; General: −51,616 NOK</title></path><path d="M560.8,197.4 L560.8,187.4 Q560.8,183.4 564.8,183.4 L580.8,183.4 Q584.8,183.4 584.8,187.4 L584.8,197.4 Z" fill="#B23A3A"><title>Sales &amp; Marketing: −8,308 NOK</title></path><path d="M648.6,200.6 L648.6,199.0 Q648.6,197.4 650.1,197.4 L671.0,197.4 Q672.6,197.4 672.6,199.0 L672.6,200.6 Z" fill="#B23A3A"><title>Security: −1,883 NOK</title></path><path d="M736.3,200.6 L736.3,176.9 Q736.3,172.9 740.3,172.9 L756.3,172.9 Q760.3,172.9 760.3,176.9 L760.3,200.6 Z" fill="#2E7D4F"><title>Other categories (14): +16,407 NOK</title></path><path d="M824.1,240.0 L824.1,176.9 Q824.1,172.9 828.1,172.9 L844.1,172.9 Q848.1,172.9 848.1,176.9 L848.1,240.0 Z" fill="#1B3A4B"><title>Actual: 1,089,555 NOK</title></path>
+      <text x="133.9" y="114.6" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">1,119,313</text><text x="133.9" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 133.9 254.0)">Budget</text><text x="221.7" y="61.4" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">+31,458</text><text x="221.7" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 221.7 254.0)">F&amp;B Revenue</text><text x="309.4" y="108.7" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">−13,777</text><text x="309.4" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 309.4 254.0)">F&amp;B – Payroll &amp; Related</text><text x="397.2" y="112.1" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">−2,039</text><text x="397.2" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 397.2 254.0)">Other Operated Departmen…</text><text x="485.0" y="199.4" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">−51,616</text><text x="485.0" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 485.0 254.0)">Administrative &amp; General</text><text x="572.8" y="213.4" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">−8,308</text><text x="572.8" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 572.8 254.0)">Sales &amp; Marketing</text><text x="660.6" y="216.6" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">−1,883</text><text x="660.6" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 660.6 254.0)">Security</text><text x="748.3" y="164.9" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">+16,407</text><text x="748.3" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 748.3 254.0)">Other categories (14)</text><text x="836.1" y="164.9" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">1,089,555</text><text x="836.1" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 836.1 254.0)">Actual</text>
+    </svg></div>
+    </section>
+
+    <section>
+      <h2>Trend</h2>
+      <p>Trend view needs at least 2 analyzed periods for this entity — only 1 committed so far.</p>
+    </section>
+
+    <section>
       <h2>Key Performance Indicators</h2>
       <div class="kpi-grid">
           <div class="kpi-card">
             <div class="label">Occupancy %</div>
             <div class="value">45.5%</div>
             <div class="delta status-pill status-on-target">+ vs 45.0% Budget</div>
+            
+            
           </div>
           <div class="kpi-card">
             <div class="label">RevPAR</div>
             <div class="value">573 NOK</div>
             <div class="delta status-pill status-on-target">+ vs 562 NOK Budget</div>
+            
+            
           </div>
           <div class="kpi-card">
             <div class="label">Revenue per FTE</div>
             <div class="value">47,129 NOK</div>
             <div class="delta status-pill status-on-target">+ vs 45,953 NOK Budget</div>
+            
+            
           </div>
           <div class="kpi-card">
             <div class="label">GOP %</div>
             <div class="value">27.3%</div>
             <div class="delta status-pill status-on-target">− vs 28.7% Budget</div>
+            
+            
           </div></div>
     </section>
 
@@ -141,7 +200,7 @@
       
     <table>
       <thead><tr><th>Category</th><th>Actual</th><th>Budget</th>
-        <th>Diff</th><th>Diff %</th><th>Status</th></tr></thead>
+        <th>Diff</th><th>Diff %</th><th>Status</th><th>Trend</th></tr></thead>
       <tbody>
           <tr class="">
             <td>Rooms Revenue</td>
@@ -150,6 +209,7 @@
             <td>44,150 NOK</td>
             <td>+1.8%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>F&amp;B Revenue</td>
@@ -158,6 +218,7 @@
             <td>31,458 NOK</td>
             <td>+2.9%</td>
             <td><span class="status-pill status-note">NOTE</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Spa &amp; Wellness Revenue</td>
@@ -166,6 +227,7 @@
             <td>1,121 NOK</td>
             <td>+0.6%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Other Operated Departments Revenue</td>
@@ -174,6 +236,7 @@
             <td>3,580 NOK</td>
             <td>+2.9%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Miscellaneous &amp; Rental Income</td>
@@ -182,6 +245,7 @@
             <td>793 NOK</td>
             <td>+1.6%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Total Revenue</td>
@@ -190,6 +254,7 @@
             <td>81,102 NOK</td>
             <td>+2.1%</td>
             <td><span class="status-pill status-note">NOTE</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Rooms – Payroll &amp; Related</td>
@@ -198,6 +263,7 @@
             <td>11,319 NOK</td>
             <td>+2.6%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Rooms – Other Expenses</td>
@@ -206,6 +272,7 @@
             <td>3,660 NOK</td>
             <td>+1.9%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>F&amp;B – Cost of Sales</td>
@@ -214,6 +281,7 @@
             <td>4,764 NOK</td>
             <td>+1.4%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>F&amp;B – Payroll &amp; Related</td>
@@ -222,6 +290,7 @@
             <td>13,777 NOK</td>
             <td>+3.6%</td>
             <td><span class="status-pill status-note">NOTE</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>F&amp;B – Other Expenses</td>
@@ -230,6 +299,7 @@
             <td>964 NOK</td>
             <td>+0.9%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Spa &amp; Wellness – Payroll &amp; Related</td>
@@ -238,6 +308,7 @@
             <td>151 NOK</td>
             <td>+0.3%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Spa &amp; Wellness – Other Expenses</td>
@@ -246,6 +317,7 @@
             <td>279 NOK</td>
             <td>+0.9%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Other Operated Departments – Expenses</td>
@@ -254,6 +326,7 @@
             <td>2,039 NOK</td>
             <td>+4.2%</td>
             <td><span class="status-pill status-note">NOTE</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Total Departmental Expenses</td>
@@ -262,6 +335,7 @@
             <td>36,952 NOK</td>
             <td>+2.3%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Departmental Profit</td>
@@ -270,6 +344,7 @@
             <td>44,150 NOK</td>
             <td>+1.9%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Administrative &amp; General</td>
@@ -278,6 +353,7 @@
             <td>51,616 NOK</td>
             <td>+16.5%</td>
             <td><span class="status-pill status-investigate">INVESTIGATE</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Sales &amp; Marketing</td>
@@ -286,6 +362,7 @@
             <td>8,308 NOK</td>
             <td>+3.0%</td>
             <td><span class="status-pill status-note">NOTE</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Property Operations &amp; Maintenance</td>
@@ -294,6 +371,7 @@
             <td>3,927 NOK</td>
             <td>+2.0%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Utilities</td>
@@ -302,6 +380,7 @@
             <td>5,021 NOK</td>
             <td>+2.6%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>IT &amp; Systems</td>
@@ -310,6 +389,7 @@
             <td>1,612 NOK</td>
             <td>+2.1%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Human Resources &amp; Training</td>
@@ -318,6 +398,7 @@
             <td>1,541 NOK</td>
             <td>+2.0%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Security</td>
@@ -326,6 +407,7 @@
             <td>1,883 NOK</td>
             <td>+3.2%</td>
             <td><span class="status-pill status-note">NOTE</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Total Undistributed Operating Expenses</td>
@@ -334,6 +416,7 @@
             <td>73,909 NOK</td>
             <td>+6.2%</td>
             <td><span class="status-pill status-note">NOTE</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal focus-metric">
             <td>Gross Operating Profit (GOP)</td>
@@ -342,6 +425,7 @@
             <td>-29,758 NOK</td>
             <td>-2.7%</td>
             <td><span class="status-pill status-note">NOTE</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Management Fees</td>
@@ -350,6 +434,7 @@
             <td>1,953 NOK</td>
             <td>+1.7%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Franchise &amp; Brand Fees</td>
@@ -358,6 +443,7 @@
             <td>3,471 NOK</td>
             <td>+3.0%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Property &amp; Liability Insurance</td>
@@ -366,6 +452,7 @@
             <td>655,868 NOK</td>
             <td>+1119.4%</td>
             <td><span class="status-pill status-investigate">INVESTIGATE</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Property Tax &amp; Licenses</td>
@@ -374,6 +461,7 @@
             <td>-148 NOK</td>
             <td>-0.4%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Rent / Lease</td>
@@ -382,6 +470,7 @@
             <td>118 NOK</td>
             <td>+0.1%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Total Fixed Charges</td>
@@ -390,6 +479,7 @@
             <td>661,262 NOK</td>
             <td>+161.2%</td>
             <td><span class="status-pill status-investigate">INVESTIGATE</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal focus-metric">
             <td>EBITDA</td>
@@ -398,6 +488,7 @@
             <td>-691,020 NOK</td>
             <td>-97.4%</td>
             <td><span class="status-pill status-investigate">INVESTIGATE</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Depreciation &amp; Amortization</td>
@@ -406,6 +497,7 @@
             <td>310 NOK</td>
             <td>+0.1%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>EBIT</td>
@@ -414,6 +506,7 @@
             <td>-691,330 NOK</td>
             <td>-145.6%</td>
             <td><span class="status-pill status-investigate">INVESTIGATE</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Interest Expense</td>
@@ -422,6 +515,7 @@
             <td>-64 NOK</td>
             <td>-0.1%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Pre-tax Income</td>
@@ -430,6 +524,7 @@
             <td>-691,266 NOK</td>
             <td>-166.1%</td>
             <td><span class="status-pill status-investigate">INVESTIGATE</span></td>
+            <td>—</td>
           </tr></tbody>
     </table>
     </section>
@@ -441,15 +536,42 @@
           <h3><span class="status-pill status-note">NOTE</span> F&amp;B Revenue</h3>
           <p>F&amp;B Revenue ran 2.9% ahead of Budget (31,458 NOK) — a modest, favorable start to the year.</p>
           
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 2.0% threshold <strong>and</strong> the 75,000 NOK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 2.9% (31,458 NOK) vs Budget — percentage threshold <strong>breached</strong> (2.9% vs 2.0% limit), absolute threshold <strong>not breached</strong> (31,458 NOK vs 75,000 NOK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.fb_revenue</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="highlight-card">
           <h3><span class="status-pill status-note">NOTE</span> Total Revenue</h3>
           <p>Total Revenue landed 2.1% ahead of Budget (81,102 NOK), led by F&amp;B.</p>
           
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 2.0% threshold <strong>and</strong> the 270,000 NOK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 2.1% (81,102 NOK) vs Budget — percentage threshold <strong>breached</strong> (2.1% vs 2.0% limit), absolute threshold <strong>not breached</strong> (81,102 NOK vs 270,000 NOK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.total_revenue</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="highlight-card">
           <h3><span class="status-pill status-note">NOTE</span> F&amp;B – Payroll &amp; Related</h3>
           <p>F&amp;B Payroll &amp; Related ran 3.6% over Budget (13,777 NOK). Check whether banquet or group business drove temporary labor costs this month — F&amp;B Temporary Labor is one of the larger postings in the drill-down.</p>
+          
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 40,000 NOK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 3.6% (13,777 NOK) vs Budget — percentage threshold <strong>breached</strong> (3.6% vs 3.0% limit), absolute threshold <strong>not breached</strong> (13,777 NOK vs 40,000 NOK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.fb_payroll</code></dd>
+      </dl>
+    </details>
           
     <details>
       <summary>Transaction drill-down (5 transaction(s))</summary>
@@ -463,6 +585,15 @@
           <h3><span class="status-pill status-note">NOTE</span> Other Operated Departments – Expenses</h3>
           <p>Other Operated Departments Expenses ran 4.2% over Budget (2,039 NOK) — a small variance, not concerning at this size.</p>
           
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 40,000 NOK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 4.2% (2,039 NOK) vs Budget — percentage threshold <strong>breached</strong> (4.2% vs 3.0% limit), absolute threshold <strong>not breached</strong> (2,039 NOK vs 40,000 NOK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; default</code></dd>
+      </dl>
+    </details>
+          
     <details>
       <summary>Transaction drill-down (8 transaction(s))</summary>
       <table class="drill-table">
@@ -474,6 +605,15 @@
         <div class="highlight-card">
           <h3><span class="status-pill status-investigate">INVESTIGATE</span> Administrative &amp; General</h3>
           <p>Administrative &amp; General ran 16.5% over Budget (51,616 NOK) — expected, not a concern. This is the external audit fee, invoiced as a single charge in January per the usual pattern (see Professional Fees – Audit and Bad Debt Expense in the drill-down); Budget spreads a flat allocation across the year, so January always shows this gap.</p>
+          
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 32,000 NOK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 16.5% (51,616 NOK) vs Budget — percentage threshold <strong>breached</strong> (16.5% vs 3.0% limit), absolute threshold <strong>breached</strong> (51,616 NOK vs 32,000 NOK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.admin_general</code></dd>
+      </dl>
+    </details>
           
     <details>
       <summary>Transaction drill-down (19 transaction(s))</summary>
@@ -487,6 +627,15 @@
           <h3><span class="status-pill status-note">NOTE</span> Sales &amp; Marketing</h3>
           <p>Sales &amp; Marketing ran 3.0% over Budget (8,308 NOK) — a small, routine variance.</p>
           
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 40,000 NOK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 3.0% (8,308 NOK) vs Budget — percentage threshold <strong>breached</strong> (3.0% vs 3.0% limit), absolute threshold <strong>not breached</strong> (8,308 NOK vs 40,000 NOK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; default</code></dd>
+      </dl>
+    </details>
+          
     <details>
       <summary>Transaction drill-down (17 transaction(s))</summary>
       <table class="drill-table">
@@ -498,6 +647,15 @@
         <div class="highlight-card">
           <h3><span class="status-pill status-note">NOTE</span> Security</h3>
           <p>Security ran 3.2% over Budget (1,883 NOK) — immaterial at this size.</p>
+          
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 40,000 NOK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 3.2% (1,883 NOK) vs Budget — percentage threshold <strong>breached</strong> (3.2% vs 3.0% limit), absolute threshold <strong>not breached</strong> (1,883 NOK vs 40,000 NOK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; default</code></dd>
+      </dl>
+    </details>
           
     <details>
       <summary>Transaction drill-down (9 transaction(s))</summary>
@@ -511,15 +669,42 @@
           <h3><span class="status-pill status-note">NOTE</span> Total Undistributed Operating Expenses</h3>
           <p>Total Undistributed Operating Expenses ran 6.2% over Budget (73,909 NOK), almost entirely explained by Administrative &amp; General&#x27;s January audit-fee timing above.</p>
           
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 123,000 NOK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 6.2% (73,909 NOK) vs Budget — percentage threshold <strong>breached</strong> (6.2% vs 3.0% limit), absolute threshold <strong>not breached</strong> (73,909 NOK vs 123,000 NOK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.total_undistributed_expenses</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="highlight-card">
           <h3><span class="status-pill status-note">NOTE</span> Gross Operating Profit (GOP)</h3>
           <p>GOP came in 2.7% under Budget (29,758 NOK) — a modest miss, mostly the flow-through of Administrative &amp; General&#x27;s January audit-fee timing rather than an operating issue. Revenue tracked ahead of Budget and departmental costs were essentially on target.</p>
           
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 2.0% threshold <strong>and</strong> the 77,000 NOK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 2.7% (29,758 NOK) vs Budget — percentage threshold <strong>breached</strong> (2.7% vs 2.0% limit), absolute threshold <strong>not breached</strong> (29,758 NOK vs 77,000 NOK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.gop</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="highlight-card">
           <h3><span class="status-pill status-investigate">INVESTIGATE</span> Property &amp; Liability Insurance</h3>
           <p>Property &amp; Liability Insurance came in at 714,458 NOK against a Budget of 58,590 NOK — expected, not a concern. This is the annual premium (Property, General Liability, and Business Interruption combined — see the drill-down), invoiced as a single charge every January while Budget spreads a flat monthly allocation across the year. The same pattern will repeat every January.</p>
+          
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 40,000 NOK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 1119.4% (655,868 NOK) vs Budget — percentage threshold <strong>breached</strong> (1119.4% vs 3.0% limit), absolute threshold <strong>breached</strong> (655,868 NOK vs 40,000 NOK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; default</code></dd>
+      </dl>
+    </details>
           
     <details>
       <summary>Transaction drill-down (9 transaction(s))</summary>
@@ -533,20 +718,56 @@
           <h3><span class="status-pill status-investigate">INVESTIGATE</span> Total Fixed Charges</h3>
           <p>Total Fixed Charges ran 161% over Budget (661,262 NOK), driven entirely by the January insurance premium above — not a new or separate issue.</p>
           
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 42,000 NOK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 161.2% (661,262 NOK) vs Budget — percentage threshold <strong>breached</strong> (161.2% vs 3.0% limit), absolute threshold <strong>breached</strong> (661,262 NOK vs 42,000 NOK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.total_fixed_charges</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="highlight-card">
           <h3><span class="status-pill status-investigate">INVESTIGATE</span> EBITDA</h3>
           <p>EBITDA is down 97% vs Budget (691,020 NOK), driven entirely by the January insurance premium and the Administrative &amp; General audit-fee timing above — both expected. GOP, which excludes these fixed charges, is the more useful read on this month&#x27;s actual operating performance and came in only modestly under Budget.</p>
+          
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 2.0% threshold <strong>and</strong> the 49,000 NOK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 97.4% (691,020 NOK) vs Budget — percentage threshold <strong>breached</strong> (97.4% vs 2.0% limit), absolute threshold <strong>breached</strong> (691,020 NOK vs 49,000 NOK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.ebitda</code></dd>
+      </dl>
+    </details>
           
         </div>
         <div class="highlight-card">
           <h3><span class="status-pill status-investigate">INVESTIGATE</span> EBIT</h3>
           <p>Same January insurance/audit-fee driver as EBITDA above — no separate action needed here.</p>
           
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 49,000 NOK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 145.6% (691,330 NOK) vs Budget — percentage threshold <strong>breached</strong> (145.6% vs 3.0% limit), absolute threshold <strong>breached</strong> (691,330 NOK vs 49,000 NOK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.ebit</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="highlight-card">
           <h3><span class="status-pill status-investigate">INVESTIGATE</span> Pre-tax Income</h3>
           <p>Same January insurance/audit-fee driver as EBITDA/EBIT above — no separate action needed here.</p>
+          
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 43,000 NOK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 166.1% (691,266 NOK) vs Budget — percentage threshold <strong>breached</strong> (166.1% vs 3.0% limit), absolute threshold <strong>breached</strong> (691,266 NOK vs 43,000 NOK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.pretax_income</code></dd>
+      </dl>
+    </details>
           
         </div>
     </section>

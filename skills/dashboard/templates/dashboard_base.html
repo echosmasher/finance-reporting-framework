@@ -55,6 +55,22 @@
     margin: 0 0 1rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;
     color: var(--primary); font-weight: 600;
   }
+  .bridge-chart { overflow-x: auto; }
+  .bridge-chart svg { min-width: 480px; }
+  .bridge-legend { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.75rem; font-size: 0.8rem; color: var(--neutral-dark); }
+  .legend-item { display: inline-flex; align-items: center; gap: 0.4rem; opacity: 0.85; }
+  .legend-item .swatch { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+  .trend-block { margin-top: 1.25rem; }
+  .trend-block:first-child { margin-top: 0; }
+  .trend-block h3 { margin: 0 0 0.5rem; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em;
+    color: var(--neutral-dark); opacity: 0.7; font-weight: 600; }
+  table.flag-history { width: auto; min-width: 100%; }
+  table.flag-history th, table.flag-history td { text-align: center; }
+  table.flag-history th:first-child, table.flag-history td:first-child { text-align: left; }
+  table.flag-history .status-pill { cursor: default; }
+  .sparkline { display: block; vertical-align: middle; }
+  .sparkline-wrap { margin-top: 0.5rem; }
+  td .sparkline { margin: 0 auto; }
   .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
   .kpi-card { border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; }
   .kpi-card .label { font-size: 0.82rem; color: var(--neutral-dark); opacity: 0.7; }
@@ -77,6 +93,12 @@
   details { margin-top: 0.75rem; }
   summary { cursor: pointer; font-size: 0.85rem; color: var(--primary); font-weight: 600; }
   .drill-table { margin-top: 0.6rem; }
+  .audit-fields { display: grid; grid-template-columns: max-content 1fr; gap: 0.35rem 1rem;
+    margin: 0.6rem 0 0; font-size: 0.85rem; line-height: 1.55; }
+  .audit-fields dt { color: var(--neutral-dark); opacity: 0.6; font-weight: 600; white-space: nowrap; }
+  .audit-fields dd { margin: 0; }
+  .audit-fields code { font-size: 0.82rem; background: var(--neutral-light); padding: 0.05rem 0.4rem;
+    border-radius: 4px; }
   .comments { display: flex; flex-direction: column; gap: 0.5rem; }
   .comment-note { border-left: 3px solid var(--secondary); padding: 0.4rem 0 0.4rem 0.7rem; }
   .comment-note p { margin: 0; font-size: 0.85rem; line-height: 1.5; font-style: italic; }
@@ -112,6 +134,16 @@
   </header>
 
   <div class="page">
+    <section>
+      <h2>{{FOCUS_METRIC_LABEL}} Bridge &mdash; Budget &rarr; Actual</h2>
+      {{WATERFALL_HTML}}
+    </section>
+
+    <section>
+      <h2>Trend</h2>
+      {{TREND_SECTION_HTML}}
+    </section>
+
     <section>
       <h2>Key Performance Indicators</h2>
       {{KPI_CARDS_HTML}}

@@ -1,0 +1,111 @@
+<!doctype html>
+<!--
+  Portfolio overview shell for /dashboard (docs/IMPROVEMENT_IDEAS.md idea 2,
+  tasks.md task 28): a side-by-side view of every entity for one period —
+  explicitly NOT consolidation (no cross-currency summing, no eliminations;
+  each entity keeps its own currency). render_portfolio.py fills every
+  {{TOKEN}} below via plain string substitution, same convention as
+  dashboard_base.html. Single file, inline CSS, zero external requests
+  (PLAN.md §7.2) — do not add a <link>, <script src>, @import, or any other
+  external reference here or in what fills these tokens.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio Overview — {{PERIOD}}</title>
+<style>
+  :root {
+    --primary: {{PRIMARY_COLOR}};
+    --secondary: {{SECONDARY_COLOR}};
+    --neutral-dark: {{NEUTRAL_DARK}};
+    --neutral-light: {{NEUTRAL_LIGHT}};
+    --surface: {{SURFACE}};
+    --border: {{BORDER}};
+    --status-on-target: {{STATUS_ON_TARGET_COLOR}};
+    --status-on-target-bg: {{STATUS_ON_TARGET_BG}};
+    --status-note: {{STATUS_NOTE_COLOR}};
+    --status-note-bg: {{STATUS_NOTE_BG}};
+    --status-investigate: {{STATUS_INVESTIGATE_COLOR}};
+    --status-investigate-bg: {{STATUS_INVESTIGATE_BG}};
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--neutral-light); color: var(--neutral-dark);
+    font-family: {{FONT_FAMILY_STACK}};
+    font-variant-numeric: tabular-nums;
+  }
+  .page { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+  header.masthead {
+    background: var(--primary); color: var(--surface);
+    padding: 2rem 1.5rem; margin-bottom: -1.5rem;
+  }
+  header.masthead .inner { max-width: 1200px; margin: 0 auto; display: flex;
+    align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
+  .wordmark { color: var(--secondary); font-weight: 700; letter-spacing: 0.08em;
+    font-variant: small-caps; font-size: 0.95rem; }
+  header.masthead h1 { margin: 0.35rem 0 0; font-size: 1.6rem; font-weight: 600; }
+  header.masthead .period { color: var(--secondary); font-size: 1rem; }
+  .scope-note { margin-top: 1.5rem; font-size: 0.85rem; color: var(--neutral-dark);
+    opacity: 0.75; line-height: 1.5; }
+  .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.25rem; margin-top: 1.5rem; }
+  .portfolio-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 1.25rem 1.4rem; display: flex; flex-direction: column; gap: 0.9rem; }
+  .card-header { display: flex; align-items: baseline; justify-content: space-between; gap: 0.5rem; }
+  .card-header h2 { margin: 0; font-size: 1.05rem; font-weight: 600; color: var(--primary); }
+  .card-header .entity-code { font-size: 0.75rem; opacity: 0.55; font-weight: 400; }
+  .flag-summary { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .status-pill { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.1rem 0.55rem;
+    border-radius: 999px; font-size: 0.75rem; font-weight: 600; white-space: nowrap; }
+  .status-on-target { color: var(--status-on-target); background: var(--status-on-target-bg); }
+  .status-note { color: var(--status-note); background: var(--status-note-bg); }
+  .status-investigate { color: var(--status-investigate); background: var(--status-investigate-bg); }
+  .mini-chart { overflow-x: auto; }
+  .mini-chart svg { width: 100%; height: auto; display: block; }
+  .kpi-mini-list { display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.82rem; }
+  .kpi-mini-row { display: flex; justify-content: space-between; gap: 0.5rem; border-bottom: 1px solid var(--border);
+    padding-bottom: 0.3rem; }
+  .kpi-mini-row .kpi-label { opacity: 0.7; }
+  .kpi-mini-row .kpi-value { font-weight: 600; }
+  .card-link { margin-top: auto; font-size: 0.85rem; color: var(--primary); font-weight: 600;
+    text-decoration: none; }
+  .card-link:hover { text-decoration: underline; }
+  footer { text-align: center; font-size: 0.78rem; color: var(--neutral-dark); opacity: 0.55;
+    margin-top: 2rem; padding-bottom: 1rem; }
+  @media (max-width: 640px) {
+    header.masthead .inner { flex-direction: column; align-items: flex-start; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+  }
+  @media print {
+    body { background: var(--surface); }
+    header.masthead { margin-bottom: 0; }
+    .portfolio-card { border: 1px solid var(--border); page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="inner">
+      <div>
+        {{LOGO_HTML}}
+        <h1>Portfolio Overview</h1>
+      </div>
+      <div class="period">{{PERIOD}} &middot; vs {{COMPARISON_LABEL}}</div>
+    </div>
+  </header>
+
+  <div class="page">
+    <p class="scope-note">A side-by-side view of every entity for this period — each figure stays in
+      its own entity's reporting currency. This is not consolidation: nothing here sums across
+      entities or currencies. Open an entity's own dashboard for the full P&amp;L, KPI detail, and
+      narrative.</p>
+
+    <div class="portfolio-grid">
+      {{PORTFOLIO_CARDS_HTML}}
+    </div>
+
+    <footer>Generated by the finance-reporting-framework &mdash; self-contained, no external requests.</footer>
+  </div>
+</body>
+</html>

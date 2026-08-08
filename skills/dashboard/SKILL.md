@@ -65,6 +65,23 @@ wrong, the fix belongs in `dashboard_base.html` or `render_dashboard.py`
 (a rendering bug) or in the narrative JSON from `/analysis` (a content
 issue), not in the rendered output directly.
 
+## 2b. Portfolio overview (only when more than one entity was rendered)
+
+If step 2 rendered more than one entity, also render the side-by-side
+portfolio page:
+
+```bash
+python3 skills/dashboard/scripts/render_portfolio.py <period> [--entities <codes>]
+```
+
+Writes `outputs/Portfolio-Overview_{PERIOD}.html` — one card per entity
+(focus metric vs Budget, KPIs, flag counts), each linking into that
+entity's own dashboard from step 2. This is **not consolidation**: every
+figure stays in its own entity's currency, nothing sums or converts
+across entities — say so if a user asks for a group total, and point at
+`ROADMAP.md`. Skip this step entirely for a single-entity run; a
+portfolio of one card adds nothing.
+
 ## 3. Recommend a deployment tier
 
 After rendering, ask the user how they plan to get this in front of its

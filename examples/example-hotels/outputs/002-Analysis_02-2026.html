@@ -30,6 +30,11 @@
   details { margin-top: 0.6rem; }
   summary { cursor: pointer; color: #55606B; font-size: 0.88rem; }
   .drill-table { margin-top: 0.5rem; }
+  .audit-fields { display: grid; grid-template-columns: max-content 1fr; gap: 0.3rem 1rem;
+    margin: 0.5rem 0 0; font-size: 0.85rem; line-height: 1.55; }
+  .audit-fields dt { color: #55606B; font-weight: 600; white-space: nowrap; }
+  .audit-fields dd { margin: 0; }
+  .audit-fields code { font-size: 0.82rem; background: #F4F1EC; padding: 0.05rem 0.4rem; border-radius: 4px; }
   .missing-narrative { color: #55606B; font-style: italic; }
   @media print { body { background: #fff; padding: 0; } .report { border: none; } }
 </style>
@@ -378,6 +383,15 @@
           <p class="narrative">F&amp;B – Cost of Sales came in 40% over Budget (127,035 NOK) — driven by a single 203,321 NOK write-off following a physical inventory count (see the drill-down: &quot;obsolete and spoiled stock write-off&quot;, booked to F&amp;B Inventory Adjustment). Normal food, beverage, and banquet cost of sales otherwise tracked close to Budget this month. Confirm the count was accurate and check whether the obsolete stock points to an ordering or rotation issue worth addressing, but this reads as a one-time correction, not a new cost run-rate.</p>
           
     <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 34,000 NOK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 40.0% (127,035 NOK) vs Budget — percentage threshold <strong>breached</strong> (40.0% vs 3.0% limit), absolute threshold <strong>breached</strong> (127,035 NOK vs 34,000 NOK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.fb_cogs</code></dd>
+      </dl>
+    </details>
+          
+    <details>
       <summary>Transaction drill-down (10 transaction(s))</summary>
       <table class="drill-table">
         <thead><tr><th>Vendor</th><th>Amount</th></tr></thead>
@@ -393,35 +407,98 @@
           <h3><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span> Total Departmental Expenses</h3>
           <p class="narrative">Total Departmental Expenses ran 9.1% over Budget, entirely attributable to the F&amp;B inventory write-off above — every other departmental line tracked close to Budget.</p>
           
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 165,000 NOK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 9.1% (139,944 NOK) vs Budget — percentage threshold <strong>breached</strong> (9.1% vs 3.0% limit), absolute threshold <strong>not breached</strong> (139,944 NOK vs 165,000 NOK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.total_departmental_expenses</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="flag-block">
           <h3><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span> Departmental Profit</h3>
           <p class="narrative">Departmental Profit came in 4.8% under Budget, the direct result of the F&amp;B inventory write-off above; revenue tracked close to Budget.</p>
+          
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 239,000 NOK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 4.8% (106,669 NOK) vs Budget — percentage threshold <strong>breached</strong> (4.8% vs 3.0% limit), absolute threshold <strong>not breached</strong> (106,669 NOK vs 239,000 NOK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.departmental_profit</code></dd>
+      </dl>
+    </details>
           
         </div>
         <div class="flag-block">
           <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> Gross Operating Profit (GOP)</h3>
           <p class="narrative">GOP came in 10.8% under Budget (116,015 NOK), driven almost entirely by the F&amp;B inventory write-off — see F&amp;B – Cost of Sales above for the detail. This is a one-time correction, not an indication of a broader cost problem this month.</p>
           
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 2.0% threshold <strong>and</strong> the 77,000 NOK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 10.8% (116,015 NOK) vs Budget — percentage threshold <strong>breached</strong> (10.8% vs 2.0% limit), absolute threshold <strong>breached</strong> (116,015 NOK vs 77,000 NOK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.gop</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="flag-block">
           <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> EBITDA</h3>
           <p class="narrative">Follows GOP&#x27;s shortfall for the same reason — the F&amp;B inventory write-off flows straight through. Not an independent issue.</p>
+          
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 2.0% threshold <strong>and</strong> the 49,000 NOK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 17.1% (117,209 NOK) vs Budget — percentage threshold <strong>breached</strong> (17.1% vs 2.0% limit), absolute threshold <strong>breached</strong> (117,209 NOK vs 49,000 NOK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.ebitda</code></dd>
+      </dl>
+    </details>
           
         </div>
         <div class="flag-block">
           <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> EBIT</h3>
           <p class="narrative">Same driver as GOP/EBITDA above — no separate action needed here.</p>
           
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 49,000 NOK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 25.6% (117,276 NOK) vs Budget — percentage threshold <strong>breached</strong> (25.6% vs 3.0% limit), absolute threshold <strong>breached</strong> (117,276 NOK vs 49,000 NOK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.ebit</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="flag-block">
           <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> Pre-tax Income</h3>
           <p class="narrative">Same driver as GOP/EBITDA/EBIT above — no separate action needed here.</p>
           
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 43,000 NOK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 29.1% (116,928 NOK) vs Budget — percentage threshold <strong>breached</strong> (29.1% vs 3.0% limit), absolute threshold <strong>breached</strong> (116,928 NOK vs 43,000 NOK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.pretax_income</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="flag-block">
           <h3><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span> GOP %</h3>
           <p class="narrative">GOP % came in at 25.0% of revenue against a Budget of 28.7% — the same F&amp;B inventory write-off driving the GOP shortfall above, not a separate margin issue.</p>
+          
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>KPI thresholds are a single two-tier deviation check (no AND logic): NOTE at or above 2.0pp deviation from Budget, INVESTIGATE at or above 4.0pp. No absolute-currency floor applies to KPIs.</dd>
+        <dt>This period</dt><dd>This period's deviation: <strong>3.3pp</strong> from Budget.</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; kpi_thresholds.gop_pct</code></dd>
+      </dl>
+    </details>
           
         </div>
   </div>

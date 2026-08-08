@@ -8,6 +8,15 @@ Python computes the numbers, Claude interprets them using *your*
 company's thresholds, terminology, and institutional knowledge —
 captured once during setup.**
 
+## The loop
+
+Validate → preprocess → flag deviations against threshold → render a
+dashboard — the same deterministic pipeline `/analysis` and `/dashboard`
+run in Claude Code, shown here as its own underlying scripts so the
+mechanism is visible, not just the slash commands:
+
+![Terminal recording: validating Example Hotels' February data, flagging 22 deviations across 4 entities, then rendering Oslo's dashboard](docs/screenshots/demo.gif)
+
 ## Screenshots
 
 | Catching a real problem | Catching a different real problem | Correctly not manufacturing one |

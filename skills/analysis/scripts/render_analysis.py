@@ -59,6 +59,11 @@ CSS = """
   details { margin-top: 0.6rem; }
   summary { cursor: pointer; color: #55606B; font-size: 0.88rem; }
   .drill-table { margin-top: 0.5rem; }
+  .audit-fields { display: grid; grid-template-columns: max-content 1fr; gap: 0.3rem 1rem;
+    margin: 0.5rem 0 0; font-size: 0.85rem; line-height: 1.55; }
+  .audit-fields dt { color: #55606B; font-weight: 600; white-space: nowrap; }
+  .audit-fields dd { margin: 0; }
+  .audit-fields code { font-size: 0.82rem; background: #F4F1EC; padding: 0.05rem 0.4rem; border-radius: 4px; }
   .missing-narrative { color: #55606B; font-style: italic; }
   @media print { body { background: #fff; padding: 0; } .report { border: none; } }
 """
@@ -138,6 +143,45 @@ def render_drill_down(drill_down: dict, currency: str) -> str:
     </details>"""
 
 
+def render_audit_trail_html(flag: dict, currency: str) -> str:
+    """The 'why was this flagged?' expander (docs/IMPROVEMENT_IDEAS.md idea
+    6, tasks.md task 33) -- same fields, same formatting rules as
+    render_dashboard.py's function of the same name; every value here is
+    a field analyze.py already computed and wrote to the analysis JSON,
+    never re-derived or guessed by this renderer."""
+    if "threshold_kind" in flag:
+        unit = "pp" if flag["threshold_kind"] == "pp" else "%"
+        notice = f"{flag['threshold_notice']:.1f}{unit}"
+        investigate = f"{flag['threshold_investigate']:.1f}{unit}"
+        deviation = f"{flag['threshold_deviation']:.1f}{unit}"
+        rule = (f"KPI thresholds are a single two-tier deviation check (no AND logic): "
+                f"NOTE at or above {notice} deviation from Budget, INVESTIGATE at or above "
+                f"{investigate}. No absolute-currency floor applies to KPIs.")
+        computed = f"This period's deviation: <strong>{deviation}</strong> from Budget."
+    else:
+        pct_limit = f"{flag['threshold_pct']:.1f}%"
+        abs_limit = f"{flag['threshold_absolute']:,.0f} {currency}"
+        rule = (f"INVESTIGATE requires breaching <strong>both</strong> the {pct_limit} threshold "
+                f"<strong>and</strong> the {abs_limit} threshold vs Budget; NOTE requires breaching "
+                f"either one alone; otherwise ON TARGET.")
+        pct_state = "breached" if flag["pct_breached"] else "not breached"
+        abs_state = "breached" if flag["absolute_breached"] else "not breached"
+        diff_pct_str = f"{abs(flag['diff_pct']):.1f}%" if flag["diff_pct"] is not None else "n/a (zero Budget)"
+        computed = (f"This period: {diff_pct_str} ({fmt_amount(abs(flag['diff']), currency)}) vs Budget — "
+                    f"percentage threshold <strong>{pct_state}</strong> ({diff_pct_str} vs {pct_limit} limit), "
+                    f"absolute threshold <strong>{abs_state}</strong> "
+                    f"({fmt_amount(abs(flag['diff']), currency)} vs {abs_limit} limit).")
+    return f"""
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>{rule}</dd>
+        <dt>This period</dt><dd>{computed}</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; {html.escape(flag['threshold_source'])}</code></dd>
+      </dl>
+    </details>"""
+
+
 def render_flags(analysis: dict, narrative: dict) -> str:
     category_narratives = narrative.get("category_narratives", {}) if narrative else {}
     blocks = []
@@ -148,6 +192,7 @@ def render_flags(analysis: dict, narrative: dict) -> str:
             f'<p class="narrative">{html.escape(text)}</p>' if text
             else '<p class="missing-narrative">Narrative not yet written for this item.</p>'
         )
+        audit_trail_html = render_audit_trail_html(flag, analysis["currency"])
         drill_down_html = ""
         if item_id in analysis["drill_downs"]:
             drill_down_html = render_drill_down(analysis["drill_downs"][item_id], analysis["currency"])
@@ -155,6 +200,7 @@ def render_flags(analysis: dict, narrative: dict) -> str:
         <div class="flag-block">
           <h3>{status_pill(flag['status'])} {html.escape(flag['label'])}</h3>
           {narrative_html}
+          {audit_trail_html}
           {drill_down_html}
         </div>""")
     return "".join(blocks) if blocks else "<p>No categories or KPIs breached threshold this period.</p>"

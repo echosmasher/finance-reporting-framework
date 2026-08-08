@@ -30,6 +30,11 @@
   details { margin-top: 0.6rem; }
   summary { cursor: pointer; color: #55606B; font-size: 0.88rem; }
   .drill-table { margin-top: 0.5rem; }
+  .audit-fields { display: grid; grid-template-columns: max-content 1fr; gap: 0.3rem 1rem;
+    margin: 0.5rem 0 0; font-size: 0.85rem; line-height: 1.55; }
+  .audit-fields dt { color: #55606B; font-weight: 600; white-space: nowrap; }
+  .audit-fields dd { margin: 0; }
+  .audit-fields code { font-size: 0.82rem; background: #F4F1EC; padding: 0.05rem 0.4rem; border-radius: 4px; }
   .missing-narrative { color: #55606B; font-style: italic; }
   @media print { body { background: #fff; padding: 0; } .report { border: none; } }
 </style>
@@ -66,7 +71,7 @@
           </div></div>
 
     <h2>Profitability Summary</h2>
-    <p class="narrative">GOP came in at 1,285,301 DKK, 10.4% (169,513 DKK) below Budget — the largest miss of the quarter, driven almost entirely by Rooms Payroll rather than a broad-based cost or revenue issue.</p>
+    <p class="narrative">GOP came in at 1,456,512 DKK, 10.4% (169,513 DKK) below Budget — the largest miss of the quarter, driven almost entirely by Rooms Payroll rather than a broad-based cost or revenue issue.</p>
 
     <h2>P&amp;L</h2>
     
@@ -378,6 +383,15 @@
           <p class="narrative">Rooms Payroll landed at 797,940 DKK against a Budget of 638,352 DKK — 25% over, while occupancy was 64.2% vs. a budgeted 65.0%, essentially flat. Payroll should move with occupancy, not diverge from it this sharply. The drill-down shows why: two overtime postings for Front Office and Housekeeping (&quot;covering extended staff leave&quot;) plus a temporary housekeeping labor charge from Nordic Staffing Partners, together accounting for roughly 180,700 DKK of the overage. Check whether the underlying staff leave was planned or unplanned, and whether the current mix of overtime plus an external staffing agency is the most cost-effective way to cover it going forward — the agency line alone is a meaningful chunk of the gap.</p>
           
     <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 22,000 DKK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 25.0% (159,588 DKK) vs Budget — percentage threshold <strong>breached</strong> (25.0% vs 3.0% limit), absolute threshold <strong>breached</strong> (159,588 DKK vs 22,000 DKK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.rooms_payroll</code></dd>
+      </dl>
+    </details>
+          
+    <details>
       <summary>Transaction drill-down (7 transaction(s))</summary>
       <table class="drill-table">
         <thead><tr><th>Vendor</th><th>Amount</th></tr></thead>
@@ -393,35 +407,98 @@
           <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> Total Departmental Expenses</h3>
           <p class="narrative">The departmental-expense total is over Budget for the same reason as Rooms Payroll above — not a separate, broader cost trend.</p>
           
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 80,000 DKK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 6.7% (154,882 DKK) vs Budget — percentage threshold <strong>breached</strong> (6.7% vs 3.0% limit), absolute threshold <strong>breached</strong> (154,882 DKK vs 80,000 DKK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.total_departmental_expenses</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="flag-block">
           <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> Departmental Profit</h3>
           <p class="narrative">Departmental Profit is below Budget, tracing entirely to the Rooms Payroll overage above.</p>
+          
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 117,000 DKK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 5.2% (173,080 DKK) vs Budget — percentage threshold <strong>breached</strong> (5.2% vs 3.0% limit), absolute threshold <strong>breached</strong> (173,080 DKK vs 117,000 DKK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.departmental_profit</code></dd>
+      </dl>
+    </details>
           
         </div>
         <div class="flag-block">
           <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> Gross Operating Profit (GOP)</h3>
           <p class="narrative">GOP missed Budget by 10.4% this month — the largest gap of the quarter, and it traces to one line: Rooms Payroll&#x27;s overtime and temporary-labor costs (see above), not a demand or revenue issue.</p>
           
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 2.0% threshold <strong>and</strong> the 38,000 DKK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 10.4% (169,513 DKK) vs Budget — percentage threshold <strong>breached</strong> (10.4% vs 2.0% limit), absolute threshold <strong>breached</strong> (169,513 DKK vs 38,000 DKK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.gop</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="flag-block">
           <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> EBITDA</h3>
           <p class="narrative">Follows GOP&#x27;s variance for the same reason — the Rooms Payroll story above flows straight through. Not an independent driver.</p>
+          
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 2.0% threshold <strong>and</strong> the 24,000 DKK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 16.5% (169,757 DKK) vs Budget — percentage threshold <strong>breached</strong> (16.5% vs 2.0% limit), absolute threshold <strong>breached</strong> (169,757 DKK vs 24,000 DKK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.ebitda</code></dd>
+      </dl>
+    </details>
           
         </div>
         <div class="flag-block">
           <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> EBIT</h3>
           <p class="narrative">Same driver as GOP/EBITDA above — no separate action needed here.</p>
           
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 24,000 DKK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 24.4% (168,578 DKK) vs Budget — percentage threshold <strong>breached</strong> (24.4% vs 3.0% limit), absolute threshold <strong>breached</strong> (168,578 DKK vs 24,000 DKK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.ebit</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="flag-block">
           <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> Pre-tax Income</h3>
           <p class="narrative">Same driver as GOP/EBITDA/EBIT above — no separate action needed here.</p>
           
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 21,000 DKK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 27.8% (168,164 DKK) vs Budget — percentage threshold <strong>breached</strong> (27.8% vs 3.0% limit), absolute threshold <strong>breached</strong> (168,164 DKK vs 21,000 DKK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.pretax_income</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="flag-block">
           <h3><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span> GOP %</h3>
           <p class="narrative">GOP % is below Budget for the same reason as the GOP dollar figure above — the Rooms Payroll overage, not a margin-structure issue.</p>
+          
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>KPI thresholds are a single two-tier deviation check (no AND logic): NOTE at or above 2.0pp deviation from Budget, INVESTIGATE at or above 4.0pp. No absolute-currency floor applies to KPIs.</dd>
+        <dt>This period</dt><dd>This period's deviation: <strong>2.9pp</strong> from Budget.</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; kpi_thresholds.gop_pct</code></dd>
+      </dl>
+    </details>
           
         </div>
   </div>

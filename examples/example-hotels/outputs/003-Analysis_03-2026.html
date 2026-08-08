@@ -30,6 +30,11 @@
   details { margin-top: 0.6rem; }
   summary { cursor: pointer; color: #55606B; font-size: 0.88rem; }
   .drill-table { margin-top: 0.5rem; }
+  .audit-fields { display: grid; grid-template-columns: max-content 1fr; gap: 0.3rem 1rem;
+    margin: 0.5rem 0 0; font-size: 0.85rem; line-height: 1.55; }
+  .audit-fields dt { color: #55606B; font-weight: 600; white-space: nowrap; }
+  .audit-fields dd { margin: 0; }
+  .audit-fields code { font-size: 0.82rem; background: #F4F1EC; padding: 0.05rem 0.4rem; border-radius: 4px; }
   .missing-narrative { color: #55606B; font-style: italic; }
   @media print { body { background: #fff; padding: 0; } .report { border: none; } }
 </style>
@@ -378,6 +383,15 @@
           <p class="narrative">Property Operations &amp; Maintenance ran 8.0% under Budget for the third consecutive month — a sustained, consistent pattern rather than noise. Worth a check-in with the team on whether this reflects genuinely lower maintenance need or deferred work; three months running is long enough that it&#x27;s worth confirming deliberately rather than assuming.</p>
           
     <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 4.0% threshold <strong>and</strong> the 4,600 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 8.0% (7,955 SEK) vs Budget — percentage threshold <strong>breached</strong> (8.0% vs 4.0% limit), absolute threshold <strong>breached</strong> (7,955 SEK vs 4,600 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.property_ops_maint</code></dd>
+      </dl>
+    </details>
+          
+    <details>
       <summary>Transaction drill-down (15 transaction(s))</summary>
       <table class="drill-table">
         <thead><tr><th>Vendor</th><th>Amount</th></tr></thead>
@@ -392,6 +406,15 @@
         <div class="flag-block">
           <h3><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span> IT &amp; Systems</h3>
           <p class="narrative">IT &amp; Systems ran 8.0% under Budget, the third straight month at the same margin — consistent, sustained cost control.</p>
+          
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 12,000 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 8.0% (3,182 SEK) vs Budget — percentage threshold <strong>breached</strong> (8.0% vs 3.0% limit), absolute threshold <strong>not breached</strong> (3,182 SEK vs 12,000 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; default</code></dd>
+      </dl>
+    </details>
           
     <details>
       <summary>Transaction drill-down (7 transaction(s))</summary>
@@ -409,15 +432,42 @@
           <h3><span class="status-pill" style="color:#B23A3A;background:#FBEAEA">▲ INVESTIGATE</span> EBITDA</h3>
           <p class="narrative">EBITDA beat Budget by 2.5%, carried by the same Property Operations &amp; Maintenance and IT &amp; Systems savings as GOP.</p>
           
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 2.0% threshold <strong>and</strong> the 12,000 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 2.5% (13,209 SEK) vs Budget — percentage threshold <strong>breached</strong> (2.5% vs 2.0% limit), absolute threshold <strong>breached</strong> (13,209 SEK vs 12,000 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.ebitda</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="flag-block">
           <h3><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span> EBIT</h3>
           <p class="narrative">EBIT beat Budget by 3.1% — the same underlying driver, flowing through cleanly.</p>
           
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 14,000 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 3.1% (12,955 SEK) vs Budget — percentage threshold <strong>breached</strong> (3.1% vs 3.0% limit), absolute threshold <strong>not breached</strong> (12,955 SEK vs 14,000 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.ebit</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="flag-block">
           <h3><span class="status-pill" style="color:#B8860B;background:#FBF3DE">● NOTE</span> Pre-tax Income</h3>
           <p class="narrative">Pre-tax Income beat Budget by 3.4% — a clean, favorable quarter end to end, with no offsetting concerns below GOP.</p>
+          
+    <details>
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 13,000 SEK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 3.4% (12,930 SEK) vs Budget — percentage threshold <strong>breached</strong> (3.4% vs 3.0% limit), absolute threshold <strong>not breached</strong> (12,930 SEK vs 13,000 SEK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.pretax_income</code></dd>
+      </dl>
+    </details>
           
         </div>
   </div>

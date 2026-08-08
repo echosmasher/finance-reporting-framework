@@ -55,6 +55,22 @@
     margin: 0 0 1rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em;
     color: var(--primary); font-weight: 600;
   }
+  .bridge-chart { overflow-x: auto; }
+  .bridge-chart svg { min-width: 480px; }
+  .bridge-legend { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.75rem; font-size: 0.8rem; color: var(--neutral-dark); }
+  .legend-item { display: inline-flex; align-items: center; gap: 0.4rem; opacity: 0.85; }
+  .legend-item .swatch { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+  .trend-block { margin-top: 1.25rem; }
+  .trend-block:first-child { margin-top: 0; }
+  .trend-block h3 { margin: 0 0 0.5rem; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em;
+    color: var(--neutral-dark); opacity: 0.7; font-weight: 600; }
+  table.flag-history { width: auto; min-width: 100%; }
+  table.flag-history th, table.flag-history td { text-align: center; }
+  table.flag-history th:first-child, table.flag-history td:first-child { text-align: left; }
+  table.flag-history .status-pill { cursor: default; }
+  .sparkline { display: block; vertical-align: middle; }
+  .sparkline-wrap { margin-top: 0.5rem; }
+  td .sparkline { margin: 0 auto; }
   .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
   .kpi-card { border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; }
   .kpi-card .label { font-size: 0.82rem; color: var(--neutral-dark); opacity: 0.7; }
@@ -77,6 +93,18 @@
   details { margin-top: 0.75rem; }
   summary { cursor: pointer; font-size: 0.85rem; color: var(--primary); font-weight: 600; }
   .drill-table { margin-top: 0.6rem; }
+  .audit-fields { display: grid; grid-template-columns: max-content 1fr; gap: 0.35rem 1rem;
+    margin: 0.6rem 0 0; font-size: 0.85rem; line-height: 1.55; }
+  .audit-fields dt { color: var(--neutral-dark); opacity: 0.6; font-weight: 600; white-space: nowrap; }
+  .audit-fields dd { margin: 0; }
+  .audit-fields code { font-size: 0.82rem; background: var(--neutral-light); padding: 0.05rem 0.4rem;
+    border-radius: 4px; }
+  .comments { display: flex; flex-direction: column; gap: 0.5rem; }
+  .comment-note { border-left: 3px solid var(--secondary); padding: 0.4rem 0 0.4rem 0.7rem; }
+  .comment-note p { margin: 0; font-size: 0.85rem; line-height: 1.5; font-style: italic; }
+  .comment-byline { margin-top: 0.2rem; font-size: 0.72rem; opacity: 0.6; font-style: normal; }
+  tr.comment-row td { padding: 0.5rem 0.6rem 0.75rem; border-bottom: 1px solid var(--border); text-align: left; }
+  .kpi-card .comments { margin-top: 0.6rem; }
   footer { text-align: center; font-size: 0.78rem; color: var(--neutral-dark); opacity: 0.55;
     margin-top: 2rem; padding-bottom: 1rem; }
   @media (max-width: 640px) {
@@ -107,27 +135,83 @@
 
   <div class="page">
     <section>
+      <h2>Gross Operating Profit (GOP) Bridge &mdash; Budget &rarr; Actual</h2>
+      <div class="bridge-chart">
+    <div class="bridge-legend">
+      <span class="legend-item"><span class="swatch" style="background:#1B3A4B"></span>Gross Operating Profit (GOP) total</span>
+      <span class="legend-item"><span class="swatch" style="background:#2E7D4F"></span>Increases Gross Operating Profit (GOP)</span>
+      <span class="legend-item"><span class="swatch" style="background:#B23A3A"></span>Decreases Gross Operating Profit (GOP)</span>
+    </div>
+    <svg viewBox="0 0 900 340" role="img" aria-label="Gross Operating Profit (GOP) bridge from Budget to Actual"
+         style="width:100%;height:auto;display:block;font-family:inherit">
+      <line x1="90.0" y1="213.5" x2="880.0" y2="213.5" stroke="#DDD8CE" stroke-width="1"/><text x="82.0" y="216.5" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.65">2,800,000</text><line x1="90.0" y1="170.2" x2="880.0" y2="170.2" stroke="#DDD8CE" stroke-width="1"/><text x="82.0" y="173.2" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.65">2,850,000</text><line x1="90.0" y1="126.8" x2="880.0" y2="126.8" stroke="#DDD8CE" stroke-width="1"/><text x="82.0" y="129.8" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.65">2,900,000</text><line x1="90.0" y1="83.5" x2="880.0" y2="83.5" stroke="#DDD8CE" stroke-width="1"/><text x="82.0" y="86.5" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.65">2,950,000</text>
+      <line x1="90.0" y1="240.0" x2="880.0" y2="240.0" stroke="#DDD8CE" stroke-width="1.5"/>
+      <line x1="188.8" y1="200.6" x2="374.2" y2="200.6" stroke="#DDD8CE" stroke-width="1" stroke-dasharray="2,2"/><line x1="386.2" y1="113.9" x2="571.8" y2="113.9" stroke="#DDD8CE" stroke-width="1" stroke-dasharray="2,2"/><line x1="583.8" y1="69.4" x2="769.2" y2="69.4" stroke="#DDD8CE" stroke-width="1" stroke-dasharray="2,2"/>
+      <path d="M176.8,240.0 L176.8,204.6 Q176.8,200.6 180.8,200.6 L196.8,200.6 Q200.8,200.6 200.8,204.6 L200.8,240.0 Z" fill="#1B3A4B"><title>Budget: 2,814,869 NOK</title></path><path d="M374.2,200.6 L374.2,117.9 Q374.2,113.9 378.2,113.9 L394.2,113.9 Q398.2,113.9 398.2,117.9 L398.2,200.6 Z" fill="#2E7D4F"><title>Utilities: +100,076 NOK</title></path><path d="M571.8,113.9 L571.8,73.4 Q571.8,69.4 575.8,69.4 L591.8,69.4 Q595.8,69.4 595.8,73.4 L595.8,113.9 Z" fill="#2E7D4F"><title>Other categories (19): +51,333 NOK</title></path><path d="M769.2,240.0 L769.2,73.4 Q769.2,69.4 773.2,69.4 L789.2,69.4 Q793.2,69.4 793.2,73.4 L793.2,240.0 Z" fill="#1B3A4B"><title>Actual: 2,966,278 NOK</title></path>
+      <text x="188.8" y="192.6" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">2,814,869</text><text x="188.8" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 188.8 254.0)">Budget</text><text x="386.2" y="105.9" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">+100,076</text><text x="386.2" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 386.2 254.0)">Utilities</text><text x="583.8" y="61.4" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">+51,333</text><text x="583.8" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 583.8 254.0)">Other categories (19)</text><text x="781.2" y="61.4" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">2,966,278</text><text x="781.2" y="254.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.75" transform="rotate(-40 781.2 254.0)">Actual</text>
+    </svg></div>
+    </section>
+
+    <section>
+      <h2>Trend</h2>
+      
+    <div class="trend-block">
+      <h3>Gross Operating Profit (GOP) by month</h3>
+      <div class="bridge-chart">
+    <div class="bridge-legend">
+      <span class="legend-item"><span class="swatch" style="background:#2E7D4F"></span>Favorable month</span>
+      <span class="legend-item"><span class="swatch" style="background:#B23A3A"></span>Unfavorable month</span>
+      <span class="legend-item"><span class="swatch" style="background:#1B3A4B;height:3px;width:14px;border-radius:0"></span>Budget</span>
+    </div>
+    <svg viewBox="0 0 900 220" role="img" aria-label="Gross Operating Profit (GOP) actual by month, vs Budget"
+         style="width:100%;height:auto;display:block;font-family:inherit">
+      <line x1="90.0" y1="180.0" x2="880.0" y2="180.0" stroke="#DDD8CE" stroke-width="1"/><text x="82.0" y="183.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.65">0</text><line x1="90.0" y1="136.0" x2="880.0" y2="136.0" stroke="#DDD8CE" stroke-width="1"/><text x="82.0" y="139.0" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.65">1,000,000</text><line x1="90.0" y1="92.1" x2="880.0" y2="92.1" stroke="#DDD8CE" stroke-width="1"/><text x="82.0" y="95.1" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.65">2,000,000</text><line x1="90.0" y1="48.1" x2="880.0" y2="48.1" stroke="#DDD8CE" stroke-width="1"/><text x="82.0" y="51.1" text-anchor="end" font-size="10" fill="#20242A" fill-opacity="0.65">3,000,000</text>
+      <line x1="90.0" y1="180.0" x2="880.0" y2="180.0" stroke="#DDD8CE" stroke-width="1.5"/>
+      <path d="M259.5,180.0 L259.5,58.0 Q259.5,54.0 263.5,54.0 L311.5,54.0 Q315.5,54.0 315.5,58.0 L315.5,180.0 Z" fill="#B23A3A"><title>01-2026: 2,866,680 NOK actual vs 2,967,779 NOK budget</title></path><path d="M654.5,180.0 L654.5,53.6 Q654.5,49.6 658.5,49.6 L706.5,49.6 Q710.5,49.6 710.5,53.6 L710.5,180.0 Z" fill="#2E7D4F"><title>02-2026: 2,966,278 NOK actual vs 2,814,869 NOK budget</title></path>
+      <line x1="255.5" y1="49.6" x2="319.5" y2="49.6" stroke="#1B3A4B" stroke-width="2.5"><title>Budget: 2,967,779 NOK</title></line><line x1="650.5" y1="56.3" x2="714.5" y2="56.3" stroke="#1B3A4B" stroke-width="2.5"><title>Budget: 2,814,869 NOK</title></line>
+      <text x="287.5" y="39.6" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">2,866,680</text><text x="287.5" y="198.0" text-anchor="middle" font-size="11" fill="#20242A" fill-opacity="0.75">01-2026</text><text x="682.5" y="39.6" text-anchor="middle" font-size="11" font-weight="700" fill="#20242A">2,966,278</text><text x="682.5" y="198.0" text-anchor="middle" font-size="11" fill="#20242A" fill-opacity="0.75">02-2026</text>
+    </svg></div>
+    </div>
+    <div class="trend-block">
+      <h3>Flag history by category</h3>
+      
+    <table class="flag-history">
+      <thead><tr><th>Category</th><th>01-2026</th><th>02-2026</th></tr></thead>
+      <tbody><tr><td>Administrative &amp; General</td><td><span class="status-pill status-investigate" title="INVESTIGATE (unfavorable): +13.3%">▲</span></td><td><span class="status-pill status-on-target" title="ON TARGET (unfavorable): +0.9%">✓</span></td></tr><tr><td>Utilities</td><td><span class="status-pill status-on-target" title="ON TARGET (favorable): -0.4%">✓</span></td><td><span class="status-pill status-investigate" title="INVESTIGATE (favorable): -20.4%">▲</span></td></tr><tr><td>Property &amp; Liability Insurance</td><td><span class="status-pill status-investigate" title="INVESTIGATE (unfavorable): +1090.8%">▲</span></td><td><span class="status-pill status-on-target" title="ON TARGET (favorable): -0.0%">✓</span></td></tr></tbody>
+    </table>
+    </div>
+    </section>
+
+    <section>
       <h2>Key Performance Indicators</h2>
       <div class="kpi-grid">
           <div class="kpi-card">
             <div class="label">Occupancy %</div>
             <div class="value">63.2%</div>
             <div class="delta status-pill status-on-target">+ vs 63.0% Budget</div>
+            <div class="sparkline-wrap"><svg class="sparkline" viewBox="0 0 64 22" width="64" height="22" role="img" aria-label="trend over 2 periods"><path d="M3.0,19.0 L61.0,3.0" fill="none" stroke="#DDD8CE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="61.0" cy="3.0" r="2.5" fill="#2E7D4F"/></svg></div>
+            
           </div>
           <div class="kpi-card">
             <div class="label">RevPAR</div>
             <div class="value">921 NOK</div>
             <div class="delta status-pill status-on-target">+ vs 914 NOK Budget</div>
+            <div class="sparkline-wrap"><svg class="sparkline" viewBox="0 0 64 22" width="64" height="22" role="img" aria-label="trend over 2 periods"><path d="M3.0,19.0 L61.0,3.0" fill="none" stroke="#DDD8CE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="61.0" cy="3.0" r="2.5" fill="#2E7D4F"/></svg></div>
+            
           </div>
           <div class="kpi-card">
             <div class="label">Revenue per FTE</div>
             <div class="value">65,414 NOK</div>
             <div class="delta status-pill status-on-target">− vs 67,744 NOK Budget</div>
+            <div class="sparkline-wrap"><svg class="sparkline" viewBox="0 0 64 22" width="64" height="22" role="img" aria-label="trend over 2 periods"><path d="M3.0,3.0 L61.0,19.0" fill="none" stroke="#DDD8CE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="61.0" cy="19.0" r="2.5" fill="#2E7D4F"/></svg></div>
+            
           </div>
           <div class="kpi-card">
             <div class="label">GOP %</div>
             <div class="value">30.1%</div>
             <div class="delta status-pill status-on-target">+ vs 28.7% Budget</div>
+            <div class="sparkline-wrap"><svg class="sparkline" viewBox="0 0 64 22" width="64" height="22" role="img" aria-label="trend over 2 periods"><path d="M3.0,19.0 L61.0,3.0" fill="none" stroke="#DDD8CE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="61.0" cy="3.0" r="2.5" fill="#2E7D4F"/></svg></div>
+            
           </div></div>
     </section>
 
@@ -141,7 +225,7 @@
       
     <table>
       <thead><tr><th>Category</th><th>Actual</th><th>Budget</th>
-        <th>Diff</th><th>Diff %</th><th>Status</th></tr></thead>
+        <th>Diff</th><th>Diff %</th><th>Status</th><th>Trend</th></tr></thead>
       <tbody>
           <tr class="">
             <td>Rooms Revenue</td>
@@ -150,6 +234,7 @@
             <td>52,303 NOK</td>
             <td>+0.8%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>F&amp;B Revenue</td>
@@ -158,6 +243,7 @@
             <td>-26,908 NOK</td>
             <td>-1.0%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Spa &amp; Wellness Revenue</td>
@@ -166,6 +252,7 @@
             <td>7,330 NOK</td>
             <td>+1.5%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Other Operated Departments Revenue</td>
@@ -174,6 +261,7 @@
             <td>7,396 NOK</td>
             <td>+2.4%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Miscellaneous &amp; Rental Income</td>
@@ -182,6 +270,7 @@
             <td>1,393 NOK</td>
             <td>+1.1%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Total Revenue</td>
@@ -190,6 +279,7 @@
             <td>41,514 NOK</td>
             <td>+0.4%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Rooms – Payroll &amp; Related</td>
@@ -198,6 +288,7 @@
             <td>15,009 NOK</td>
             <td>+1.4%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Rooms – Other Expenses</td>
@@ -206,6 +297,7 @@
             <td>4,103 NOK</td>
             <td>+0.8%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>F&amp;B – Cost of Sales</td>
@@ -214,6 +306,7 @@
             <td>-22,085 NOK</td>
             <td>-2.7%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>F&amp;B – Payroll &amp; Related</td>
@@ -222,6 +315,7 @@
             <td>-18,737 NOK</td>
             <td>-1.9%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>F&amp;B – Other Expenses</td>
@@ -230,6 +324,7 @@
             <td>-4,502 NOK</td>
             <td>-1.6%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Spa &amp; Wellness – Payroll &amp; Related</td>
@@ -238,6 +333,7 @@
             <td>1,288 NOK</td>
             <td>+0.9%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Spa &amp; Wellness – Other Expenses</td>
@@ -246,6 +342,7 @@
             <td>1,346 NOK</td>
             <td>+1.8%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Other Operated Departments – Expenses</td>
@@ -254,6 +351,7 @@
             <td>3,219 NOK</td>
             <td>+2.6%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Total Departmental Expenses</td>
@@ -262,6 +360,7 @@
             <td>-20,359 NOK</td>
             <td>-0.5%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Departmental Profit</td>
@@ -270,6 +369,7 @@
             <td>61,873 NOK</td>
             <td>+1.1%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Administrative &amp; General</td>
@@ -278,6 +378,7 @@
             <td>6,999 NOK</td>
             <td>+0.9%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Sales &amp; Marketing</td>
@@ -286,6 +387,7 @@
             <td>-2,564 NOK</td>
             <td>-0.4%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Property Operations &amp; Maintenance</td>
@@ -294,6 +396,7 @@
             <td>2,057 NOK</td>
             <td>+0.4%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Utilities</td>
@@ -302,6 +405,7 @@
             <td>-100,076 NOK</td>
             <td>-20.4%</td>
             <td><span class="status-pill status-investigate">INVESTIGATE</span></td>
+            <td><svg class="sparkline" viewBox="0 0 64 22" width="64" height="22" role="img" aria-label="trend over 2 periods"><path d="M3.0,3.0 L61.0,19.0" fill="none" stroke="#DDD8CE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="61.0" cy="19.0" r="2.5" fill="#B23A3A"/></svg></td>
           </tr>
           <tr class="">
             <td>IT &amp; Systems</td>
@@ -310,6 +414,7 @@
             <td>903 NOK</td>
             <td>+0.5%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Human Resources &amp; Training</td>
@@ -318,6 +423,7 @@
             <td>1,953 NOK</td>
             <td>+1.0%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Security</td>
@@ -326,6 +432,7 @@
             <td>1,191 NOK</td>
             <td>+0.8%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Total Undistributed Operating Expenses</td>
@@ -334,6 +441,7 @@
             <td>-89,536 NOK</td>
             <td>-3.0%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal focus-metric">
             <td>Gross Operating Profit (GOP)</td>
@@ -342,6 +450,7 @@
             <td>151,409 NOK</td>
             <td>+5.4%</td>
             <td><span class="status-pill status-investigate">INVESTIGATE</span></td>
+            <td><svg class="sparkline" viewBox="0 0 64 22" width="64" height="22" role="img" aria-label="trend over 2 periods"><path d="M3.0,19.0 L61.0,3.0" fill="none" stroke="#DDD8CE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="61.0" cy="3.0" r="2.5" fill="#B23A3A"/></svg></td>
           </tr>
           <tr class="">
             <td>Management Fees</td>
@@ -350,6 +459,7 @@
             <td>-1,785 NOK</td>
             <td>-0.6%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Franchise &amp; Brand Fees</td>
@@ -358,6 +468,7 @@
             <td>1,528 NOK</td>
             <td>+0.5%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Property &amp; Liability Insurance</td>
@@ -366,6 +477,7 @@
             <td>-63 NOK</td>
             <td>-0.0%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Property Tax &amp; Licenses</td>
@@ -374,6 +486,7 @@
             <td>-17 NOK</td>
             <td>-0.0%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="">
             <td>Rent / Lease</td>
@@ -382,6 +495,7 @@
             <td>145 NOK</td>
             <td>+0.1%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Total Fixed Charges</td>
@@ -390,6 +504,7 @@
             <td>-193 NOK</td>
             <td>-0.0%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal focus-metric">
             <td>EBITDA</td>
@@ -398,6 +513,7 @@
             <td>151,602 NOK</td>
             <td>+8.5%</td>
             <td><span class="status-pill status-investigate">INVESTIGATE</span></td>
+            <td><svg class="sparkline" viewBox="0 0 64 22" width="64" height="22" role="img" aria-label="trend over 2 periods"><path d="M3.0,19.0 L61.0,3.0" fill="none" stroke="#DDD8CE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="61.0" cy="3.0" r="2.5" fill="#B23A3A"/></svg></td>
           </tr>
           <tr class="">
             <td>Depreciation &amp; Amortization</td>
@@ -406,6 +522,7 @@
             <td>581 NOK</td>
             <td>+0.1%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>EBIT</td>
@@ -414,6 +531,7 @@
             <td>151,021 NOK</td>
             <td>+12.7%</td>
             <td><span class="status-pill status-investigate">INVESTIGATE</span></td>
+            <td><svg class="sparkline" viewBox="0 0 64 22" width="64" height="22" role="img" aria-label="trend over 2 periods"><path d="M3.0,19.0 L61.0,3.0" fill="none" stroke="#DDD8CE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="61.0" cy="3.0" r="2.5" fill="#B23A3A"/></svg></td>
           </tr>
           <tr class="">
             <td>Interest Expense</td>
@@ -422,6 +540,7 @@
             <td>-409 NOK</td>
             <td>-0.3%</td>
             <td><span class="status-pill status-on-target">ON TARGET</span></td>
+            <td>—</td>
           </tr>
           <tr class="subtotal">
             <td>Pre-tax Income</td>
@@ -430,6 +549,7 @@
             <td>151,430 NOK</td>
             <td>+14.5%</td>
             <td><span class="status-pill status-investigate">INVESTIGATE</span></td>
+            <td><svg class="sparkline" viewBox="0 0 64 22" width="64" height="22" role="img" aria-label="trend over 2 periods"><path d="M3.0,19.0 L61.0,3.0" fill="none" stroke="#DDD8CE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="61.0" cy="3.0" r="2.5" fill="#B23A3A"/></svg></td>
           </tr></tbody>
     </table>
     </section>
@@ -440,6 +560,15 @@
         <div class="highlight-card">
           <h3><span class="status-pill status-investigate">INVESTIGATE</span> Utilities</h3>
           <p>Utilities landed at 391,068 NOK against a Budget of 491,144 NOK — 20.4% under. Confirm the February electricity invoice was actually received and posted: the drill-down shows only a 5,267 NOK &quot;estimated accrual&quot; for Electricity this month, while every other utilities account (heating, water, waste, fuel) is running at its normal level. A gap this size, concentrated in a single account, usually means the invoice hasn&#x27;t arrived yet rather than genuine savings — expect this to reverse, and likely overshoot, once it&#x27;s billed.</p>
+          
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 4.0% threshold <strong>and</strong> the 27,000 NOK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 20.4% (100,076 NOK) vs Budget — percentage threshold <strong>breached</strong> (20.4% vs 4.0% limit), absolute threshold <strong>breached</strong> (100,076 NOK vs 27,000 NOK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.utilities</code></dd>
+      </dl>
+    </details>
           
     <details>
       <summary>Transaction drill-down (10 transaction(s))</summary>
@@ -453,20 +582,56 @@
           <h3><span class="status-pill status-investigate">INVESTIGATE</span> Gross Operating Profit (GOP)</h3>
           <p>GOP beat Budget by 5.4% (151,409 NOK), but the Utilities shortfall above accounts for most of it. On a normalized basis — adding back the missing utilities charge — the underlying beat is closer to flat. Worth keeping in mind before this reads as a clean operational win.</p>
           
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 2.0% threshold <strong>and</strong> the 77,000 NOK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 5.4% (151,409 NOK) vs Budget — percentage threshold <strong>breached</strong> (5.4% vs 2.0% limit), absolute threshold <strong>breached</strong> (151,409 NOK vs 77,000 NOK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.gop</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="highlight-card">
           <h3><span class="status-pill status-investigate">INVESTIGATE</span> EBITDA</h3>
           <p>Follows GOP&#x27;s favorable variance for the same reason — the Utilities timing gap flows straight through. Not an independent story.</p>
+          
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 2.0% threshold <strong>and</strong> the 49,000 NOK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 8.5% (151,602 NOK) vs Budget — percentage threshold <strong>breached</strong> (8.5% vs 2.0% limit), absolute threshold <strong>breached</strong> (151,602 NOK vs 49,000 NOK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.ebitda</code></dd>
+      </dl>
+    </details>
           
         </div>
         <div class="highlight-card">
           <h3><span class="status-pill status-investigate">INVESTIGATE</span> EBIT</h3>
           <p>Same driver as GOP/EBITDA above — no separate action needed here.</p>
           
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 49,000 NOK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 12.7% (151,021 NOK) vs Budget — percentage threshold <strong>breached</strong> (12.7% vs 3.0% limit), absolute threshold <strong>breached</strong> (151,021 NOK vs 49,000 NOK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.ebit</code></dd>
+      </dl>
+    </details>
+          
         </div>
         <div class="highlight-card">
           <h3><span class="status-pill status-investigate">INVESTIGATE</span> Pre-tax Income</h3>
           <p>Same driver as GOP/EBITDA/EBIT above — no separate action needed here.</p>
+          
+    <details class="audit-trail">
+      <summary>Why was this flagged?</summary>
+      <dl class="audit-fields">
+        <dt>Rule</dt><dd>INVESTIGATE requires breaching <strong>both</strong> the 3.0% threshold <strong>and</strong> the 43,000 NOK threshold vs Budget; NOTE requires breaching either one alone; otherwise ON TARGET.</dd>
+        <dt>This period</dt><dd>This period: 14.5% (151,430 NOK) vs Budget — percentage threshold <strong>breached</strong> (14.5% vs 3.0% limit), absolute threshold <strong>breached</strong> (151,430 NOK vs 43,000 NOK limit).</dd>
+        <dt>Config source</dt><dd><code>thresholds.yaml &rarr; category_overrides.pretax_income</code></dd>
+      </dl>
+    </details>
           
         </div>
     </section>
