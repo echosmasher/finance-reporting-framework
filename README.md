@@ -80,9 +80,28 @@ normalize → deterministically flag every deviation against threshold →
 company's own investigation checklists. See **Architecture** below for
 why that split matters.
 
-After `/dashboard` renders, `/feedback` lets a reviewer pin a comment to
-a row/KPI or edit/remove the LLM-written narrative for a flagged item,
-in plain language, then re-renders — see `skills/feedback/SKILL.md`.
+After `/dashboard` renders, `/feedback` lets whoever's reviewing it talk
+to Claude Code in plain language and have the dashboard reflect it — no
+hand-edited JSON, no separate redeploy step:
+
+- *"Add a comment to Sales & Marketing: we received a delayed invoice
+  from Acme Media."* — pins a note to that row or KPI, attributed and
+  dated, visually distinct from the LLM-written narrative.
+- *"Remove the note on F&B revenue."* — suppresses the generated
+  narrative for a flagged item. The flag and its status pill stay
+  visible either way; only the prose explanation is hidden.
+
+It refuses anything that isn't a comment or a narrative edit — asking to
+change a status or a number gets redirected to `/setup` (adjust a
+threshold) or `/analysis` (fix bad input data), never quietly honored,
+since a comment can't override a number `analyze.py` already computed
+(`CLAUDE.md`'s Python-computes/Claude-interprets split). Feedback is
+stored in `feedback/feedback_{ENTITY}_{PERIOD}.json` — human-authored,
+same category as `config/`, survives an `outputs/` wipe — via
+`skills/feedback/scripts/feedback_store.py`, then `/dashboard`
+re-renders automatically. Full behavior in `skills/feedback/SKILL.md`;
+`examples/example-hotels/feedback/feedback_002_02-2026.json` is a real
+committed before/after (Example Hotel Bergen's February dashboard).
 
 ## Quickstart: the demo
 
@@ -146,7 +165,8 @@ config/                          ← everything company-specific lives here
 skills/
 ├── setup/       → interview that produces config/
 ├── analysis/    → validate → preprocess → analyze → narrate
-└── dashboard/   → render config/'s brand tokens + analysis into HTML
+├── dashboard/   → render config/'s brand tokens + analysis into HTML
+└── feedback/    → reviewer comments + narrative edits, re-renders the dashboard
 ```
 
 **The non-negotiable principle**: `skills/` and `scripts/` are generic
