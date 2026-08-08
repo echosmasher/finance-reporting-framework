@@ -54,8 +54,13 @@ in `inbox/`.
      │                    (the numbers)   dashboard    │
      │                                   (the audience)│
      └─────────────────────────────────────────────┘
-                       │
-                       ▼
+                                             │
+                                             ▼
+                                        /feedback  (reviewer comments,
+                                                     narrative edits —
+                                                     re-renders /dashboard)
+                                             │
+                                             ▼
                   distribute (file, email, or a URL —
                   see docs/DEPLOYMENT.md)
 ```
@@ -65,6 +70,10 @@ normalize → deterministically flag every deviation against threshold →
 *then* an LLM narrative pass explains the flagged items, using the
 company's own investigation checklists. See **Architecture** below for
 why that split matters.
+
+After `/dashboard` renders, `/feedback` lets a reviewer pin a comment to
+a row/KPI or edit/remove the LLM-written narrative for a flagged item,
+in plain language, then re-renders — see `skills/feedback/SKILL.md`.
 
 ## Quickstart: the demo
 

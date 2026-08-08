@@ -77,6 +77,12 @@
   details { margin-top: 0.75rem; }
   summary { cursor: pointer; font-size: 0.85rem; color: var(--primary); font-weight: 600; }
   .drill-table { margin-top: 0.6rem; }
+  .comments { display: flex; flex-direction: column; gap: 0.5rem; }
+  .comment-note { border-left: 3px solid var(--secondary); padding: 0.4rem 0 0.4rem 0.7rem; }
+  .comment-note p { margin: 0; font-size: 0.85rem; line-height: 1.5; font-style: italic; }
+  .comment-byline { margin-top: 0.2rem; font-size: 0.72rem; opacity: 0.6; font-style: normal; }
+  tr.comment-row td { padding: 0.5rem 0.6rem 0.75rem; border-bottom: 1px solid var(--border); text-align: left; }
+  .kpi-card .comments { margin-top: 0.6rem; }
   footer { text-align: center; font-size: 0.78rem; color: var(--neutral-dark); opacity: 0.55;
     margin-top: 2rem; padding-bottom: 1rem; }
   @media (max-width: 640px) {
@@ -113,21 +119,25 @@
             <div class="label">Occupancy %</div>
             <div class="value">48.3%</div>
             <div class="delta status-pill status-on-target">+ vs 48.0% Budget</div>
+            
           </div>
           <div class="kpi-card">
             <div class="label">RevPAR</div>
             <div class="value">606 NOK</div>
             <div class="delta status-pill status-on-target">+ vs 600 NOK Budget</div>
+            
           </div>
           <div class="kpi-card">
             <div class="label">Revenue per FTE</div>
             <div class="value">44,674 NOK</div>
             <div class="delta status-pill status-on-target">+ vs 44,282 NOK Budget</div>
+            
           </div>
           <div class="kpi-card">
             <div class="label">GOP %</div>
             <div class="value">25.4%</div>
             <div class="delta status-pill status-note">− vs 28.7% Budget</div>
+            
           </div></div>
     </section>
 
@@ -214,7 +224,7 @@
             <td>127,035 NOK</td>
             <td>+40.0%</td>
             <td><span class="status-pill status-investigate">INVESTIGATE</span></td>
-          </tr>
+          </tr><tr class="comment-row"><td colspan="6"><div class="comments"><div class="comment-note"><p>Confirmed with the F&amp;B manager: this was the scheduled Q1 physical stock count, not a control gap. Ordering cadence for perishables has already been tightened to reduce future write-offs.</p><div class="comment-byline">K. Solberg, Controller &middot; 2026-08-08</div></div></div></td></tr>
           <tr class="">
             <td>F&amp;B – Payroll &amp; Related</td>
             <td>373,926 NOK</td>
@@ -476,7 +486,7 @@
         </div>
         <div class="highlight-card">
           <h3><span class="status-pill status-investigate">INVESTIGATE</span> Pre-tax Income</h3>
-          <p>Same driver as GOP/EBITDA/EBIT above — no separate action needed here.</p>
+          <p><em>Narrative note removed by K. Solberg, Controller on 2026-08-08.</em></p>
           
         </div>
         <div class="highlight-card">

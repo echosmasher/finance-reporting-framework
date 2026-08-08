@@ -4,7 +4,7 @@ An AI-assisted monthly financial reporting framework for accountants and
 financial controllers. See `PLAN.md` for the full spec and `tasks.md` for
 build status.
 
-## The three skills
+## The four skills
 
 - **`/setup`** — one-time (re-runnable) interview that produces the config
   layer in `config/`. Run this first for a new company.
@@ -12,6 +12,10 @@ build status.
   per-entity analysis (`outputs/*-Analysis_*.html` + a machine-readable JSON).
 - **`/dashboard`** — turns an entity's analysis JSON into a polished,
   brand-styled, self-contained HTML dashboard (`outputs/*-Dashboard_*.html`).
+- **`/feedback`** — after `/dashboard` has rendered, add reviewer comments to
+  a row/KPI or edit/remove the LLM-written narrative, then re-render. Reads
+  and writes `feedback/feedback_{ENTITY}_{PERIOD}.json`; never touches a
+  number or a status (see below).
 
 `/analysis` and `/dashboard` both refuse to run with a clear message if
 required `config/` files are missing — they point the user back to `/setup`.
@@ -36,7 +40,10 @@ Python.
 
 - `config/` — populated by `/setup`; the contract every other skill reads.
 - `inbox/` — user drops monthly ERP exports here.
-- `outputs/` — generated analyses and dashboards.
+- `outputs/` — generated analyses and dashboards. Fully regenerable —
+  never put anything here that needs to survive a re-run.
+- `feedback/` — user-authored, like `config/`: `/feedback`'s comments and
+  narrative edits, keyed by entity/period. Survives an `outputs/` wipe.
 - `references/` — user-maintained reference data (mapping files, samples).
 - `examples/example-hotels/` — the fully configured demo company, end to end.
   Treat it as the reference example of every config schema.

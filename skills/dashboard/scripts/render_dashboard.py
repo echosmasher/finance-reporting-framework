@@ -20,7 +20,9 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent.parent / "analysis" / "scripts"))
+sys.path.insert(0, str(Path(__file__).parent.parent.parent / "feedback" / "scripts"))
 from config_loader import ConfigError, load_brand  # noqa: E402
+from feedback_store import apply_overrides_to_narrative, comments_by_row, load_feedback, stale_overrides  # noqa: E402
 
 TEMPLATE_PATH = Path(__file__).parent.parent / "templates" / "dashboard_base.html"
 
@@ -92,7 +94,23 @@ def fmt_kpi_value(value: float, fmt: str, currency: str) -> str:
     return f"{value:,.0f} {currency}"
 
 
-def render_kpi_cards(analysis: dict) -> str:
+def render_comment_notes(comments: list) -> str:
+    """Renders a row's/KPI's pinned comments — reviewer notes added via
+    /feedback, visually distinct from the LLM-written narrative (no
+    status-color styling, an attribution line instead) so a reader can
+    always tell a human annotation from generated prose."""
+    if not comments:
+        return ""
+    notes = "".join(
+        f'<div class="comment-note"><p>{html.escape(c["text"])}</p>'
+        f'<div class="comment-byline">{html.escape(c["author"])} &middot; {html.escape(c["created_at"][:10])}</div></div>'
+        for c in comments
+    )
+    return f'<div class="comments">{notes}</div>'
+
+
+def render_kpi_cards(analysis: dict, comments_by_row: dict = None) -> str:
+    comments_by_row = comments_by_row or {}
     cards = []
     for kpi in analysis["kpis"]:
         status_class = STATUS_CLASS[kpi["status"]]
@@ -102,11 +120,13 @@ def render_kpi_cards(analysis: dict) -> str:
             <div class="label">{html.escape(kpi['label'])}</div>
             <div class="value">{fmt_kpi_value(kpi['act'], kpi['format'], analysis['currency'])}</div>
             <div class="delta status-pill {status_class}">{arrow} vs {fmt_kpi_value(kpi['budget'], kpi['format'], analysis['currency'])} {html.escape(analysis['comparison_label'])}</div>
+            {render_comment_notes(comments_by_row.get(kpi['id']))}
           </div>""")
     return f'<div class="kpi-grid">{"".join(cards)}</div>'
 
 
-def render_pnl_table(analysis: dict) -> str:
+def render_pnl_table(analysis: dict, comments_by_row: dict = None) -> str:
+    comments_by_row = comments_by_row or {}
     emphasize = {analysis["focus_metric"], analysis["secondary_metric"]}
     rows = []
     for entry in analysis["pnl"]:
@@ -126,6 +146,9 @@ def render_pnl_table(analysis: dict) -> str:
             <td>{diff_pct}</td>
             <td><span class="status-pill {status_class}">{html.escape(entry['status'])}</span></td>
           </tr>""")
+        row_comments = comments_by_row.get(entry["id"])
+        if row_comments:
+            rows.append(f'<tr class="comment-row"><td colspan="6">{render_comment_notes(row_comments)}</td></tr>')
     return f"""
     <table>
       <thead><tr><th>Category</th><th>Actual</th><th>{html.escape(analysis['comparison_label'])}</th>
@@ -149,15 +172,23 @@ def render_drill_down(drill_down: dict, currency: str) -> str:
     </details>"""
 
 
-def render_deviation_highlights(analysis: dict, narrative: dict) -> str:
+def render_deviation_highlights(analysis: dict, narrative: dict, feedback: dict = None) -> str:
     category_narratives = (narrative or {}).get("category_narratives", {})
+    overrides = (feedback or {}).get("narrative_overrides", {})
     if not analysis["flags"]:
         return "<p>No categories or KPIs breached threshold this period.</p>"
     blocks = []
     for flag in analysis["flags"]:
         status_class = STATUS_CLASS[flag["status"]]
-        text = category_narratives.get(flag["id"])
-        narrative_html = html.escape(text) if text else "Narrative not yet written for this item."
+        override = overrides.get(flag["id"])
+        if override and override.get("text") is None:
+            narrative_html = (
+                f'<em>Narrative note removed by {html.escape(override["author"])} '
+                f'on {html.escape(override["created_at"][:10])}.</em>'
+            )
+        else:
+            text = category_narratives.get(flag["id"])
+            narrative_html = html.escape(text) if text else "Narrative not yet written for this item."
         drill_down_html = ""
         if flag["id"] in analysis["drill_downs"]:
             drill_down_html = render_drill_down(analysis["drill_downs"][flag["id"]], analysis["currency"])
@@ -170,27 +201,34 @@ def render_deviation_highlights(analysis: dict, narrative: dict) -> str:
     return "".join(blocks)
 
 
-def render_profitability_summary(narrative: dict) -> str:
+def render_profitability_summary(narrative: dict, feedback: dict = None) -> str:
+    override = ((feedback or {}).get("narrative_overrides", {})).get("profitability_summary")
+    if override and override.get("text") is None:
+        return (
+            f'<p><em>Summary removed by {html.escape(override["author"])} '
+            f'on {html.escape(override["created_at"][:10])}.</em></p>'
+        )
     text = (narrative or {}).get("profitability_summary")
     if text:
         return f"<p>{html.escape(text)}</p>"
     return "<p>Narrative not yet written — run /analysis via Claude Code to generate it before /dashboard.</p>"
 
 
-def render_dashboard_html(analysis: dict, narrative: dict, brand: dict, config_dir: Path) -> str:
+def render_dashboard_html(analysis: dict, narrative: dict, brand: dict, config_dir: Path, feedback: dict = None) -> str:
     colors = brand["colors"]
     status_colors = brand["status_colors"]
     surface = colors["surface"]
+    rows_with_comments = comments_by_row(feedback)
 
     tokens = {
         "ENTITY_NAME": html.escape(analysis["entity_name"]),
         "PERIOD": html.escape(analysis["period"]),
         "COMPARISON_LABEL": html.escape(analysis["comparison_label"]),
         "LOGO_HTML": render_logo_html(brand, config_dir),
-        "KPI_CARDS_HTML": render_kpi_cards(analysis),
-        "PROFITABILITY_SUMMARY_HTML": render_profitability_summary(narrative),
-        "PNL_TABLE_HTML": render_pnl_table(analysis),
-        "DEVIATION_HIGHLIGHTS_HTML": render_deviation_highlights(analysis, narrative),
+        "KPI_CARDS_HTML": render_kpi_cards(analysis, rows_with_comments),
+        "PROFITABILITY_SUMMARY_HTML": render_profitability_summary(narrative, feedback),
+        "PNL_TABLE_HTML": render_pnl_table(analysis, rows_with_comments),
+        "DEVIATION_HIGHLIGHTS_HTML": render_deviation_highlights(analysis, narrative, feedback),
         "PRIMARY_COLOR": colors["primary"],
         "SECONDARY_COLOR": colors["secondary"],
         "NEUTRAL_DARK": colors["neutral_dark"],
@@ -213,7 +251,8 @@ def render_dashboard_html(analysis: dict, narrative: dict, brand: dict, config_d
     return html_out
 
 
-def render_dashboard_report(analysis_path: Path, narrative_path: Path, config_dir: Path, outputs_dir: Path) -> Path:
+def render_dashboard_report(analysis_path: Path, narrative_path: Path, config_dir: Path, outputs_dir: Path,
+                             feedback_dir: Path = None) -> Path:
     with open(analysis_path) as f:
         analysis = json.load(f)
     narrative = None
@@ -222,10 +261,22 @@ def render_dashboard_report(analysis_path: Path, narrative_path: Path, config_di
             narrative = json.load(f)
     brand = get_brand(config_dir)
 
+    feedback = None
+    if feedback_dir is not None:
+        feedback = load_feedback(feedback_dir, analysis["entity_code"], analysis["period"])
+        for row_id in stale_overrides(narrative, feedback):
+            print(
+                f"WARNING: narrative override on '{row_id}' for {analysis['entity_code']}/{analysis['period']} "
+                "was written against LLM text that has since changed (narrative JSON was regenerated) — "
+                "the override still applied, but review it.",
+                file=sys.stderr,
+            )
+        narrative = apply_overrides_to_narrative(narrative, feedback)
+
     outputs_dir.mkdir(parents=True, exist_ok=True)
     out_path = outputs_dir / f"{analysis['entity_code']}-Dashboard_{analysis['period']}.html"
     with open(out_path, "w") as f:
-        f.write(render_dashboard_html(analysis, narrative, brand, config_dir))
+        f.write(render_dashboard_html(analysis, narrative, brand, config_dir, feedback))
     return out_path
 
 
@@ -235,6 +286,9 @@ def main():
     parser.add_argument("--entities", help="comma-separated entity codes (default: all analysis_*.json found)")
     parser.add_argument("--config-dir", default="config", type=Path)
     parser.add_argument("--outputs-dir", default="outputs", type=Path)
+    parser.add_argument("--feedback-dir", default="feedback", type=Path,
+                         help="directory of feedback_{ENTITY}_{PERIOD}.json files (default: feedback); "
+                              "pass a nonexistent dir to render with no feedback applied")
     args = parser.parse_args()
 
     outputs_dir = args.outputs_dir
@@ -252,7 +306,7 @@ def main():
             print(f"SKIPPED: {analysis_path} not found — run /analysis first", file=sys.stderr)
             continue
         narrative_path = outputs_dir / f"narrative_{entity_code}_{args.period}.json"
-        out_path = render_dashboard_report(analysis_path, narrative_path, args.config_dir, outputs_dir)
+        out_path = render_dashboard_report(analysis_path, narrative_path, args.config_dir, outputs_dir, args.feedback_dir)
         print(f"{entity_code}: wrote {out_path}" + ("" if narrative_path.exists() else " (no narrative found)"))
         rendered.append(entity_code)
 

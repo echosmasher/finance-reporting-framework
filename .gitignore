@@ -33,3 +33,5 @@ htmlcov/
 !/config/.gitkeep
 /references/*
 !/references/.gitkeep
+/feedback/*
+!/feedback/.gitkeep

@@ -56,6 +56,15 @@ number here is reproducible straight from the committed CSVs in `inbox/`.
   threshold). `investigation-guide.md`'s F&B COGS checklist item 1
   ("pull the transaction drill-down... a manual inventory adjustment can
   land the whole month's variance in one entry") applies directly.
+- **`/feedback` demo:** this dashboard (`002-Dashboard_02-2026.html`)
+  also carries two committed edits from `examples/example-hotels/feedback/feedback_002_02-2026.json`,
+  applied via `/feedback` after the fact — a real before/after for the
+  skill, not just a description of it. A comment on F&B – Cost of Sales
+  confirms with the F&B manager that the write-off was a scheduled stock
+  count, not a control issue; the Pre-tax Income narrative (which just
+  repeated "same driver as GOP/EBITDA/EBIT above" a third time) is
+  suppressed as redundant once GOP's narrative already explains it. Diff
+  it against `git log` to see exactly what `/feedback` changed.
 
 ### 3. Payroll not tracking occupancy — Example Hotel Copenhagen (004), Rooms – Payroll & Related
 

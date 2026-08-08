@@ -80,11 +80,15 @@ audience, and recommend a tier based on their answer. Three tiers exist
    Workspace that wants dashboards reachable by URL instead of email
    attachments: a Drive folder holds the HTML files, a small `Code.gs`
    serves them by entity/period parameter. Static serving only — flag
-   this explicitly if the user wants interactive features (comments,
-   approval clicks, anything that writes back): the GAS iframe sandbox
-   blocks that (see `docs/LESSONS_LEARNED.md` for why). Recommend this
-   tier only if the user confirms Google Workspace admin access to set
-   up the Apps Script project.
+   this explicitly if the user wants a *reader of the deployed
+   dashboard* to submit something interactively (comments, approval
+   clicks, anything the served page's own JavaScript would write back):
+   the GAS iframe sandbox blocks that (see `docs/LESSONS_LEARNED.md` for
+   why). This doesn't affect `/feedback` — that's a reviewer talking to
+   Claude Code directly, which re-renders and redeploys a new file; it
+   works on every tier, including this one. Recommend this tier only if
+   the user confirms Google Workspace admin access to set up the Apps
+   Script project.
 3. **Static hosting (GitHub Pages, internal web server).** For an
    organization that already has one and allows publishing to it.
    **Never recommend a public host (like GitHub Pages) for real

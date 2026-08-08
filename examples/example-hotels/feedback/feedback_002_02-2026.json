@@ -1,0 +1,19 @@
+{
+  "comments": [
+    {
+      "id": "c1",
+      "row_id": "fb_cogs",
+      "text": "Confirmed with the F&B manager: this was the scheduled Q1 physical stock count, not a control gap. Ordering cadence for perishables has already been tightened to reduce future write-offs.",
+      "author": "K. Solberg, Controller",
+      "created_at": "2026-08-08T09:14:08.257235+00:00"
+    }
+  ],
+  "narrative_overrides": {
+    "pretax_income": {
+      "text": null,
+      "supersedes": "Same driver as GOP/EBITDA/EBIT above \u2014 no separate action needed here.",
+      "author": "K. Solberg, Controller",
+      "created_at": "2026-08-08T09:14:08.302630+00:00"
+    }
+  }
+}

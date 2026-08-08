@@ -52,9 +52,25 @@ architecture:
    load-bearing once you ask what happens with the response after it's
    submitted.
 
-This framework deliberately ships with none of the above built in —
-see `docs/ROADMAP.md` for the feedback/comment workflow as an explicit
-v2 idea, not a v1 gap.
+This framework deliberately ships with none of the above built in for a
+*reader submitting from inside the served dashboard* — see
+`docs/ROADMAP.md` for that half of the feedback/comment workflow as an
+explicit, still-deferred idea, not an oversight.
+
+**Resolution, for the half of this that doesn't need any of the
+above.** Alternative #1 above generalizes further than "use a native
+platform feature": the write-back only has to happen somewhere that
+isn't the sandboxed iframe — it doesn't have to be a platform feature
+at all if the "somewhere" is a person with filesystem access instead of
+the browser. The `/feedback` skill is exactly that: a reviewer (in
+practice, the controller, not the GM reading the deployed dashboard)
+tells Claude Code what to add or change, Claude Code edits
+`feedback/feedback_{ENTITY}_{PERIOD}.json` locally and re-renders — no
+`fetch()`, no server, so no sandbox to hit. This covers reviewer
+comments and narrative edits/removals; it deliberately does not cover a
+GM commenting directly from the dashboard they're viewing, which is
+still exactly the problem described above and still unsolved for the
+zero-infrastructure deployment tiers.
 
 ## 2. Why self-contained HTML over a served app
 

@@ -5,13 +5,34 @@ clear these were considered and deliberately deferred, not overlooked.
 
 ## Feedback / correction workflow
 
-Reviewer comments, an adjustment cascade through subtotals when a
-number is corrected, versioned dashboards. `docs/LESSONS_LEARNED.md`'s
-first case study covers why this is harder than "just add a comment
-box" once a dashboard is served through the Google Apps Script tier —
-any real version of this needs to either avoid that sandbox entirely or
-lean on a native platform feature (Drive comments, a linked form)
-instead of the dashboard's own JavaScript making a write-back request.
+**Reviewer-side comments and narrative edits shipped** (`/feedback`,
+Phase 6 task 26 in `tasks.md`) — after `/dashboard` renders, tell Claude
+Code in plain language to pin a comment to a row/KPI, or edit/remove the
+LLM-written narrative for a flagged item; it re-renders the dashboard
+with the change applied. This works because it's Claude Code editing a
+local JSON file and re-rendering, not the deployed dashboard's own
+JavaScript making a write-back request — so the Google Apps Script
+sandbox problem below never applies to it.
+
+Still out of scope, deliberately:
+
+- **GM-facing write-back from inside the served dashboard itself** —
+  a reader submitting a comment directly from the HTML they're viewing,
+  with no Claude Code session in the loop. `docs/LESSONS_LEARNED.md`'s
+  first case study covers why this is harder than "just add a comment
+  box" once a dashboard is served through the Google Apps Script tier —
+  any real version of this needs to either avoid that sandbox entirely
+  (a served app, tier 3 territory) or lean on a native platform feature
+  (Drive comments, a linked form) instead of the dashboard's own
+  JavaScript making the request.
+- **An adjustment cascade through subtotals when a number is
+  corrected.** `/feedback` deliberately never touches a number or a
+  status — see `CLAUDE.md`'s Python-computes/Claude-interprets rule. A
+  wrong number is a `/setup`/`/analysis` problem (bad threshold, bad
+  input data), not something a comment should be able to override.
+- **Versioned dashboards** — no history of a dashboard's prior states,
+  before/after a `/feedback` edit, is kept beyond `feedback/`'s own
+  edit-attribution fields (`author`, `created_at`, `supersedes`).
 
 ## YTD and trailing-12 views; multi-period trend charts
 
