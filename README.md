@@ -11,7 +11,7 @@ captured once during setup.**
 ## The loop
 
 Validate → preprocess → flag deviations against threshold → render a
-dashboard — the same deterministic pipeline `/analysis` and `/dashboard`
+dashboard - the same deterministic pipeline `/analysis` and `/dashboard`
 run in Claude Code, shown here as its own underlying scripts so the
 mechanism is visible, not just the slash commands:
 
@@ -33,13 +33,13 @@ deployment needed to look around.
 A controller closing the month spends days pulling GL exports,
 reconciling them against budget, figuring out which of a hundred small
 variances actually matter, and writing it all up in language a GM or a
-board will actually read — every month, for every property, mostly by
+board will actually read, every month, for every property, mostly by
 hand. The analysis itself isn't hard for an experienced controller; it's
 just slow, and the tacit knowledge behind it ("a low Utilities number
 usually means a missing invoice, not real savings") lives in their head,
 not anywhere a spreadsheet can apply it automatically.
 
-This framework doesn't try to replace that judgment — it captures it
+This framework doesn't try to replace that judgment, it captures it
 once, in `/setup`, and then applies it automatically every month: the
 same threshold logic, the same investigation instincts, the same
 company-specific tone, running against whatever GL export gets dropped
@@ -85,19 +85,19 @@ to Claude Code in plain language and have the dashboard reflect it — no
 hand-edited JSON, no separate redeploy step:
 
 - *"Add a comment to Sales & Marketing: we received a delayed invoice
-  from Acme Media."* — pins a note to that row or KPI, attributed and
+  from Acme Media."* —> pins a note to that row or KPI, attributed and
   dated, visually distinct from the LLM-written narrative.
-- *"Remove the note on F&B revenue."* — suppresses the generated
+- *"Remove the note on F&B revenue."* —> suppresses the generated
   narrative for a flagged item. The flag and its status pill stay
   visible either way; only the prose explanation is hidden.
 
-It refuses anything that isn't a comment or a narrative edit — asking to
+It refuses anything that isn't a comment or a narrative edit. Asking to
 change a status or a number gets redirected to `/setup` (adjust a
 threshold) or `/analysis` (fix bad input data), never quietly honored,
 since a comment can't override a number `analyze.py` already computed
 (`CLAUDE.md`'s Python-computes/Claude-interprets split). Feedback is
-stored in `feedback/feedback_{ENTITY}_{PERIOD}.json` — human-authored,
-same category as `config/`, survives an `outputs/` wipe — via
+stored in `feedback/feedback_{ENTITY}_{PERIOD}.json`: human-authored,
+same category as `config/`, survives an `outputs/` wipe via
 `skills/feedback/scripts/feedback_store.py`, then `/dashboard`
 re-renders automatically. Full behavior in `skills/feedback/SKILL.md`;
 `examples/example-hotels/feedback/feedback_002_02-2026.json` is a real
@@ -114,7 +114,7 @@ cd finance-reporting-framework
 open examples/example-hotels/outputs/001-Dashboard_02-2026.html
 ```
 
-That's Example Hotel Oslo's February dashboard — the missing-electricity-invoice
+That's Example Hotel Oslo's February dashboard: the missing-electricity-invoice
 story from the screenshots above. The full set is in
 `examples/example-hotels/outputs/`: 4 entities × 3 months × 5 file types
 (dashboards, analyst reports, and the underlying JSON/CSV). See
@@ -140,8 +140,8 @@ output is reproducible.)
 ```
 
 run inside Claude Code, in a clone of this repo. It's a conversational
-interview — company & entities, audience & tone, P&L structure, sample
-data, thresholds, investigation heuristics, KPIs, branding — that builds
+interview: company & entities, audience & tone, P&L structure, sample
+data, thresholds, investigation heuristics, KPIs, branding - that builds
 `config/` section by section, confirming its understanding before
 writing anything. See `skills/setup/SKILL.md` for the full interview,
 and `docs/DATA_REQUIREMENTS.md` for what to have ready before you start.
@@ -170,35 +170,35 @@ skills/
 ```
 
 **The non-negotiable principle**: `skills/` and `scripts/` are generic
-engines — nothing in them ever hardcodes a company-specific value.
+engines. Nothing in them ever hardcodes a company-specific value.
 Everything that varies by company lives in `config/`. This was tested
 directly, not just claimed: `tasks.md` documents five separate points
 where engine code was found hardcoding a demo-specific assumption
 (a KPI name, a subtotal name, a file-format convention) instead of
-reading it from `config/` — each one caught and fixed, several by
+reading it from `config/`. Each one caught and fixed, several by
 literally re-encoding the demo's real financial data in a different
 file format and proving the *exact same* unmodified scripts still
 produced identical output.
 
-**Python computes, Claude interprets.** Every number — every P&L
-actual, every variance, every threshold breach — comes from
+**Python computes, Claude interprets.** Every number: every P&L
+actual, every variance, every threshold breach comes from
 deterministic, tested Python (`skills/analysis/scripts/*.py`,
 `tests/`). An LLM never computes a number, only writes prose about
 numbers Python already computed. See `docs/LESSONS_LEARNED.md` for why
 this split exists and where it gets genuinely subtle (a narrative pass
 still has to *recognize* that a favorable-looking variance might not be
-good news — that's judgment the split deliberately leaves to the LLM,
+good news. That's judgment the split deliberately leaves to the LLM,
 just never the arithmetic underneath it).
 
 ## Deployment
 
-Dashboards are single, self-contained HTML files — inline CSS, inline
+Dashboards are single, self-contained HTML files: inline CSS, inline
 data, zero external requests. Three tiers, in order of infrastructure
-needed: **file-based** (email or a shared drive — the default, zero
+needed: **file-based** (email or a shared drive - the default, zero
 setup), **Google Apps Script web app** (a stable URL for a Google
-Workspace company — static serving only, see the caveat in
+Workspace company, static serving only, see the caveat in
 `docs/LESSONS_LEARNED.md`), and **static hosting** (GitHub Pages or an
-internal server — never a public host for real financials). Full
+internal server, never a public host for real financials). Full
 walkthrough: `docs/DEPLOYMENT.md`.
 
 ## Roadmap
